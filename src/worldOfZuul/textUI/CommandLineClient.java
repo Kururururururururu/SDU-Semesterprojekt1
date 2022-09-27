@@ -8,6 +8,7 @@ package worldOfZuul.textUI;
 import worldOfZuul.Command;
 import worldOfZuul.Commands;
 import worldOfZuul.Game;
+import Player.*;
 
 /**
  *
@@ -18,9 +19,12 @@ public class CommandLineClient {
     private Parser parser;
     private Game game;
 
+    public NPC npc_boss;
+
     public CommandLineClient() {
         game = new Game();
         parser = new Parser(game);
+        npc_boss = new NPC("The Boss", "Merchant");
     }
 
     public void play() {
@@ -80,7 +84,8 @@ public class CommandLineClient {
             } else {
                 System.out.println("Quit what?");
             }
-
+        } else if (commandWord == Commands.TALK) {
+            System.out.println(npc_boss.talk());
         }
         return wantToQuit;
     }

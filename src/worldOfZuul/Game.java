@@ -1,6 +1,8 @@
 package worldOfZuul;
 
 import java.util.List;
+import Player.*;
+import worldOfZuul.textUI.*;
 
 public class Game {
 
