@@ -1,5 +1,5 @@
 
-package textUI;
+package worldOfZuul;
 
 public interface Command {
 

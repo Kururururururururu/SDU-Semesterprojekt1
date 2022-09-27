@@ -1,4 +1,7 @@
-package textUI;
+package worldOfZuul.textUI;
+
+import worldOfZuul.Command;
+import worldOfZuul.Game;
 
 import java.util.Scanner;
 
@@ -13,7 +16,7 @@ public class Parser
         this.reader = new Scanner(System.in);
     }
 
-    public Command getCommand() 
+    public Command getCommand()
     {
         String inputLine;
         String word1 = null;
