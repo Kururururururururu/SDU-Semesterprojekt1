@@ -49,8 +49,7 @@ public class CommandLineClient {
     }
 
     private void printHelp() {
-        for(String str : game.getCommandDescriptions())
-        {
+        for (String str : game.getCommandDescriptions()) {
             System.out.println(str + " ");
         }
     }
@@ -61,6 +60,8 @@ public class CommandLineClient {
 
         Commands commandWord = command.getCommandName();
 
+
+        /*
         if (commandWord == Commands.UNKNOWN) {
             System.out.println("I don't know what you mean...");
             return false;
@@ -89,4 +90,37 @@ public class CommandLineClient {
         }
         return wantToQuit;
     }
+
+         */
+        switch (commandWord) {
+            case GO:
+                if (game.goRoom(command)) {
+                    System.out.println(game.getRoomDescription());
+                } else {
+                    System.out.println("Can't walk in that direction.");
+                }
+                break;
+            case HELP:
+                System.out.println("You are lost. You are alone. You wander");
+                System.out.println("around at the university.");
+                System.out.println();
+                System.out.println("Your command words are:");
+                printHelp();
+                break;
+            case QUIT:
+                if (game.quit(command)) {
+                    wantToQuit = true;
+                } else {
+                    System.out.println("Quit what?");
+                }
+                return wantToQuit;
+            case TALK:
+                System.out.println(npc_boss.talk());
+                break;
+            default:
+                System.out.println("I do not know that command?!");
+        }
+        return wantToQuit;
+    }
 }
+
