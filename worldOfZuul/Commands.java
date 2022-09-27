@@ -1,4 +1,4 @@
-package worldOfZuul;
+package textUI;
 
 public enum Commands
 {
