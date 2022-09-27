@@ -16,7 +16,7 @@ public class Game {
         // Room outside, theatre, pub, lab, office;
         Room hub, district_1, district_2, district_3, coal_power_plant;
         hub = new Room(" standing in the main spawn area");
-        district_1 = new Room(" standing in dirty hills");
+        district_1 = new Room(" standing in dirty hills. This district includes a dirty coal power plant.");
         district_2 = new Room(" standing in windy town");
         district_3 = new Room(" standing in solar city");
         // coal_power_plant = new Room(" in the area of the coal power plant");
