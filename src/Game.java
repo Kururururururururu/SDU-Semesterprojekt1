@@ -13,28 +13,32 @@ public class Game {
     }
 
     private void createRooms() {
-        Room outside, theatre, pub, lab, office;
+        // Room outside, theatre, pub, lab, office;
+        Room hub, district_1, district_2, district_3, coal_power_plant;
+        hub = new Room(" standing in the main spawn area");
+        district_1 = new Room(" standing in dirty hills. This district includes a dirty coal power plant.");
+        district_2 = new Room(" standing in windy town");
+        district_3 = new Room(" standing in solar city");
+        // coal_power_plant = new Room(" in the area of the coal power plant");
 
-        outside = new Room("outside the main entrance of the university");
-        theatre = new Room("in a lecture theatre");
-        pub = new Room("in the campus pub");
-        lab = new Room("in a computing lab");
-        office = new Room("in the computing admin office");
 
-        outside.setExit("east", theatre);
-        outside.setExit("south", lab);
-        outside.setExit("west", pub);
+        hub.setExit("S", district_3);
+        hub.setExit("E", district_1);
+        hub.setExit("SE", district_2);
 
-        theatre.setExit("west", outside);
+        district_1.setExit("W", hub);
+        //district_1.setExit("E", coal_power_plant);
+        district_1.setExit("S", district_2);
 
-        pub.setExit("east", outside);
+        district_2.setExit("N", district_1);
+        district_2.setExit("NW", hub);
+        district_2.setExit("W", district_3);
 
-        lab.setExit("north", outside);
-        lab.setExit("east", office);
+        district_3.setExit("E", district_2);
+        district_3.setExit("N", hub);
 
-        office.setExit("west", lab);
-
-        currentRoom = outside;
+        // coal_power_plant.setExit("West", district_1);
+        currentRoom = hub;
     }
 
     public boolean goRoom(Command command) {
