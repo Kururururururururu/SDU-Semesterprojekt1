@@ -12,7 +12,6 @@ https://trello.com/invite/b/BhEDcAiU/52fdfebf6ff73c40ed2e03442fbda061/current-ka
 ## Milestones
 
 * [x] ✔ Opret repo
-* [x] ✔ Oprettede basis rum og muliggjorde navigation imellem
 
 
 

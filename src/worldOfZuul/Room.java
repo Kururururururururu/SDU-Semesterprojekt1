@@ -2,16 +2,16 @@ package worldOfZuul;
 
 import java.util.Set;
 import java.util.HashMap;
-import java.util.Iterator;
 
 
 public class Room 
 {
+    private String id;
     private String description;
     private HashMap<String, Room> exits;
 
-    public Room(String description) 
-    {
+    public Room(String description, String ID) {
+        this.id = ID;
         this.description = description;
         exits = new HashMap<String, Room>();
     }
@@ -36,11 +36,14 @@ public class Room
         String returnString = "Exits:";
         Set<String> keys = exits.keySet();
         for(String exit : keys) {
-            returnString += " " + exit;
+            returnString += " |" + exit + "| ";
         }
         return returnString;
     }
 
+    public String getid() {
+        return this.id;
+    }
     public Room getExit(String direction) 
     {
         return exits.get(direction);
