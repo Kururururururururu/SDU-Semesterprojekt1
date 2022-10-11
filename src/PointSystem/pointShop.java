@@ -1,6 +1,6 @@
 package PointSystem;
 
-import PointSystem.Points;
+
 import java.util.List;
 
 public class pointShop {
