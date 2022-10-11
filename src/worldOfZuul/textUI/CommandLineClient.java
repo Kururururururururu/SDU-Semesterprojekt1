@@ -5,6 +5,7 @@
  */
 package worldOfZuul.textUI;
 
+import com.sun.tools.javac.Main;
 import worldOfZuul.Command;
 import worldOfZuul.Commands;
 import worldOfZuul.Game;
@@ -19,12 +20,15 @@ public class CommandLineClient {
     private Parser parser;
     private Game game;
 
-    public NPC npc_boss;
+    private NPC npc_starter;
+
+    private MainPlayer player;
 
     public CommandLineClient() {
         game = new Game();
         parser = new Parser(game);
-        npc_boss = new NPC("The Boss", "Merchant");
+        npc_starter = new NPC("Professor Oak", "guide and boss");
+        player = new MainPlayer();
     }
 
     public void play() {
@@ -40,10 +44,10 @@ public class CommandLineClient {
 
     private void printWelcome() {
         System.out.println();
-        System.out.println("Welcome to the World of Zuul!");
-        System.out.println("World of Zuul is a new, incredibly boring adventure game.");
-        System.out.println("Type '" + Commands.HELP + "' if you need help.");
-        System.out.println("Type '" + Commands.GO + " + a direction' to move around");
+        System.out.println("Hello player! My name is " + npc_starter.getName());
+        System.out.println("I am your new " + npc_starter.getRole() + " on this wonderful journey towards a green future!");
+        System.out.println("Type '" + Commands.HELP + "' if you need any help.");
+        System.out.println("or simply type '" + Commands.GO + " direction' to move around the world.");
         System.out.println();
         System.out.println(game.getRoomDescription());
     }
@@ -60,38 +64,6 @@ public class CommandLineClient {
 
         Commands commandWord = command.getCommandName();
 
-
-        /*
-        if (commandWord == Commands.UNKNOWN) {
-            System.out.println("I don't know what you mean...");
-            return false;
-        }
-
-        if (commandWord == Commands.HELP) {
-            System.out.println("You are lost. You are alone. You wander");
-            System.out.println("around at the university.");
-            System.out.println();
-            System.out.println("Your command words are:");
-            printHelp();
-        } else if (commandWord == Commands.GO) {
-            if (game.goRoom(command)) {
-                System.out.println(game.getRoomDescription());
-            } else {
-                System.out.println("Can't walk in that direction.");
-            }
-        } else if (commandWord == Commands.QUIT) {
-            if (game.quit(command)) {
-                wantToQuit = true;
-            } else {
-                System.out.println("Quit what?");
-            }
-        } else if (commandWord == Commands.TALK) {
-            System.out.println(npc_boss.talk());
-        }
-        return wantToQuit;
-    }
-
-         */
         switch (commandWord) {
             case GO:
                 if (game.goRoom(command)) {
@@ -101,11 +73,11 @@ public class CommandLineClient {
                 }
                 break;
             case HELP:
-                System.out.println("You are lost. You are alone. You wander");
-                System.out.println("around at the university.");
-                System.out.println();
                 System.out.println("Your command words are:");
                 printHelp();
+                break;
+            case INV:
+                player.getInv();
                 break;
             case QUIT:
                 if (game.quit(command)) {
@@ -115,7 +87,7 @@ public class CommandLineClient {
                 }
                 return wantToQuit;
             case TALK:
-                System.out.println(npc_boss.talk(game.get_curr_id()));
+                System.out.println(npc_starter.talk());
                 break;
             default:
                 System.out.println("I do not know that command?!");
