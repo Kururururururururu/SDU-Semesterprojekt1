@@ -17,10 +17,10 @@ public class Game {
     private void createRooms() {
         // Room outside, theatre, pub, lab, office;
         Room hub, district_1, district_2, district_3, coal_power_plant;
-        hub = new Room(" standing in the main spawn area");
-        district_1 = new Room(" standing in dirty hills. This district includes a dirty coal power plant.");
-        district_2 = new Room(" standing in windy town");
-        district_3 = new Room(" standing in solar city");
+        hub = new Room(" standing in the main spawn area", "0");
+        district_1 = new Room(" standing in dirty hills. This district includes a dirty coal power plant.", "1");
+        district_2 = new Room(" standing in windy town", "2");
+        district_3 = new Room(" standing in solar city", "3");
         // coal_power_plant = new Room(" in the area of the coal power plant");
 
 
@@ -85,6 +85,10 @@ public class Game {
 
     public Command getCommand(String word1, String word2) {
         return new CommandImplementation(commands.getCommand(word1), word2);
+    }
+
+    public String get_curr_id() {
+        return currentRoom.getid();
     }
 
 }

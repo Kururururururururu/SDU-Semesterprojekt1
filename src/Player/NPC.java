@@ -21,9 +21,15 @@ public class NPC {
     public String getRole() {
         return role;
     }
-    public String talk() {
-        return "Hello wanderer";
+    public String talk(String id) {
+        switch(id) {
+            case "0":
+                return "You are in hub";
+            default:
+                return "Room unknown";
+        }
     }
+
 }
 
 

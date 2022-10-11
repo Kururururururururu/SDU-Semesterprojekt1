@@ -43,7 +43,7 @@ public class CommandLineClient {
         System.out.println("Welcome to the World of Zuul!");
         System.out.println("World of Zuul is a new, incredibly boring adventure game.");
         System.out.println("Type '" + Commands.HELP + "' if you need help.");
-        System.out.println("Type '" + Commands.GO + " direction' to move around");
+        System.out.println("Type '" + Commands.GO + " + a direction' to move around");
         System.out.println();
         System.out.println(game.getRoomDescription());
     }
@@ -115,7 +115,7 @@ public class CommandLineClient {
                 }
                 return wantToQuit;
             case TALK:
-                System.out.println(npc_boss.talk());
+                System.out.println(npc_boss.talk(game.get_curr_id()));
                 break;
             default:
                 System.out.println("I do not know that command?!");
