@@ -5,10 +5,14 @@
  */
 package worldOfZuul.textUI;
 
+import com.sun.tools.javac.Main;
 import worldOfZuul.Command;
 import worldOfZuul.Commands;
 import worldOfZuul.Game;
-import Player.*;
+import worldOfZuul.Characters.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -19,12 +23,16 @@ public class CommandLineClient {
     private Parser parser;
     private Game game;
 
-    public NPC npc_boss;
-
+    public GuideNPC guide = new GuideNPC("Boss", 0);
+    public CitizenNPC sune = new CitizenNPC("Solcelle Sune", 3, new ArrayList<>(List.of(
+            "Test 1",
+            "Test 2"
+    )));
+    public MainCharacter mainCharacter = new MainCharacter("Andreas");
     public CommandLineClient() {
         game = new Game();
         parser = new Parser(game);
-        npc_boss = new NPC("The Boss", "Merchant");
+        //npc_boss = new NPC("The Boss", "Merchant");
     }
 
     public void play() {
@@ -40,10 +48,12 @@ public class CommandLineClient {
 
     private void printWelcome() {
         System.out.println();
-        System.out.println("Welcome to the World of Zuul!");
-        System.out.println("World of Zuul is a new, incredibly boring adventure game.");
+        System.out.println("Welcome to the world of Green Watts!");
+        System.out.println("Green Watts is a new, incredibly boring energy game.");
+        System.out.println();
         System.out.println("Type '" + Commands.HELP + "' if you need help.");
-        System.out.println("Type '" + Commands.GO + " direction' to move around");
+        System.out.println("Type '" + Commands.GO + " +  a direction' to move around");
+        System.out.println("Type '" + Commands.TALK + "' to interact with the NPCs that you encounter on your journey.");
         System.out.println();
         System.out.println(game.getRoomDescription());
     }
@@ -114,8 +124,24 @@ public class CommandLineClient {
                     System.out.println("Quit what?");
                 }
                 return wantToQuit;
+            case INV:
+                mainCharacter.showInventory();
+                break;
             case TALK:
-                System.out.println(npc_boss.talk());
+                switch (game.getRoomId()) {
+                    case 0:
+                        guide.talk();
+                        break;
+                    case 1:
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        sune.talk();
+                        break;
+                    default:
+                        System.out.println("There is no one here to talk with?!");
+                }
                 break;
             default:
                 System.out.println("I do not know that command?!");
