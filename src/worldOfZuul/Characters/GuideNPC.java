@@ -1,4 +1,5 @@
 package worldOfZuul.Characters;
+import worldOfZuul.Misc.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.lang.Math;
@@ -21,6 +22,7 @@ public class GuideNPC extends NPC {
     }
     public GuideNPC(String name, Integer location) {
         super(name, location);
+
     }
     @Override
     public void talk() {

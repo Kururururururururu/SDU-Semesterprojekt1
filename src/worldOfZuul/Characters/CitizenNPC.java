@@ -1,5 +1,4 @@
 package worldOfZuul.Characters;
-
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +15,7 @@ public class CitizenNPC extends NPC {
     public CitizenNPC(String name, Integer location, ArrayList<String> responses) {
         super(name, location);
         this.responses = responses;
+
     }
     @Override
     public void talk() {

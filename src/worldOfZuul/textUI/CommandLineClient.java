@@ -10,6 +10,7 @@ import worldOfZuul.Command;
 import worldOfZuul.Commands;
 import worldOfZuul.Game;
 import worldOfZuul.Characters.*;
+import worldOfZuul.Misc.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +30,8 @@ public class CommandLineClient {
             "Test 2"
     )));
     public MainCharacter mainCharacter = new MainCharacter("Andreas");
+    public PointShop pointshop = new PointShop();
+    public Points points = new Points(1000);
     public CommandLineClient() {
         game = new Game();
         parser = new Parser(game);
@@ -70,38 +73,6 @@ public class CommandLineClient {
 
         Commands commandWord = command.getCommandName();
 
-
-        /*
-        if (commandWord == Commands.UNKNOWN) {
-            System.out.println("I don't know what you mean...");
-            return false;
-        }
-
-        if (commandWord == Commands.HELP) {
-            System.out.println("You are lost. You are alone. You wander");
-            System.out.println("around at the university.");
-            System.out.println();
-            System.out.println("Your command words are:");
-            printHelp();
-        } else if (commandWord == Commands.GO) {
-            if (game.goRoom(command)) {
-                System.out.println(game.getRoomDescription());
-            } else {
-                System.out.println("Can't walk in that direction.");
-            }
-        } else if (commandWord == Commands.QUIT) {
-            if (game.quit(command)) {
-                wantToQuit = true;
-            } else {
-                System.out.println("Quit what?");
-            }
-        } else if (commandWord == Commands.TALK) {
-            System.out.println(npc_boss.talk());
-        }
-        return wantToQuit;
-    }
-
-         */
         switch (commandWord) {
             case GO:
                 if (game.goRoom(command)) {
@@ -127,6 +98,15 @@ public class CommandLineClient {
             case INV:
                 mainCharacter.showInventory();
                 break;
+            case BUY:
+                break;
+            case SHOP:
+                if (game.getRoomId().equals(0)) {
+                    pointshop.openShop();
+                } else {
+                    System.out.println("There is no shop nearby.");
+                }
+                break;
             case TALK:
                 switch (game.getRoomId()) {
                     case 0:
@@ -142,6 +122,9 @@ public class CommandLineClient {
                     default:
                         System.out.println("There is no one here to talk with?!");
                 }
+                break;
+            case POINTS:
+                System.out.println(points.getPoints());
                 break;
             default:
                 System.out.println("I do not know that command?!");
