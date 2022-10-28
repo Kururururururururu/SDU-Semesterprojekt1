@@ -10,17 +10,16 @@ public enum Commands
     INV("inv"),
     SHOP("shop"),
     POINTS("points"),
-    BUY("buy");
+    BUY("buy"),
+    MAP("map");
     
     private String commandName;
     
-    Commands(String commandString)
-    {
+    Commands(String commandString) {
         this.commandName = commandString;
     }
     
-    public String toString()
-    {
+    public String toString() {
         return commandName;
     }
 }

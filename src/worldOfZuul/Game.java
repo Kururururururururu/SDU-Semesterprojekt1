@@ -1,6 +1,7 @@
 package worldOfZuul;
 
 import java.util.List;
+import java.io.*;
 
 public class Game {
 
@@ -15,10 +16,10 @@ public class Game {
     private void createRooms() {
         // Room outside, theatre, pub, lab, office;
         Room hub, district_1, district_2, district_3, coal_power_plant;
-        hub = new Room(" standing in the main spawn area", 0);
-        district_1 = new Room(" standing in dirty hills", 1);
-        district_2 = new Room(" standing in windy town", 2);
-        district_3 = new Room(" standing in solar city", 3);
+        hub = new Room(" standing in the hub (main spawn area)", 0);
+        district_1 = new Room(" standing in Dirty Hills", 1);
+        district_2 = new Room(" standing in Windy Town", 2);
+        district_3 = new Room(" standing in Solar City", 3);
         // coal_power_plant = new Room(" in the area of the coal power plant");
 
 
@@ -41,6 +42,54 @@ public class Game {
         currentRoom = hub;
     }
 
+    public void printMap(){
+        String ANSI_RESET = "\u001B[0m";
+        String ANSI_RED = "\u001B[31m";
+//        ┌─┐│└─┘●   ↖ ↘    ↓↑←──────────→
+        System.out.println("┌────────────────────────┐");
+        if (getRoomId()==0){
+            System.out.println("│     "
+                    + ANSI_RED +"HUB"+ ANSI_RESET +
+                    "     Dirty Hills│");
+            System.out.println("│      "
+                    + ANSI_RED +"●"+ ANSI_RESET +
+                    "  ← ─ ─ →  ●     │");
+        } else if (getRoomId()==1) {
+            System.out.println("│     HUB     "
+                    + ANSI_RED +"Dirty Hills"+ ANSI_RESET +
+                    "│");
+            System.out.println("│      ●  ← ─ ─ →  "
+                    + ANSI_RED +"●"+ ANSI_RESET +
+                    "     │");
+        } else {
+            System.out.println("│     HUB     Dirty Hills│");
+            System.out.println("│      ●  ← ─ ─ →  ●     │");
+        }
+        System.out.println("│      ↑  ↖        ↑     │");
+        System.out.println("│      |    ╲      |     │");
+        System.out.println("│      |      ╲    |     │");
+        System.out.println("│      ↓        ↘  ↓     │");
+        if (getRoomId()==3){
+            System.out.println("│      "
+                    + ANSI_RED +"●"+ ANSI_RESET +
+                    "  ← ─ ─ →  ●     │");
+            System.out.println("│"
+                    + ANSI_RED +"Solar City"+ ANSI_RESET +
+                    "    Windy Town│");
+        } else if (getRoomId()==2) {
+            System.out.println("│      ●  ← ─ ─ →  "
+                    + ANSI_RED +"●"+ ANSI_RESET +
+                    "     │");
+            System.out.println("│Solar City    "
+                    + ANSI_RED +"Windy Town"+ ANSI_RESET +
+                    "│");
+        } else {
+            System.out.println("│      ●  ← ─ ─ →  ●     │");
+            System.out.println("│Solar City    Windy Town│");
+        }
+        System.out.println("└────────────────────────┘");
+        System.out.println(getRoomId());
+    }
 
     public boolean goRoom(Command command) {
 
