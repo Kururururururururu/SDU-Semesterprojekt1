@@ -38,10 +38,6 @@ public abstract class NPC {
     public Integer getLocation() {
         return location;
     }
-
-
-
-
 }
 
 

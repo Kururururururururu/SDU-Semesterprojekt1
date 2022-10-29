@@ -29,11 +29,14 @@ public class CommandLineClient {
             "Test 1",
             "Test 2"
     )));
-    public ObstacleNPC kurt = new ObstacleNPC("Kul Kurt", 1, new ArrayList<>(List.of(
-            "Get outta here, this is not a place for you",
-            "You cannot convince me that green energy is good!",
-            "stop putting up green energy sources in this town. it's mine."
-    )));
+
+    public ObstacleNPC kurt = new ObstacleNPC("Kurt", 1, false);
+
+//    public ObstacleNPC kurt = new ObstacleNPC("Kul Kurt", 1, new ArrayList<>(List.of(
+//            "Get outta here, this is not a place for you",
+//            "You cannot convince me that green energy is good!",
+//            "stop putting up green energy sources in this town. it's mine."
+//    )));
     public MainCharacter mainCharacter = new MainCharacter("Andreas");
     public PointShop pointshop = new PointShop();
     public Points points = new Points(1000);
@@ -51,7 +54,7 @@ public class CommandLineClient {
             Command command = parser.getCommand();
             finished = processCommand(command);
         }
-        System.out.println("Thank you for playing.  Good bye.");
+        System.out.println("Thank you for playing. Good bye.");
     }
 
     private void printWelcome() {
@@ -123,8 +126,8 @@ public class CommandLineClient {
                     case 1:
                         kurt.talk();
                         break;
-                    case 2:
-                        break;
+//                    case 2:
+//                        break;
                     case 3:
                         sune.talk();
                         break;

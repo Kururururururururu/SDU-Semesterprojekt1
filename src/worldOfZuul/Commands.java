@@ -1,7 +1,6 @@
 package worldOfZuul;
 
-public enum Commands
-{
+public enum Commands {
     GO("go"),
     QUIT("quit"),
     HELP("help"),

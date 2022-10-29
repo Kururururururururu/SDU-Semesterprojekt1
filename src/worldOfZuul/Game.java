@@ -88,7 +88,7 @@ public class Game {
             System.out.println("│Solar City    Windy Town│");
         }
         System.out.println("└────────────────────────┘");
-        System.out.println(getRoomId());
+//        System.out.println(getRoomId());
     }
 
     public boolean goRoom(Command command) {
