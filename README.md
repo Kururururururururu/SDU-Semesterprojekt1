@@ -28,3 +28,6 @@ https://trello.com/invite/b/BhEDcAiU/52fdfebf6ff73c40ed2e03442fbda061/current-ka
 
 * David Nielsen
 > Davni22@student.sdu.dk
+
+* Andreas Witten Honoré
+> anhon22@student.sdu.dk
