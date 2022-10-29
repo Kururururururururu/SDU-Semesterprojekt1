@@ -2,6 +2,8 @@ package worldOfZuul.Characters;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+import java.io.*;
 
 public class ObstacleNPC extends NPC{
 //
@@ -23,10 +25,12 @@ public class ObstacleNPC extends NPC{
 //        System.out.println("["+super.getName()+"] " + this.currentResponse);
 //        this.lastResponse = this.currentResponse;
 //    }
-    private boolean convinced;
+    private static boolean convinced;
 
     private String lastResponse = "UNDEFINED";
     private String currentResponse = "UNDEFINED";
+    ArrayList<Question> quiz;
+//    private Scanner inputAnswer;
 
     private ArrayList<String> responseAfterConvinced = new ArrayList<>(List.of(
             "Tak for at du overtalte mig.",
@@ -53,29 +57,70 @@ public class ObstacleNPC extends NPC{
         }
         else {
             startQuiz();
-            System.out.println("you have to quiz me");
+            System.out.println("(conversation over)");
         }
     }
 
     public void startQuiz(){
-        ArrayList<Question> quiz = new ArrayList<Question>(List.of(
-                new Question("Hvad er svaret? 1",
-                             new ArrayList<String>(List.of("1. (svar)", "2. (svar)")),
-                             2),
-                new Question("Hvad er svaret? 2",
-                             new ArrayList<String>(List.of("1. (svar)", "2. (svar)")),
-                             1),
-                new Question("Hvad er svaret? 3",
-                             new ArrayList<String>(List.of("1. (svar)", "2. (svar)")),
-                             1)
-        ));
+        Integer score = 0;
+        createQuestions();
+        Scanner inputAnswer = new Scanner(System.in);
 
+        String ANSI_RESET = "\u001B[0m";
+        String ANSI_RED = "\u001B[31m";
+        System.out.println("---" + ANSI_RED + "To leave the conversation type 'leave'" + ANSI_RESET + "---");
 
+        outerloop:
+        if (true){
+            for (int i = 0; i < quiz.size(); i++) {
+                System.out.println("["+super.getName()+"] " + quiz.get(i).getQuestion());
+                System.out.println();
+                System.out.println("--------- Answer options: ---------");
+                for (int j = 0; j < quiz.get(i).getAnswerOptions().size(); j++) {
+                    System.out.println(quiz.get(i).getAnswerOptions().get(j));
+                }
+                System.out.println();
+                System.out.print("> ");
+//                System.out.println("-----------------------------------");
+//                System.out.println();
+                if (inputAnswer.next().equals("leave")){
+                    System.out.println("Okay, we'll talk some other time");
+                    break outerloop;
+                }
+                else if (inputAnswer.next().equals(quiz.get(i).getAnswer())){
+                    score++;
+                }
 
+            }
+            System.out.println("score = " + score + "/" + quiz.size());
+            if (score == quiz.size()){
+                ObstacleNPC.convinced = true;
+                System.out.println("(" + super.getName() + " is now convinced)");
+            }
+            else {
+                System.out.println("["+super.getName()+"] Come again another time");
+            }
 
-
+        }
     }
 
+    public void createQuestions(){
+        quiz = new ArrayList<Question>(List.of(
+                new Question("Hvad er svaret? 1",
+                        new ArrayList<String>(List.of("1. (svar)", "2. (svar)")),
+                        "2"),
+                new Question("Hvad er svaret? 2",
+                        new ArrayList<String>(List.of("1. (svar)", "2. (svar)")),
+                        "1"),
+                new Question("Hvad er svaret? 3",
+                        new ArrayList<String>(List.of("1. (svar)", "2. (svar)")),
+                        "1")
+        ));
+    }
+
+//    public void createInputScanner(){
+//        this.inputAnswer = new Scanner(System.in)
+//    }
 
 
     public boolean isConvinced() {
