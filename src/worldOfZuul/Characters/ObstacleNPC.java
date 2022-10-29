@@ -30,7 +30,9 @@ public class ObstacleNPC extends NPC{
 
     private ArrayList<String> responseAfterConvinced = new ArrayList<>(List.of(
             "Tak for at du overtalte mig.",
-            "Det er en god ide at lave grøn energi."
+            "Det er en god ide at lave grøn energi.",
+            "Svar 3",
+            "Svar 4"
             ));
 
 
@@ -48,12 +50,33 @@ public class ObstacleNPC extends NPC{
             }
             System.out.println("["+super.getName()+"] " + this.currentResponse);
             this.lastResponse = this.currentResponse;
-
         }
         else {
+            startQuiz();
             System.out.println("you have to quiz me");
         }
     }
+
+    public void startQuiz(){
+        ArrayList<Question> quiz = new ArrayList<Question>(List.of(
+                new Question("Hvad er svaret? 1",
+                             new ArrayList<String>(List.of("1. (svar)", "2. (svar)")),
+                             2),
+                new Question("Hvad er svaret? 2",
+                             new ArrayList<String>(List.of("1. (svar)", "2. (svar)")),
+                             1),
+                new Question("Hvad er svaret? 3",
+                             new ArrayList<String>(List.of("1. (svar)", "2. (svar)")),
+                             1)
+        ));
+
+
+
+
+
+    }
+
+
 
     public boolean isConvinced() {
         return convinced;

@@ -92,6 +92,11 @@ public class CommandLineClient {
             case MAP:
                 game.printMap();
                 break;
+//            case ANSWER:
+//                if (?){
+//                    System.out.println();
+//                }
+//                break;
             case HELP:
                 System.out.println("You are lost. You are alone. You wander");
                 System.out.println("around at the university.");
