@@ -99,7 +99,11 @@ public class CommandLineClient {
                 mainCharacter.showInventory();
                 break;
             case BUY:
-                pointshop.buyItem(command, points, mainCharacter);
+                if (game.getRoomId() == 0) {
+                    pointshop.buyItem(command, points, mainCharacter);
+                } else {
+                    System.out.println("You can't buy anything from here.");
+                }
                 break;
             case SHOP:
                 if (game.getRoomId().equals(0)) {
