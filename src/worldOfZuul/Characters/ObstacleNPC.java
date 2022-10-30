@@ -84,7 +84,7 @@ public class ObstacleNPC extends NPC{
 //                System.out.println("-----------------------------------");
 //                System.out.println();
                 if (inputAnswer.next().equals("leave")){
-                    System.out.println("Okay, we'll talk some other time");
+                    System.out.println("["+super.getName()+"] Okay, we'll talk some other time");
                     break outerloop;
                 }
                 else if (inputAnswer.next().equals(quiz.get(i).getAnswer())){
