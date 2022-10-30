@@ -10,7 +10,7 @@ import java.util.List;
 
 public class PointShop {
     ArrayList<Item> forSale = new ArrayList<>(List.of(
-            new Item("Solar panel", 1100, 1),
+            new Item("Solar panel", 100, 1),
             new Item("Wind turbine", 100, 2)
     ));
     Integer nameLength = 0;
@@ -67,7 +67,7 @@ public class PointShop {
         if (notEnoughPoints) {
             System.out.println("You do not have enough $ to purchase a [" + wantedItem.getType() + "]. (" + (wantedItem.getPrice()-points.getPoints()) + " more needed)");
         } else if (noItemMatchingId) {
-            System.out.println("There is no item matching that ID!");
+            System.out.println("There is no item matching that product number!");
         }
     }
     private Integer nameLengthDefiner() {
