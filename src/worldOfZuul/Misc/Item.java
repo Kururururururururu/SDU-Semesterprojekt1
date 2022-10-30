@@ -20,5 +20,5 @@ public class Item {
     public Integer getPrice() {
         return this.price;
     }
-
+    public Integer getId() { return this.id; }
 }
