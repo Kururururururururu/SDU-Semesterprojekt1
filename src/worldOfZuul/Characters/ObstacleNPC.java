@@ -68,7 +68,7 @@ public class ObstacleNPC extends NPC{
 
         String ANSI_RESET = "\u001B[0m";
         String ANSI_RED = "\u001B[31m";
-        System.out.println("---" + ANSI_RED + "To leave the conversation type 'leave'" + ANSI_RESET + "---");
+        System.out.println("--- To leave the conversation type " + ANSI_RED + "'leave'" + ANSI_RESET + " ---");
 
         outerloop:
         if (true){
