@@ -8,10 +8,12 @@ import java.util.Iterator;
 public class Room 
 {
     private String description;
+    private Integer RoomId;
     private HashMap<String, Room> exits;
 
-    public Room(String description) 
+    public Room(String description, Integer RoomId)
     {
+        this.RoomId = RoomId;
         this.description = description;
         exits = new HashMap<String, Room>();
     }
@@ -36,7 +38,7 @@ public class Room
         String returnString = "Exits:";
         Set<String> keys = exits.keySet();
         for(String exit : keys) {
-            returnString += " " + exit;
+            returnString += " |" + exit + "| ";
         }
         return returnString;
     }
@@ -45,5 +47,7 @@ public class Room
     {
         return exits.get(direction);
     }
+
+    public Integer getRoomId() { return this.RoomId; }
 }
 
