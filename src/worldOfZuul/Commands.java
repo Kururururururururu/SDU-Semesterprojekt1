@@ -9,8 +9,8 @@ public enum Commands
     TALK("talk"),
     INV("inv"),
     SHOP("shop"),
-    POINTS("points"),
-    BUY("buy");
+    BUY("buy"),
+    POINTS("points");
     
     private String commandName;
     
