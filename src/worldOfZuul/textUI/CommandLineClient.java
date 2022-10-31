@@ -29,6 +29,10 @@ public class CommandLineClient {
             "Test 1",
             "Test 2"
     )));
+    public CitizenNPC wendy = new CitizenNPC("Wendy Vindfang", 2, new ArrayList<>(List.of(
+            "Nice to meet you.",
+            "It sure is windy today!"
+    )));
     public MainCharacter mainCharacter = new MainCharacter("Andreas");
     public PointShop pointshop = new PointShop();
     public Points points = new Points(1000);
@@ -120,6 +124,7 @@ public class CommandLineClient {
                     case 1:
                         break;
                     case 2:
+                        wendy.talk();
                         break;
                     case 3:
                         sune.talk();
