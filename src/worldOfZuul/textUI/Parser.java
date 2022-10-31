@@ -32,7 +32,8 @@ public class Parser
                 word2 = tokenizer.next(); 
             }
         }
-
+        word1 = word1.toLowerCase();
+        word2 = word2.toUpperCase();
         return game.getCommand(word1,word2);
     }
 }
