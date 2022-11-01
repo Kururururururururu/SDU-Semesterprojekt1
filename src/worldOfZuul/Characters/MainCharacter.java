@@ -27,6 +27,11 @@ public class MainCharacter {
     }
 
     public void useItem(Command command, Room currentRoom)    {
+        if(currentRoom.getRoomId() == 0) {
+            System.out.println("You cannot build in the hub!!");
+            return;
+        }
+
         if (!command.hasCommandValue()) {
             System.out.println("Please choose an item you want to use.");
             return;

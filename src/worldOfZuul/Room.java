@@ -56,7 +56,7 @@ public class Room {
 
     public void placeItem(Item item) {
         this.environmentInventory.addToInventory(item);
-        this.environmentInventory.showInventory();
+        //this.environmentInventory.showInventory();
     }
 
     public Room getExit(String direction) {
