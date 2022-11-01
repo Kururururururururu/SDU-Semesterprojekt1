@@ -107,6 +107,7 @@ public class Game {
             return false;
         } else {
             currentRoom = nextRoom;
+            currentRoom.runEnvironment();
             return true;
         }
     }
@@ -137,6 +138,7 @@ public class Game {
     public Integer getRoomId() {
         return currentRoom.getRoomId();
     }
+    public Room getRoom() {return currentRoom;}
 
     public String get_curr_id() {
         return currentRoom.getRoomId().toString();

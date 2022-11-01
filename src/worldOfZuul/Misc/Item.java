@@ -14,6 +14,32 @@ public class Item {
         this.price = price;
         this.id = id;
     }
+
+    public void generatePower(int roomID) {
+        //Calculate the percentage of power generated in different areas.
+        int exposure = 0;
+        //System.out.println(this.type + roomID);
+        if(this.type.toUpperCase().contains("SOLAR PANEL"))   {
+            if(roomID == 3) {
+                exposure = 100;
+            } else {
+                exposure = 33;
+            }
+        } else {
+            if(this.type.toUpperCase().contains("WIND TURBINE"))   {
+                if(roomID == 2) {
+                    exposure = 100;
+                } else {
+                    exposure = 33;
+                }
+            }
+        }
+
+        //System.out.println(exposure);
+
+        //Generate points based on exposure.
+        Points.addPoints(4*exposure);
+    }
     public String getType() {
         return this.type;
     }
@@ -21,4 +47,6 @@ public class Item {
         return this.price;
     }
     public Integer getId() { return this.id; }
+
+
 }

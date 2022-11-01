@@ -1,9 +1,6 @@
 package worldOfZuul.Misc;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class Inventory {
     ArrayList<Item> player_inventory = new ArrayList<>();
@@ -45,5 +42,9 @@ public class Inventory {
             System.out.println("empty");
         }
         System.out.println();
+    }
+
+    public ArrayList<Item> getInventory() {
+        return this.player_inventory;
     }
 }
