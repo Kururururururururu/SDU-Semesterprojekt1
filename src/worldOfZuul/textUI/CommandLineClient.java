@@ -25,15 +25,21 @@ public class CommandLineClient {
     private Game game;
 
     public GuideNPC guide = new GuideNPC("Boss", 0);
-    public CitizenNPC sune = new CitizenNPC("Solcelle Sune", 3, new ArrayList<>(List.of(
-            "Test 1",
-            "Test 2"
+    public CitizenNPC sune = new CitizenNPC("Sunny Simon", 3, new ArrayList<>(List.of(
+            "Solar energy has always been my favorite!",
+            "I DON'T LIKE COAL! It's bad for everyone!",
+            "I used to like coal like you, until i discovered the joys of solar energy!",
+            "Have you heard they still only wanna use coal at dirty hills!? You should go change that!"
     )));
 
-    public ObstacleNPC kurt = new ObstacleNPC("Kurt", 1, false);
-    public CitizenNPC wendy = new CitizenNPC("Wendy Vindfang", 2, new ArrayList<>(List.of(
+    public ObstacleNPC kurt = new ObstacleNPC("Kurt the Stubborn", 1, false);
+    public CitizenNPC wendy = new CitizenNPC("Windy Wendy", 2, new ArrayList<>(List.of(
             "Nice to meet you.",
-            "It sure is windy today!"
+            "It sure is windy today!",
+            "Perfect wind for some clean green energy!",
+            "Perfect day to use a kite!",
+            "You should go teach them a windy lesson at Dirty Hills!x"
+
     )));
     public MainCharacter mainCharacter = new MainCharacter("Andreas");
     public PointShop pointshop = new PointShop();
@@ -41,7 +47,6 @@ public class CommandLineClient {
     public CommandLineClient() {
         game = new Game();
         parser = new Parser(game);
-        //npc_boss = new NPC("The Boss", "Merchant");
     }
 
     public void play() {

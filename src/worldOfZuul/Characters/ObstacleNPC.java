@@ -93,7 +93,7 @@ public class ObstacleNPC extends NPC{
             }
             System.out.println("score = " + score + "/" + quiz.size());
             if (score == quiz.size()){
-                ObstacleNPC.convinced = true;
+                this.convinced = true;
                 System.out.println("(" + super.getName() + " is now convinced)");
             }
             else {
