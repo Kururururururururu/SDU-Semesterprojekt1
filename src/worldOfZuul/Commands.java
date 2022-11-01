@@ -10,7 +10,7 @@ public enum Commands {
     SHOP("shop"),
     POINTS("points"),
     BUY("buy"),
-    MAP("map"),
+    MAP("map");
     
     private String commandName;
     
