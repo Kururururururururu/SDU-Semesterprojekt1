@@ -17,6 +17,12 @@ public class Game {
         // Room outside, theatre, pub, lab, office;
         Room hub, district_1, district_2, district_3, coal_power_plant;
         // coal_power_plant = new Room(" in the area of the coal power plant");
+
+        hub = new Room(" standing in the hub (main spawn area)", 0);
+        district_1 = new Room(" standing in Dirty Hills", 1);
+        district_2 = new Room(" standing in Windy Town", 2);
+        district_3 = new Room(" standing in Solar City", 3);
+
         hub.setExit("S", district_3);
         hub.setExit("E", district_1);
         hub.setExit("SE", district_2);
@@ -133,7 +139,7 @@ public class Game {
     }
 
     public String get_curr_id() {
-        return currentRoom.getid();
+        return currentRoom.getRoomId().toString();
     }
 
 }

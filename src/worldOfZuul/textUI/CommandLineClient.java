@@ -94,9 +94,6 @@ public class CommandLineClient {
                 System.out.println("Your command words are:");
                 printHelp();
                 break;
-            case INV:
-                player.getInv();
-                break;
             case QUIT:
                 if (game.quit(command)) {
                     wantToQuit = true;
