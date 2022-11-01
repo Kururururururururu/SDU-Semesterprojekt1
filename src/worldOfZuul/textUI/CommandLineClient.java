@@ -31,12 +31,10 @@ public class CommandLineClient {
     )));
 
     public ObstacleNPC kurt = new ObstacleNPC("Kurt", 1, false);
-
-//    public ObstacleNPC kurt = new ObstacleNPC("Kul Kurt", 1, new ArrayList<>(List.of(
-//            "Get outta here, this is not a place for you",
-//            "You cannot convince me that green energy is good!",
-//            "stop putting up green energy sources in this town. it's mine."
-//    )));
+    public CitizenNPC wendy = new CitizenNPC("Wendy Vindfang", 2, new ArrayList<>(List.of(
+            "Nice to meet you.",
+            "It sure is windy today!"
+    )));
     public MainCharacter mainCharacter = new MainCharacter("Andreas");
     public PointShop pointshop = new PointShop();
     public Points points = new Points(1000);
@@ -136,8 +134,9 @@ public class CommandLineClient {
                     case 1:
                         kurt.talk();
                         break;
-//                    case 2:
-//                        break;
+                    case 2:
+                        wendy.talk();
+                        break;
                     case 3:
                         sune.talk();
                         break;
