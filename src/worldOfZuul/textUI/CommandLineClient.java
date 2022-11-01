@@ -29,6 +29,14 @@ public class CommandLineClient {
             "Test 1",
             "Test 2"
     )));
+
+    public ObstacleNPC kurt = new ObstacleNPC("Kurt", 1, false);
+
+//    public ObstacleNPC kurt = new ObstacleNPC("Kul Kurt", 1, new ArrayList<>(List.of(
+//            "Get outta here, this is not a place for you",
+//            "You cannot convince me that green energy is good!",
+//            "stop putting up green energy sources in this town. it's mine."
+//    )));
     public MainCharacter mainCharacter = new MainCharacter("Andreas");
     public PointShop pointshop = new PointShop();
     public Points points = new Points(1000);
@@ -46,7 +54,7 @@ public class CommandLineClient {
             Command command = parser.getCommand();
             finished = processCommand(command);
         }
-        System.out.println("Thank you for playing.  Good bye.");
+        System.out.println("Thank you for playing. Good bye.");
     }
 
     private void printWelcome() {
@@ -81,6 +89,14 @@ public class CommandLineClient {
                     System.out.println("Can't walk in that direction.");
                 }
                 break;
+            case MAP:
+                game.printMap();
+                break;
+//            case ANSWER:
+//                if (?){
+//                    System.out.println();
+//                }
+//                break;
             case HELP:
                 System.out.println("You are lost. You are alone. You wander");
                 System.out.println("around at the university.");
@@ -118,9 +134,10 @@ public class CommandLineClient {
                         guide.talk();
                         break;
                     case 1:
+                        kurt.talk();
                         break;
-                    case 2:
-                        break;
+//                    case 2:
+//                        break;
                     case 3:
                         sune.talk();
                         break;

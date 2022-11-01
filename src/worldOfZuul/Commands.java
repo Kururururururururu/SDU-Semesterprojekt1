@@ -1,7 +1,6 @@
 package worldOfZuul;
 
-public enum Commands
-{
+public enum Commands {
     GO("go"),
     QUIT("quit"),
     HELP("help"),
@@ -9,18 +8,17 @@ public enum Commands
     TALK("talk"),
     INV("inv"),
     SHOP("shop"),
+    POINTS("points"),
     BUY("buy"),
-    POINTS("points");
+    MAP("map"),
     
     private String commandName;
     
-    Commands(String commandString)
-    {
+    Commands(String commandString) {
         this.commandName = commandString;
     }
     
-    public String toString()
-    {
+    public String toString() {
         return commandName;
     }
 }
