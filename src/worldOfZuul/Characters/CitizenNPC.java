@@ -5,18 +5,32 @@ import java.util.List;
 
 public class CitizenNPC extends NPC {
     ArrayList<String> responses = new ArrayList<>();
-
+    private String true_name = "UNDEFINED";
     private String lastResponse = "UNDEFINED";
     private String currentResponse = "UNDEFINED";
+    private Boolean first_talk = false;
 
     public CitizenNPC() {
         super();
     }
-    public CitizenNPC(String name, Integer location, ArrayList<String> responses) {
+    public CitizenNPC(String name, String true_name, Integer location, ArrayList<String> responses) {
         super(name, location);
+        this.true_name = true_name;
         this.responses = responses;
-
     }
+
+    public String getTrue_name() {
+        return true_name;
+    }
+
+    public Boolean getFirst_talk() {
+        return first_talk;
+    }
+
+    public void setFirst_talk(Boolean first_talk) {
+        this.first_talk = first_talk;
+    }
+
     @Override
     public void talk() {
         while (this.currentResponse.equals(this.lastResponse)) {

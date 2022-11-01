@@ -13,6 +13,7 @@ import worldOfZuul.Characters.*;
 import worldOfZuul.Misc.*;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -25,13 +26,13 @@ public class CommandLineClient {
     private Game game;
 
     public GuideNPC guide = new GuideNPC("Boss", 0);
-    public CitizenNPC sune = new CitizenNPC("Solcelle Sune", 3, new ArrayList<>(List.of(
+    public CitizenNPC sune = new CitizenNPC("Solcelle Sune", "Sune", 3, new ArrayList<>(List.of(
             "Test 1",
             "Test 2"
     )));
 
     public ObstacleNPC kurt = new ObstacleNPC("Kurt", 1, false);
-    public CitizenNPC wendy = new CitizenNPC("Wendy Vindfang", 2, new ArrayList<>(List.of(
+    public CitizenNPC wendy = new CitizenNPC("Wendy Vindfang", "Wendy", 2, new ArrayList<>(List.of(
             "Nice to meet you.",
             "It sure is windy today!"
     )));
@@ -119,6 +120,8 @@ public class CommandLineClient {
                 }
                 break;
             case TALK:
+                ArrayList<CitizenNPC> citizensInDistrict= new ArrayList<>();
+
                 switch (game.getRoomId()) {
                     case 0:
                         guide.talk();
@@ -127,10 +130,12 @@ public class CommandLineClient {
                         kurt.talk();
                         break;
                     case 2:
-                        wendy.talk();
+                        citizensInDistrict.add(wendy);
+                        multipleTalkableNpcs(citizensInDistrict, command, points);
                         break;
                     case 3:
-                        sune.talk();
+                        citizensInDistrict.add(sune);
+                        multipleTalkableNpcs(citizensInDistrict, command, points);
                         break;
                     default:
                         System.out.println("There is no one here to talk with?!");
@@ -143,6 +148,38 @@ public class CommandLineClient {
                 System.out.println("I do not know that command?!");
         }
         return wantToQuit;
+    }
+    public void multipleTalkableNpcs(ArrayList<CitizenNPC> citizens, Command command, Points points){
+        if(command.hasCommandValue()){
+            String requested_npc_name = command.getCommandValue();
+            for (CitizenNPC npc : citizens) {
+                String npc_true_name = npc.getTrue_name();
+
+                if(requested_npc_name.equalsIgnoreCase(npc_true_name)){
+                    npc.talk();
+                    if(!npc.getFirst_talk()) {
+                        npc.setFirst_talk(true);
+                        Integer point_reward = 500;
+                        points.addPoints(point_reward);
+                        System.out.println("(You received " + point_reward + " points for talking with " + npc_true_name + " for the first time)");
+                    }
+                    return;
+                }
+            }
+            System.out.println("There is no one here called '" + requested_npc_name + "'.");
+        } else {
+            System.out.print("Who do you want to talk to? (People nearby: ");
+            for (CitizenNPC npc : citizens) {
+                String npc_true_name = npc.getTrue_name();
+
+                if(citizens.indexOf(npc)+1 == citizens.size()){
+                    System.out.print(npc_true_name);
+                    System.out.println(")");
+                    return;
+                }
+                System.out.print(npc_true_name + ", ");
+            }
+        }
     }
 }
 
