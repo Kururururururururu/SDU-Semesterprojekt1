@@ -32,9 +32,9 @@ public class Inventory {
                     System.out.print(item_count + "x");
                 }
                 if (list_length_count == player_inventory_uniques.size()){
-                    System.out.print("[" + item_uniques.getType() + "]");
+                    System.out.print("[" + item_uniques.getType() + "] {id: " + item_uniques.getId() + "}");
                 } else {
-                    System.out.print("[" + item_uniques.getType() + "], ");
+                    System.out.print("[" + item_uniques.getType() + "] {id: " + item_uniques.getId() + "}, ");
                 }
                 list_length_count++;
             }
