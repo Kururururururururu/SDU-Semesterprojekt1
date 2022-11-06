@@ -112,14 +112,14 @@ public class ObstacleNPC extends NPC{
 
     public void createQuestions(){
         quiz = new ArrayList<Question>(List.of(
-                new Question("Hvad er svaret? 1",
-                        new ArrayList<String>(List.of("1. (svar)", "2. (svar)")),
-                        "2"),
-                new Question("Hvad er svaret? 2",
-                        new ArrayList<String>(List.of("1. (svar)", "2. (svar)")),
+                new Question("question? 1",
+                        new ArrayList<String>(List.of("1. (svar 1)", "2. (svar 2)")),
+                                "2"),
+                new Question("question? 2",
+                        new ArrayList<String>(List.of("1. (svar 1)", "2. (svar 2)")),
                         "1"),
-                new Question("Hvad er svaret? 3",
-                        new ArrayList<String>(List.of("1. (svar)", "2. (svar)")),
+                new Question("question? 3",
+                        new ArrayList<String>(List.of("1. (svar 1)", "2. (svar 2)")),
                         "1")
         ));
     }
