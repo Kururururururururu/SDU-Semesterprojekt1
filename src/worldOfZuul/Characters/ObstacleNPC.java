@@ -1,5 +1,6 @@
 package worldOfZuul.Characters;
 
+import java.sql.SQLOutput;
 import java.time.DateTimeException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -70,6 +71,7 @@ public class ObstacleNPC extends NPC{
         Integer score = 0;
         createQuestions();
         Scanner inputAnswer = new Scanner(System.in);
+        boolean firstLine = true;
 
         String ANSI_RESET = "\u001B[0m";
         String ANSI_RED = "\u001B[31m";
@@ -80,6 +82,10 @@ public class ObstacleNPC extends NPC{
             for (int i = 0; i < quiz.size(); i++) {
                 System.out.println("["+super.getName()+"] " + quiz.get(i).getQuestion());
                 System.out.println();
+                if (firstLine){
+                    System.out.println("(to answer write the number of the answer option you choose. (without a dot))");
+                    firstLine = false;
+                }
                 System.out.println("--------- Answer options: ---------");
                 for (int j = 0; j < quiz.get(i).getAnswerOptions().size(); j++) {
                     System.out.println(quiz.get(i).getAnswerOptions().get(j));
@@ -112,14 +118,31 @@ public class ObstacleNPC extends NPC{
 
     public void createQuestions(){
         quiz = new ArrayList<Question>(List.of(
-                new Question("question? 1",
-                        new ArrayList<String>(List.of("1. (svar 1)", "2. (svar 2)")),
-                                "2"),
-                new Question("question? 2",
-                        new ArrayList<String>(List.of("1. (svar 1)", "2. (svar 2)")),
+                new Question("Hello  (answer 1)",
+                        new ArrayList<String>(List.of("1. Hello")),
                         "1"),
-                new Question("question? 3",
-                        new ArrayList<String>(List.of("1. (svar 1)", "2. (svar 2)")),
+                new Question("What are you doing here it's private area?   (answer 1)",
+                        new ArrayList<String>(List.of("1. I'm here to help the city set up some green and renewable energy sources. ")),
+                        "1"),
+                new Question("stop it. it's bad for my business!  (answer 1)",
+                        new ArrayList<String>(List.of("1. But your coal power plant is bad for the climate, and besides, there are parts \n of the city that don't get electricity at all.",
+                                                      "2. Okay, but then your power plant has to supply power to the whole city")),
+                        "1"),
+                new Question("question? 4  (answer 1)",
+                        new ArrayList<String>(List.of("1. (svar 1)",
+                                                      "2. (svar 2)")),
+                        "1"),
+                new Question("question? 5  (answer 1)",
+                        new ArrayList<String>(List.of("1. (svar 1)",
+                                                      "2. (svar 2)")),
+                        "1"),
+                new Question("question? 6  (answer 1)",
+                        new ArrayList<String>(List.of("1. (svar 1)",
+                                                      "2. (svar 2)")),
+                        "1"),
+                new Question("question? 7  (answer 1)",
+                        new ArrayList<String>(List.of("1. (svar 1)",
+                                                      "2. (svar 2)")),
                         "1")
         ));
     }
