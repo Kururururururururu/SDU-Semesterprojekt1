@@ -144,6 +144,9 @@ public class CommandLineClient {
             case POINTS:
                 System.out.println(points.getPoints());
                 break;
+            case USE:
+                mainCharacter.useItem(command, game.getRoom());
+                break;
             default:
                 System.out.println("I do not know that command?!");
         }

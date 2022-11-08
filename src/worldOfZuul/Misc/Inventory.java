@@ -1,9 +1,6 @@
 package worldOfZuul.Misc;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class Inventory {
     ArrayList<Item> player_inventory = new ArrayList<>();
@@ -35,9 +32,9 @@ public class Inventory {
                     System.out.print(item_count + "x");
                 }
                 if (list_length_count == player_inventory_uniques.size()){
-                    System.out.print("[" + item_uniques.getType() + "]");
+                    System.out.print("[" + item_uniques.getType() + "] {id: " + item_uniques.getId() + "}");
                 } else {
-                    System.out.print("[" + item_uniques.getType() + "], ");
+                    System.out.print("[" + item_uniques.getType() + "] {id: " + item_uniques.getId() + "}, ");
                 }
                 list_length_count++;
             }
@@ -45,5 +42,9 @@ public class Inventory {
             System.out.println("empty");
         }
         System.out.println();
+    }
+
+    public ArrayList<Item> getInventory() {
+        return this.player_inventory;
     }
 }
