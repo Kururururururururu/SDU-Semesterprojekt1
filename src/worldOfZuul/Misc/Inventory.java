@@ -19,7 +19,12 @@ public class Inventory {
         ArrayList<Item> player_inventory_uniques = new ArrayList<>();
         Set<Item> unique_items = new HashSet<>(player_inventory);
         player_inventory_uniques.addAll(unique_items);
-
+        Collections.sort(player_inventory_uniques, new Comparator<Item>() {
+            @Override
+            public int compare(Item o1, Item o2) {
+                return o1.getId().compareTo(o2.getId());
+            }
+        });
 
         System.out.print("Current inventory: ");
         if (player_inventory.size() != 0) {
