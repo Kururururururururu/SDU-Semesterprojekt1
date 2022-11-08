@@ -41,7 +41,8 @@ public class Room {
     }
 
     public void runEnvironment()  {
-        if(Instant.now().getEpochSecond() >= this.lastVisited+10*1000)  {
+        //System.out.println(this.lastVisited);
+        if(Instant.now().getEpochSecond() >= this.lastVisited+10)  {
             this.lastVisited = Instant.now().getEpochSecond();
             if(this.environmentInventory.getInventory().size() > 0) {
                 for(Item item : this.environmentInventory.getInventory())   {
@@ -57,6 +58,7 @@ public class Room {
     public void placeItem(Item item) {
         this.environmentInventory.addToInventory(item);
         //this.environmentInventory.showInventory();
+
     }
 
     public Room getExit(String direction) {
