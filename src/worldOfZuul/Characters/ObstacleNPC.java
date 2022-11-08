@@ -125,7 +125,7 @@ public class ObstacleNPC extends NPC{
                         new ArrayList<String>(List.of("1. I'm here to help the city set up some green and renewable energy sources. ")),
                         "1"),
                 new Question("stop it. it's bad for my business!  (answer 1)",
-                        new ArrayList<String>(List.of("1. But your coal power plant is bad for the climate, and besides, there are parts \n of the city that don't get electricity at all.",
+                        new ArrayList<String>(List.of("1. But your coal power plant is bad for the climate, and besides, there are parts\n   of the city that don't get electricity at all.",
                                                       "2. Okay, but then your power plant has to supply power to the whole city")),
                         "1"),
                 new Question("question? 4  (answer 1)",
