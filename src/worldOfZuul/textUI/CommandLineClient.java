@@ -26,7 +26,7 @@ public class CommandLineClient {
     private Game game;
 
     public GuideNPC guide = new GuideNPC("Boss", 0);
-    public CitizenNPC sune = new CitizenNPC("Sunny Simon", 3, new ArrayList<>(List.of(
+    public CitizenNPC sune = new CitizenNPC("Sunny Simon", "Sune", 3, new ArrayList<>(List.of(
             "Solar energy has always been my favorite!",
             "I DON'T LIKE COAL! It's bad for everyone!",
             "I used to like coal like you, until i discovered the joys of solar energy!",
@@ -34,13 +34,6 @@ public class CommandLineClient {
     )));
 
     public ObstacleNPC kurt = new ObstacleNPC("Kurt the Stubborn", 1, false);
-    public CitizenNPC wendy = new CitizenNPC("Windy Wendy", 2, new ArrayList<>(List.of())); //Might need some additions?
-    public CitizenNPC sune = new CitizenNPC("Solcelle Sune", "Sune", 3, new ArrayList<>(List.of(
-            "Test 1",
-            "Test 2"
-    )));
-
-    public ObstacleNPC kurt = new ObstacleNPC("Kurt", 1, false);
     public CitizenNPC wendy = new CitizenNPC("Wendy Vindfang", "Wendy", 2, new ArrayList<>(List.of(
             "Nice to meet you.",
             "It sure is windy today!",
