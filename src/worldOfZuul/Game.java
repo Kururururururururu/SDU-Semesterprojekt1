@@ -15,79 +15,282 @@ public class Game {
 
     private void createRooms() {
         // Room outside, theatre, pub, lab, office;
-        Room hub, district_1, district_2, district_3, coal_power_plant;
-        // coal_power_plant = new Room(" in the area of the coal power plant");
+        Room hub, F, B, A, C, G, E, D;
 
-        hub = new Room(" standing in the hub (main spawn area)", 0);
-        district_1 = new Room(" standing in Dirty Hills", 1);
-        district_2 = new Room(" standing in Windy Town", 2);
-        district_3 = new Room(" standing in Solar City", 3);
+        hub = new Room("standing in the hub (main spawn area)", 0);
+        F = new Room("standing in Dirty Hills", 1);
+        B = new Room("standing in Windy Town", 2);
+        A = new Room("standing in Solar City", 3);
+        C = new Room("Standing in C", 4);
+        G = new Room("Standing in G", 5);
+        E = new Room("Standing in E", 6);
+        D = new Room("Standing in D", 7);
 
-        hub.setExit("S", district_3);
-        hub.setExit("E", district_1);
-        hub.setExit("SE", district_2);
 
-        district_1.setExit("W", hub);
-        //district_1.setExit("E", coal_power_plant);
-        district_1.setExit("S", district_2);
+        hub.setExit("E", F);
+        hub.setExit("SE", B);
+        hub.setExit("S", A);
 
-        district_2.setExit("N", district_1);
-        district_2.setExit("NW", hub);
-        district_2.setExit("W", district_3);
+        F.setExit("E", G);
+        F.setExit("S", B);
+        F.setExit("W", hub);
 
-        district_3.setExit("E", district_2);
-        district_3.setExit("N", hub);
+        B.setExit("N", F);
+        B.setExit("SE", E);
+        B.setExit("SW", C);
+        B.setExit("W", A);
+        B.setExit("NW", hub);
 
-        // coal_power_plant.setExit("West", district_1);
+        A.setExit("N", hub);
+        A.setExit("E", B);
+        A.setExit("S", C);
+
+        C.setExit("N", A);
+        C.setExit("NE", B);
+        C.setExit("E", D);
+
+        G.setExit("SW", B);
+        G.setExit("W", F);
+
+        E.setExit("NW", B);
+
+        D.setExit("N", B);
+        D.setExit("W", C);
+
+
+
         currentRoom = hub;
     }
-
     public void printMap(){
-        String ANSI_RESET = "\u001B[0m";
-        String ANSI_RED = "\u001B[31m";
-//        ┌─┐│└─┘●   ↖ ↘    ↓↑←──────────→
-        System.out.println("┌────────────────────────┐");
-        if (getRoomId()==0){
-            System.out.println("│     "
-                    + ANSI_RED +"HUB"+ ANSI_RESET +
-                    "     Dirty Hills│");
-            System.out.println("│      "
-                    + ANSI_RED +"●"+ ANSI_RESET +
-                    "  ← ─ ─ →  ●     │");
-        } else if (getRoomId()==1) {
-            System.out.println("│     HUB     "
-                    + ANSI_RED +"Dirty Hills"+ ANSI_RESET +
-                    "│");
-            System.out.println("│      ●  ← ─ ─ →  "
-                    + ANSI_RED +"●"+ ANSI_RESET +
-                    "     │");
-        } else {
-            System.out.println("│     HUB     Dirty Hills│");
-            System.out.println("│      ●  ← ─ ─ →  ●     │");
+//        ANSI Colors
+        String RESET = "\u001B[0m";
+        String RED = "\u001B[31m";
+        String YELLOW = "\u001B[33m";
+//        ┌ ─ ┐ │ └ ─ ┘ ┬ ┴ ├ ┤ ● ↖ ↘ ↗ ↙ ↓ | ↑ ← ─ →
+//        System.out.println("┌─────────────────────────────────────┬──────────────────┐");//
+//        System.out.println("│     HUB            f             g  │     HUB          │");
+//        System.out.println("│      ●  ← ── ── →  ●  ← ── ── →  ●  │ a - Solar City   │");
+//        System.out.println("│      ↑  ↖          ↑          /     │ b - Windy Town   │");
+//        System.out.println("│      |     ╲       |       /        │ c - City C       │");
+//        System.out.println("│      |       ╲     |    ↙           │ d - City D       │");
+//        System.out.println("│      ↓          ↘  ↓                │ e - City E       ├─────────────────────┐");
+//        System.out.println("│    a ●  ← ── ── →  ● b              │ f - Dirty Hills  │          N          │");
+//        System.out.println("│      ↑          ↗     ↖             │ g - City G       │     NW   │   NE     │");
+//        System.out.println("│      |       /     ↑     ╲          │                  │        ╲ │ /        │");
+//        System.out.println("│      |     /       |       ╲        │                  │  W ───── ● ───── E  │");
+//        System.out.println("│      ↓  ↙          |          ↘     │                  │        / │ ╲        │");
+//        System.out.println("│      ●  ← ── ── →  ●             ●  │                  │     SW   │   SE     │");
+//        System.out.println("│      c             d             e  │                  │          S          │");
+//        System.out.println("└─────────────────────────────────────┴──────────────────┴─────────────────────┘");
+// -----------------------------------------
+        switch (getRoomId()){
+            case 0: //hub
+                System.out.println("┌─────────────────────────────────────┬──────────────────┐");//
+                System.out.println("│     "+RED+"HUB"+RESET+"            f             g  │     "+RED+"HUB"+RESET+"          │");
+                System.out.println("│      "+RED+"●"+RESET+"  "+YELLOW+"← ── ── →"+RESET+"  ●  ← ── ── →  ●  │ a - Solar City   │");
+                System.out.println("│      "+YELLOW+"↑"+RESET+"  "+YELLOW+"↖"+RESET+"          ↑          /     │ b - Windy Town   │");
+                System.out.println("│      "+YELLOW+"|"+RESET+"     "+YELLOW+"╲"+RESET+"       |       /        │ c - City C       │");
+                System.out.println("│      "+YELLOW+"|"+RESET+"       "+YELLOW+"╲"+RESET+"     |    ↙           │ d - City D       │");
+                System.out.println("│      "+YELLOW+"↓"+RESET+"          "+YELLOW+"↘"+RESET+"  ↓                │ e - City E       ├─────────────────────┐");
+                System.out.println("│    a ●  ← ── ── →  ● b              │ f - Dirty Hills  │          N          │");
+                System.out.println("│      ↑          ↗     ↖             │ g - City G       │     NW   │   NE     │");
+                System.out.println("│      |       /     ↑     ╲          │                  │        ╲ │ /        │");
+                System.out.println("│      |     /       |       ╲        │                  │  W ───── ● ───── E  │");
+                System.out.println("│      ↓  ↙          |          ↘     │                  │        / │ ╲        │");
+                System.out.println("│      ●  ← ── ── →  ●             ●  │                  │     SW   │   SE     │");
+                System.out.println("│      c             d             e  │                  │          S          │");
+                System.out.println("└─────────────────────────────────────┴──────────────────┴─────────────────────┘");
+                break;
+            case 1: //f
+                System.out.println("┌─────────────────────────────────────┬──────────────────┐");//
+                System.out.println("│     HUB            "+RED+"f"+RESET+"             g  │     HUB          │");
+                System.out.println("│      ●  "+YELLOW+"← ── ── →"+RESET+"  "+RED+"●"+RESET+"  "+YELLOW+"← ── ── →"+RESET+"  ●  │ a - Solar City   │");
+                System.out.println("│      ↑  ↖          "+YELLOW+"↑"+RESET+"          /     │ b - Windy Town   │");
+                System.out.println("│      |     ╲       "+YELLOW+"|"+RESET+"       /        │ c - City C       │");
+                System.out.println("│      |       ╲     "+YELLOW+"|"+RESET+"    ↙           │ d - City D       │");
+                System.out.println("│      ↓          ↘  "+YELLOW+"↓"+RESET+"                │ e - City E       ├─────────────────────┐");
+                System.out.println("│    a ●  ← ── ── →  ● b              │ "+RED+"f - Dirty Hills"+RESET+"  │          N          │");
+                System.out.println("│      ↑          ↗     ↖             │ g - City G       │     NW   │   NE     │");
+                System.out.println("│      |       /     ↑     ╲          │                  │        ╲ │ /        │");
+                System.out.println("│      |     /       |       ╲        │                  │  W ───── ● ───── E  │");
+                System.out.println("│      ↓  ↙          |          ↘     │                  │        / │ ╲        │");
+                System.out.println("│      ●  ← ── ── →  ●             ●  │                  │     SW   │   SE     │");
+                System.out.println("│      c             d             e  │                  │          S          │");
+                System.out.println("└─────────────────────────────────────┴──────────────────┴─────────────────────┘");
+                break;
+            case 2: //b
+                System.out.println("┌─────────────────────────────────────┬──────────────────┐");//
+                System.out.println("│     HUB            f             g  │     HUB          │");
+                System.out.println("│      ●  ← ── ── →  ●  ← ── ── →  ●  │ a - Solar City   │");
+                System.out.println("│      ↑  "+YELLOW+"↖"+RESET+"          "+YELLOW+"↑"+RESET+"          /     │ "+RED+"b - Windy Town"+RESET+"   │");
+                System.out.println("│      |     "+YELLOW+"╲"+RESET+"       "+YELLOW+"|"+RESET+"       /        │ c - City C       │");
+                System.out.println("│      |       "+YELLOW+"╲"+RESET+"     "+YELLOW+"|"+RESET+"    ↙           │ d - City D       │");
+                System.out.println("│      ↓          "+YELLOW+"↘"+RESET+"  "+YELLOW+"↓"+RESET+"                │ e - City E       ├─────────────────────┐");
+                System.out.println("│    a ●  "+YELLOW+"← ── ── →"+RESET+"  "+RED+"● b"+RESET+"              │ f - Dirty Hills  │          N          │");
+                System.out.println("│      ↑          "+YELLOW+"↗"+RESET+"     "+YELLOW+"↖"+RESET+"             │ g - City G       │     NW   │   NE     │");
+                System.out.println("│      |       "+YELLOW+"/"+RESET+"     ↑     "+YELLOW+"╲"+RESET+"          │                  │        ╲ │ /        │");
+                System.out.println("│      |     "+YELLOW+"/"+RESET+"       |       "+YELLOW+"╲"+RESET+"        │                  │  W ───── ● ───── E  │");
+                System.out.println("│      ↓  "+YELLOW+"↙"+RESET+"          |          "+YELLOW+"↘"+RESET+"     │                  │        / │ ╲        │");
+                System.out.println("│      ●  ← ── ── →  ●             ●  │                  │     SW   │   SE     │");
+                System.out.println("│      c             d             e  │                  │          S          │");
+                System.out.println("└─────────────────────────────────────┴──────────────────┴─────────────────────┘");
+                break;
+            case 3: //a
+                System.out.println("┌─────────────────────────────────────┬──────────────────┐");//
+                System.out.println("│     HUB            f             g  │     HUB          │");
+                System.out.println("│      ●  ← ── ── →  ●  ← ── ── →  ●  │ "+RED+"a - Solar City"+RESET+"   │");
+                System.out.println("│      "+YELLOW+"↑"+RESET+"  ↖          ↑          /     │ b - Windy Town   │");
+                System.out.println("│      "+YELLOW+"|"+RESET+"     ╲       |       /        │ c - City C       │");
+                System.out.println("│      "+YELLOW+"|"+RESET+"       ╲     |    ↙           │ d - City D       │");
+                System.out.println("│      "+YELLOW+"↓"+RESET+"          ↘  ↓                │ e - City E       ├─────────────────────┐");
+                System.out.println("│    "+RED+"a ●"+RESET+"  "+YELLOW+"← ── ── →"+RESET+"  ● b              │ f - Dirty Hills  │          N          │");
+                System.out.println("│      "+YELLOW+"↑"+RESET+"          ↗     ↖             │ g - City G       │     NW   │   NE     │");
+                System.out.println("│      "+YELLOW+"|"+RESET+"       /     ↑     ╲          │                  │        ╲ │ /        │");
+                System.out.println("│      "+YELLOW+"|"+RESET+"     /       |       ╲        │                  │  W ───── ● ───── E  │");
+                System.out.println("│      "+YELLOW+"↓"+RESET+"  ↙          |          ↘     │                  │        / │ ╲        │");
+                System.out.println("│      ●  ← ── ── →  ●             ●  │                  │     SW   │   SE     │");
+                System.out.println("│      c             d             e  │                  │          S          │");
+                System.out.println("└─────────────────────────────────────┴──────────────────┴─────────────────────┘");
+                break;
+            case 4: //c
+                System.out.println("┌─────────────────────────────────────┬──────────────────┐");//
+                System.out.println("│     HUB            f             g  │     HUB          │");
+                System.out.println("│      ●  ← ── ── →  ●  ← ── ── →  ●  │ a - Solar City   │");
+                System.out.println("│      ↑  ↖          ↑          /     │ b - Windy Town   │");
+                System.out.println("│      |     ╲       |       /        │ "+RED+"c - City C"+RESET+"       │");
+                System.out.println("│      |       ╲     |    ↙           │ d - City D       │");
+                System.out.println("│      ↓          ↘  ↓                │ e - City E       ├─────────────────────┐");
+                System.out.println("│    a ●  ← ── ── →  ● b              │ f - Dirty Hills  │          N          │");
+                System.out.println("│      "+YELLOW+"↑"+RESET+"          "+YELLOW+"↗"+RESET+"     ↖             │ g - City G       │     NW   │   NE     │");
+                System.out.println("│      "+YELLOW+"|"+RESET+"       "+YELLOW+"/"+RESET+"     ↑     ╲          │                  │        ╲ │ /        │");
+                System.out.println("│      "+YELLOW+"|"+RESET+"     "+YELLOW+"/"+RESET+"       |       ╲        │                  │  W ───── ● ───── E  │");
+                System.out.println("│      "+YELLOW+"↓"+RESET+"  "+YELLOW+"↙"+RESET+"          |          ↘     │                  │        / │ ╲        │");
+                System.out.println("│      "+RED+"●"+RESET+"  "+YELLOW+"← ── ── →"+RESET+"  ●             ●  │                  │     SW   │   SE     │");
+                System.out.println("│      "+RED+"c"+RESET+"             d             e  │                  │          S          │");
+                System.out.println("└─────────────────────────────────────┴──────────────────┴─────────────────────┘");
+                break;
+            case 5: //g
+                System.out.println("┌─────────────────────────────────────┬──────────────────┐");//
+                System.out.println("│     HUB            f             "+RED+"g"+RESET+"  │     HUB          │");
+                System.out.println("│      ●  ← ── ── →  ●  "+YELLOW+"← ── ── →"+RESET+"  "+RED+"●"+RESET+"  │ a - Solar City   │");
+                System.out.println("│      ↑  ↖          ↑          "+YELLOW+"/"+RESET+"     │ b - Windy Town   │");
+                System.out.println("│      |     ╲       |       "+YELLOW+"/"+RESET+"        │ c - City C       │");
+                System.out.println("│      |       ╲     |    "+YELLOW+"↙"+RESET+"           │ d - City D       │");
+                System.out.println("│      ↓          ↘  ↓                │ e - City E       ├─────────────────────┐");
+                System.out.println("│    a ●  ← ── ── →  ● b              │ f - Dirty Hills  │          N          │");
+                System.out.println("│      ↑          ↗     ↖             │ "+RED+"g - City G"+RESET+"       │     NW   │   NE     │");
+                System.out.println("│      |       /     ↑     ╲          │                  │        ╲ │ /        │");
+                System.out.println("│      |     /       |       ╲        │                  │  W ───── ● ───── E  │");
+                System.out.println("│      ↓  ↙          |          ↘     │                  │        / │ ╲        │");
+                System.out.println("│      ●  ← ── ── →  ●             ●  │                  │     SW   │   SE     │");
+                System.out.println("│      c             d             e  │                  │          S          │");
+                System.out.println("└─────────────────────────────────────┴──────────────────┴─────────────────────┘");
+                break;
+            case 6: //e
+                System.out.println("┌─────────────────────────────────────┬──────────────────┐");//
+                System.out.println("│     HUB            f             g  │     HUB          │");
+                System.out.println("│      ●  ← ── ── →  ●  ← ── ── →  ●  │ a - Solar City   │");
+                System.out.println("│      ↑  ↖          ↑          /     │ b - Windy Town   │");
+                System.out.println("│      |     ╲       |       /        │ c - City C       │");
+                System.out.println("│      |       ╲     |    ↙           │ d - City D       │");
+                System.out.println("│      ↓          ↘  ↓                │ "+RED+"e - City E"+RESET+"       ├─────────────────────┐");
+                System.out.println("│    a ●  ← ── ── →  ● b              │ f - Dirty Hills  │          N          │");
+                System.out.println("│      ↑          ↗     "+YELLOW+"↖"+RESET+"             │ g - City G       │     NW   │   NE     │");
+                System.out.println("│      |       /     ↑     "+YELLOW+"╲"+RESET+"          │                  │        ╲ │ /        │");
+                System.out.println("│      |     /       |       "+YELLOW+"╲"+RESET+"        │                  │  W ───── ● ───── E  │");
+                System.out.println("│      ↓  ↙          |          "+YELLOW+"↘"+RESET+"     │                  │        / │ ╲        │");
+                System.out.println("│      ●  ← ── ── →  ●             "+RED+"●"+RESET+"  │                  │     SW   │   SE     │");
+                System.out.println("│      c             d             "+RED+"e"+RESET+"  │                  │          S          │");
+                System.out.println("└─────────────────────────────────────┴──────────────────┴─────────────────────┘");
+                break;
+            case 7: //d
+                System.out.println("┌─────────────────────────────────────┬──────────────────┐");//
+                System.out.println("│     HUB            f             g  │     HUB          │");
+                System.out.println("│      ●  ← ── ── →  ●  ← ── ── →  ●  │ a - Solar City   │");
+                System.out.println("│      ↑  ↖          ↑          /     │ b - Windy Town   │");
+                System.out.println("│      |     ╲       |       /        │ c - City C       │");
+                System.out.println("│      |       ╲     |    ↙           │ "+RED+"d - City D"+RESET+"       │");
+                System.out.println("│      ↓          ↘  ↓                │ e - City E       ├─────────────────────┐");
+                System.out.println("│    a ●  ← ── ── →  ● b              │ f - Dirty Hills  │          N          │");
+                System.out.println("│      ↑          ↗     ↖             │ g - City G       │     NW   │   NE     │");
+                System.out.println("│      |       /     "+YELLOW+"↑"+RESET+"     ╲          │                  │        ╲ │ /        │");
+                System.out.println("│      |     /       "+YELLOW+"|"+RESET+"       ╲        │                  │  W ───── ● ───── E  │");
+                System.out.println("│      ↓  ↙          "+YELLOW+"|"+RESET+"          ↘     │                  │        / │ ╲        │");
+                System.out.println("│      ●  "+YELLOW+"← ── ── →"+RESET+"  "+RED+"●"+RESET+"             ●  │                  │     SW   │   SE     │");
+                System.out.println("│      c             "+RED+"d"+RESET+"             e  │                  │          S          │");
+                System.out.println("└─────────────────────────────────────┴──────────────────┴─────────────────────┘");
+                break;
+            default:
+                System.out.println("┌─────────────────────────────────────┬──────────────────┐");//
+                System.out.println("│     HUB            f             g  │     HUB          │");
+                System.out.println("│      ●  ← ── ── →  ●  ← ── ── →  ●  │ a - Solar City   │");
+                System.out.println("│      ↑  ↖          ↑          /     │ b - Windy Town   │");
+                System.out.println("│      |     ╲       |       /        │ c - City C       │");
+                System.out.println("│      |       ╲     |    ↙           │ d - City D       │");
+                System.out.println("│      ↓          ↘  ↓                │ e - City E       ├─────────────────────┐");
+                System.out.println("│    a ●  ← ── ── →  ● b              │ f - Dirty Hills  │          N          │");
+                System.out.println("│      ↑          ↗     ↖             │ g - City G       │     NW   │   NE     │");
+                System.out.println("│      |       /     ↑     ╲          │                  │        ╲ │ /        │");
+                System.out.println("│      |     /       |       ╲        │                  │  W ───── ● ───── E  │");
+                System.out.println("│      ↓  ↙          |          ↘     │                  │        / │ ╲        │");
+                System.out.println("│      ●  ← ── ── →  ●             ●  │                  │     SW   │   SE     │");
+                System.out.println("│      c             d             e  │                  │          S          │");
+                System.out.println("└─────────────────────────────────────┴──────────────────┴─────────────────────┘");
+                break;
         }
-        System.out.println("│      ↑  ↖        ↑     │");
-        System.out.println("│      |    ╲      |     │");
-        System.out.println("│      |      ╲    |     │");
-        System.out.println("│      ↓        ↘  ↓     │");
-        if (getRoomId()==3){
-            System.out.println("│      "
-                    + ANSI_RED +"●"+ ANSI_RESET +
-                    "  ← ─ ─ →  ●     │");
-            System.out.println("│"
-                    + ANSI_RED +"Solar City"+ ANSI_RESET +
-                    "    Windy Town│");
-        } else if (getRoomId()==2) {
-            System.out.println("│      ●  ← ─ ─ →  "
-                    + ANSI_RED +"●"+ ANSI_RESET +
-                    "     │");
-            System.out.println("│Solar City    "
-                    + ANSI_RED +"Windy Town"+ ANSI_RESET +
-                    "│");
-        } else {
-            System.out.println("│      ●  ← ─ ─ →  ●     │");
-            System.out.println("│Solar City    Windy Town│");
-        }
-        System.out.println("└────────────────────────┘");
+//        System.out.println("┌────────────────────────┐");
+//        System.out.println("│     HUB     Dirty Hills│");
+//        System.out.println("│      ●  ← ─ ─ →  ●     │");
+//        System.out.println("│      ↑  ↖        ↑     │");
+//        System.out.println("│      |    ╲      |     │");
+//        System.out.println("│      |      ╲    |     │");
+//        System.out.println("│      ↓        ↘  ↓     │");
+//        System.out.println("│      ●  ← ─ ─ →  ●     │");
+//        System.out.println("│Solar City    Windy Town│");
+//        System.out.println("└────────────────────────┘");
+
+//        System.out.println("┌────────────────────────┐");
+//        if (getRoomId()==0){
+//            System.out.println("│     "
+//                    + ANSI_RED +"HUB"+ ANSI_RESET +
+//                    "     Dirty Hills│");
+//            System.out.println("│      "
+//                    + ANSI_RED +"●"+ ANSI_RESET +
+//                    "  ← ─ ─ →  ●     │");
+//        } else if (getRoomId()==1) {
+//            System.out.println("│     HUB     "
+//                    + ANSI_RED +"Dirty Hills"+ ANSI_RESET +
+//                    "│");
+//            System.out.println("│      ●  ← ─ ─ →  "
+//                    + ANSI_RED +"●"+ ANSI_RESET +
+//                    "     │");
+//        } else {
+//            System.out.println("│     HUB     Dirty Hills│");
+//            System.out.println("│      ●  ← ─ ─ →  ●     │");
+//        }
+//        System.out.println("│      ↑  ↖        ↑     │");
+//        System.out.println("│      |    ╲      |     │");
+//        System.out.println("│      |      ╲    |     │");
+//        System.out.println("│      ↓        ↘  ↓     │");
+//        if (getRoomId()==3){
+//            System.out.println("│      "
+//                    + ANSI_RED +"●"+ ANSI_RESET +
+//                    "  ← ─ ─ →  ●     │");
+//            System.out.println("│"
+//                    + ANSI_RED +"Solar City"+ ANSI_RESET +
+//                    "    Windy Town│");
+//        } else if (getRoomId()==2) {
+//            System.out.println("│      ●  ← ─ ─ →  "
+//                    + ANSI_RED +"●"+ ANSI_RESET +
+//                    "     │");
+//            System.out.println("│Solar City    "
+//                    + ANSI_RED +"Windy Town"+ ANSI_RESET +
+//                    "│");
+//        } else {
+//            System.out.println("│      ●  ← ─ ─ →  ●     │");
+//            System.out.println("│Solar City    Windy Town│");
+//        }
+//        System.out.println("└────────────────────────┘");
 //        System.out.println(getRoomId());
     }
 
