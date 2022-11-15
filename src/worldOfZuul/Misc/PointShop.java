@@ -37,7 +37,7 @@ public class PointShop {
     }
     public void buyItem(Command command, MainCharacter mainCharacter) {
         boolean noItemMatchingId = false;
-        boolean notEnoughPoints = false;
+        boolean notEnoughMoney = false;
 
         if (!command.hasCommandValue()) {
             //No item id on command.
@@ -52,20 +52,20 @@ public class PointShop {
         for (Item item : forSale) {
             if(item.getId().toString().equals(selectedItem)){
                 wantedItem = item;
-                if (item.getPrice() <= Points.getPoints()){
-                    Points.removePoints(item.getPrice());
+                if (item.getPrice() <= Money.getMoney()){
+                    Money.removeMoney(item.getPrice());
                     mainCharacter.addToInventory(item);
                     System.out.println("You bought a [" + item.getType() + "] for " + item.getPrice() + " points.");
-                    System.out.println("Points left: " + Points.getPoints() + ".");
+                    System.out.println("Points left: " + Money.getMoney() + ".");
                     return;
                 }
-                notEnoughPoints = true;
+                notEnoughMoney = true;
             }
             noItemMatchingId = true;
         }
 
-        if (notEnoughPoints) {
-            System.out.println("You do not have enough $ to purchase a [" + wantedItem.getType() + "]. (" + (wantedItem.getPrice()-Points.getPoints()) + " more needed)");
+        if (notEnoughMoney) {
+            System.out.println("You do not have enough $ to purchase a [" + wantedItem.getType() + "]. (" + (wantedItem.getPrice()-Money.getMoney()) + " more needed)");
         } else if (noItemMatchingId) {
             System.out.println("There is no item matching that product number!");
         }

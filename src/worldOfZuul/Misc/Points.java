@@ -1,7 +1,7 @@
 package worldOfZuul.Misc;
 
 public class Points {
-    private static Integer total_points;
+    private static Integer total_points = 0;
     public Points(Integer total_points) {
         Points.total_points = total_points;
     }

@@ -5,6 +5,8 @@
  */
 package worldOfZuul.textUI;
 
+import worldOfZuul.Misc.Money;
+
 /**
  *
  * @author ancla
@@ -15,6 +17,7 @@ public class WorldOfZuulApplication {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        Money.addMoney(1000);
         CommandLineClient client = new CommandLineClient();
         client.play();
     }

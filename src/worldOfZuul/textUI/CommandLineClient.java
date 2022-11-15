@@ -146,7 +146,7 @@ public class CommandLineClient {
                 }
                 break;
             case POINTS:
-                System.out.println(Points.getPoints());
+                System.out.println(Money.getMoney());
                 break;
             case USE:
                 mainCharacter.useItem(command, game.getRoom());
@@ -166,9 +166,9 @@ public class CommandLineClient {
                     npc.talk();
                     if(!npc.getFirst_talk()) {
                         npc.setFirst_talk(true);
-                        Integer point_reward = 500;
-                        Points.addPoints(point_reward);
-                        System.out.println("(You received " + point_reward + " points for talking with " + npc_true_name + " for the first time)");
+                        Integer money_reward = 500;
+                        Money.addMoney(money_reward);
+                        System.out.println("(You received " + money_reward + " points for talking with " + npc_true_name + " for the first time)");
                     }
                     return;
                 }

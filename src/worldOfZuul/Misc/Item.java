@@ -38,7 +38,7 @@ public class Item {
         //System.out.println(exposure);
 
         //Generate points based on exposure.
-        Points.addPoints(4*exposure);
+        Money.addMoney(4*exposure);
     }
     public String getType() {
         return this.type;
