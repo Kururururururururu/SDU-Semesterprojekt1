@@ -12,7 +12,7 @@ public class Points {
     public static void addPoints(Integer amount) {
         Points.total_points += amount;
     }
-    public Integer getPoints() {
+    public static Integer getPoints() {
         return Points.total_points;
     }
 }

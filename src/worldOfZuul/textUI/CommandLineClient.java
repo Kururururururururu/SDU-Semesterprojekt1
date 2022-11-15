@@ -44,7 +44,6 @@ public class CommandLineClient {
     )));
     public MainCharacter mainCharacter = new MainCharacter("Andreas");
     public PointShop pointshop = new PointShop();
-    public Points points = new Points(1000);
     public CommandLineClient() {
         game = new Game();
         parser = new Parser(game);
@@ -112,7 +111,7 @@ public class CommandLineClient {
                 break;
             case BUY:
                 if (game.getRoomId() == 0) {
-                    pointshop.buyItem(command, points, mainCharacter);
+                    pointshop.buyItem(command, mainCharacter);
                 } else {
                     System.out.println("You can't buy anything from here.");
                 }
@@ -136,18 +135,18 @@ public class CommandLineClient {
                         break;
                     case 2:
                         citizensInDistrict.add(wendy);
-                        multipleTalkableNpcs(citizensInDistrict, command, points);
+                        multipleTalkableNpcs(citizensInDistrict, command);
                         break;
                     case 3:
                         citizensInDistrict.add(sune);
-                        multipleTalkableNpcs(citizensInDistrict, command, points);
+                        multipleTalkableNpcs(citizensInDistrict, command);
                         break;
                     default:
                         System.out.println("There is no one here to talk with?!");
                 }
                 break;
             case POINTS:
-                System.out.println(points.getPoints());
+                System.out.println(Points.getPoints());
                 break;
             case USE:
                 mainCharacter.useItem(command, game.getRoom());
@@ -157,7 +156,7 @@ public class CommandLineClient {
         }
         return wantToQuit;
     }
-    public void multipleTalkableNpcs(ArrayList<CitizenNPC> citizens, Command command, Points points){
+    public void multipleTalkableNpcs(ArrayList<CitizenNPC> citizens, Command command){
         if(command.hasCommandValue()){
             String requested_npc_name = command.getCommandValue();
             for (CitizenNPC npc : citizens) {
@@ -168,7 +167,7 @@ public class CommandLineClient {
                     if(!npc.getFirst_talk()) {
                         npc.setFirst_talk(true);
                         Integer point_reward = 500;
-                        points.addPoints(point_reward);
+                        Points.addPoints(point_reward);
                         System.out.println("(You received " + point_reward + " points for talking with " + npc_true_name + " for the first time)");
                     }
                     return;
