@@ -5,7 +5,6 @@
  */
 package worldOfZuul.textUI;
 
-import com.sun.tools.javac.Main;
 import worldOfZuul.Command;
 import worldOfZuul.Commands;
 import worldOfZuul.Game;
@@ -13,7 +12,6 @@ import worldOfZuul.Characters.*;
 import worldOfZuul.Misc.*;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 /**
@@ -43,7 +41,9 @@ public class CommandLineClient {
 
     )));
     public MainCharacter mainCharacter = new MainCharacter("Andreas");
-    public PointShop pointshop = new PointShop();
+    public PointShop pointshop_Hub = new PointShop();
+    public PointShop pointshop_Dirt = new PointShop();
+
     public CommandLineClient() {
         game = new Game();
         parser = new Parser(game);
@@ -111,15 +111,23 @@ public class CommandLineClient {
                 break;
             case BUY:
                 if (game.getRoomId() == 0) {
-                    pointshop.buyItem(command, mainCharacter);
-                } else {
+                    pointshop_Hub.buyItem(command, mainCharacter, game.getRoomId());
+                }
+                else if (game.getRoomId() == 1) {
+                    pointshop_Dirt.buyItem(command,mainCharacter, game.getRoomId());
+                }
+                else {
                     System.out.println("You can't buy anything from here.");
                 }
                 break;
             case SHOP:
-                if (game.getRoomId().equals(0)) {
-                    pointshop.openShop();
-                } else {
+                if (game.getRoomId()==0) {
+                    pointshop_Hub.openShop(game.getRoomId());
+                }
+                else if (game.getRoomId()==1) {
+                    pointshop_Dirt.openShop(game.getRoomId());
+                }
+                else {
                     System.out.println("There is no shop nearby.");
                 }
                 break;
@@ -148,9 +156,9 @@ public class CommandLineClient {
             case POINTS:
                 System.out.println(Money.getMoney());
                 break;
-            case USE:
-                mainCharacter.useItem(command, game.getRoom());
-                break;
+//            case USE:
+//                mainCharacter.useItem(command, game.getRoom());
+//                break;
             default:
                 System.out.println("I do not know that command?!");
         }
