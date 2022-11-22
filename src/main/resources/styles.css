@@ -1,0 +1,81 @@
+#background {
+    -fx-background-image: url("scenes/Background320x180.png");
+    -fx-background-size: stretch;
+}
+
+#map {
+    -fx-background-image: url("icons/Map16x16.png");
+    -fx-background-size: stretch;
+    -fx-background-color: none;
+    -fx-border-color: transparent;
+}
+
+
+#backpack {
+    -fx-background-image: url("icons/Backpack16x16.png");
+    -fx-background-size: stretch;
+    -fx-background-color: none;
+    -fx-border-color: transparent;
+}
+
+#magglass {
+    -fx-background-image: url("icons/MagGlass16x16.png");
+    -fx-background-size: stretch;
+    -fx-background-color: none;
+    -fx-border-color: transparent;
+}
+
+#hand {
+    -fx-background-image: url("icons/Hand16x16.png");
+    -fx-background-size: stretch;
+    -fx-background-color: none;
+    -fx-border-color: transparent;
+}
+
+#speechbubble {
+    -fx-background-image: url("icons/SpeechBubble16x16.png");
+    -fx-background-size: stretch;
+    -fx-background-color: none;
+    -fx-border-color: transparent;
+}
+
+#player {
+    -fx-background-image: url("icons/MC16x16.png");
+    -fx-background-size: stretch;
+    -fx-background-color: none;
+    -fx-border-color: transparent;
+}
+
+#dollar {
+    -fx-background-image: url("icons/DollarSign16x16.png");
+    -fx-background-size: stretch;
+    -fx-background-color: none;
+    -fx-border-color: transparent;
+}
+
+#menu {
+    -fx-background-image: url("icons/Menu16x16.png");
+    -fx-background-size: stretch;
+    -fx-background-color: none;
+    -fx-border-color: transparent;
+}
+
+#questionmark {
+    -fx-background-image: url("icons/QuestionMark16x16.png");
+    -fx-background-size: stretch;
+    -fx-background-color: none;
+    -fx-border-color: transparent;
+}
+
+#hub {
+    -fx-background-image: url("Scenes/hub.png");
+    -fx-background-size: stretch;
+    -fx-background-color: none;
+    -fx-border-color: transparent;
+}
+#dirtyhills {
+    -fx-background-image: url("Scenes/dirtyhills.png");
+    -fx-background-size: stretch;
+    -fx-background-color: none;
+    -fx-border-color: transparent;
+}
