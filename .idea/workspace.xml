@@ -6,9 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="0b25991e-db25-45fe-b7b0-5df5d214a4df" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Characters/CitizenNPC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Characters/CitizenNPC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Characters/GuideNPC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Characters/GuideNPC.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Characters/MainCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Characters/MainCharacter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Characters/NPC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Characters/NPC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Characters/ObstacleNPC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Characters/ObstacleNPC.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/worldOfZuul/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/worldOfZuul/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/worldOfZuul/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/worldOfZuul/Room.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

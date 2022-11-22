@@ -22,7 +22,7 @@ public abstract class NPC {
         this.name = "UNDEFINED";
         this.location = location;
     }
-    public abstract void talk();
+    public abstract String talk();
 
     public void setLocation(Integer location) {
         this.location = location;

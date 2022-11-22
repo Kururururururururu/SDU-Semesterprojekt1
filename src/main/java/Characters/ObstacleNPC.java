@@ -35,36 +35,35 @@ public class ObstacleNPC extends NPC{
 
 //    Methods
     @Override
-    public void talk() {
+    public String talk() {
         if (isConvinced()){
             randomTalk();
         }
         else {
             conversation();
         }
+        return null;
     }
 
-    public void randomTalk(){
+    public String randomTalk(){
         while (this.currentResponse.equals(this.lastResponse)) {
             this.currentResponse = responseAfterConvinced.get((int)(Math.random()*responseAfterConvinced.size()));
         }
-        System.out.println("["+super.getName()+"] " + this.currentResponse);
         this.lastResponse = this.currentResponse;
+        return this.currentResponse;
     }
 
-    public void conversation(){
+    public String conversation(){
         if ((new Date().getTime() - this.lastTalk.getTime()) >= 90000) {
             startQuiz();
-            System.out.println("(conversation over)");
             this.lastTalk = new Date();
+            return null;
         }
         else if (((new Date().getTime() - this.lastTalk.getTime()) <= 20000) && !this.didLeaveLast){
-            System.out.println("[" + super.getName() + "] " + "I SAID, come again another time!");
-            System.out.println(((new Date().getTime() - this.lastTalk.getTime())/1000));
+            return "I SAID, come again another time!";
         }
         else {
-            System.out.println("[" + super.getName() + "] " + "Come again later");
-            System.out.println(((new Date().getTime() - this.lastTalk.getTime())/1000));
+            return "Come again later";
         }
     }
     public void startQuiz(){
@@ -72,10 +71,6 @@ public class ObstacleNPC extends NPC{
         createQuestions();
         Scanner inputAnswer = new Scanner(System.in);
         boolean firstLine = true;
-
-        String ANSI_RESET = "\u001B[0m";
-        String ANSI_RED = "\u001B[31m";
-        System.out.println("--- To leave the conversation type " + ANSI_RED + "'leave'" + ANSI_RESET + " ---");
 
         outerloop:
         if (true){

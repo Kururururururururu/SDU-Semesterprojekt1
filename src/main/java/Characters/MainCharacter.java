@@ -23,13 +23,13 @@ public class MainCharacter {
         player_inventory.removeFromInventory(item);
     }
 
-    public void useItem(Command command, Room currentRoom)    {
+    public boolean useItem(Command command, Room currentRoom)    {
         if(currentRoom.getRoomId() == 0) {
-            return;
+            return false;
         }
 
         if (!command.hasCommandValue()) {
-            return;
+            return false;
         }
 
         Item forUse = new Item();
@@ -56,9 +56,10 @@ public class MainCharacter {
         } else {
             this.removeFromInventory(forUse);
             currentRoom.placeItem(forUse);
+            return true;
             // Find some alternative //System.out.println("Placed " + forUse.getType() + currentRoom.getDescription().substring(9));
         }
 
-
+        return false;
     }
 }

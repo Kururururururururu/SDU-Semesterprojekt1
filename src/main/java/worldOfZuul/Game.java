@@ -17,14 +17,12 @@ public class Game {
         // Room outside, theatre, pub, lab, office;
         Room hub, F, B, A, C, G, E, D;
 
-        hub = new Room("standing in the hub (main spawn area)", 0);
-        F = new Room("standing in Dirty Hills", 1);
-        B = new Room("standing in Windy Town", 2);
-        A = new Room("standing in Solar City", 3);
-        C = new Room("Standing in C", 4);
-        G = new Room("Standing in G", 5);
-        E = new Room("Standing in E", 6);
-        D = new Room("Standing in D", 7);
+        hub = new Room("Hub", 0);
+        F = new Room("Dirty Hills", 1);
+        B = new Room("Windy Town", 2);
+        A = new Room("Solar City", 3);
+        C = new Room("Coast", 4);
+        G = new Room("New Orleans", 5);
 
 
         hub.setExit("E", F);
@@ -36,7 +34,6 @@ public class Game {
         F.setExit("W", hub);
 
         B.setExit("N", F);
-        B.setExit("SE", E);
         B.setExit("SW", C);
         B.setExit("W", A);
         B.setExit("NW", hub);
@@ -47,17 +44,9 @@ public class Game {
 
         C.setExit("N", A);
         C.setExit("NE", B);
-        C.setExit("E", D);
 
         G.setExit("SW", B);
         G.setExit("W", F);
-
-        E.setExit("NW", B);
-
-        D.setExit("N", B);
-        D.setExit("W", C);
-
-
 
         currentRoom = hub;
     }
