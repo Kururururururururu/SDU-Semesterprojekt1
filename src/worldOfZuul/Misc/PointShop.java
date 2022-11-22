@@ -2,30 +2,46 @@ package worldOfZuul.Misc;
 
 import worldOfZuul.Characters.MainCharacter;
 import worldOfZuul.Command;
-import worldOfZuul.Room;
-import worldOfZuul.textUI.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class PointShop {
-    ArrayList<Item> forSale = new ArrayList<>(List.of(
+
+    ArrayList<Item> forSale_Hub = new ArrayList<>(List.of(
             new Item("Solar panel", 100, 1),
             new Item("Wind turbine", 100, 2)
     ));
+
+    ArrayList<Item> forSale_Dirt = new ArrayList<>(List.of(
+            new Item("Coal generator", 100, 1),
+            new Item("Oil generator", 100, 2)
+    ));
+
+//    ArrayList<Item> forSale;
     Integer nameLength = 0;
 
     public PointShop() {
-
     }
 
-    public void openShop() {
+    public ArrayList<Item> currentShop(int roomId){
+        if (roomId == 0) {
+            return forSale_Hub;
+        } else if (roomId == 1) {
+            return  forSale_Dirt;
+        } else {
+            return forSale_Hub;
+        }
+    }
+
+    public void openShop(int roomId) {
+
         System.out.println("Currently for sale: ");
-        if (forSale.size() != 0) {
-            nameLengthDefiner();
+        if (currentShop(roomId).size() != 0) {
+            nameLengthDefiner(roomId);
             System.out.format("%" + nameLength + "s%4s%9s", "Product:", " ", "Price:");
             System.out.println();
-            for (Item item : forSale) {
+            for (Item item : currentShop(roomId)) {
                 System.out.format(item.getId() + ". %" + nameLength + "s%4s%9s", item.getType(), "|", "$" + item.getPrice().toString());
                 System.out.println();
             }
@@ -35,7 +51,7 @@ public class PointShop {
         System.out.println();
         System.out.println("Use command 'Buy + product number' to purchase");
     }
-    public void buyItem(Command command, MainCharacter mainCharacter) {
+    public void buyItem(Command command, MainCharacter mainCharacter, int roomId) {
         boolean noItemMatchingId = false;
         boolean notEnoughMoney = false;
 
@@ -49,7 +65,7 @@ public class PointShop {
         String selectedItem = command.getCommandValue();
         Item wantedItem = null;
 
-        for (Item item : forSale) {
+        for (Item item : currentShop(roomId)) {
             if(item.getId().toString().equals(selectedItem)){
                 wantedItem = item;
                 if (item.getPrice() <= Money.getMoney()){
@@ -65,13 +81,14 @@ public class PointShop {
         }
 
         if (notEnoughMoney) {
-            System.out.println("You do not have enough $ to purchase a [" + wantedItem.getType() + "]. (" + (wantedItem.getPrice()-Money.getMoney()) + " more needed)");
+            System.out.println("You do not have enough $ to purchase a [" + wantedItem.getType() + "]. ("
+                    + (wantedItem.getPrice()-Money.getMoney()) + " more needed)");
         } else if (noItemMatchingId) {
             System.out.println("There is no item matching that product number!");
         }
     }
-    private Integer nameLengthDefiner() {
-        for (Item item : forSale) {
+    private Integer nameLengthDefiner(int roomId) {
+        for (Item item : currentShop(roomId)) {
             if (item.getType().length() > nameLength) {
                 nameLength = item.getType().length();
             }
