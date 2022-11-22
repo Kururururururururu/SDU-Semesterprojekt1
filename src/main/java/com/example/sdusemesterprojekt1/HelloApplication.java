@@ -16,7 +16,7 @@ public class HelloApplication extends Application {
     private Game game;
     @Override
     public void start(Stage stage) throws IOException {
-        showScene("coast");
+        showScene("dirtyhills");
     }
 
     public void showScene(String sceneName)  {
