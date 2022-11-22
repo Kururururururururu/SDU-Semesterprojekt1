@@ -1,6 +1,7 @@
 package Characters;
 
 import java.sql.SQLOutput;
+import java.sql.Time;
 import java.time.DateTimeException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -14,10 +15,12 @@ public class ObstacleNPC extends NPC{
 //    Attributes
     private static boolean convinced;
     private String lastResponse = "UNDEFINED";
+    private int talkTime = 0;
     private String currentResponse = "UNDEFINED";
     ArrayList<Question> quiz;
     private Date lastTalk = new Date(0,0,0);
     private boolean didLeaveLast = false;
+    private int score = 0;
     private ArrayList<String> responseAfterConvinced = new ArrayList<>(List.of(
             "Tak for at du overtalte mig.",
             "Det er en god ide at lave grøn energi.",
@@ -30,6 +33,7 @@ public class ObstacleNPC extends NPC{
     public ObstacleNPC(String name, Integer location, boolean convinced) {
         super(name, location);
         this.convinced = convinced;
+        createQuestions();
     }
 
 
@@ -53,65 +57,26 @@ public class ObstacleNPC extends NPC{
         return this.currentResponse;
     }
 
-    public String conversation(){
+    public ArrayList<String> conversation(){
         if ((new Date().getTime() - this.lastTalk.getTime()) >= 90000) {
-            startQuiz();
             this.lastTalk = new Date();
-            return null;
+            return new ArrayList<String>(List.of(quiz.get(talkTime).getQuestion(),
+                                        quiz.get(talkTime).getAnswerOptions().toString(),
+                                        quiz.get(talkTime).getAnswer()));
         }
         else if (((new Date().getTime() - this.lastTalk.getTime()) <= 20000) && !this.didLeaveLast){
-            return "I SAID, come again another time!";
+            return new ArrayList<String>(List.of("I SAID, come again another time!"));
         }
         else {
-            return "Come again later";
-        }
-    }
-    public void startQuiz(){
-        Integer score = 0;
-        createQuestions();
-        Scanner inputAnswer = new Scanner(System.in);
-        boolean firstLine = true;
-
-        outerloop:
-        if (true){
-            for (int i = 0; i < quiz.size(); i++) {
-                System.out.println("["+super.getName()+"] " + quiz.get(i).getQuestion());
-                System.out.println();
-                if (firstLine){
-                    System.out.println("(to answer write the number of the answer option you choose. (without a dot))");
-                    firstLine = false;
-                }
-                System.out.println("--------- Answer options: ---------");
-                for (int j = 0; j < quiz.get(i).getAnswerOptions().size(); j++) {
-                    System.out.println(quiz.get(i).getAnswerOptions().get(j));
-                }
-                System.out.println();
-                System.out.print("> ");
-                String index = inputAnswer.next();
-                if (index.equals("leave")){
-                    System.out.println("["+super.getName()+"] Okay, we'll talk some other time");
-                    this.didLeaveLast = true;
-                    break outerloop;
-                }
-                else if (index.equals(quiz.get(i).getAnswer())){
-                    score++;
-                }
-
-            }
-            System.out.println("score = " + score + "/" + quiz.size());
-            if (score == quiz.size()){
-                this.convinced = true;
-                System.out.println("(" + super.getName() + " is now convinced)");
-            }
-            else {
-                System.out.println("["+super.getName()+"] Come again another time");
-                this.didLeaveLast = false;
-            }
-
+            return new ArrayList<String>(List.of("Come again later"));
         }
     }
 
-    public void createQuestions(){
+    public void addScore(int score){
+        this.score += score;
+    }
+
+    private void createQuestions(){
         quiz = new ArrayList<Question>(List.of(
                 new Question("Hello  (answer 1)",
                         new ArrayList<String>(List.of("1. Hello")),
