@@ -1,4 +1,4 @@
-module com.example.greenwatts {
+module com.example.sdusemesterprojekt1 {
     requires javafx.controls;
     requires javafx.fxml;
 
@@ -7,6 +7,6 @@ module com.example.greenwatts {
     requires org.kordamp.bootstrapfx.core;
     requires com.almasb.fxgl.all;
 
-    opens com.example.greenwatts to javafx.fxml;
-    exports com.example.greenwatts;
+    opens com.example.sdusemesterprojekt1 to javafx.fxml;
+    exports com.example.sdusemesterprojekt1;
 }

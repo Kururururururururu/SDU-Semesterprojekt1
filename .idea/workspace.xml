@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0b25991e-db25-45fe-b7b0-5df5d214a4df" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/SDU-Semesterprojekt1.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SDU-Semesterprojekt1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SDU-Semesterprojekt1.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SDU-Semesterprojekt1/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SDU-Semesterprojekt1/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SDU-Semesterprojekt1/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SDU-Semesterprojekt1/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SDU-Semesterprojekt1/Player/NPC.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SDU-Semesterprojekt1/SDU-Semesterprojekt1.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SDU-Semesterprojekt1/worldOfZuul/Command.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SDU-Semesterprojekt1/worldOfZuul/CommandImplementation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SDU-Semesterprojekt1/worldOfZuul/CommandWords.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SDU-Semesterprojekt1/worldOfZuul/CommandWordsImplementation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SDU-Semesterprojekt1/worldOfZuul/Commands.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SDU-Semesterprojekt1/worldOfZuul/Game.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SDU-Semesterprojekt1/worldOfZuul/Room.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SDU-Semesterprojekt1/worldOfZuul/textUI/CommandLineClient$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SDU-Semesterprojekt1/worldOfZuul/textUI/CommandLineClient.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SDU-Semesterprojekt1/worldOfZuul/textUI/Parser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SDU-Semesterprojekt1/worldOfZuul/textUI/WorldOfZuulApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WorldOfZuul/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WorldOfZuul/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WorldOfZuul/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WorldOfZuul/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/WorldOfZuul/src/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/greenwatts/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/greenwatts/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/greenwatts/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/greenwatts/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/greenwatts/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/greenwatts/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/greenwatts/src/main/java/com/example/greenwatts/HelloApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/greenwatts/src/main/java/com/example/greenwatts/HelloController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/greenwatts/src/main/java/module-info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/greenwatts/src/main/resources/com/example/greenwatts/hello-view.fxml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2HteVWEQ74QDfHOzHADftMUZ7rJ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0b25991e-db25-45fe-b7b0-5df5d214a4df" name="Changes" comment="" />
+      <created>1669108833022</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1669108833022</updated>
+      <workItem from="1669108834366" duration="20000" />
+      <workItem from="1669108871567" duration="22000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/.." />
+    </ignored-roots>
+  </component>
+</project>

@@ -1,4 +1,4 @@
-package com.example.greenwatts;
+package com.example.sdusemesterprojekt1;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

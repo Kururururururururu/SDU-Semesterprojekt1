@@ -1,4 +1,4 @@
-package com.example.greenwatts;
+package com.example.sdusemesterprojekt1;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

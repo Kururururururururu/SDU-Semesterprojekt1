@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
-    <artifactId>greenwatts</artifactId>
+    <artifactId>SDU-Semesterprojekt1</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>greenwatts</name>
+    <name>SDU-Semesterprojekt1</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -96,7 +96,9 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.example.greenwatts/com.example.greenwatts.HelloApplication</mainClass>
+                            <mainClass>
+                                com.example.sdusemesterprojekt1/com.example.sdusemesterprojekt1.HelloApplication
+                            </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>
