@@ -2,6 +2,7 @@ package worldOfZuul;
 
 import java.util.List;
 import java.io.*;
+import com.example.sdusemesterprojekt1.HelloApplication;
 
 public class Game {
 
@@ -68,6 +69,7 @@ public class Game {
         } else {
             currentRoom = nextRoom;
             currentRoom.runEnvironment();
+            //HelloApplication.showScene(currentRoom.getDescription());
             return true;
         }
     }
