@@ -33,6 +33,37 @@ public class HelloController implements Initializable {
         }
     }
 
+    //onClick calls from FXML
+    @FXML
+    protected void onBagButtonClick() {
+        System.out.println("Bag");
+    }
+    @FXML
+    protected void onMapButtonClick() {
+        System.out.println("Map");
+    }
+    @FXML
+    protected void onMagButtonClick() {
+        System.out.println("Magnifying Glass");
+    }
+    @FXML
+    protected void onHandButtonClick() {
+        System.out.println("Hand");
+    }
+    @FXML
+    protected void onTalkButtonClick() {
+        System.out.println("Talk");
+    }
+    @FXML
+    protected void onMenuButtonClick() {
+        System.out.println("Menu");
+    }
+    @FXML
+    protected void onHelpButtonClick() {
+        System.out.println("Help");
+    }
+    //End onClick calls from FXML
+
     public GridPane getBackground() {
         return this.background;
     }
