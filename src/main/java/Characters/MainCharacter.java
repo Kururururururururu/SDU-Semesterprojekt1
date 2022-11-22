@@ -22,9 +22,6 @@ public class MainCharacter {
     public void removeFromInventory(Item item) {
         player_inventory.removeFromInventory(item);
     }
-    public void showInventory() {
-        player_inventory.showInventory();
-    }
 
     public void useItem(Command command, Room currentRoom)    {
         if(currentRoom.getRoomId() == 0) {
@@ -38,7 +35,6 @@ public class MainCharacter {
                 return;
             } else {
                 System.out.println("Please choose an item you want to use from your inventory.");
-                this.player_inventory.showInventory();
                 return;
             }
         }
