@@ -25,18 +25,11 @@ public class MainCharacter {
 
     public void useItem(Command command, Room currentRoom)    {
         if(currentRoom.getRoomId() == 0) {
-            System.out.println("You cannot build in the hub!!");
             return;
         }
 
         if (!command.hasCommandValue()) {
-            if(this.player_inventory.getInventory().size() < 1) {
-                System.out.println("You don't have any items that can be placed.");
-                return;
-            } else {
-                System.out.println("Please choose an item you want to use from your inventory.");
-                return;
-            }
+            return;
         }
 
         Item forUse = new Item();
@@ -59,12 +52,11 @@ public class MainCharacter {
         }*/
 
         if(forUse.getId() == 0) {
-            System.out.println("No such item in invetory!");
-            System.out.println(command.getCommandValue());
+            // Find some alternative //System.out.println("No such item in invetory!");
         } else {
             this.removeFromInventory(forUse);
             currentRoom.placeItem(forUse);
-            System.out.println("Placed " + forUse.getType() + currentRoom.getShortDescription().substring(9));
+            // Find some alternative //System.out.println("Placed " + forUse.getType() + currentRoom.getDescription().substring(9));
         }
 
 

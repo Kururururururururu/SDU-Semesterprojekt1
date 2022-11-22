@@ -91,8 +91,8 @@ public class Game {
         }
     }
 
-    public String getRoomDescription() {
-        return currentRoom.getLongDescription();
+    public String getRoomName() {
+        return currentRoom.getDescription();
     }
 
     public CommandWords getCommands() {
