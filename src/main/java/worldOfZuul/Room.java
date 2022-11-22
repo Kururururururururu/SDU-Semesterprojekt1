@@ -23,12 +23,8 @@ public class Room {
         exits.put(direction, neighbor);
     }
 
-    public String getShortDescription() {
+    public String getDescription() {
         return description;
-    }
-
-    public String getLongDescription() {
-        return "You are" + description + ".\n" + getExitString();
     }
 
     private String getExitString() {
@@ -55,10 +51,9 @@ public class Room {
 
     }
 
-    public void placeItem(Item item) {
+    public boolean placeItem(Item item) {
         this.environmentInventory.addToInventory(item);
-        //this.environmentInventory.showInventory();
-
+        return true;
     }
 
     public Room getExit(String direction) {

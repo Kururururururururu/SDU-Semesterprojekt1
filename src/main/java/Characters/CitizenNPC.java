@@ -32,11 +32,11 @@ public class CitizenNPC extends NPC {
     }
 
     @Override
-    public void talk() {
+    public String talk() {
         while (this.currentResponse.equals(this.lastResponse)) {
             this.currentResponse = responses.get((int)(Math.random()*responses.size()));
         }
-        System.out.println("["+super.getName()+"] " + this.currentResponse);
         this.lastResponse = this.currentResponse;
+        return this.currentResponse;
     }
 }

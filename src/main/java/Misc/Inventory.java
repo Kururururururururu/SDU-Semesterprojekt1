@@ -15,7 +15,7 @@ public class Inventory {
     public void removeFromInventory(Item item) {
         player_inventory.remove(item);
     }
-    public void showInventory() {
+    public List<Item> getInventoryUniques() {
         ArrayList<Item> player_inventory_uniques = new ArrayList<>();
         Set<Item> unique_items = new HashSet<>(player_inventory);
         player_inventory_uniques.addAll(unique_items);
@@ -26,27 +26,11 @@ public class Inventory {
             }
         });
 
-        System.out.print("Current inventory: ");
         if (player_inventory.size() != 0) {
-            int list_length_count = 1;
-
-            for (Item item_uniques : player_inventory_uniques) {
-                int item_count = Collections.frequency(player_inventory, item_uniques);
-
-                if (item_count > 1) {
-                    System.out.print(item_count + "x");
-                }
-                if (list_length_count == player_inventory_uniques.size()){
-                    System.out.print("[" + item_uniques.getType() + "] {id: " + item_uniques.getId() + "}");
-                } else {
-                    System.out.print("[" + item_uniques.getType() + "] {id: " + item_uniques.getId() + "}, ");
-                }
-                list_length_count++;
-            }
-        } else {
-            System.out.println("empty");
+            //int item_count = Collections.frequency(player_inventory, item_uniques);
+            return player_inventory_uniques;
         }
-        System.out.println();
+        return new ArrayList<Item>();
     }
 
     public ArrayList<Item> getInventory() {
