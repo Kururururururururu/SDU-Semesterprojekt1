@@ -78,6 +78,12 @@ public class CommandLineClient {
         }
     }
 
+    public void cleanRun(){
+        for (int i = 0; i < 300; i++) {
+            System.out.println();
+        }
+    }
+
     //Controller
     public boolean processCommand(Command command) {
         boolean wantToQuit = false;
@@ -87,6 +93,8 @@ public class CommandLineClient {
         switch (commandWord) {
             case GO:
                 if (game.goRoom(command)) {
+                    cleanRun();
+                    game.printMap();
                     System.out.println(game.getRoomDescription());
                 } else {
                     System.out.println("Can't walk in that direction.");
