@@ -5,47 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b25991e-db25-45fe-b7b0-5df5d214a4df" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/SDU-Semesterprojekt1.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SDU-Semesterprojekt1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SDU-Semesterprojekt1.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SDU-Semesterprojekt1/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SDU-Semesterprojekt1/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SDU-Semesterprojekt1/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SDU-Semesterprojekt1/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SDU-Semesterprojekt1/Player/NPC.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SDU-Semesterprojekt1/SDU-Semesterprojekt1.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SDU-Semesterprojekt1/worldOfZuul/Command.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SDU-Semesterprojekt1/worldOfZuul/CommandImplementation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SDU-Semesterprojekt1/worldOfZuul/CommandWords.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SDU-Semesterprojekt1/worldOfZuul/CommandWordsImplementation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SDU-Semesterprojekt1/worldOfZuul/Commands.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SDU-Semesterprojekt1/worldOfZuul/Game.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SDU-Semesterprojekt1/worldOfZuul/Room.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SDU-Semesterprojekt1/worldOfZuul/textUI/CommandLineClient$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SDU-Semesterprojekt1/worldOfZuul/textUI/CommandLineClient.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SDU-Semesterprojekt1/worldOfZuul/textUI/Parser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SDU-Semesterprojekt1/worldOfZuul/textUI/WorldOfZuulApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WorldOfZuul/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WorldOfZuul/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WorldOfZuul/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WorldOfZuul/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WorldOfZuul/src/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/greenwatts/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/greenwatts/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/greenwatts/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/greenwatts/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/greenwatts/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/greenwatts/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/greenwatts/src/main/java/com/example/greenwatts/HelloApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/greenwatts/src/main/java/com/example/greenwatts/HelloController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/greenwatts/src/main/java/module-info.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/greenwatts/src/main/resources/com/example/greenwatts/hello-view.fxml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Characters/CitizenNPC.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Characters/GuideNPC.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Characters/MainCharacter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Characters/NPC.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Characters/ObstacleNPC.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Characters/Question.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Misc/Inventory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Misc/Item.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Misc/Money.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Misc/PointShop.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Misc/Points.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/worldOfZuul/Command.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/worldOfZuul/CommandImplementation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/worldOfZuul/CommandWords.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/worldOfZuul/CommandWordsImplementation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/worldOfZuul/Commands.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/worldOfZuul/Game.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/worldOfZuul/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,12 +45,20 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\david\OneDrive\Documents\GitHub\SDU-Semesterprojekt1\src\main\java\worldOfZuul" />
+      <recent name="C:\Users\david\OneDrive\Documents\GitHub\SDU-Semesterprojekt1\src\main\java\Misc" />
+      <recent name="C:\Users\david\OneDrive\Documents\GitHub\SDU-Semesterprojekt1\src\main\java\Characters" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -82,6 +69,7 @@
       <updated>1669108833022</updated>
       <workItem from="1669108834366" duration="20000" />
       <workItem from="1669108871567" duration="22000" />
+      <workItem from="1669110392100" duration="324000" />
     </task>
     <servers />
   </component>

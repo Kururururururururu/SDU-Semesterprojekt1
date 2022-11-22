@@ -6,6 +6,7 @@ module com.example.sdusemesterprojekt1 {
     requires com.dlsc.formsfx;
     requires org.kordamp.bootstrapfx.core;
     requires com.almasb.fxgl.all;
+    requires java.sql;
 
     opens com.example.sdusemesterprojekt1 to javafx.fxml;
     exports com.example.sdusemesterprojekt1;
