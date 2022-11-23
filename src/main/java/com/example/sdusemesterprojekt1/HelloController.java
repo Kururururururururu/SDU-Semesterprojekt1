@@ -18,48 +18,40 @@ public class HelloController implements Initializable {
     @FXML
     public static void movePlayer(String direction, GridPane background, Pane player) {
         switch (direction) {
-            case "up":
-                background.setRowIndex(player, background.getRowIndex(player) - 1);
-                break;
-            case "down":
-                background.setRowIndex(player, background.getRowIndex(player) + 1);
-                break;
-            case "left":
-                background.setColumnIndex(player, background.getColumnIndex(player) - 1);
-                break;
-            case "right":
-                background.setColumnIndex(player, background.getColumnIndex(player) + 1);
-                break;
+            case "up" -> { background.setRowIndex(player, background.getRowIndex(player) - 1); }
+            case "down" -> { background.setRowIndex(player, background.getRowIndex(player) + 1); }
+            case "left" -> { background.setColumnIndex(player, background.getColumnIndex(player) - 1); }
+            case "right" -> { background.setColumnIndex(player, background.getColumnIndex(player) + 1); }
         }
     }
 
     //onClick calls from FXML
     @FXML
-    protected void onBagButtonClick() {
+    public void onBagButtonClick() {
         System.out.println("Bag");
     }
     @FXML
-    protected void onMapButtonClick() {
+    public void onMapButtonClick() {
         System.out.println("Map");
     }
     @FXML
-    protected void onMagButtonClick() {
+    public void onMagButtonClick() {
         System.out.println("Magnifying Glass");
     }
     @FXML
-    protected void onHandButtonClick() {
+    public void onHandButtonClick() {
         System.out.println("Hand");
     }
     @FXML
-    protected void onTalkButtonClick() {
+    public void onTalkButtonClick() {
         System.out.println("Talk");
     }
     @FXML
-    protected void onMenuButtonClick() {
+    public void onMenuButtonClick() {
         System.out.println("Menu");
     }
     @FXML
-    protected void onHelpButtonClick() {
+    public void onHelpButtonClick() {
         System.out.println("Help");
     }
     //End onClick calls from FXML

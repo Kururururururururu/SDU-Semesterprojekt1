@@ -16,7 +16,7 @@ public class HelloApplication extends Application {
     private Game game;
     @Override
     public void start(Stage stage) throws IOException {
-        showScene("dirtyhills");
+        showScene("hub");
     }
 
     public void showScene(String sceneName)  {
@@ -40,21 +40,17 @@ public class HelloApplication extends Application {
     private void keypressHandler(KeyEvent event) {
         //Handle all keypresses here.
         switch (event.getCode())  {
-            case W:
-                HelloController.movePlayer("up", controller.getBackground(), controller.getPlayer());
-                break;
-
-            case S:
-                HelloController.movePlayer("down", controller.getBackground(), controller.getPlayer());
-                break;
-
-            case A:
-                HelloController.movePlayer("left", controller.getBackground(), controller.getPlayer());
-                break;
-
-            case D:
-                HelloController.movePlayer("right", controller.getBackground(), controller.getPlayer());
-                break;
+            case W -> { HelloController.movePlayer("up", controller.getBackground(), controller.getPlayer()); }
+            case S -> { HelloController.movePlayer("down", controller.getBackground(), controller.getPlayer()); }
+            case A -> { HelloController.movePlayer("left", controller.getBackground(), controller.getPlayer()); }
+            case D -> { HelloController.movePlayer("right", controller.getBackground(), controller.getPlayer()); }
+            case I -> { controller.onBagButtonClick(); }
+            case M -> { controller.onMapButtonClick(); }
+            case G -> { controller.onMagButtonClick(); }
+            case H -> { controller.onHandButtonClick(); }
+            case T -> { controller.onTalkButtonClick(); }
+            case ESCAPE -> { controller.onMenuButtonClick(); }
+            case F1 -> { controller.onHelpButtonClick(); }
         }
     }
 
