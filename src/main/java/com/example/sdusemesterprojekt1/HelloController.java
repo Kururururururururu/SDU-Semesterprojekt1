@@ -22,7 +22,7 @@ public class HelloController implements Initializable {
             case "up" -> { if(background.getRowIndex(player) > 0) { background.setRowIndex(player, background.getRowIndex(player) - 1); } }
             case "down" -> { if(background.getRowIndex(player) < 9) { background.setRowIndex(player, background.getRowIndex(player) + 1); } }
             case "left" -> { if(background.getColumnIndex(player) > 0) { background.setColumnIndex(player, background.getColumnIndex(player) - 1); } }
-            case "right" -> { if(background.getColumnIndex(player) < 9) { background.setColumnIndex(player, background.getColumnIndex(player) + 1); } }
+            case "right" -> { if(background.getColumnIndex(player) < 19) { background.setColumnIndex(player, background.getColumnIndex(player) + 1); } }
         }
     }
 
