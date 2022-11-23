@@ -18,10 +18,11 @@ public class HelloController implements Initializable {
     @FXML
     public static void movePlayer(String direction, GridPane background, Pane player) {
         switch (direction) {
-            case "up" -> { background.setRowIndex(player, background.getRowIndex(player) - 1); }
-            case "down" -> { background.setRowIndex(player, background.getRowIndex(player) + 1); }
-            case "left" -> { background.setColumnIndex(player, background.getColumnIndex(player) - 1); }
-            case "right" -> { background.setColumnIndex(player, background.getColumnIndex(player) + 1); }
+            //Move player, and keep it within constraints.
+            case "up" -> { if(background.getRowIndex(player) > 0) { background.setRowIndex(player, background.getRowIndex(player) - 1); } }
+            case "down" -> { if(background.getRowIndex(player) < 9) { background.setRowIndex(player, background.getRowIndex(player) + 1); } }
+            case "left" -> { if(background.getColumnIndex(player) > 0) { background.setColumnIndex(player, background.getColumnIndex(player) - 1); } }
+            case "right" -> { if(background.getColumnIndex(player) < 9) { background.setColumnIndex(player, background.getColumnIndex(player) + 1); } }
         }
     }
 
