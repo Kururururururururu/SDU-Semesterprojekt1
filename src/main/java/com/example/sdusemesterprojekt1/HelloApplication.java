@@ -11,15 +11,15 @@ import java.io.IOException;
 
 public class HelloApplication extends Application {
 
-    private Stage gameStage;
-    private HelloController controller = new HelloController();
     private Game game;
+    private static Stage gameStage;
+    private HelloController controller = new HelloController(game);
     @Override
     public void start(Stage stage) throws IOException {
         showScene("hub");
     }
 
-    public void showScene(String sceneName)  {
+    private void showScene(String sceneName)  {
         try {
             if(gameStage == null) {
                 gameStage = new Stage();
@@ -32,10 +32,29 @@ public class HelloApplication extends Application {
             gameStage.setScene(scene);
             scene.setOnKeyPressed(event -> keypressHandler(event));
             gameStage.show();
+            //HelloController.checkColliders(); // TODO fix when function is added.
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+    public static void SshowScene(String sceneName)  {
+        try {
+            if(gameStage == null) {
+                gameStage = new Stage();
+                gameStage.setTitle("Green Watts");
+            }
+
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(sceneName + ".fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            gameStage.setScene(scene);
+            gameStage.show();
+            //HelloController.checkColliders(); // TODO fix when function is added.
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     private void keypressHandler(KeyEvent event) {
         //Handle all keypresses here.
@@ -53,6 +72,9 @@ public class HelloApplication extends Application {
             case F1 -> { controller.onHelpButtonClick(); }
         }
     }
+
+
+
 
     public static void main(String[] args) {
         launch();

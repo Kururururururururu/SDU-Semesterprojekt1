@@ -52,15 +52,13 @@ public class Game {
         currentRoom = hub;
     }
 
-    public boolean goRoom(Command command) {
+    public boolean goRoom(String direction) {
 
-        if (!command.hasCommandValue()) {
+        if (direction == null) {
             //No direction on command.
             //Can't continue with GO command.
             return false;
         }
-
-        String direction = command.getCommandValue();
 
         Room nextRoom = currentRoom.getExit(direction);
 

@@ -1,23 +1,29 @@
 package EventColliders;
 
+import com.example.sdusemesterprojekt1.HelloApplication;
 import worldOfZuul.Game;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class SolidCollider extends Collider {
+public class RoomchangeCollider extends Collider {
 
-    public SolidCollider() {
+    private String pathLeadsTo;
+
+    public RoomchangeCollider() {
         super(new ArrayList<>(), new ArrayList<>());
+        this.pathLeadsTo = "hub";
     }
 
-    public SolidCollider(ArrayList<Integer> TstartPosition, ArrayList<Integer> TendPosition, String pathLeadsTo) {
+    public RoomchangeCollider(ArrayList<Integer> TstartPosition, ArrayList<Integer> TendPosition, String pathLeadsTo) {
         super(TstartPosition, TendPosition);
+        this.pathLeadsTo = pathLeadsTo;
     }
 
     @Override
     public void onCollision(Game game) {
-        // This is solid and has no event, leave empty.
+        // TODO Make the scene change as well.
+        HelloApplication.SshowScene(pathLeadsTo);
+        game.goRoom(pathLeadsTo);
     }
 
     @Override
@@ -45,5 +51,6 @@ public class SolidCollider extends Collider {
         }
         return true;
     }
+
 }
 

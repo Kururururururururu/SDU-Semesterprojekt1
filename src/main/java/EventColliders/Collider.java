@@ -1,5 +1,7 @@
 package EventColliders;
 
+import worldOfZuul.Game;
+
 import java.util.ArrayList;
 
 public abstract class Collider {
@@ -11,7 +13,8 @@ public abstract class Collider {
         this.endPosition = endPosition;
     }
 
-    public abstract void onCollision();
+    public abstract void onCollision(Game game);
+    public abstract boolean isColliding(int x, int y, String direction);
 
     public ArrayList<Integer> getStartPosition() {
         return startPosition;
