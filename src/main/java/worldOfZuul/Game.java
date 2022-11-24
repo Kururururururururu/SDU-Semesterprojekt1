@@ -69,7 +69,6 @@ public class Game {
         } else {
             currentRoom = nextRoom;
             currentRoom.runEnvironment();
-            //HelloApplication.showScene(currentRoom.getDescription());
             return true;
         }
     }
