@@ -111,6 +111,48 @@
                         <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                     </GridPane.margin>
                 </Button>
+            <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+            <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+            <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+            <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+            <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+            <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7" GridPane.rowIndex="2" />
+            <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="9" GridPane.rowIndex="2" />
+            <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="8" GridPane.rowIndex="1" />
+            <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+            <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+            <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+            <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="7" />
+            <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="8" />
+            <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+            <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+            <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="6" />
+            <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="7" />
+            <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="6" />
+            <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="10" GridPane.rowIndex="2" />
+            <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="11" GridPane.rowIndex="2" />
+            <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="12" GridPane.rowIndex="2" />
+            <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="13" GridPane.rowIndex="2" />
+            <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="14" GridPane.rowIndex="2" />
+            <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="14" GridPane.rowIndex="1" />
+            <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="13" GridPane.rowIndex="1" />
+            <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="12" GridPane.rowIndex="1" />
+            <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="11" GridPane.rowIndex="0"/>
+            <Pane id="roomchangecollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+            <Pane id="roomchangecollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7" GridPane.rowIndex="9" />
+            <Pane id="roomchangecollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="8" GridPane.rowIndex="9" />
+            <Pane id="roomchangecollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="9" GridPane.rowIndex="9" />
+            <Pane id="roomchangecollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="19" GridPane.rowIndex="4" />
+            <Pane id="roomchangecollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="19" GridPane.rowIndex="5" />
+            <Pane id="roomchangecollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="19" GridPane.rowIndex="6" />
             </children>
         </GridPane>
     </children>

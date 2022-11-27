@@ -1,9 +1,13 @@
 #background {
-    -fx-background-image: url("scenes/Background320x180.png");
+    -fx-background-image: url("scenes/coast.png");
     -fx-background-size: stretch;
 }
 #solidcollider{
     -fx-background-color: red;
+    -fx-opacity: 0.5;
+}
+#roomchangecollider{
+    -fx-background-color: blue;
     -fx-opacity: 0.5;
 }
 #map {
