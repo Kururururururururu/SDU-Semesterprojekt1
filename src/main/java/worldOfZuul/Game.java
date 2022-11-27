@@ -93,7 +93,7 @@ public class Game {
             gameStage.setScene(scene);
             scene.setOnKeyPressed(event -> keypressHandler(event));
             gameStage.show();
-            //HelloController.checkColliders(); // TODO fix when function is added.
+            controller.checkColliders(); // TODO Test this function
         } catch (IOException e) {
             e.printStackTrace();
         }

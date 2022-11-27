@@ -1,15 +1,20 @@
 package com.example.sdusemesterprojekt1;
 
 import EventColliders.Collider;
+import EventColliders.RoomchangeCollider;
+import EventColliders.SolidCollider;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.Node;
 import worldOfZuul.Game;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Set;
 
 
 public class HelloController implements Initializable {
@@ -89,8 +94,24 @@ public class HelloController implements Initializable {
         return true;
     }
 
-    public static void addCollider(Collider collider) {
-        colliders.add(collider);
+    public void checkColliders()    {
+        Set<Node> solidColliders = background.lookupAll("SolidCollider");
+        Set<Node> roomchangeColliders = background.lookupAll("RoomChangeCollider");
+
+        for (Node collider : solidColliders) {
+            colliders.add(new SolidCollider(new ArrayList<>(List.of(background.getRowIndex(collider),
+                                                                    background.getColumnIndex(collider))),
+                                            new ArrayList<>(List.of(background.getRowIndex(collider) + 1,
+                                                                    background.getColumnIndex(collider) + 1))));
+        }
+
+        for (Node collider : roomchangeColliders) {
+            colliders.add(new RoomchangeCollider(new ArrayList<>(List.of(background.getRowIndex(collider),
+                                                                         background.getColumnIndex(collider))),
+                                                 new ArrayList<>(List.of(background.getRowIndex(collider) + 1,
+                                                                         background.getColumnIndex(collider) + 1)),
+                                                 collider.getClass().toString()));
+        }
     }
 
     //onClick calls from FXML
