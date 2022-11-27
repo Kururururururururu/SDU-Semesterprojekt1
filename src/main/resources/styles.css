@@ -2,7 +2,10 @@
     -fx-background-image: url("scenes/Background320x180.png");
     -fx-background-size: stretch;
 }
-
+#solidcollider{
+    -fx-background-color: red;
+    -fx-opacity: 0.5;
+}
 #map {
     -fx-background-image: url("icons/Map16x16.png");
     -fx-background-size: stretch;
