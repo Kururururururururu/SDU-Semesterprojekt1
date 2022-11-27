@@ -12,7 +12,7 @@ public class HelloApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        game.showScene("solarcity");
+        game.showScene("hub");
     }
 
     public static void main(String[] args) {

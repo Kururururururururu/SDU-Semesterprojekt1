@@ -89,11 +89,12 @@ public class Game {
 
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(sceneName + ".fxml"));
             fxmlLoader.setController(controller);
+            System.out.println("Loading scene: " + sceneName);
             Scene scene = new Scene(fxmlLoader.load());
             gameStage.setScene(scene);
             scene.setOnKeyPressed(event -> keypressHandler(event));
             gameStage.show();
-            controller.checkColliders(); // TODO Test this function
+            controller.checkColliders();
         } catch (IOException e) {
             e.printStackTrace();
         }
