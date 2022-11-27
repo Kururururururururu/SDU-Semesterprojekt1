@@ -2,9 +2,6 @@ package EventColliders;
 
 import worldOfZuul.Game;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class SolidCollider extends Collider {
 
     public SolidCollider() {

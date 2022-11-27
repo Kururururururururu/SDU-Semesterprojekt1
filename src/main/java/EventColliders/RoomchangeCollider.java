@@ -1,9 +1,7 @@
 package EventColliders;
 
-import com.example.sdusemesterprojekt1.HelloApplication;
 import worldOfZuul.Game;
 
-import java.util.ArrayList;
 
 public class RoomchangeCollider extends Collider {
 

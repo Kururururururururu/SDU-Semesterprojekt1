@@ -5,7 +5,6 @@ import EventColliders.RoomchangeCollider;
 import EventColliders.SolidCollider;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.Node;
@@ -13,9 +12,7 @@ import worldOfZuul.Game;
 
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
-import java.util.Set;
 
 
 public class HelloController implements Initializable {
