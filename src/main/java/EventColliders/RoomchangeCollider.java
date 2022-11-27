@@ -22,7 +22,6 @@ public class RoomchangeCollider extends Collider {
     @Override
     public void onCollision(Game game) {
         // TODO Make the scene change as well.
-        HelloApplication.SshowScene(pathLeadsTo);
         game.goRoom(pathLeadsTo);
     }
 

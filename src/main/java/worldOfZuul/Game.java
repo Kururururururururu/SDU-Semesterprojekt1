@@ -3,11 +3,19 @@ package worldOfZuul;
 import java.util.List;
 import java.io.*;
 import com.example.sdusemesterprojekt1.HelloApplication;
+import com.example.sdusemesterprojekt1.HelloController;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.input.KeyEvent;
+import javafx.stage.Stage;
 
 public class Game {
 
     private Room currentRoom;
     private CommandWords commands;
+    private static Stage gameStage;
+
+    private HelloController controller = new HelloController(this);
 
     public Game() {
         createRooms();
@@ -66,8 +74,47 @@ public class Game {
             return false;
         } else {
             currentRoom = nextRoom;
+            showScene(currentRoom.getDescription());
             currentRoom.runEnvironment();
             return true;
+        }
+    }
+
+    public void showScene(String sceneName)  {
+        try {
+            if(gameStage == null) {
+                gameStage = new Stage();
+                gameStage.setTitle("Green Watts");
+            }
+
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(sceneName + ".fxml"));
+            fxmlLoader.setController(controller);
+            Scene scene = new Scene(fxmlLoader.load());
+            gameStage.setScene(scene);
+            scene.setOnKeyPressed(event -> keypressHandler(event));
+            gameStage.show();
+            //HelloController.checkColliders(); // TODO fix when function is added.
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    private void keypressHandler(KeyEvent event) {
+        //Handle all keypresses here.
+        switch (event.getCode())  {
+            case W -> { HelloController.movePlayer("up", controller.getBackground(), controller.getPlayer()); }
+            case S -> { HelloController.movePlayer("down", controller.getBackground(), controller.getPlayer()); }
+            case A -> { HelloController.movePlayer("left", controller.getBackground(), controller.getPlayer()); }
+            case D -> { HelloController.movePlayer("right", controller.getBackground(), controller.getPlayer()); }
+            case I -> { controller.onBagButtonClick(); }
+            case M -> { controller.onMapButtonClick(); }
+            case G -> { controller.onMagButtonClick(); }
+            case H -> { controller.onHandButtonClick(); }
+            case T -> { controller.onTalkButtonClick(); }
+            case ESCAPE -> { controller.onMenuButtonClick(); }
+            case F1 -> { controller.onHelpButtonClick(); }
+            case F2 -> { showScene("coast"); }
         }
     }
 
