@@ -107,7 +107,7 @@ public class HelloController implements Initializable {
                 }
                 if(child.getId().equals("roomchangecollider"))   {
                     //System.out.println("Roomchange collider found");
-                    colliders.add(new RoomchangeCollider(background.getRowIndex(child), background.getColumnIndex(child), child.getClass().toString()));
+                    colliders.add(new RoomchangeCollider(background.getRowIndex(child), background.getColumnIndex(child), child.getAccessibleText()));
                 }
             }
         }

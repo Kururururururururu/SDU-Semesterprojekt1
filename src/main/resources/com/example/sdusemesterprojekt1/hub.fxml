@@ -146,7 +146,7 @@
             <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="13" GridPane.rowIndex="1" />
             <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="12" GridPane.rowIndex="1" />
             <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="11" GridPane.rowIndex="0"/>
-            <Pane id="roomchangecollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+            <Pane id="roomchangecollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="4" accessibleText="coast"/>
             <Pane id="roomchangecollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7" GridPane.rowIndex="9" />
             <Pane id="roomchangecollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="8" GridPane.rowIndex="9" />
             <Pane id="roomchangecollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="9" GridPane.rowIndex="9" />
