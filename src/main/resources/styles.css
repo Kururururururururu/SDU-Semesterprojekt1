@@ -1,6 +1,24 @@
-#background {
+#coast {
     -fx-background-image: url("scenes/coast.png");
     -fx-background-size: stretch;
+}
+#hub {
+    -fx-background-image: url("Scenes/hub.png");
+    -fx-background-size: stretch;
+    -fx-background-color: none;
+    -fx-border-color: transparent;
+}
+#dirtyhills {
+    -fx-background-image: url("Scenes/dirtyhills.png");
+    -fx-background-size: stretch;
+    -fx-background-color: none;
+    -fx-border-color: transparent;
+}
+#solarcity {
+    -fx-background-image: url("Scenes/solarcity.png");
+    -fx-background-size: stretch;
+    -fx-background-color: none;
+    -fx-border-color: transparent;
 }
 #solidcollider{
     -fx-background-color: red;
@@ -69,19 +87,6 @@
 
 #questionmark {
     -fx-background-image: url("icons/QuestionMark16x16.png");
-    -fx-background-size: stretch;
-    -fx-background-color: none;
-    -fx-border-color: transparent;
-}
-
-#hub {
-    -fx-background-image: url("Scenes/hub.png");
-    -fx-background-size: stretch;
-    -fx-background-color: none;
-    -fx-border-color: transparent;
-}
-#dirtyhills {
-    -fx-background-image: url("Scenes/dirtyhills.png");
     -fx-background-size: stretch;
     -fx-background-color: none;
     -fx-border-color: transparent;
