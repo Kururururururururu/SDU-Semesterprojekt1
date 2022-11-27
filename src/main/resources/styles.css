@@ -20,12 +20,22 @@
     -fx-background-color: none;
     -fx-border-color: transparent;
 }
+#windytown {
+    -fx-background-image: url("Scenes/windytown.png");
+    -fx-background-size: stretch;
+    -fx-background-color: none;
+    -fx-border-color: transparent;
+}
 #solidcollider{
     -fx-background-color: red;
     -fx-opacity: 0.5;
 }
 #roomchangecollider{
     -fx-background-color: blue;
+    -fx-opacity: 0.5;
+}
+#installlocation{
+    -fx-background-color: teal;
     -fx-opacity: 0.5;
 }
 #map {
