@@ -10,12 +10,12 @@ public class RoomchangeCollider extends Collider {
     private String pathLeadsTo;
 
     public RoomchangeCollider() {
-        super(new ArrayList<>(), new ArrayList<>());
+        super(0,0);
         this.pathLeadsTo = "hub";
     }
 
-    public RoomchangeCollider(ArrayList<Integer> TstartPosition, ArrayList<Integer> TendPosition, String pathLeadsTo) {
-        super(TstartPosition, TendPosition);
+    public RoomchangeCollider(int x_pos, int y_pos, String pathLeadsTo) {
+        super(x_pos, y_pos);
         this.pathLeadsTo = pathLeadsTo;
     }
 
@@ -43,10 +43,8 @@ public class RoomchangeCollider extends Collider {
                 break;
         }
         //Check if the coordinates are within the collider.
-        if(x >= getStartPosition().get(0) && x <= getEndPosition().get(0)) {
-            if(y >= getStartPosition().get(1) && y <= getEndPosition().get(1)) {
-                return false;
-            }
+        if(x == this.x_pos && y == this.y_pos) {
+            return false;
         }
         return true;
     }

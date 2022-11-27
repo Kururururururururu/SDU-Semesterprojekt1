@@ -61,6 +61,15 @@ public class HelloController implements Initializable {
     }
 
     private static boolean tileIsWalkable(int y, int x, GridPane background, Pane player, String direction) {
+        //Check if the tile is a collider.
+        for (Collider collider : colliders) {
+            if (collider.isColliding(background.getRowIndex(player), background.getColumnIndex(player), direction)) {
+                //System.out.println("player is at: " + background.getColumnIndex(player) + ", " + background.getRowIndex(player) + " and is colliding with " + collider.getPosition());
+                collider.onCollision(game);
+                return false;
+            }
+        }
+
         //Check if the tile is within the grid.
         switch (direction)  {
             case "up":
@@ -85,33 +94,22 @@ public class HelloController implements Initializable {
                 break;
         }
 
-        //Check if the tile is a collider.
-        for (Collider collider : colliders) {
-            if (collider.isColliding(background.getRowIndex(player), background.getColumnIndex(player), direction)) {
-                collider.onCollision(game);
-                return false;
-            }
-        }
         return true;
     }
 
     public void checkColliders()    {
-        Set<Node> solidColliders = background.lookupAll("SolidCollider");
-        Set<Node> roomchangeColliders = background.lookupAll("RoomChangeCollider");
-
-        for (Node collider : solidColliders) {
-            colliders.add(new SolidCollider(new ArrayList<>(List.of(background.getRowIndex(collider),
-                                                                    background.getColumnIndex(collider))),
-                                            new ArrayList<>(List.of(background.getRowIndex(collider) + 1,
-                                                                    background.getColumnIndex(collider) + 1))));
-        }
-
-        for (Node collider : roomchangeColliders) {
-            colliders.add(new RoomchangeCollider(new ArrayList<>(List.of(background.getRowIndex(collider),
-                                                                         background.getColumnIndex(collider))),
-                                                 new ArrayList<>(List.of(background.getRowIndex(collider) + 1,
-                                                                         background.getColumnIndex(collider) + 1)),
-                                                 collider.getClass().toString()));
+        //System.out.println("Checking colliders");
+        for(Node child : background.getChildren())  {
+            if(child.getId() != null)   {
+                if(child.getId().equals("solidcollider"))   {
+                    //System.out.println("Solid collider found");
+                    colliders.add(new SolidCollider(background.getRowIndex(child), background.getColumnIndex(child)));
+                }
+                if(child.getId().equals("roomchangecollider"))   {
+                    //System.out.println("Roomchange collider found");
+                    colliders.add(new RoomchangeCollider(background.getRowIndex(child), background.getColumnIndex(child), child.getClass().toString()));
+                }
+            }
         }
     }
 

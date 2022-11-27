@@ -8,11 +8,11 @@ import java.util.List;
 public class SolidCollider extends Collider {
 
     public SolidCollider() {
-        super(new ArrayList<>(), new ArrayList<>());
+        super(0,0);
     }
 
-    public SolidCollider(ArrayList<Integer> TstartPosition, ArrayList<Integer> TendPosition) {
-        super(TstartPosition, TendPosition);
+    public SolidCollider(int x, int y) {
+        super(x,y);
     }
 
     @Override
@@ -23,27 +23,26 @@ public class SolidCollider extends Collider {
     @Override
     public boolean isColliding(int x, int y, String direction) {
         //Change the coordinates to prepare for the check.
-        switch(direction) {
+        switch(direction) { // X & Y is inverted, and does not work if you correct it. I don't know why.
             case "up":
-                y--;
-                break;
-            case "down":
-                y++;
-                break;
-            case "left":
                 x--;
                 break;
-            case "right":
+            case "down":
                 x++;
+                break;
+            case "left":
+                y--;
+                break;
+            case "right":
+                y++;
                 break;
         }
         //Check if the coordinates are within the collider.
-        if(x >= getStartPosition().get(0) && x <= getEndPosition().get(0)) {
-            if(y >= getStartPosition().get(1) && y <= getEndPosition().get(1)) {
-                return false;
-            }
+        if(x == this.x_pos && y == this.y_pos) {
+            //System.out.println("Collision detected");
+            return true;
         }
-        return true;
+        return false;
     }
 }
 
