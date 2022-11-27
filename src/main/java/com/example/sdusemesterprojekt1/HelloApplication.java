@@ -18,11 +18,6 @@ public class HelloApplication extends Application {
         game.showScene("hub");
     }
 
-
-
-
-
-
     public static void main(String[] args) {
         launch();
     }

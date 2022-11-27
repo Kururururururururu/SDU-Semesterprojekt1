@@ -11,7 +11,7 @@ public class SolidCollider extends Collider {
         super(new ArrayList<>(), new ArrayList<>());
     }
 
-    public SolidCollider(ArrayList<Integer> TstartPosition, ArrayList<Integer> TendPosition, String pathLeadsTo) {
+    public SolidCollider(ArrayList<Integer> TstartPosition, ArrayList<Integer> TendPosition) {
         super(TstartPosition, TendPosition);
     }
 
