@@ -51,8 +51,8 @@ public class Game {
         sc.setExit("S",no);
         sc.setExit("W",wt);
 
-        wt.setExit("E",sc);
-        wt.setExit("S",no);
+        wt.setExit("N",sc);
+        wt.setExit("E",no);
 
         no.setExit("N",sc);
         no.setExit("W",wt);
