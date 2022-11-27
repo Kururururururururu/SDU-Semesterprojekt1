@@ -3,6 +3,7 @@ package worldOfZuul;
 import java.util.List;
 import java.io.*;
 
+import Characters.MainCharacter;
 import Misc.Money;
 import com.example.sdusemesterprojekt1.HelloApplication;
 import com.example.sdusemesterprojekt1.HelloController;
@@ -18,6 +19,8 @@ public class Game {
     private static Stage gameStage;
 
     private HelloController controller = new HelloController(this);
+
+    MainCharacter mainCharacter = new MainCharacter("John");
 
     public Game() {
         createRooms();
@@ -150,5 +153,7 @@ public class Game {
     public String get_curr_id() {
         return currentRoom.getRoomId().toString();
     }
+
+    public MainCharacter getMainCharacter() { return this.mainCharacter;}
 
 }

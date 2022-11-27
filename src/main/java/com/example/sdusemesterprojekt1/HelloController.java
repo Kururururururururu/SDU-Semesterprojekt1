@@ -3,6 +3,8 @@ package com.example.sdusemesterprojekt1;
 import EventColliders.Collider;
 import EventColliders.RoomchangeCollider;
 import EventColliders.SolidCollider;
+import Misc.Inventory;
+import Misc.Item;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.GridPane;
@@ -115,7 +117,12 @@ public class HelloController implements Initializable {
     //onClick calls from FXML
     @FXML
     public void onBagButtonClick() {
+        game.getMainCharacter().getPlayer_inventory().getInventory();
+        for (Item i: game.getMainCharacter().getPlayer_inventory().getInventory()) {
+            System.out.println(i.toString());
+        }
         System.out.println("Bag");
+        game.getMainCharacter().addToInventory(new Item("solar", 15,1));
     }
     @FXML
     public void onMapButtonClick() {
