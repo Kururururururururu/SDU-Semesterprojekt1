@@ -2,6 +2,8 @@ package worldOfZuul;
 
 import java.util.List;
 import java.io.*;
+
+import Misc.Money;
 import com.example.sdusemesterprojekt1.HelloApplication;
 import com.example.sdusemesterprojekt1.HelloController;
 import javafx.fxml.FXMLLoader;
@@ -24,38 +26,36 @@ public class Game {
 
     private void createRooms() {
         // Room outside, theatre, pub, lab, office;
-        Room hub, F, B, A, C, G, E, D;
+        Room hub, dh, wt, sc, c, no;
 
         hub = new Room("Hub", 0);
-        F = new Room("Dirty Hills", 1);
-        B = new Room("Windy Town", 2);
-        A = new Room("Solar City", 3);
-        C = new Room("Coast", 4);
-        G = new Room("New Orleans", 5);
+        dh = new Room("Dirty Hills", 1);
+        wt = new Room("Windy Town", 2);
+        sc = new Room("Solar City", 3);
+        c = new Room("Coast", 4);
+        no = new Room("New Orleans", 5);
 
 
-        hub.setExit("E", F);
-        hub.setExit("SE", B);
-        hub.setExit("S", A);
+        // initialise room exits
+        hub.setExit("W",c);
+        hub.setExit("E",dh);
+        hub.setExit("S",sc);
 
-        F.setExit("E", G);
-        F.setExit("S", B);
-        F.setExit("W", hub);
+        c.setExit("E",hub);
 
-        B.setExit("N", F);
-        B.setExit("SW", C);
-        B.setExit("W", A);
-        B.setExit("NW", hub);
+        dh.setExit("W",hub);
+        dh.setExit("S",sc);
 
-        A.setExit("N", hub);
-        A.setExit("E", B);
-        A.setExit("S", C);
+        sc.setExit("N",hub);
+        sc.setExit("E",dh);
+        sc.setExit("S",no);
+        sc.setExit("W",wt);
 
-        C.setExit("N", A);
-        C.setExit("NE", B);
+        wt.setExit("E",sc);
+        wt.setExit("S",no);
 
-        G.setExit("SW", B);
-        G.setExit("W", F);
+        no.setExit("N",sc);
+        no.setExit("W",wt);
 
         currentRoom = hub;
     }
@@ -74,7 +74,7 @@ public class Game {
             return false;
         } else {
             currentRoom = nextRoom;
-            showScene(currentRoom.getDescription());
+            showScene(currentRoom.getDescription().toLowerCase().replaceAll("\s+",""));
             currentRoom.runEnvironment();
             return true;
         }
@@ -115,7 +115,7 @@ public class Game {
             case T -> { controller.onTalkButtonClick(); }
             case ESCAPE -> { controller.onMenuButtonClick(); }
             case F1 -> { controller.onHelpButtonClick(); }
-            case F2 -> { showScene("coast"); }
+            case F2 -> { Money.addMoney(100); }
         }
     }
 

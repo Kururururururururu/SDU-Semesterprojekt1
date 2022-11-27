@@ -142,9 +142,9 @@
             <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="13" GridPane.rowIndex="6" />
             <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="12" GridPane.rowIndex="6" />
             <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="14" GridPane.rowIndex="6" />
-            <Pane id="roomchangecollider" accessibleText="hub" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="19" GridPane.rowIndex="4" />
-            <Pane id="roomchangecollider" accessibleText="hub" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="19" GridPane.rowIndex="5" />
-            <Pane id="roomchangecollider" accessibleText="hub" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="19" GridPane.rowIndex="6" />
+            <Pane id="roomchangecollider" accessibleText="E" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="19" GridPane.rowIndex="4" />
+            <Pane id="roomchangecollider" accessibleText="E" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="19" GridPane.rowIndex="5" />
+            <Pane id="roomchangecollider" accessibleText="E" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="19" GridPane.rowIndex="6" />
          </children>
       </GridPane>
    </children>

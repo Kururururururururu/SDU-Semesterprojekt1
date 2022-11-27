@@ -1,5 +1,6 @@
 package com.example.sdusemesterprojekt1;
 
+import Misc.Money;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import worldOfZuul.Game;
@@ -13,6 +14,7 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         game.showScene("hub");
+        Money.addMoney(100);
     }
 
     public static void main(String[] args) {

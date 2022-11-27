@@ -155,13 +155,13 @@
             <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="16" GridPane.rowIndex="6" />
             <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="17" GridPane.rowIndex="7" />
             <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="15" GridPane.rowIndex="7" />
-            <Pane id="roomchangecollider" accessibleText="windytown" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-            <Pane id="roomchangecollider" accessibleText="hub" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="8" GridPane.rowIndex="0" />
-            <Pane id="roomchangecollider" accessibleText="hub" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="9" GridPane.rowIndex="0" />
+            <Pane id="roomchangecollider" accessibleText="W" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <Pane id="roomchangecollider" accessibleText="N" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="8" GridPane.rowIndex="0" />
+            <Pane id="roomchangecollider" accessibleText="N" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="9" GridPane.rowIndex="0" />
             <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="19" GridPane.rowIndex="6" />
-            <Pane id="roomchangecollider" accessibleText="unknown" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="8" GridPane.rowIndex="9" />
-            <Pane id="roomchangecollider" accessibleText="unknown" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="9" GridPane.rowIndex="9" />
-            <Pane id="roomchangecollider" accessibleText="unkown" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7" GridPane.rowIndex="9" />
+            <Pane id="roomchangecollider" accessibleText="S" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="8" GridPane.rowIndex="9" />
+            <Pane id="roomchangecollider" accessibleText="S" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="9" GridPane.rowIndex="9" />
+            <Pane id="roomchangecollider" accessibleText="S" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7" GridPane.rowIndex="9" />
          </children>
       </GridPane>
    </children>

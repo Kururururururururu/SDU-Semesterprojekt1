@@ -27,6 +27,7 @@ public class Room {
         return description;
     }
 
+
     private String getExitString() {
         String returnString = "Exits:";
         Set<String> keys = exits.keySet();
@@ -35,6 +36,8 @@ public class Room {
         }
         return returnString;
     }
+
+
 
     public void runEnvironment()  {
         //System.out.println(this.lastVisited);
@@ -56,9 +59,12 @@ public class Room {
         return true;
     }
 
+
     public Room getExit(String direction) {
         return exits.get(direction);
     }
+    
+
 
     public Integer getRoomId() { return this.RoomId; }
 }

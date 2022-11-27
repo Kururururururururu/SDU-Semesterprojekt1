@@ -19,7 +19,6 @@ public class RoomchangeCollider extends Collider {
 
     @Override
     public void onCollision(Game game) {
-        game.showScene(pathLeadsTo);
         game.goRoom(pathLeadsTo);
     }
 
