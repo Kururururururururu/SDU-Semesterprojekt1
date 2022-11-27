@@ -28,25 +28,26 @@ public class RoomchangeCollider extends Collider {
     @Override
     public boolean isColliding(int x, int y, String direction) {
         //Change the coordinates to prepare for the check.
-        switch(direction) {
+        switch(direction) { // X & Y is inverted, and does not work if you correct it. I don't know why.
             case "up":
-                y--;
-                break;
-            case "down":
-                y++;
-                break;
-            case "left":
                 x--;
                 break;
-            case "right":
+            case "down":
                 x++;
+                break;
+            case "left":
+                y--;
+                break;
+            case "right":
+                y++;
                 break;
         }
         //Check if the coordinates are within the collider.
         if(x == this.x_pos && y == this.y_pos) {
-            return false;
+            //System.out.println("Collision detected");
+            return true;
         }
-        return true;
+        return false;
     }
 
 }
