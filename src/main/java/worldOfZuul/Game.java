@@ -25,9 +25,10 @@ public class Game {
     }
 
     private void createRooms() {
-        // Room outside, theatre, pub, lab, office;
+        // create the rooms
         Room hub, dh, wt, sc, c, no;
 
+        // Initialise room objects
         hub = new Room("Hub", 0);
         dh = new Room("Dirty Hills", 1);
         wt = new Room("Windy Town", 2);
@@ -36,28 +37,34 @@ public class Game {
         no = new Room("New Orleans", 5);
 
 
-        // initialise room exits
+        // Set data for rooms
         hub.setExit("W",c);
         hub.setExit("E",dh);
         hub.setExit("S",sc);
+        hub.setSlots(0,0);
 
         c.setExit("E",hub);
+        c.setSlots(0,0);
 
         dh.setExit("W",hub);
         dh.setExit("S",sc);
+        dh.setSlots(0,0);
 
         sc.setExit("N",hub);
         sc.setExit("E",dh);
         sc.setExit("S",no);
         sc.setExit("W",wt);
+        sc.setSlots(3,1);
 
         wt.setExit("N",sc);
         wt.setExit("E",no);
+        wt.setSlots(2,2);
 
         no.setExit("N",sc);
         no.setExit("W",wt);
+        no.setSlots(0,0);
 
-        currentRoom = hub;
+        currentRoom = c;
     }
 
     public boolean goRoom(String direction) {

@@ -13,6 +13,8 @@ public class Room {
     private long lastVisited = 0;
     private Inventory environmentInventory = new Inventory();
 
+    private int solarSlots = 0, windSlots = 0;
+
     public Room(String description, Integer RoomId) {
         this.RoomId = RoomId;
         this.description = description;
@@ -55,8 +57,59 @@ public class Room {
     }
 
     public boolean placeItem(Item item) {
-        this.environmentInventory.addToInventory(item);
-        return true;
+        if(item.getType().equals("solar") && this.solarSlots > 0) {
+            this.environmentInventory.addToInventory(item);
+            this.solarSlots--;
+            //TODO Put a render method here.
+
+            return true;
+        } else if(item.getType().equals("wind") && this.windSlots > 0 || item.getType().equals("solar") && this.windSlots > 0) {
+            this.environmentInventory.addToInventory(item);
+            this.windSlots--;
+            //TODO Put a render method here.
+
+            return true;
+        }
+        return false;
+    }
+
+    public int getSolarSlots() {
+        return this.solarSlots;
+    }
+
+    public int getWindSlots() {
+        return this.windSlots;
+    }
+
+    public void setSlots(int solarSlots, int windSlots) {
+        this.solarSlots = solarSlots;
+        this.windSlots = windSlots;
+    }
+
+    public boolean checkSlot(String type)   {
+        if(type.equals("solar")) {
+            for (Item item : this.environmentInventory.getInventory()) {
+                if(item.getType().equals("solar")) {
+                    this.solarSlots--;
+                }
+            }
+
+            if (this.solarSlots > 0) {
+                return true;
+            }
+        }
+        else if(type.equals("wind")) {
+            for(Item item : this.environmentInventory.getInventory()) {
+                if(item.getType().equals("wind")) {
+                    this.windSlots--;
+                }
+            }
+
+            if(this.windSlots > 0)  {
+                return true;
+            }
+        }
+        return false;
     }
 
 
