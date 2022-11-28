@@ -3,7 +3,6 @@ package com.example.sdusemesterprojekt1;
 import EventColliders.Collider;
 import EventColliders.RoomchangeCollider;
 import EventColliders.SolidCollider;
-import Misc.Inventory;
 import Misc.Item;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -14,6 +13,7 @@ import worldOfZuul.Game;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 
@@ -117,9 +117,10 @@ public class HelloController implements Initializable {
     //onClick calls from FXML
     @FXML
     public void onBagButtonClick() {
-        game.getMainCharacter().getPlayer_inventory().getInventory();
-        for (Item i: game.getMainCharacter().getPlayer_inventory().getInventory()) {
-            System.out.println(i.toString());
+        List<Item> inv = game.getMainCharacter().getPlayer_inventory().getInventoryUniques();
+        System.out.println(inv.toString());
+        for (Item i: inv) {
+            System.out.println(i.getType());
         }
         System.out.println("Bag");
         game.getMainCharacter().addToInventory(new Item("solar", 15,1));
