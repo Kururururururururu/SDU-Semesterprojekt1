@@ -8,11 +8,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.SubScene;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.*;
 import javafx.scene.Node;
 import worldOfZuul.Game;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +30,7 @@ public class HelloController implements Initializable {
     @FXML
     private Pane player;
     @FXML
-    private SubScene subscene;
+    private BorderPane subScene;
 
     public HelloController(Game tgame) {
         game = tgame;
@@ -121,17 +121,37 @@ public class HelloController implements Initializable {
 
     //onClick calls from FXML
     @FXML
-    public void onBagButtonClick() {
-        disableControls = true;
-        List<Item> inv = game.getMainCharacter().getPlayer_inventory().getInventoryUniques();
-        System.out.println(inv.toString());
-        for (Item i: inv) {
-            System.out.println(i.getType());
+    public void onBagButtonClick() throws IOException {
+        if(!subScene.isVisible()){
+            disableControls = true;
+            ArrayList<Item> inv = game.getMainCharacter().getPlayer_inventory().getInventoryUniques();
+            System.out.println(inv.toString());
+            for (Item i: inv) {
+                System.out.println(i.getType());
+            }
+            System.out.println("Bag");
+            game.getMainCharacter().addToInventory(new Item("solar", 15,1));
+
+
+            try {
+                System.out.println("Loading subscene: Inventory");
+                AnchorPane inventory = FXMLLoader.load(getClass().getResource("inventory.fxml"));
+
+                subScene.setCenter(inventory);
+                subScene.setVisible(true);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            disableControls = false;
+            subScene.setVisible(false);
         }
-        System.out.println("Bag");
-        game.getMainCharacter().addToInventory(new Item("solar", 15,1));
-        FXMLLoader inventory = new FXMLLoader(HelloApplication.class.getResource("inventory.fxml"));
-        subscene.setVisible(true);
+
+
+    }
+    @FXML
+    public void onBagCloseButtonClick() {
+        // Crashes if button is linked to controller through SubScene. Don't know why.
     }
     @FXML
     public void onMapButtonClick() {
@@ -167,6 +187,9 @@ public class HelloController implements Initializable {
         return this.player;
     }
 
+    //public BorderPane getSubScene() {
+    //    return this.subScene;
+    //}
 
 
     @Override

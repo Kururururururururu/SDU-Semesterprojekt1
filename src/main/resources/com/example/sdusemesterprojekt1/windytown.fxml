@@ -2,13 +2,12 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.SubScene?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 
@@ -153,14 +152,11 @@
                   <Pane id="installlocation" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="9" GridPane.rowIndex="3" />
                </children>
             </GridPane>
-            <SubScene id="subscene" fx:id="subscene" fill="BLACK" height="180.0" visible="false" width="320.0">
-              <root>
-                <Region />
-              </root>
+            <BorderPane id="subScene" fx:id="subScene" accessibleText="subScene" maxHeight="180.0" maxWidth="320.0" minHeight="180.0" minWidth="320.0" prefHeight="180.0" prefWidth="320.0" visible="false" StackPane.alignment="CENTER">
                <StackPane.margin>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                  <Insets />
                </StackPane.margin>
-            </SubScene>
+            </BorderPane>
          </children></StackPane>
    </children>
 </AnchorPane>

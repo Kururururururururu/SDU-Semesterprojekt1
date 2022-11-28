@@ -15,7 +15,7 @@ public class Inventory {
     public void removeFromInventory(Item item) {
         player_inventory.remove(item);
     }
-    public List<Item> getInventoryUniques() {
+    public ArrayList<Item> getInventoryUniques() {
         ArrayList<Item> player_inventory_uniques = new ArrayList<>();
         Set<Item> unique_items = new HashSet<>(player_inventory);
         player_inventory_uniques.addAll(unique_items);

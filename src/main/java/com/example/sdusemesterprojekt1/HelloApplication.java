@@ -13,7 +13,7 @@ public class HelloApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        game.showScene("hub");
+        game.showScene("windytown");
         Money.addMoney(100);
 
     }

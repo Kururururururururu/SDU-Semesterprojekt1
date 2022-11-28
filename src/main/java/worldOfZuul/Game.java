@@ -7,9 +7,12 @@ import Characters.MainCharacter;
 import Misc.Money;
 import com.example.sdusemesterprojekt1.HelloApplication;
 import com.example.sdusemesterprojekt1.HelloController;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class Game {
@@ -17,7 +20,6 @@ public class Game {
     private Room currentRoom;
     private CommandWords commands;
     private static Stage gameStage;
-
     private HelloController controller = new HelloController(this);
 
     MainCharacter mainCharacter = new MainCharacter("John");
@@ -95,16 +97,24 @@ public class Game {
             System.out.println("Loading scene: " + sceneName);
             Scene scene = new Scene(fxmlLoader.load());
             gameStage.setScene(scene);
-            scene.setOnKeyPressed(event -> keypressHandler(event));
+            scene.setOnKeyPressed(event -> {
+                try {
+                    keypressHandler(event);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            });
             gameStage.show();
             controller.checkColliders();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+    public void showSubScene(String subSceneName, BorderPane subScene) {
+    }
 
 
-    private void keypressHandler(KeyEvent event) {
+    private void keypressHandler(KeyEvent event) throws IOException {
         //Handle all keypresses here.
         switch (event.getCode())  {
             case W -> { HelloController.movePlayer("up", controller.getBackground(), controller.getPlayer()); }
