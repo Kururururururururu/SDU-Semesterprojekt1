@@ -5,7 +5,9 @@ import EventColliders.RoomchangeCollider;
 import EventColliders.SolidCollider;
 import Misc.Item;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.SubScene;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.Node;
@@ -21,12 +23,14 @@ public class HelloController implements Initializable {
 
     private static Game game = new Game();
 
-
+    private static boolean disableControls = false;
     private static ArrayList<Collider> colliders = new ArrayList<>();
     @FXML
     private GridPane background;
     @FXML
     private Pane player;
+    @FXML
+    private SubScene subscene;
 
     public HelloController(Game tgame) {
         game = tgame;
@@ -34,6 +38,7 @@ public class HelloController implements Initializable {
 
     @FXML
     public static void movePlayer(String direction, GridPane background, Pane player) {
+        if(disableControls){return;}
         switch (direction) {
             //Move player, and keep it within constraints.
             case "up" -> {
@@ -117,6 +122,7 @@ public class HelloController implements Initializable {
     //onClick calls from FXML
     @FXML
     public void onBagButtonClick() {
+        disableControls = true;
         List<Item> inv = game.getMainCharacter().getPlayer_inventory().getInventoryUniques();
         System.out.println(inv.toString());
         for (Item i: inv) {
@@ -124,6 +130,8 @@ public class HelloController implements Initializable {
         }
         System.out.println("Bag");
         game.getMainCharacter().addToInventory(new Item("solar", 15,1));
+        FXMLLoader inventory = new FXMLLoader(HelloApplication.class.getResource("inventory.fxml"));
+        subscene.setVisible(true);
     }
     @FXML
     public void onMapButtonClick() {

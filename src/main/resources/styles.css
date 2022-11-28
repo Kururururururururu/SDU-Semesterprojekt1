@@ -52,6 +52,17 @@
     -fx-background-color: none;
     -fx-border-color: transparent;
 }
+#inventoryBackground{
+    -fx-background-color: #DBDBDB;
+}
+#inventorySlot{
+    -fx-background-color: A4A4A4;
+}
+#inventoryCloseButton{
+    -fx-background-color: #D30000;
+    -fx-background-size: stretch;
+    -fx-font-color: white;
+}
 
 #magglass {
     -fx-background-image: url("icons/MagGlass16x16.png");
