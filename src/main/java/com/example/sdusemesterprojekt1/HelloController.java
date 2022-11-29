@@ -40,6 +40,7 @@ public class HelloController implements Initializable {
     private Label slot1label, slot2label, slot3label, slot4label, slot5label, slot6label, slot7label, slot8label;
     @FXML
     private Tooltip slot1tooltip, slot2tooltip, slot3tooltip, slot4tooltip, slot5tooltip, slot6tooltip, slot7tooltip, slot8tooltip;
+    private Pane npc;
 
     public HelloController(Game tgame) {
         game = tgame;
@@ -195,6 +196,7 @@ public class HelloController implements Initializable {
     @FXML
     public void onTalkButtonClick() {
         System.out.println("Talk");
+        npcTalk();
     }
     @FXML
     public void onMenuButtonClick() {
@@ -214,13 +216,56 @@ public class HelloController implements Initializable {
         return this.player;
     }
 
+
     //public BorderPane getSubScene() {
     //    return this.subScene;
     //}
+
+    public Pane getNPC() {return this.npc; }
+
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+    }
+    @FXML
+    private boolean npcIsTalkable(GridPane background, Pane player, Pane npc) {
+        if (background.getRowIndex(player) == background.getRowIndex(npc) - 1
+        && background.getColumnIndex(player) == background.getColumnIndex(npc) - 1)
+            return true;
+        else if (background.getRowIndex(player) == background.getRowIndex(npc) - 1
+        && background.getColumnIndex(player) == background.getColumnIndex(npc) + 1)
+            return true;
+        else if (background.getRowIndex(player) == background.getRowIndex(npc) + 1
+                && background.getColumnIndex(player) == background.getColumnIndex(npc) + 1)
+            return true;
+        else if (background.getRowIndex(player) == background.getRowIndex(npc) + 1
+                && background.getColumnIndex(player) == background.getColumnIndex(npc) - 1)
+            return true;
+        else if (background.getRowIndex(player) == background.getRowIndex(npc) - 1
+                && background.getColumnIndex(player) == background.getColumnIndex(npc) + 1)
+            return true;
+        else if (background.getRowIndex(player) == background.getRowIndex(npc) - 1
+                && background.getColumnIndex(player) == background.getColumnIndex(npc))
+            return true;
+        else if (background.getRowIndex(player) == background.getRowIndex(npc) + 1
+                && background.getColumnIndex(player) == background.getColumnIndex(npc))
+            return true;
+        else if (background.getRowIndex(player) == background.getRowIndex(npc)
+                && background.getColumnIndex(player) == background.getColumnIndex(npc) - 1)
+            return true;
+        else if (background.getRowIndex(player) == background.getRowIndex(npc)
+                && background.getColumnIndex(player) == background.getColumnIndex(npc) + 1)
+            return true;
+        else {
+            return false;
+        }
+    }
+    @FXML
+    public void npcTalk() {
+        if (npcIsTalkable(getBackground(), getPlayer(), getNPC())) {
+            System.out.println("HELLO I CAN TALK");
+        }
     }
 }
