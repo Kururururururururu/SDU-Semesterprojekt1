@@ -9,13 +9,13 @@ import java.util.List;
 public class PointShop {
 
     private ArrayList<Item> forSale_Hub = new ArrayList<>(List.of(
-            new Item("Solar panel", 100, 1),
-            new Item("Wind turbine", 100, 2)
+            new Item("solarpanel", 100, 1, "Small Solar Panel"),
+            new Item("windturbine", 100, 2, "Small Wind Turbine")
     ));
 
     private ArrayList<Item> forSale_Dirt = new ArrayList<>(List.of(
-            new Item("Coal generator", 100, 1),
-            new Item("Oil generator", 100, 2)
+            new Item("coalgenerator", 100, 1, "Small Coal Generator"),
+            new Item("oilgenerator", 100, 2, "Small Oil Generator")
     ));
 
 //    ArrayList<Item> forSale;

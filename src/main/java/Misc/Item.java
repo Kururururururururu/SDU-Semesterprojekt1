@@ -2,6 +2,7 @@ package Misc;
 
 public class Item {
     private String type;
+    private String name;
     private Integer id;
     private Integer price;
     public Item() {
@@ -9,10 +10,11 @@ public class Item {
         this.price = 0;
         this.id = 0;
     }
-    public Item(String type, Integer price, Integer id) {
+    public Item(String type, Integer price, Integer id, String name) {
         this.type = type;
         this.price = price;
         this.id = id;
+        this.name = name;
     }
 
     public void generatePower(int roomID) {
@@ -47,6 +49,8 @@ public class Item {
         return this.price;
     }
     public Integer getId() { return this.id; }
+
+    public String getName() { return this.name; }
 
 
 }

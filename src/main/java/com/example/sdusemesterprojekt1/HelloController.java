@@ -3,6 +3,7 @@ package com.example.sdusemesterprojekt1;
 import EventColliders.Collider;
 import EventColliders.RoomchangeCollider;
 import EventColliders.SolidCollider;
+import Misc.Item;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.GridPane;
@@ -109,6 +110,22 @@ public class HelloController implements Initializable {
                     colliders.add(new RoomchangeCollider(background.getRowIndex(child), background.getColumnIndex(child), child.getAccessibleText()));
                 }
             }
+        }
+    }
+
+    public void renderItem(Item item)   {
+        System.out.println("Rendering item: " + item.getType());
+
+        //Check for a free tile to render the item on.
+        for(Node child : background.getChildren())  {
+            if(child.getId() != null)   {
+                if(child.getId().equals("installlocation"))   {
+                    System.out.println("Free tile found, rendering item" + item.getType());
+                    child.setId(item.getType());
+                    return;
+                }
+            }
+
         }
     }
 

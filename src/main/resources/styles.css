@@ -107,3 +107,14 @@
     -fx-background-color: none;
     -fx-border-color: transparent;
 }
+
+/*
+    Place below everything else
+    This is for placeable items.
+ */
+#solarpanel {
+    -fx-background-image: url("items/SolarPanel16x16.png");
+    -fx-background-size: stretch;
+    -fx-background-color: none;
+    -fx-border-color: transparent;
+}

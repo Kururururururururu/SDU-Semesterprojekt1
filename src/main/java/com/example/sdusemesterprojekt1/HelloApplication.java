@@ -15,7 +15,6 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
         game.showScene("coast");
         Money.addMoney(100);
-
     }
 
     public static void main(String[] args) {

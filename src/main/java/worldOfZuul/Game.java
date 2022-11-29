@@ -3,6 +3,7 @@ package worldOfZuul;
 import java.util.List;
 import java.io.*;
 
+import Characters.MainCharacter;
 import Misc.Money;
 import com.example.sdusemesterprojekt1.HelloApplication;
 import com.example.sdusemesterprojekt1.HelloController;
@@ -17,6 +18,8 @@ public class Game {
     private CommandWords commands;
     private static Stage gameStage;
 
+    private MainCharacter mainCharacter = new MainCharacter();
+
     private HelloController controller = new HelloController(this);
 
     public Game() {
@@ -25,9 +28,10 @@ public class Game {
     }
 
     private void createRooms() {
-        // Room outside, theatre, pub, lab, office;
+        // create the rooms
         Room hub, dh, wt, sc, c, no;
 
+        // Initialise room objects
         hub = new Room("Hub", 0);
         dh = new Room("Dirty Hills", 1);
         wt = new Room("Windy Town", 2);
@@ -36,28 +40,40 @@ public class Game {
         no = new Room("New Orleans", 5);
 
 
-        // initialise room exits
+        // Set data for rooms
         hub.setExit("W",c);
         hub.setExit("E",dh);
         hub.setExit("S",sc);
+        hub.setSlots(0,0);
+        hub.grabController(controller);
 
         c.setExit("E",hub);
+        c.setSlots(0,0);
+        c.grabController(controller);
 
         dh.setExit("W",hub);
         dh.setExit("S",sc);
+        dh.setSlots(0,0);
+        dh.grabController(controller);
 
         sc.setExit("N",hub);
         sc.setExit("E",dh);
         sc.setExit("S",no);
         sc.setExit("W",wt);
+        sc.setSlots(3,1);
+        sc.grabController(controller);
 
         wt.setExit("N",sc);
         wt.setExit("E",no);
+        wt.setSlots(2,2);
+        wt.grabController(controller);
 
         no.setExit("N",sc);
         no.setExit("W",wt);
+        no.setSlots(0,0);
+        no.grabController(controller);
 
-        currentRoom = hub;
+        currentRoom = c;
     }
 
     public boolean goRoom(String direction) {

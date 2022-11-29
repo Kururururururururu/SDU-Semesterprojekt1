@@ -1,4 +1,5 @@
 package Characters;
+import com.example.sdusemesterprojekt1.HelloController;
 import worldOfZuul.Command;
 import Misc.*;
 import worldOfZuul.Room;
@@ -7,6 +8,7 @@ public class MainCharacter {
     private String name;
 
     private Inventory player_inventory;
+    private HelloController controller;
 
     public MainCharacter() {
 
@@ -23,7 +25,7 @@ public class MainCharacter {
         player_inventory.removeFromInventory(item);
     }
 
-    public boolean useItem(Command command, Room currentRoom)    {
+    public boolean useItem(Command command, Room currentRoom, HelloController controller) {
         if(currentRoom.getRoomId() == 0) {
             return false;
         }
