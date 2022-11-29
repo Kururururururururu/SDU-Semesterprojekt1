@@ -95,6 +95,7 @@ public class Game {
             scene.setOnKeyPressed(event -> keypressHandler(event));
             gameStage.show();
             controller.checkColliders();
+            controller.updateBalanceGUI();
         } catch (IOException e) {
             e.printStackTrace();
         }

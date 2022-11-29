@@ -146,7 +146,7 @@
             <Pane id="roomchangecollider" accessibleText="E" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="19" GridPane.rowIndex="4" />
             <Pane id="roomchangecollider" accessibleText="E" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="19" GridPane.rowIndex="5" />
             <Pane id="roomchangecollider" accessibleText="E" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="19" GridPane.rowIndex="6" />
-            <Label id="balance" fx:id="balance" alignment="CENTER" prefHeight="200.0" prefWidth="200.0" text="0" textAlignment="CENTER" GridPane.columnIndex="18" />
+            <Label id="balance" fx:id="balance" alignment="CENTER" text="0" textAlignment="CENTER" GridPane.columnIndex="18" />
          </children>
       </GridPane>
    </children>
