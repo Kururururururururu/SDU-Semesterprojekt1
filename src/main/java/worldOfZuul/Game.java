@@ -3,12 +3,17 @@ package worldOfZuul;
 import java.util.List;
 import java.io.*;
 
+import Characters.MainCharacter;
+import Misc.Item;
 import Misc.Money;
 import com.example.sdusemesterprojekt1.HelloApplication;
 import com.example.sdusemesterprojekt1.HelloController;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class Game {
@@ -16,8 +21,13 @@ public class Game {
     private Room currentRoom;
     private CommandWords commands;
     private static Stage gameStage;
-
     private HelloController controller = new HelloController(this);
+
+    MainCharacter mainCharacter = new MainCharacter("John");
+    Item SmallSolarPanel = new Item("Small Solar Panel", 100, 1);
+    Item HugeSolarPanel = new Item("Huge Solar Panel", 1500, 2);
+    Item WoodenWindTurbine = new Item("Wooden Wind Turbine", 200, 3);
+    Item IndustrialWindTurbine = new Item("Industrial Wind Turbine", 2500, 4);
 
     public Game() {
         createRooms();
@@ -92,16 +102,24 @@ public class Game {
             System.out.println("Loading scene: " + sceneName);
             Scene scene = new Scene(fxmlLoader.load());
             gameStage.setScene(scene);
-            scene.setOnKeyPressed(event -> keypressHandler(event));
+            scene.setOnKeyPressed(event -> {
+                try {
+                    keypressHandler(event);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            });
             gameStage.show();
             controller.checkColliders();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+    public void showSubScene(String subSceneName, BorderPane subScene) {
+    }
 
 
-    private void keypressHandler(KeyEvent event) {
+    private void keypressHandler(KeyEvent event) throws IOException {
         //Handle all keypresses here.
         switch (event.getCode())  {
             case W -> { HelloController.movePlayer("up", controller.getBackground(), controller.getPlayer()); }
@@ -116,6 +134,10 @@ public class Game {
             case ESCAPE -> { controller.onMenuButtonClick(); }
             case F1 -> { controller.onHelpButtonClick(); }
             case F2 -> { Money.addMoney(100); }
+            case F5 -> {mainCharacter.addToInventory(SmallSolarPanel);}
+            case F6 -> {mainCharacter.addToInventory(HugeSolarPanel);}
+            case F7 -> {mainCharacter.addToInventory(WoodenWindTurbine);}
+            case F8 -> {mainCharacter.addToInventory(IndustrialWindTurbine);}
         }
     }
 
@@ -150,5 +172,7 @@ public class Game {
     public String get_curr_id() {
         return currentRoom.getRoomId().toString();
     }
+
+    public MainCharacter getMainCharacter() { return this.mainCharacter;}
 
 }

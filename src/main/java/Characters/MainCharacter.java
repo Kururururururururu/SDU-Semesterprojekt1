@@ -15,6 +15,7 @@ public class MainCharacter {
         this.name = name;
         this.player_inventory = new Inventory();
     }
+    public Inventory getPlayer_inventory() {return player_inventory;}
     public void addToInventory(Item item) {
         player_inventory.addToInventory(item);
     }
