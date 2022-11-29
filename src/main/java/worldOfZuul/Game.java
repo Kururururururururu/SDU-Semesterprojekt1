@@ -57,7 +57,7 @@ public class Game {
         no.setExit("N",sc);
         no.setExit("W",wt);
 
-        currentRoom = hub;
+        currentRoom = c;
     }
 
     public boolean goRoom(String direction) {
