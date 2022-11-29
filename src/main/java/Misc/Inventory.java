@@ -46,9 +46,8 @@ public class Inventory {
 
         if (player_inventory.size() != 0) {
             ArrayList<Integer> item_count = new ArrayList<>();
-            ArrayList<Item> inventory_duplicate = (ArrayList<Item>) player_inventory.clone();
             for (Item item_uniques:player_inventory_uniques) {
-                item_count.add(Collections.frequency(inventory_duplicate, item_uniques));
+                item_count.add(Collections.frequency(player_inventory, item_uniques));
             }
             return item_count;
         }
