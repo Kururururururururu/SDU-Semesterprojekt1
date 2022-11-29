@@ -139,7 +139,7 @@ public class HelloController implements Initializable {
 
             ArrayList<Item> inv = game.getMainCharacter().getPlayer_inventory().getInventoryUniques();
             ArrayList<Integer> item_count = game.getMainCharacter().getPlayer_inventory().getInventoryUniquesCount();
-            
+
             int slot = 0;
             for (Item i: inv) {
                 String iconPath = HelloApplication.class.getClassLoader().getResource("icons/") + "Inventory-" + i.getType().replaceAll("\\s+","") + "16x16.png";
