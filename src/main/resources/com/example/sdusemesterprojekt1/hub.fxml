@@ -152,7 +152,7 @@
                   <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="8" GridPane.rowIndex="1" />
                   <Pane id="boss_npc" fx:id="npc" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="9" GridPane.rowIndex="3" />
                   <Label id="balance" fx:id="balance" alignment="CENTER" text="0" textAlignment="CENTER" GridPane.columnIndex="18" />
-                  <Pane id="solidcollider" layoutX="73.0" layoutY="186.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="9" GridPane.rowIndex="3" />
+                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="9" GridPane.rowIndex="3" />
                </children>
             </GridPane>
             <BorderPane id="subScene" fx:id="subScene" accessibleText="subScene" maxHeight="180.0" maxWidth="320.0" minHeight="180.0" minWidth="320.0" prefHeight="180.0" prefWidth="320.0" StackPane.alignment="CENTER">

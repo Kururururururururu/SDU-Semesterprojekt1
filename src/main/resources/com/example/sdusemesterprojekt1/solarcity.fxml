@@ -168,8 +168,8 @@
                   <Pane id="npc1" fx:id="npc" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="14" GridPane.rowIndex="8" />
                   <Pane id="npc5" fx:id="npc" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="8" />
                   <Label id="balance" fx:id="balance" alignment="CENTER" text="0" textAlignment="CENTER" GridPane.columnIndex="18" />
-                  <Pane id="solidcollider" layoutX="553.0" layoutY="289.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="14" GridPane.rowIndex="8" />
-                  <Pane id="solidcollider" layoutX="457.0" layoutY="289.0" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="8" />
+                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="14" GridPane.rowIndex="8" />
+                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="8" />
                </children>
             </GridPane>
             <BorderPane id="subScene" fx:id="subScene" accessibleText="subScene" maxHeight="180.0" maxWidth="320.0" minHeight="180.0" minWidth="320.0" prefHeight="180.0" prefWidth="320.0" StackPane.alignment="CENTER">

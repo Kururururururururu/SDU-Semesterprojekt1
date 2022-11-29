@@ -121,6 +121,7 @@ public class HelloController implements Initializable {
     }
 
     public void checkColliders()    {
+        colliders = new ArrayList<>();
         //System.out.println("Checking colliders");
         for(Node child : background.getChildren())  {
             if(child.getId() != null)   {
