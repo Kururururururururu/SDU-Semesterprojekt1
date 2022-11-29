@@ -9,6 +9,9 @@ import java.util.List;
 
 public class PointShop {
 
+    //TODO Remember this
+    //private Inventory shopInventory;
+
     private ArrayList<Item> forSale_Hub = new ArrayList<>(List.of(
             new Item("solarpanel", 100, 1, "Small Solar Panel"),
             new Item("windturbine", 100, 2, "Small Wind Turbine")
@@ -34,6 +37,15 @@ public class PointShop {
         }
         this.player = player;
     }
+
+    //TODO For possible future implementation
+    /*
+    private void stockShop()    {
+        for(Item item : forSale)    {
+            shopInventory.addToInventory(item);
+        }
+    }
+     */
 
     public ArrayList<Item> getForSale() {
         return forSale;
