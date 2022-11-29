@@ -113,3 +113,39 @@
     -fx-background-color: none;
     -fx-border-color: transparent;
 }
+#coal_npc {
+    -fx-background-image: url("npc/coal_npc.png");
+    -fx-background-size: stretch;
+    -fx-background-color: none;
+    -fx-border-color: transparent;
+}
+#boss_npc {
+    -fx-background-image: url("npc/boss_npc.png");
+    -fx-background-size: stretch;
+    -fx-background-color: none;
+    -fx-border-color: transparent;
+}
+#npc1 {
+    -fx-background-image: url("npc/npc1.png");
+    -fx-background-size: stretch;
+    -fx-background-color: none;
+    -fx-border-color: transparent;
+}
+#npc2 {
+    -fx-background-image: url("npc/npc2.png");
+    -fx-background-size: stretch;
+    -fx-background-color: none;
+    -fx-border-color: transparent;
+}
+#npc4 {
+    -fx-background-image: url("npc/npc4.png");
+    -fx-background-size: stretch;
+    -fx-background-color: none;
+    -fx-border-color: transparent;
+}
+#npc5 {
+    -fx-background-image: url("npc/npc5.png");
+    -fx-background-size: stretch;
+    -fx-background-color: none;
+    -fx-border-color: transparent;
+}
