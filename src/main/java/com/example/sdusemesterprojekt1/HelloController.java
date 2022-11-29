@@ -34,6 +34,10 @@ public class HelloController implements Initializable {
     @FXML
     private Pane player;
     @FXML
+    private Pane npc;
+    @FXML
+    private Label balance;
+    @FXML
     private AnchorPane inventorySubScene;
     @FXML
     private Pane slot1, slot2, slot3, slot4, slot5, slot6, slot7, slot8;
@@ -41,8 +45,7 @@ public class HelloController implements Initializable {
     private Label slot1label, slot2label, slot3label, slot4label, slot5label, slot6label, slot7label, slot8label;
     @FXML
     private Tooltip slot1tooltip, slot2tooltip, slot3tooltip, slot4tooltip, slot5tooltip, slot6tooltip, slot7tooltip, slot8tooltip;
-    private Pane npc;
-    private Label balance;
+
 
     public HelloController(Game tgame) {
         game = tgame;
@@ -237,10 +240,10 @@ public class HelloController implements Initializable {
     @FXML
     private boolean npcIsTalkable(GridPane background, Pane player, Pane npc) {
         if (background.getRowIndex(player) == background.getRowIndex(npc) - 1
-        && background.getColumnIndex(player) == background.getColumnIndex(npc) - 1)
+                && background.getColumnIndex(player) == background.getColumnIndex(npc) - 1)
             return true;
         else if (background.getRowIndex(player) == background.getRowIndex(npc) - 1
-        && background.getColumnIndex(player) == background.getColumnIndex(npc) + 1)
+                && background.getColumnIndex(player) == background.getColumnIndex(npc) + 1)
             return true;
         else if (background.getRowIndex(player) == background.getRowIndex(npc) + 1
                 && background.getColumnIndex(player) == background.getColumnIndex(npc) + 1)
