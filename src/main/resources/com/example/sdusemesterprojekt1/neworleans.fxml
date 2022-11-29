@@ -127,6 +127,7 @@
             <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="13" GridPane.rowIndex="1" />
             <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="13" GridPane.rowIndex="0" />
             <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="16" GridPane.rowIndex="1" />
+            <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="17" GridPane.rowIndex="4" />
             <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="18" GridPane.rowIndex="2" />
             <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="14" GridPane.rowIndex="2" />
             <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="19" GridPane.rowIndex="2" />
@@ -149,6 +150,7 @@
             <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="10" GridPane.rowIndex="7" />
             <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="9" GridPane.rowIndex="1" />
             <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="8" GridPane.rowIndex="1" />
+             <Pane id="npc4" fx:id="npc4" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="17" GridPane.rowIndex="4" />
          </children>
       </GridPane>
    </children>
