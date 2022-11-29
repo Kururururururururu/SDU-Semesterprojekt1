@@ -9,6 +9,7 @@ public class Inventory {
 
     }
     public void addToInventory(Item item) {
+        System.out.println(item.getType() + " added to inventory.");
         player_inventory.add(item);
     }
 
@@ -45,8 +46,9 @@ public class Inventory {
 
         if (player_inventory.size() != 0) {
             ArrayList<Integer> item_count = new ArrayList<>();
-            for (Item item_uniques:unique_items) {
-                item_count.add(Collections.frequency(player_inventory, item_uniques));
+            ArrayList<Item> inventory_duplicate = (ArrayList<Item>) player_inventory.clone();
+            for (Item item_uniques:player_inventory_uniques) {
+                item_count.add(Collections.frequency(inventory_duplicate, item_uniques));
             }
             return item_count;
         }

@@ -4,6 +4,7 @@ import java.util.List;
 import java.io.*;
 
 import Characters.MainCharacter;
+import Misc.Item;
 import Misc.Money;
 import com.example.sdusemesterprojekt1.HelloApplication;
 import com.example.sdusemesterprojekt1.HelloController;
@@ -23,6 +24,10 @@ public class Game {
     private HelloController controller = new HelloController(this);
 
     MainCharacter mainCharacter = new MainCharacter("John");
+    Item SmallSolarPanel = new Item("Small Solar Panel", 100, 1);
+    Item HugeSolarPanel = new Item("Huge Solar Panel", 1500, 2);
+    Item WoodenWindTurbine = new Item("Wooden Wind Turbine", 200, 3);
+    Item IndustrialWindTurbine = new Item("Industrial Wind Turbine", 2500, 4);
 
     public Game() {
         createRooms();
@@ -129,6 +134,10 @@ public class Game {
             case ESCAPE -> { controller.onMenuButtonClick(); }
             case F1 -> { controller.onHelpButtonClick(); }
             case F2 -> { Money.addMoney(100); }
+            case F5 -> {mainCharacter.addToInventory(SmallSolarPanel);}
+            case F6 -> {mainCharacter.addToInventory(HugeSolarPanel);}
+            case F7 -> {mainCharacter.addToInventory(WoodenWindTurbine);}
+            case F8 -> {mainCharacter.addToInventory(IndustrialWindTurbine);}
         }
     }
 
