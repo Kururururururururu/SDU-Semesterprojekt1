@@ -1,7 +1,6 @@
 package Misc;
 
 import Characters.MainCharacter;
-import worldOfZuul.Command;
 import worldOfZuul.Room;
 
 import java.util.ArrayList;
