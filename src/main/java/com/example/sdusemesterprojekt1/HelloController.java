@@ -114,13 +114,13 @@ public class HelloController implements Initializable {
     }
 
     public void renderItem(Item item)   {
-        System.out.println("Rendering item: " + item.getType());
+        System.out.println("Attempting to render item: " + item.getType());
 
         //Check for a free tile to render the item on.
         for(Node child : background.getChildren())  {
             if(child.getId() != null)   {
                 if(child.getId().equals("installlocation"))   {
-                    System.out.println("Free tile found, rendering item" + item.getType());
+                    System.out.println("Free tile found, rendering item: " + item.getType());
                     child.setId(item.getType());
                     return;
                 }

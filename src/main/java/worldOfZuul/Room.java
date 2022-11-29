@@ -56,13 +56,13 @@ public class Room {
     }
 
     public boolean placeItem(Item item) {
-        if(item.getType().equals("solarpanel") && this.solarSlots > 0) {
+        if(item.getType().equals("solarpanel") && checkSlot("solar")) {
             this.environmentInventory.addToInventory(item);
             this.solarSlots--;
             renderInventory(controller);
 
             return true;
-        } else if(item.getType().equals("windturbine") && this.windSlots > 0 || item.getType().equals("solar") && this.windSlots > 0) {
+        } else if(item.getType().equals("windturbine") && checkSlot("wind") || item.getType().equals("solar") && checkSlot("wind")) {
             this.environmentInventory.addToInventory(item);
             this.windSlots--;
             renderInventory(controller);
