@@ -141,7 +141,7 @@
             <Pane id="roomchangecollider" accessibleText="E" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="19" GridPane.rowIndex="4" />
             <Pane id="roomchangecollider" accessibleText="E" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="19" GridPane.rowIndex="5" />
             <Pane id="roomchangecollider" accessibleText="E" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="19" GridPane.rowIndex="6" />
-            <Pane id="skipper_npc" fx:id="skipper_npc" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="8" GridPane.rowIndex="3" />
+            <Pane id="skipper_npc" fx:id="npc" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="8" GridPane.rowIndex="3" />
          </children>
       </GridPane>
    </children>
