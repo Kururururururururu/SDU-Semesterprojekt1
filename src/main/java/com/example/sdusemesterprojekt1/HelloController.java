@@ -3,8 +3,11 @@ package com.example.sdusemesterprojekt1;
 import EventColliders.Collider;
 import EventColliders.RoomchangeCollider;
 import EventColliders.SolidCollider;
+import Misc.Money;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.Node;
@@ -25,6 +28,8 @@ public class HelloController implements Initializable {
     private GridPane background;
     @FXML
     private Pane player;
+    @FXML
+    private Label balance;
 
     public HelloController(Game tgame) {
         game = tgame;
@@ -57,6 +62,9 @@ public class HelloController implements Initializable {
         }
     }
 
+    public void updateBalanceGUI() {
+        balance.setText(Money.getMoney().toString());
+    }
     private static boolean tileIsWalkable(int y, int x, GridPane background, Pane player, String direction) {
         //Check if the tile is a collider.
         for (Collider collider : colliders) {
@@ -66,6 +74,7 @@ public class HelloController implements Initializable {
                 return false;
             }
         }
+
 
         //Check if the tile is within the grid.
         switch (direction)  {
@@ -150,6 +159,7 @@ public class HelloController implements Initializable {
     public Pane getPlayer() {
         return this.player;
     }
+
 
 
 

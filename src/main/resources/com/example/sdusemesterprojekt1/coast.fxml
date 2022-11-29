@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -90,7 +91,7 @@
                </GridPane.margin>
             </Button>
             <Pane fx:id="player" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="9" GridPane.rowIndex="4" />
-            <Pane id="dollar" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="19">
+            <Pane id="dollar" GridPane.columnIndex="19">
                <GridPane.margin>
                   <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                </GridPane.margin>
@@ -145,6 +146,7 @@
             <Pane id="roomchangecollider" accessibleText="E" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="19" GridPane.rowIndex="4" />
             <Pane id="roomchangecollider" accessibleText="E" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="19" GridPane.rowIndex="5" />
             <Pane id="roomchangecollider" accessibleText="E" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="19" GridPane.rowIndex="6" />
+            <Label id="balance" fx:id="balance" alignment="CENTER" prefHeight="200.0" prefWidth="200.0" text="0" textAlignment="CENTER" GridPane.columnIndex="18" />
          </children>
       </GridPane>
    </children>

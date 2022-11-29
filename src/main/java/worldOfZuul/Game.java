@@ -115,7 +115,10 @@ public class Game {
             case T -> { controller.onTalkButtonClick(); }
             case ESCAPE -> { controller.onMenuButtonClick(); }
             case F1 -> { controller.onHelpButtonClick(); }
-            case F2 -> { Money.addMoney(100); }
+            case F2 -> {
+                Money.addMoney(100);
+                controller.updateBalanceGUI();
+            }
         }
     }
 
