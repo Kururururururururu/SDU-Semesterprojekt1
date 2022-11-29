@@ -26,6 +26,12 @@
     -fx-background-color: none;
     -fx-border-color: transparent;
 }
+#neworleans{
+    -fx-background-image: url("Scenes/neworleans.png");
+    -fx-background-size: stretch;
+    -fx-background-color: none;
+    -fx-border-color: transparent;
+}
 #solidcollider{
     -fx-background-color: red;
     -fx-opacity: 0.5;
