@@ -4,14 +4,15 @@ import EventColliders.Collider;
 import EventColliders.RoomchangeCollider;
 import EventColliders.SolidCollider;
 import Misc.Item;
+import Misc.Money;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.SubScene;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.Node;
 import worldOfZuul.Game;
 
@@ -41,6 +42,7 @@ public class HelloController implements Initializable {
     @FXML
     private Tooltip slot1tooltip, slot2tooltip, slot3tooltip, slot4tooltip, slot5tooltip, slot6tooltip, slot7tooltip, slot8tooltip;
     private Pane npc;
+    private Label balance;
 
     public HelloController(Game tgame) {
         game = tgame;
@@ -74,6 +76,9 @@ public class HelloController implements Initializable {
         }
     }
 
+    public void updateBalanceGUI() {
+        balance.setText(Money.getMoney().toString());
+    }
     private static boolean tileIsWalkable(int y, int x, GridPane background, Pane player, String direction) {
         //Check if the tile is a collider.
         for (Collider collider : colliders) {
@@ -83,6 +88,7 @@ public class HelloController implements Initializable {
                 return false;
             }
         }
+
 
         //Check if the tile is within the grid.
         switch (direction)  {
@@ -112,8 +118,6 @@ public class HelloController implements Initializable {
     }
 
     public void checkColliders()    {
-        colliders = new ArrayList<>();
-
         //System.out.println("Checking colliders");
         for(Node child : background.getChildren())  {
             if(child.getId() != null)   {
@@ -222,6 +226,7 @@ public class HelloController implements Initializable {
     //}
 
     public Pane getNPC() {return this.npc; }
+
 
 
 

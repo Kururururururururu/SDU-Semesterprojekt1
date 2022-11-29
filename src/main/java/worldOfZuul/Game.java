@@ -111,6 +111,7 @@ public class Game {
             });
             gameStage.show();
             controller.checkColliders();
+            controller.updateBalanceGUI();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -133,11 +134,14 @@ public class Game {
             case T -> { controller.onTalkButtonClick(); }
             case ESCAPE -> { controller.onMenuButtonClick(); }
             case F1 -> { controller.onHelpButtonClick(); }
-            case F2 -> { Money.addMoney(100); }
             case F5 -> {mainCharacter.addToInventory(SmallSolarPanel);}
             case F6 -> {mainCharacter.addToInventory(HugeSolarPanel);}
             case F7 -> {mainCharacter.addToInventory(WoodenWindTurbine);}
             case F8 -> {mainCharacter.addToInventory(IndustrialWindTurbine);}
+            case F2 -> {
+                Money.addMoney(100);
+                controller.updateBalanceGUI();
+            }
         }
     }
 
