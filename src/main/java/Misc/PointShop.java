@@ -2,7 +2,6 @@ package Misc;
 
 import Characters.MainCharacter;
 import worldOfZuul.Room;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +12,8 @@ public class PointShop {
 
     private ArrayList<Item> forSale_Hub = new ArrayList<>(List.of(
             new Item("solarpanel", 100, 1, "Small Solar Panel"),
-            new Item("windturbine", 100, 2, "Small Wind Turbine")
+            new Item("windturbine", 100, 2, "Small Wind Turbine"),
+            new Item("miner",10000,3,"Miner NPC")
     ));
 
     private ArrayList<Item> forSale_Dirt = new ArrayList<>(List.of(
