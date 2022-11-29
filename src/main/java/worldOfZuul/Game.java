@@ -127,11 +127,11 @@ public class Game {
             case D -> { HelloController.movePlayer("right", controller.getBackground(), controller.getPlayer()); }
             case I -> { controller.onBagButtonClick(); }
             case M -> { controller.onMapButtonClick(); }
-            case G -> { controller.onMagButtonClick(); }
-            case H -> { controller.onHandButtonClick(); }
+            case E -> { controller.onMagButtonClick(); }
+            case F -> { controller.onHandButtonClick(); }
             case T -> { controller.onTalkButtonClick(); }
             case ESCAPE -> { controller.onMenuButtonClick(); }
-            case F1 -> { controller.onHelpButtonClick(); }
+            case H -> { controller.onHelpButtonClick(); }
             case F5 -> {mainCharacter.addToInventory(SmallSolarPanel);}
             case F6 -> {mainCharacter.addToInventory(HugeSolarPanel);}
             case F7 -> {mainCharacter.addToInventory(WoodenWindTurbine);}
