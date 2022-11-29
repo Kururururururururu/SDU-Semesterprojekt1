@@ -107,3 +107,9 @@
     -fx-background-color: none;
     -fx-border-color: transparent;
 }
+#skipper_npc {
+    -fx-background-image: url("npc/skipper_npc.png");
+    -fx-background-size: stretch;
+    -fx-background-color: none;
+    -fx-border-color: transparent;
+}
