@@ -1,19 +1,24 @@
 package Characters;
 import worldOfZuul.Command;
 import Misc.*;
+import worldOfZuul.Game;
 import worldOfZuul.Room;
+
+import java.io.IOException;
 
 public class MainCharacter {
     private String name;
 
     private Inventory player_inventory;
+    private Game game;
 
     public MainCharacter() {
 
     }
-    public MainCharacter(String name) {
+    public MainCharacter(String name, Game game) {
         this.name = name;
         this.player_inventory = new Inventory();
+        this.game = game;
     }
     public Inventory getPlayer_inventory() {return player_inventory;}
     public void addToInventory(Item item) {
@@ -21,46 +26,26 @@ public class MainCharacter {
     }
 
     public void removeFromInventory(Item item) {
+
         player_inventory.removeFromInventory(item);
+        game.getController().onBagCloseButtonClick();
+        game.getController().onBagButtonClick();
     }
 
-    public boolean useItem(Command command, Room currentRoom)    {
-        if(currentRoom.getRoomId() == 0) {
+    public boolean useItem(int index, Room currentRoom) {
+        if (index < 0 || index >= 8) {
             return false;
         }
 
-        if (!command.hasCommandValue()) {
-            return false;
-        }
+        if(this.getPlayer_inventory().getInventory().get(index) != null)    {
+            Item forUse = this.getPlayer_inventory().getInventory().get(index);
 
-        Item forUse = new Item();
-
-
-        for(Item item : player_inventory.getInventory())    {
-            if(item.getId() == Integer.parseInt(command.getCommandValue())) {
-                forUse = item;
-                break;
+            if(currentRoom.hasRoomForItem(forUse))  {
+                this.removeFromInventory(forUse);
+                currentRoom.placeItem(forUse);
+                return true;
             }
         }
-
-        //Works if inventory is sorted correctly, save for future.
-        /*
-        if(player_inventory.getInventory().size() > 0 && Integer.parseInt(command.getCommandValue())-1 <= player_inventory.getInventory().size())  {
-            forUse = player_inventory.getInventory().get(Integer.parseInt(command.getCommandValue())-1);
-        } else {
-            System.out.println("Tried to use empty slot in inventory.");
-            return;
-        }*/
-
-        if(forUse.getId() == 0) {
-            // Find some alternative //System.out.println("No such item in invetory!");
-        } else {
-            this.removeFromInventory(forUse);
-            currentRoom.placeItem(forUse);
-            return true;
-            // Find some alternative //System.out.println("Placed " + forUse.getType() + currentRoom.getDescription().substring(9));
-        }
-
         return false;
     }
 }

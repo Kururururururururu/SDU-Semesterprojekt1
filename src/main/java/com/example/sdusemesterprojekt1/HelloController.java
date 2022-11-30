@@ -145,7 +145,7 @@ public class HelloController implements Initializable {
 
     //onClick calls from FXML
     @FXML
-    public void onBagButtonClick() throws IOException {
+    public void onBagButtonClick() {
         if(!inventorySubScene.isVisible()){
             disableControls = true;
             ArrayList<Pane> slots = new ArrayList<>(List.of(slot1, slot2, slot3, slot4, slot5, slot6, slot7, slot8));
@@ -195,8 +195,11 @@ public class HelloController implements Initializable {
 
     @FXML
     public void onInventorySlotClick(MouseEvent event) {
+        //System.out.println(event.getTarget());
         int slotIndex = Integer.parseInt(event.getTarget().toString().substring(event.getTarget().toString().length() - 2, event.getTarget().toString().length() - 1));
-        //game.getMainCharacter().
+        //TODO add visual indicator for false return.
+        System.out.println("ran");
+        game.getMainCharacter().useItem(slotIndex-1, game.getRoom());
     }
 
     @FXML

@@ -21,7 +21,7 @@ public class Game {
     private static Stage gameStage;
     private HelloController controller = new HelloController(this);
 
-    MainCharacter mainCharacter = new MainCharacter("John");
+    MainCharacter mainCharacter = new MainCharacter("John", this);
     Item SmallSolarPanel = new Item("Small Solar Panel", 100, 1);
     Item HugeSolarPanel = new Item("Huge Solar Panel", 1500, 2);
     Item WoodenWindTurbine = new Item("Wooden Wind Turbine", 200, 3);
@@ -176,5 +176,7 @@ public class Game {
     }
 
     public MainCharacter getMainCharacter() { return this.mainCharacter;}
+
+    public HelloController getController() { return this.controller;}
 
 }

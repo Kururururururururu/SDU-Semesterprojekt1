@@ -59,6 +59,11 @@ public class Room {
         return true;
     }
 
+    public boolean hasRoomForItem(Item item) {
+
+        return true;
+    }
+
 
     public Room getExit(String direction) {
         return exits.get(direction);
