@@ -5,11 +5,13 @@ import EventColliders.RoomchangeCollider;
 import EventColliders.SolidCollider;
 import Misc.Item;
 import Misc.Money;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
@@ -49,6 +51,10 @@ public class HelloController implements Initializable {
 
     public HelloController(Game tgame) {
         game = tgame;
+
+
+
+
     }
 
     @FXML
@@ -186,9 +192,13 @@ public class HelloController implements Initializable {
         }
         inventorySubScene.setVisible(false);
     }
-    public void getSlots() {
 
+    @FXML
+    public void onInventorySlotClick(MouseEvent event) {
+        int slotIndex = Integer.parseInt(event.getTarget().toString().substring(event.getTarget().toString().length() - 2, event.getTarget().toString().length() - 1));
+        //game.getMainCharacter().
     }
+
     @FXML
     public void onMapButtonClick() {
         System.out.println("Map");

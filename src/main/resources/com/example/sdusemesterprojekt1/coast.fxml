@@ -198,7 +198,7 @@
                                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                              </rowConstraints>
                                              <children>
-                                                <StackPane id="inventorySlot" alignment="BOTTOM_RIGHT">
+                                                <StackPane id="inventorySlot" onMouseClicked="#onInventorySlotClick" alignment="BOTTOM_RIGHT">
                                                    <GridPane.margin>
                                                       <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                                                    </GridPane.margin>
