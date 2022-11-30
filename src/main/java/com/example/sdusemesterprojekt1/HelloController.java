@@ -25,6 +25,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.concurrent.TimeUnit;
 
 
 public class HelloController implements Initializable {
@@ -150,7 +152,7 @@ public class HelloController implements Initializable {
     //onClick calls from FXML
     @FXML
     public void onBagButtonClick() throws IOException {
-        if(!inventorySubScene.isVisible()){
+        if(!inventorySubScene.getParent().getParent().isVisible()){
             disableControls = true;
             ArrayList<Pane> slots = new ArrayList<>(List.of(slot1, slot2, slot3, slot4, slot5, slot6, slot7, slot8));
             ArrayList<Label> slotlabels = new ArrayList<>(List.of(slot1label, slot2label, slot3label, slot4label, slot5label, slot6label, slot7label, slot8label));
@@ -173,7 +175,7 @@ public class HelloController implements Initializable {
 
                 slot ++;
             }
-            inventorySubScene.setVisible(true);
+            inventorySubScene.getParent().getParent().setVisible(true);
         } else {
             onBagCloseButtonClick();
         }
@@ -194,7 +196,7 @@ public class HelloController implements Initializable {
             slottooltips.get(i).setText(null);
             slotlabels.get(i).setText(null);
         }
-        inventorySubScene.setVisible(false);
+        inventorySubScene.getParent().getParent().setVisible(false);
     }
     public void getSlots() {
 
@@ -294,9 +296,9 @@ public class HelloController implements Initializable {
     public void openShop() {
 
         if((game.getRoomId() == 0 || game.getRoomId() == 1 )&& npcIsTalkable(getBackground(), getPlayer(), getNPC())){
-            if(!shopSubScene.isVisible()) {
-                disableControls = false;
-                shopSubScene.setVisible(true);
+            if(!shopSubScene.getParent().getParent().isVisible()) {
+                disableControls = true;
+                shopSubScene.getParent().getParent().setVisible(true);
 
                 System.out.println("Shop opens");
                 ArrayList<Item> currentShopItems = game.getPointShop().currentShop(game.getRoomId());
@@ -306,9 +308,10 @@ public class HelloController implements Initializable {
                 pointsavailable.setText("(Balance: " + Money.getMoney().toString() + "$)");
 
                 for (int i = 0; i < currentShopItems.size(); i++) {
-                    String iconPath = HelloApplication.class.getClassLoader().getResource("icons/") + "Inventory-" + currentShopItems.get(i).getType().replaceAll("\\s+","") + "16x16.png";
-                    BackgroundImage icon = new BackgroundImage(new Image( iconPath,48,48,false,true), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+                    String iconPath = HelloApplication.class.getClassLoader().getResource("icons/") + "Inventory-" + currentShopItems.get(i).getType().replaceAll("\\s+", "") + "16x16.png";
+                    BackgroundImage icon = new BackgroundImage(new Image(iconPath, 48, 48, false, true), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
                     slots.get(i).setBackground(new Background(icon));
+
                     radioButtons.get(i).setVisible(true);
 
                     System.out.println(currentShopItems.get(i).getType());
@@ -328,18 +331,22 @@ public class HelloController implements Initializable {
         shoppricelabel.setVisible(true);
         itemprice.setVisible(true);
         shopBuyButton.setVisible(true);
+        itemprice.setStyle("-fx-font-weight: normal");
 
         itemname.setText(currentShopItems.get(selection).getType());
         itemprice.setText(currentShopItems.get(selection).getPrice().toString() + "$");
+        pointsavailable.setText("(Balance: " + Money.getMoney().toString() + "$)");
 
         updateShopGUI(currentShopItems, selection);
     }
-    public void onShopBuyButtonClick(){
+    public void onShopBuyButtonClick() throws InterruptedException {
         ArrayList<Item> currentShopItems = game.getPointShop().currentShop(game.getRoomId());
         ArrayList<RadioButton> radioButtons = new ArrayList<>(List.of(item1, item2, item3, item4, item5, item6, item7, item8));
         int selection = getShopSelectedItem(currentShopItems, radioButtons);
         if(currentShopItems.get(selection).getPrice() > Money.getMoney()){
-            System.out.println("Not enough $");;
+            System.out.println("Not enough $");
+            String reset = pointsavailable.getText();
+            pointsavailable.setText("(You need " + Math.abs(Money.getMoney()-currentShopItems.get(selection).getPrice()) + "$ more for that!)");
         } else {
             Money.removeMoney(game.getPointShop().currentShop(game.getRoomId()).get(selection).getPrice());
             game.getMainCharacter().addToInventory(game.getPointShop().currentShop(game.getRoomId()).get(selection));
@@ -350,10 +357,12 @@ public class HelloController implements Initializable {
             for (int i = 0; i < 8; i++) {
                 radioButtons.get(i).setSelected(false);
             };
+            pointsavailable.setText("(Balance: " + Money.getMoney().toString() + "$)");
             shopitemlabel.setVisible(false);
             shoppricelabel.setVisible(false);
             shopBuyButton.setVisible(false);
             itemname.setText("You bought a:");
+            itemprice.setStyle("-fx-font-weight: bold");
             itemprice.setText(currentShopItems.get(selection).getType());
 
         }
@@ -375,7 +384,8 @@ public class HelloController implements Initializable {
         }
     }
     public void onShopCloseButtonClick(){
-        shopSubScene.setVisible(false);
+        disableControls = false;
+        shopSubScene.getParent().getParent().setVisible(false);
         ArrayList<Item> currentShopItems = game.getPointShop().currentShop(game.getRoomId());
         ArrayList<Pane> slots = new ArrayList<>(List.of(shopslot1, shopslot2, shopslot3, shopslot4, shopslot5, shopslot6, shopslot7, shopslot8));
         ArrayList<RadioButton> radioButtons = new ArrayList<>(List.of(item1, item2, item3, item4, item5, item6, item7, item8));
@@ -389,6 +399,7 @@ public class HelloController implements Initializable {
         shoppricelabel.setVisible(false);
         itemprice.setVisible(false);
         shopBuyButton.setVisible(false);
+        itemprice.setStyle("-fx-font-weight: normal");
         itemname.setText("Please select an item...");
     }
 }
