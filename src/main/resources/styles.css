@@ -50,8 +50,12 @@
     -fx-background-color: none;
     -fx-border-color: transparent;
 }
-
-
+#mapUnfold {
+    -fx-background-image: url("scenes/mapunfold.png");
+    -fx-background-size: stretch;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
 #backpack {
     -fx-background-image: url("icons/Backpack16x16.png");
     -fx-background-size: stretch;

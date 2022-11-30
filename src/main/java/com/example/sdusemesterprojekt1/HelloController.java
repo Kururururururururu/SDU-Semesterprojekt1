@@ -26,7 +26,7 @@ import java.util.ResourceBundle;
 public class HelloController implements Initializable {
 
     private static Game game = new Game();
-
+    private boolean mapOpenStatus = false;
     private static boolean disableControls = false;
     private static ArrayList<Collider> colliders = new ArrayList<>();
     @FXML
@@ -35,6 +35,8 @@ public class HelloController implements Initializable {
     private Pane player;
     @FXML
     private Pane npc;
+    @FXML
+    private Pane mapUnfold;
     @FXML
     private Label balance;
     @FXML
@@ -191,7 +193,18 @@ public class HelloController implements Initializable {
     }
     @FXML
     public void onMapButtonClick() {
-        System.out.println("Map");
+        if (mapOpenStatus == false) {
+            System.out.println("Opening Map");
+            disableControls = true;
+            mapUnfold.setVisible(true);
+            mapOpenStatus = true;
+        }
+        else {
+            System.out.println("Closing Map");
+            disableControls = false;
+            mapUnfold.setVisible(false);
+            mapOpenStatus = false;
+        }
     }
     @FXML
     public void onMagButtonClick() {

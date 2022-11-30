@@ -430,5 +430,6 @@
                </center>
             </BorderPane>
          </children></StackPane>
+      <Pane id="mapUnfold" fx:id="mapUnfold" mouseTransparent="true" prefHeight="348.0" prefWidth="640.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
    </children>
 </AnchorPane>
