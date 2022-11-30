@@ -142,7 +142,7 @@ public class HelloController implements Initializable {
     //onClick calls from FXML
     @FXML
     public void onBagButtonClick() throws IOException {
-        if(!inventorySubScene.isVisible()){
+        if(!inventorySubScene.isVisible() && !mapOpenStatus){
             disableControls = true;
             ArrayList<Pane> slots = new ArrayList<>(List.of(slot1, slot2, slot3, slot4, slot5, slot6, slot7, slot8));
             ArrayList<Label> slotlabels = new ArrayList<>(List.of(slot1label, slot2label, slot3label, slot4label, slot5label, slot6label, slot7label, slot8label));
@@ -193,13 +193,13 @@ public class HelloController implements Initializable {
     }
     @FXML
     public void onMapButtonClick() {
-        if (mapOpenStatus == false) {
+        if (!mapOpenStatus && !inventorySubScene.isVisible()) {
             System.out.println("Opening Map");
             disableControls = true;
             mapUnfold.setVisible(true);
             mapOpenStatus = true;
         }
-        else {
+        else if (mapOpenStatus && !inventorySubScene.isVisible()) {
             System.out.println("Closing Map");
             disableControls = false;
             mapUnfold.setVisible(false);
