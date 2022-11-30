@@ -7,13 +7,17 @@ import Misc.Item;
 import Misc.Money;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.Node;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import worldOfZuul.Game;
 
 import java.io.IOException;
@@ -38,13 +42,19 @@ public class HelloController implements Initializable {
     @FXML
     private Label balance;
     @FXML
-    private AnchorPane inventorySubScene;
+    private AnchorPane inventorySubScene, shopSubScene;
     @FXML
-    private Pane slot1, slot2, slot3, slot4, slot5, slot6, slot7, slot8;
+    private Pane slot1, slot2, slot3, slot4, slot5, slot6, slot7, slot8, shopslot1, shopslot2, shopslot3, shopslot4, shopslot5, shopslot6, shopslot7, shopslot8;
     @FXML
     private Label slot1label, slot2label, slot3label, slot4label, slot5label, slot6label, slot7label, slot8label;
     @FXML
     private Tooltip slot1tooltip, slot2tooltip, slot3tooltip, slot4tooltip, slot5tooltip, slot6tooltip, slot7tooltip, slot8tooltip;
+    @FXML
+    private RadioButton item1, item2, item3, item4, item5, item6, item7, item8;
+    @FXML
+    private Label shopname, shopitemlabel, shoppricelabel, itemname, itemprice, pointsavailable;
+    @FXML
+    private Button shopBuyButton;
 
 
     public HelloController(Game tgame) {
@@ -158,7 +168,7 @@ public class HelloController implements Initializable {
                 slottooltips.get(slot).setText(i.getType());
                 slotlabels.get(slot).setText("x"+item_count.get(slot).toString());
 
-                // For troubleshooting
+                // For debugging
                 System.out.println("*******************\nSlot: " + (slot+1) + "\nItem name: " +i.getType() + "\nItem count: " + item_count.get(slot) + "\nIcon url: " + iconPath + "\n*******************\n");
 
                 slot ++;
@@ -200,7 +210,10 @@ public class HelloController implements Initializable {
     @FXML
     public void onHandButtonClick() {
         System.out.println("Hand");
+        openShop();
+        System.out.println(game.getRoomId());
     }
+
     @FXML
     public void onTalkButtonClick() {
         System.out.println("Talk");
@@ -276,5 +289,106 @@ public class HelloController implements Initializable {
         if (npcIsTalkable(getBackground(), getPlayer(), getNPC())) {
             System.out.println("HELLO I CAN TALK");
         }
+    }
+    @FXML
+    public void openShop() {
+
+        if((game.getRoomId() == 0 || game.getRoomId() == 1 )&& npcIsTalkable(getBackground(), getPlayer(), getNPC())){
+            if(!shopSubScene.isVisible()) {
+                disableControls = false;
+                shopSubScene.setVisible(true);
+
+                System.out.println("Shop opens");
+                ArrayList<Item> currentShopItems = game.getPointShop().currentShop(game.getRoomId());
+                ArrayList<Pane> slots = new ArrayList<>(List.of(shopslot1, shopslot2, shopslot3, shopslot4, shopslot5, shopslot6, shopslot7, shopslot8));
+                ArrayList<RadioButton> radioButtons = new ArrayList<>(List.of(item1, item2, item3, item4, item5, item6, item7, item8));
+
+                pointsavailable.setText("(Balance: " + Money.getMoney().toString() + "$)");
+
+                for (int i = 0; i < currentShopItems.size(); i++) {
+                    String iconPath = HelloApplication.class.getClassLoader().getResource("icons/") + "Inventory-" + currentShopItems.get(i).getType().replaceAll("\\s+","") + "16x16.png";
+                    BackgroundImage icon = new BackgroundImage(new Image( iconPath,48,48,false,true), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+                    slots.get(i).setBackground(new Background(icon));
+                    radioButtons.get(i).setVisible(true);
+
+                    System.out.println(currentShopItems.get(i).getType());
+
+                }
+            } else {
+                onShopCloseButtonClick();
+            }
+        }
+    }
+    public void onShopItemSelected(){
+        ArrayList<Item> currentShopItems = game.getPointShop().currentShop(game.getRoomId());
+        ArrayList<RadioButton> radioButtons = new ArrayList<>(List.of(item1, item2, item3, item4, item5, item6, item7, item8));
+        int selection = getShopSelectedItem(currentShopItems, radioButtons);
+
+        shopitemlabel.setVisible(true);
+        shoppricelabel.setVisible(true);
+        itemprice.setVisible(true);
+        shopBuyButton.setVisible(true);
+
+        itemname.setText(currentShopItems.get(selection).getType());
+        itemprice.setText(currentShopItems.get(selection).getPrice().toString() + "$");
+
+        updateShopGUI(currentShopItems, selection);
+    }
+    public void onShopBuyButtonClick(){
+        ArrayList<Item> currentShopItems = game.getPointShop().currentShop(game.getRoomId());
+        ArrayList<RadioButton> radioButtons = new ArrayList<>(List.of(item1, item2, item3, item4, item5, item6, item7, item8));
+        int selection = getShopSelectedItem(currentShopItems, radioButtons);
+        if(currentShopItems.get(selection).getPrice() > Money.getMoney()){
+            System.out.println("Not enough $");;
+        } else {
+            Money.removeMoney(game.getPointShop().currentShop(game.getRoomId()).get(selection).getPrice());
+            game.getMainCharacter().addToInventory(game.getPointShop().currentShop(game.getRoomId()).get(selection));
+            updateBalanceGUI();
+            updateShopGUI(currentShopItems, selection);
+
+            //Item bought - resetting
+            for (int i = 0; i < 8; i++) {
+                radioButtons.get(i).setSelected(false);
+            };
+            shopitemlabel.setVisible(false);
+            shoppricelabel.setVisible(false);
+            shopBuyButton.setVisible(false);
+            itemname.setText("You bought a:");
+            itemprice.setText(currentShopItems.get(selection).getType());
+
+        }
+    }
+    public int getShopSelectedItem(ArrayList<Item> items, ArrayList<RadioButton> radioButtons){
+        int selection = 0;
+        for (int i = 0; i < items.size(); i++) {
+            if(radioButtons.get(i).isSelected()){
+                selection = i;
+            }
+        }
+        return selection;
+    }
+    public void updateShopGUI(ArrayList<Item> currentShopItems, int selection){
+        if(currentShopItems.get(selection).getPrice() > Money.getMoney()){
+            shopBuyButton.backgroundProperty().set(new Background(new BackgroundFill(Color.RED,null, null)));
+        } else {
+            shopBuyButton.backgroundProperty().set(new Background(new BackgroundFill(Color.GREEN,null, null)));
+        }
+    }
+    public void onShopCloseButtonClick(){
+        shopSubScene.setVisible(false);
+        ArrayList<Item> currentShopItems = game.getPointShop().currentShop(game.getRoomId());
+        ArrayList<Pane> slots = new ArrayList<>(List.of(shopslot1, shopslot2, shopslot3, shopslot4, shopslot5, shopslot6, shopslot7, shopslot8));
+        ArrayList<RadioButton> radioButtons = new ArrayList<>(List.of(item1, item2, item3, item4, item5, item6, item7, item8));
+
+        for (int i = 0; i < 8; i++) {
+            slots.get(i).setBackground(null);
+            radioButtons.get(i).setSelected(false);
+            radioButtons.get(i).setVisible(false);
+        }
+        shopitemlabel.setVisible(false);
+        shoppricelabel.setVisible(false);
+        itemprice.setVisible(false);
+        shopBuyButton.setVisible(false);
+        itemname.setText("Please select an item...");
     }
 }
