@@ -4,12 +4,13 @@ import java.time.Instant;
 import java.util.Set;
 import java.util.HashMap;
 import Misc.*;
+import com.example.sdusemesterprojekt1.HelloController;
 
 public class Room {
     private String description;
     private Integer RoomId;
     private HashMap<String, Room> exits;
-
+    private static String lastExit;
     private long lastVisited = 0;
     private Inventory environmentInventory = new Inventory();
 
@@ -40,6 +41,7 @@ public class Room {
 
 
     public void runEnvironment()  {
+        System.out.println(lastExit);
         //System.out.println(this.lastVisited);
         if(Instant.now().getEpochSecond() >= this.lastVisited+10)  {
             this.lastVisited = Instant.now().getEpochSecond();
@@ -67,5 +69,8 @@ public class Room {
 
 
     public Integer getRoomId() { return this.RoomId; }
+    public void setLastExit(String lastExit){
+        this.lastExit = lastExit;
+    }
 }
 

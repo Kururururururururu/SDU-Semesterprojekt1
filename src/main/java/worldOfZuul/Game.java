@@ -81,6 +81,7 @@ public class Game {
         if (nextRoom == null) {
             return false;
         } else {
+            currentRoom.setLastExit(direction);
             currentRoom = nextRoom;
             showScene(currentRoom.getDescription().toLowerCase().replaceAll("\s+",""));
             currentRoom.runEnvironment();
