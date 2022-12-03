@@ -205,13 +205,13 @@ public class HelloController implements Initializable {
     }
     @FXML
     public void onMapButtonClick() {
-        if (!mapOpenStatus && !inventorySubScene.isVisible()) {
+        if (!mapOpenStatus && !inventorySubScene.getParent().getParent().isVisible()) {
             System.out.println("Opening Map");
             disableControls = true;
             mapUnfold.setVisible(true);
             mapOpenStatus = true;
         }
-        else if (mapOpenStatus && !inventorySubScene.isVisible()) {
+        else if (mapOpenStatus && !inventorySubScene.getParent().getParent().isVisible()) {
             System.out.println("Closing Map");
             disableControls = false;
             mapUnfold.setVisible(false);
