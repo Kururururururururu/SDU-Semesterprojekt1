@@ -4,6 +4,8 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -152,14 +154,14 @@
                   <Label id="balance" fx:id="balance" alignment="CENTER" text="0" textAlignment="CENTER" GridPane.columnIndex="18" />
                </children>
             </GridPane>
-            <BorderPane id="subScene" fx:id="subScene" accessibleText="subScene" maxHeight="180.0" maxWidth="320.0" minHeight="180.0" minWidth="320.0" prefHeight="180.0" prefWidth="320.0" StackPane.alignment="CENTER">
+            <BorderPane id="subScene" fx:id="subScene" accessibleText="subScene" maxHeight="180.0" maxWidth="320.0" minHeight="180.0" minWidth="320.0" prefHeight="180.0" prefWidth="320.0" visible="false" StackPane.alignment="CENTER">
                <StackPane.margin>
                   <Insets />
                </StackPane.margin>
                <center>
                   <StackPane BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane id="inventorySubScene" fx:id="inventorySubScene" accessibleText="inventorySubScene" visible="false">
+                        <AnchorPane id="inventorySubScene" fx:id="inventorySubScene" accessibleText="inventorySubScene">
                            <children>
                               <VBox id="inventoryBackground" prefHeight="180.0" prefWidth="320.0" stylesheets="@../../../styles.css">
                                  <children>
@@ -426,6 +428,274 @@
                                        <VBox.margin>
                                           <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                                        </VBox.margin>
+                                    </AnchorPane>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </StackPane>
+               </center>
+            </BorderPane>
+            <BorderPane id="subScene" fx:id="subScene1" accessibleText="subScene" maxHeight="240.0" maxWidth="320.0" minHeight="240.0" minWidth="320.0" prefHeight="240.0" prefWidth="320.0" visible="false">
+               <center>
+                  <StackPane BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane id="shopSubScene" fx:id="shopSubScene" accessibleText="shopSubScene">
+                           <children>
+                              <VBox id="inventoryBackground" prefHeight="240.0" prefWidth="320.0" stylesheets="@../../../styles.css">
+                                 <children>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                       <children>
+                                          <HBox>
+                                             <children>
+                                                <VBox prefHeight="50.0" prefWidth="250.0">
+                                                   <children>
+                                                      <Label id="shopname" fx:id="shopname" accessibleText="shopname" text="SHOP">
+                                                         <font>
+                                                            <Font size="20.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets left="20.0" right="10.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <Label id="pointsavailable" fx:id="pointsavailable" accessibleText="pointsavailable" text="(Points available: $)">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets left="20.0" right="10.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                          <Button id="inventoryCloseButton" accessibleText="inventoryCloseButton" alignment="CENTER" layoutX="278.0" layoutY="16.0" mnemonicParsing="false" onAction="#onShopCloseButtonClick" text="X" textFill="WHITE">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets left="6.0" right="6.0" />
+                                             </padding>
+                                             <cursor>
+                                                <Cursor fx:constant="OPEN_HAND" />
+                                             </cursor>
+                                          </Button>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="160.0">
+                                       <children>
+                                          <GridPane fx:id="inventoryslots1" accessibleText="inventoryslots" layoutX="-12.0" layoutY="6.0" minHeight="320.0" minWidth="320.0" prefHeight="122.0" prefWidth="318.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <StackPane id="shopSlot" alignment="BOTTOM_RIGHT">
+                                                   <GridPane.margin>
+                                                      <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                                                   </GridPane.margin>
+                                                   <children>
+                                                      <Pane id="shopslot1" fx:id="shopslot1" accessibleText="shopslot1" prefHeight="200.0" prefWidth="200.0">
+                                                         <StackPane.margin>
+                                                            <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                                                         </StackPane.margin>
+                                                      </Pane>
+                                                      <RadioButton id="item1" fx:id="item1" accessibleText="item1" mnemonicParsing="false" onAction="#onShopItemSelected" visible="false">
+                                                         <StackPane.margin>
+                                                            <Insets bottom="3.0" right="3.0" />
+                                                         </StackPane.margin>
+                                                         <toggleGroup>
+                                                            <ToggleGroup fx:id="shop" />
+                                                         </toggleGroup>
+                                                      </RadioButton>
+                                                   </children>
+                                                </StackPane>
+                                                <StackPane id="shopSlot" alignment="BOTTOM_RIGHT" GridPane.columnIndex="1">
+                                                   <children>
+                                                      <Pane id="shopslot2" fx:id="shopslot2" accessibleText="shopslot2" prefHeight="200.0" prefWidth="200.0">
+                                                         <StackPane.margin>
+                                                            <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                                                         </StackPane.margin>
+                                                      </Pane>
+                                                      <RadioButton id="item2" fx:id="item2" accessibleText="item2" mnemonicParsing="false" onAction="#onShopItemSelected" toggleGroup="$shop" visible="false">
+                                                         <StackPane.margin>
+                                                            <Insets bottom="3.0" right="3.0" />
+                                                         </StackPane.margin>
+                                                      </RadioButton>
+                                                   </children>
+                                                   <GridPane.margin>
+                                                      <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                                                   </GridPane.margin>
+                                                </StackPane>
+                                                <StackPane id="shopSlot" alignment="BOTTOM_RIGHT" GridPane.columnIndex="2">
+                                                   <children>
+                                                      <Pane id="shopslot3" fx:id="shopslot3" accessibleText="shopslot3" prefHeight="200.0" prefWidth="200.0">
+                                                         <StackPane.margin>
+                                                            <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                                                         </StackPane.margin>
+                                                      </Pane>
+                                                      <RadioButton id="item3" fx:id="item3" accessibleText="item3" mnemonicParsing="false" onAction="#onShopItemSelected" toggleGroup="$shop" visible="false">
+                                                         <padding>
+                                                            <Insets bottom="3.0" right="3.0" />
+                                                         </padding>
+                                                      </RadioButton>
+                                                   </children>
+                                                   <GridPane.margin>
+                                                      <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                                                   </GridPane.margin>
+                                                </StackPane>
+                                                <StackPane id="shopSlot" alignment="BOTTOM_RIGHT" GridPane.columnIndex="3">
+                                                   <children>
+                                                      <Pane id="shopslot4" fx:id="shopslot4" accessibleText="shopslot4" prefHeight="200.0" prefWidth="200.0">
+                                                         <StackPane.margin>
+                                                            <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                                                         </StackPane.margin>
+                                                      </Pane>
+                                                      <RadioButton id="item4" fx:id="item4" accessibleText="item4" mnemonicParsing="false" onAction="#onShopItemSelected" toggleGroup="$shop" visible="false">
+                                                         <padding>
+                                                            <Insets bottom="3.0" right="3.0" />
+                                                         </padding>
+                                                      </RadioButton>
+                                                   </children>
+                                                   <GridPane.margin>
+                                                      <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                                                   </GridPane.margin>
+                                                </StackPane>
+                                                <StackPane id="shopSlot" alignment="BOTTOM_RIGHT" GridPane.rowIndex="1">
+                                                   <children>
+                                                      <Pane id="shopslot5" fx:id="shopslot5" accessibleText="shopslot5" prefHeight="200.0" prefWidth="200.0">
+                                                         <StackPane.margin>
+                                                            <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                                                         </StackPane.margin>
+                                                      </Pane>
+                                                      <RadioButton id="item5" fx:id="item5" accessibleText="item5" mnemonicParsing="false" onAction="#onShopItemSelected" toggleGroup="$shop" visible="false">
+                                                         <StackPane.margin>
+                                                            <Insets bottom="3.0" right="3.0" />
+                                                         </StackPane.margin>
+                                                      </RadioButton>
+                                                   </children>
+                                                   <GridPane.margin>
+                                                      <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                                                   </GridPane.margin>
+                                                </StackPane>
+                                                <StackPane id="shopSlot" alignment="BOTTOM_RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                   <children>
+                                                      <Pane id="shopslot6" fx:id="shopslot6" accessibleText="shopslot6" prefHeight="200.0" prefWidth="200.0">
+                                                         <StackPane.margin>
+                                                            <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                                                         </StackPane.margin>
+                                                      </Pane>
+                                                      <RadioButton id="item6" fx:id="item6" accessibleText="item6" mnemonicParsing="false" toggleGroup="$shop" visible="false">
+                                                         <StackPane.margin>
+                                                            <Insets bottom="3.0" right="3.0" />
+                                                         </StackPane.margin>
+                                                      </RadioButton>
+                                                   </children>
+                                                   <GridPane.margin>
+                                                      <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                                                   </GridPane.margin>
+                                                </StackPane>
+                                                <StackPane id="shopSlot" alignment="BOTTOM_RIGHT" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                   <children>
+                                                      <Pane id="shopslot7" fx:id="shopslot7" accessibleText="shopslot7" prefHeight="200.0" prefWidth="200.0">
+                                                         <StackPane.margin>
+                                                            <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                                                         </StackPane.margin>
+                                                      </Pane>
+                                                      <RadioButton id="item7" fx:id="item7" accessibleText="item7" mnemonicParsing="false" onAction="#onShopItemSelected" toggleGroup="$shop" visible="false">
+                                                         <StackPane.margin>
+                                                            <Insets bottom="3.0" right="3.0" />
+                                                         </StackPane.margin>
+                                                      </RadioButton>
+                                                   </children>
+                                                   <GridPane.margin>
+                                                      <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                                                   </GridPane.margin>
+                                                </StackPane>
+                                                <StackPane id="shopSlot" alignment="BOTTOM_RIGHT" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                                   <children>
+                                                      <Pane id="shopslot8" fx:id="shopslot8" accessibleText="shopslot8" prefHeight="200.0" prefWidth="200.0">
+                                                         <StackPane.margin>
+                                                            <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                                                         </StackPane.margin>
+                                                      </Pane>
+                                                      <RadioButton id="item8" fx:id="item8" accessibleText="item8" mnemonicParsing="false" onAction="#onShopItemSelected" toggleGroup="$shop" visible="false">
+                                                         <StackPane.margin>
+                                                            <Insets bottom="3.0" right="3.0" />
+                                                         </StackPane.margin>
+                                                      </RadioButton>
+                                                   </children>
+                                                   <GridPane.margin>
+                                                      <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                                                   </GridPane.margin>
+                                                </StackPane>
+                                             </children>
+                                          </GridPane>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                                       </VBox.margin>
+                                    </AnchorPane>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                       <children>
+                                          <HBox prefHeight="50.0" prefWidth="248.0">
+                                             <children>
+                                                <VBox prefHeight="50.0" prefWidth="68.0">
+                                                   <children>
+                                                      <Label id="shopitemlabel" fx:id="shopitemlabel" accessibleText="shopitemlabel" prefHeight="20.0" prefWidth="41.0" text="Item:" visible="false">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets left="20.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                      <Label id="shoppricelabel" fx:id="shoppricelabel" accessibleText="shoppricelabel" prefWidth="41.0" text="Price:" visible="false">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets left="20.0" />
+                                                         </VBox.margin>
+                                                      </Label>
+                                                   </children>
+                                                </VBox>
+                                                <VBox prefHeight="50.0" prefWidth="183.0">
+                                                   <children>
+                                                      <Label id="itemname" fx:id="itemname" accessibleText="itemname" text="Please select an item...">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label id="itemprice" fx:id="itemprice" accessibleText="itemprice" text="\$" visible="false">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                          <Button id="shopBuyButton" fx:id="shopBuyButton" accessibleText="shopBuyButton" alignment="CENTER" layoutX="261.0" layoutY="13.0" mnemonicParsing="false" onAction="#onShopBuyButtonClick" text="Buy" textFill="WHITE" visible="false">
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets left="6.0" right="6.0" />
+                                             </padding>
+                                             <cursor>
+                                                <Cursor fx:constant="OPEN_HAND" />
+                                             </cursor>
+                                          </Button>
+                                       </children>
                                     </AnchorPane>
                                  </children>
                               </VBox>

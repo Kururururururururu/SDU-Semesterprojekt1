@@ -182,14 +182,14 @@
                   <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="8" />
                </children>
             </GridPane>
-            <BorderPane id="subScene" fx:id="subScene" accessibleText="subScene" maxHeight="180.0" maxWidth="320.0" minHeight="180.0" minWidth="320.0" prefHeight="180.0" prefWidth="320.0" StackPane.alignment="CENTER">
+            <BorderPane id="subScene" fx:id="subScene" accessibleText="subScene" maxHeight="180.0" maxWidth="320.0" minHeight="180.0" minWidth="320.0" prefHeight="180.0" prefWidth="320.0" visible="false" StackPane.alignment="CENTER">
                <StackPane.margin>
                   <Insets />
                </StackPane.margin>
                <center>
                   <StackPane BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane id="inventorySubScene" fx:id="inventorySubScene" accessibleText="inventorySubScene" visible="false">
+                        <AnchorPane id="inventorySubScene" fx:id="inventorySubScene" accessibleText="inventorySubScene">
                            <children>
                               <VBox id="inventoryBackground" prefHeight="180.0" prefWidth="320.0" stylesheets="@../../../styles.css">
                                  <children>
