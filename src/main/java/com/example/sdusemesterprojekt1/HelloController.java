@@ -46,6 +46,8 @@ public class HelloController implements Initializable {
     @FXML
     private Label balance;
     @FXML
+    private Label textbubble;
+    @FXML
     private AnchorPane inventorySubScene, shopSubScene;
     @FXML
     private Pane slot1, slot2, slot3, slot4, slot5, slot6, slot7, slot8, shopslot1, shopslot2, shopslot3, shopslot4, shopslot5, shopslot6, shopslot7, shopslot8;
@@ -95,6 +97,10 @@ public class HelloController implements Initializable {
 
     public void updateBalanceGUI() {
         balance.setText(Money.getMoney().toString());
+    }
+    public void displaytextbubble() {
+        textbubble.setText("JEG ER AKTIVERET FRA LOGIKLAG");
+        textbubble.setStyle("-fx-opacity: 100%");
     }
     private static boolean tileIsWalkable(int y, int x, GridPane background, Pane player, String direction) {
         //Check if the tile is a collider.
@@ -231,7 +237,7 @@ public class HelloController implements Initializable {
 
     @FXML
     public void onTalkButtonClick() {
-        System.out.println("Talk");
+        //System.out.println("Talk");
         npcTalk();
     }
     @FXML
@@ -303,6 +309,7 @@ public class HelloController implements Initializable {
     public void npcTalk() {
         if (npcIsTalkable(getBackground(), getPlayer(), getNPC())) {
             System.out.println("HELLO I CAN TALK");
+            displaytextbubble();
         }
     }
     @FXML
