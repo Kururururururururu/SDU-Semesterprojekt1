@@ -5,6 +5,7 @@ import EventColliders.RoomchangeCollider;
 import EventColliders.SolidCollider;
 import Misc.Item;
 import Misc.Money;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -29,7 +30,7 @@ public class HelloController implements Initializable {
     private boolean mapOpenStatus = false;
     private static boolean disableControls = false;
     private static ArrayList<Collider> colliders = new ArrayList<>();
-    private static ArrayList<RoomchangeCollider> roomchangecolliders = new ArrayList<>();
+    private static ArrayList<Node> roomchangecolliders = new ArrayList<>();
     @FXML
     private GridPane background;
     @FXML
@@ -135,7 +136,7 @@ public class HelloController implements Initializable {
                 if(child.getId().equals("roomchangecollider"))   {
                     //System.out.println("Roomchange collider found");
                     colliders.add(new RoomchangeCollider(background.getRowIndex(child), background.getColumnIndex(child), child.getAccessibleText()));
-                    roomchangecolliders.add(new RoomchangeCollider(background.getRowIndex(child), background.getColumnIndex(child), child.getAccessibleText()));
+                    roomchangecolliders.add(child);
                 }
             }
         }
@@ -291,5 +292,8 @@ public class HelloController implements Initializable {
         if (npcIsTalkable(getBackground(), getPlayer(), getNPC())) {
             System.out.println("HELLO I CAN TALK");
         }
+    }
+    public ArrayList<Node> getRoomchangecolliders(){
+        return this.roomchangecolliders;
     }
 }

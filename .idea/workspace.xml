@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="167cfb60-bd67-4a04-a2d4-e51b87a70993" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SDU-Semesterprojekt1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SDU-Semesterprojekt1.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdusemesterprojekt1/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sdusemesterprojekt1/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/worldOfZuul/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/worldOfZuul/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/worldOfZuul/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/worldOfZuul/Room.java" afterDir="false" />
-    </list>
+    <list default="true" id="167cfb60-bd67-4a04-a2d4-e51b87a70993" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,7 +42,7 @@
     "project.structure.last.edited": "Problems",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.General"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -112,5 +106,9 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/.." />
     </ignored-roots>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

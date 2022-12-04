@@ -1,14 +1,18 @@
 package worldOfZuul;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.io.*;
 
 import Characters.MainCharacter;
+import EventColliders.RoomchangeCollider;
 import Misc.Item;
 import Misc.Money;
 import com.example.sdusemesterprojekt1.HelloApplication;
 import com.example.sdusemesterprojekt1.HelloController;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
@@ -111,6 +115,7 @@ public class Game {
             gameStage.show();
             controller.checkColliders();
             controller.updateBalanceGUI();
+            correctRoomchangeEntrance();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -143,6 +148,61 @@ public class Game {
             }
         }
     }
+    public void correctRoomchangeEntrance(){
+        if(currentRoom.getLastExit() != null) {
+            switch (currentRoom.getLastExit()) {
+                case "N" -> {
+                    ArrayList<Node> roomchangeColliders =  controller.getRoomchangecolliders();
+                    int countEntrances = 0;
+                    for (Node node : roomchangeColliders) {
+                        if(node.getAccessibleText().equals("S")){
+                            controller.getBackground().setRowIndex(controller.getPlayer(), controller.getBackground().getRowIndex(node));
+                            controller.getBackground().setColumnIndex(controller.getPlayer(), controller.getBackground().getColumnIndex(node));
+                            countEntrances++;
+                        }
+                    }
+                    System.out.println(countEntrances);
+                }
+                case "S" -> {
+                    ArrayList<Node> roomchangeColliders =  controller.getRoomchangecolliders();
+                    int countEntrances = 0;
+                    for (Node node : roomchangeColliders) {
+                        if(node.getAccessibleText().equals("N")){
+                            controller.getBackground().setRowIndex(controller.getPlayer(), controller.getBackground().getRowIndex(node));
+                            controller.getBackground().setColumnIndex(controller.getPlayer(), controller.getBackground().getColumnIndex(node));
+                            countEntrances++;
+                        }
+                    }
+                    System.out.println(countEntrances);
+                }
+                case "W" -> {
+                    ArrayList<Node> roomchangeColliders =  controller.getRoomchangecolliders();
+                    int countEntrances = 0;
+                    for (Node node : roomchangeColliders) {
+                        if(node.getAccessibleText().equals("E")){
+                            controller.getBackground().setRowIndex(controller.getPlayer(), controller.getBackground().getRowIndex(node));
+                            controller.getBackground().setColumnIndex(controller.getPlayer(), controller.getBackground().getColumnIndex(node));
+                            countEntrances++;
+                        }
+                    }
+                    System.out.println(countEntrances);
+                }
+                case "E" -> {
+                    ArrayList<Node> roomchangeColliders =  controller.getRoomchangecolliders();
+                    int countEntrances = 0;
+                    for (Node node : roomchangeColliders) {
+                        if(node.getAccessibleText().equals("W")){
+                            controller.getBackground().setRowIndex(controller.getPlayer(), controller.getBackground().getRowIndex(node));
+                            controller.getBackground().setColumnIndex(controller.getPlayer(), controller.getBackground().getColumnIndex(node));
+                            countEntrances++;
+                        }
+                    }
+                    System.out.println(countEntrances);
+                }
+            }
+        }
+    }
+
 
     public boolean quit(Command command) {
         if (command.hasCommandValue()) {
