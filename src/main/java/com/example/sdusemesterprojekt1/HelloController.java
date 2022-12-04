@@ -98,9 +98,10 @@ public class HelloController implements Initializable {
     public void updateBalanceGUI() {
         balance.setText(Money.getMoney().toString());
     }
-    public void displaytextbubble() {
+    private void displaytextbubble() {
         textbubble.setText("JEG ER AKTIVERET FRA LOGIKLAG");
         textbubble.setStyle("-fx-opacity: 100%");
+        System.out.println(getNPC());
     }
     private static boolean tileIsWalkable(int y, int x, GridPane background, Pane player, String direction) {
         //Check if the tile is a collider.
