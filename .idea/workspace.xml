@@ -6,13 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="167cfb60-bd67-4a04-a2d4-e51b87a70993" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/EventColliders/SolidCollider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EventColliders/SolidCollider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdusemesterprojekt1/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sdusemesterprojekt1/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sdusemesterprojekt1/coast.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sdusemesterprojekt1/coast.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sdusemesterprojekt1/hub.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sdusemesterprojekt1/hub.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sdusemesterprojekt1/neworleans.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sdusemesterprojekt1/neworleans.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sdusemesterprojekt1/solarcity.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sdusemesterprojekt1/solarcity.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sdusemesterprojekt1/windytown.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sdusemesterprojekt1/windytown.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,12 +41,13 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/lissn/Documents/GitHub/SDU-Semesterprojekt1/src/main/resources/com/example/sdusemesterprojekt1&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/lissn/Documents/GitHub/SDU-Semesterprojekt1/src/main/resources/icons&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\lissn\Documents\GitHub\SDU-Semesterprojekt1\src\main\resources\icons" />
       <recent name="C:\Users\lissn\Documents\GitHub\SDU-Semesterprojekt1\src\main\resources\com\example\sdusemesterprojekt1" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -73,7 +68,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="0b25991e-db25-45fe-b7b0-5df5d214a4df" name="Changes" comment="" />
+      <changelist id="167cfb60-bd67-4a04-a2d4-e51b87a70993" name="Changes" comment="" />
       <created>1669108833022</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -90,6 +85,9 @@
       <workItem from="1669297225783" duration="6857000" />
       <workItem from="1669536149642" duration="371000" />
       <workItem from="1669541645626" duration="2721000" />
+      <workItem from="1669793975194" duration="14285000" />
+      <workItem from="1670066207308" duration="84000" />
+      <workItem from="1670066307975" duration="104000" />
     </task>
     <servers />
   </component>

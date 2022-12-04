@@ -6,6 +6,7 @@ import java.io.*;
 import Characters.MainCharacter;
 import Misc.Item;
 import Misc.Money;
+import Misc.PointShop;
 import com.example.sdusemesterprojekt1.HelloApplication;
 import com.example.sdusemesterprojekt1.HelloController;
 import javafx.fxml.FXMLLoader;
@@ -21,11 +22,12 @@ public class Game {
     private static Stage gameStage;
     private HelloController controller = new HelloController(this);
 
-    MainCharacter mainCharacter = new MainCharacter("John");
-    Item SmallSolarPanel = new Item("Small Solar Panel", 100, 1);
-    Item HugeSolarPanel = new Item("Huge Solar Panel", 1500, 2);
-    Item WoodenWindTurbine = new Item("Wooden Wind Turbine", 200, 3);
-    Item IndustrialWindTurbine = new Item("Industrial Wind Turbine", 2500, 4);
+    private MainCharacter mainCharacter = new MainCharacter("John");
+    private PointShop pointShop = new PointShop();
+    private Item SmallSolarPanel = pointShop.getForSale_Hub().get(0);
+    private Item HugeSolarPanel = pointShop.getForSale_Hub().get(1);
+    private Item WoodenWindTurbine = pointShop.getForSale_Hub().get(2);
+    private Item IndustrialWindTurbine = pointShop.getForSale_Hub().get(3);
 
     public Game() {
         createRooms();
@@ -176,5 +178,5 @@ public class Game {
     }
 
     public MainCharacter getMainCharacter() { return this.mainCharacter;}
-
+    public PointShop getPointShop() {return this.pointShop;}
 }

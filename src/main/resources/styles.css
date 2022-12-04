@@ -68,6 +68,12 @@
 #inventorySlot{
     -fx-background-color: A4A4A4;
 }
+#shopBackground{
+    -fx-background-color: #DBDBDB;
+}
+#shopSlot{
+    -fx-background-color: A4A4A4;
+}
 #inventoryCloseButton{
     -fx-background-color: #D30000;
     -fx-background-size: stretch;
