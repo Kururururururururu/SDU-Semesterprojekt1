@@ -1,5 +1,6 @@
 package com.example.sdusemesterprojekt1;
 
+import Characters.NPC;
 import EventColliders.Collider;
 import EventColliders.RoomchangeCollider;
 import EventColliders.SolidCollider;
@@ -33,6 +34,7 @@ public class HelloController implements Initializable {
 
     private static Game game = new Game();
     private boolean mapOpenStatus = false;
+    private boolean helpOpenStatus = false;
     private static boolean disableControls = false;
     private static ArrayList<Collider> colliders = new ArrayList<>();
     @FXML
@@ -43,6 +45,10 @@ public class HelloController implements Initializable {
     private Pane npc;
     @FXML
     private Pane mapUnfold;
+    @FXML
+    private Label helpUnfoldText;
+    @FXML
+    private Pane helpUnfold;
     @FXML
     private Label balance;
     @FXML
@@ -154,7 +160,7 @@ public class HelloController implements Initializable {
     //onClick calls from FXML
     @FXML
     public void onBagButtonClick() throws IOException {
-        if(!inventorySubScene.getParent().getParent().isVisible() && !mapOpenStatus){
+        if(!inventorySubScene.getParent().getParent().isVisible() && !mapOpenStatus && !helpOpenStatus){
             disableControls = true;
             ArrayList<Pane> slots = new ArrayList<>(List.of(slot1, slot2, slot3, slot4, slot5, slot6, slot7, slot8));
             ArrayList<Label> slotlabels = new ArrayList<>(List.of(slot1label, slot2label, slot3label, slot4label, slot5label, slot6label, slot7label, slot8label));
@@ -205,7 +211,7 @@ public class HelloController implements Initializable {
     }
     @FXML
     public void onMapButtonClick() {
-        if (!mapOpenStatus && !inventorySubScene.getParent().getParent().isVisible()) {
+        if (!mapOpenStatus && !inventorySubScene.getParent().getParent().isVisible() && !helpOpenStatus) {
             System.out.println("Opening Map");
             disableControls = true;
             mapUnfold.setVisible(true);
@@ -240,7 +246,21 @@ public class HelloController implements Initializable {
     }
     @FXML
     public void onHelpButtonClick() {
-        System.out.println("Help");
+        if (!mapOpenStatus && !inventorySubScene.getParent().getParent().isVisible() && !helpOpenStatus) {
+            System.out.println("Opening Help");
+            disableControls = true;
+            helpUnfold.setVisible(true);
+            helpUnfoldText.setVisible(true);
+            helpOpenStatus = true;
+        }
+        else if (helpOpenStatus && !inventorySubScene.getParent().getParent().isVisible()) {
+            System.out.println("Closing Help");
+            disableControls = false;
+            helpUnfold.setVisible(false);
+            helpUnfoldText.setVisible(false);
+            helpOpenStatus = false;
+        }
+
     }
     //End onClick calls from FXML
 

@@ -441,5 +441,22 @@
             </BorderPane>
          </children></StackPane>
       <Pane id="mapUnfold" fx:id="mapUnfold" mouseTransparent="true" prefHeight="348.0" prefWidth="640.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <BorderPane id="helpBp" fx:id="helpBp" mouseTransparent="true" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
+         <center>
+            <Pane id="helpUnfold" fx:id="helpUnfold" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mouseTransparent="true" visible="false" BorderPane.alignment="CENTER">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Pane>
+         </center>
+      </BorderPane>
+      <Label id="helpUnfoldText" fx:id="helpUnfoldText" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Help Menu:             &#10;             &#10;W, A, S, D to move around.             &#10;I to open Inventory.             &#10;M to open map.             &#10;E to Inspect.             &#10;F to Use/Shop.             &#10;T to Talk.             &#10;H to bring up Help.             &#10;Esc to bring up the Menu.             &#10;             &#10;Good luck and have fun!             " visible="false" wrapText="true" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
+         <font>
+            <Font name="JoystixMonospace-Regular" size="12.0" />
+         </font>
+         <padding>
+            <Insets left="100.0" />
+         </padding>
+      </Label>
    </children>
 </AnchorPane>
