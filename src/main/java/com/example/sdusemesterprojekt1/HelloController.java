@@ -22,10 +22,7 @@ import worldOfZuul.Game;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
-import java.util.Timer;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 
@@ -35,6 +32,7 @@ public class HelloController implements Initializable {
     private boolean mapOpenStatus = false;
     private static boolean disableControls = false;
     private static ArrayList<Collider> colliders = new ArrayList<>();
+    private final Timer removeBubbles = new Timer();
     @FXML
     private GridPane background;
     @FXML
@@ -99,7 +97,7 @@ public class HelloController implements Initializable {
         balance.setText(Money.getMoney().toString());
     }
     private void displaytextbubble() {
-        int index = 1000;
+        int index;
 
         String current_npc_in_room = getNPC().toString().substring(8, getNPC().toString().length() - 1);
         System.out.println(current_npc_in_room);
@@ -117,6 +115,19 @@ public class HelloController implements Initializable {
                 index = (int)(Math.random() * responses.size());
                 textbubble.setText(responses.get(index));
                 textbubble.setStyle("-fx-opacity: 100%");
+                removeBubbles.schedule(
+                        new java.util.TimerTask() {
+                            public void run() {
+                                while (npcIsTalkable(getBackground(), getPlayer(), getNPC())) {
+                                }
+                                {
+                                    textbubble.setStyle("-fx-opacity: 0%");
+                                }
+
+                            }
+                        },
+                        5000
+                );
                 break;
             case "skipper_npc":
                 responses = new ArrayList<String>(List.of("" +
@@ -130,6 +141,19 @@ public class HelloController implements Initializable {
                 index = (int)(Math.random() * responses.size());
                 textbubble.setText(responses.get(index));
                 textbubble.setStyle("-fx-opacity: 100%");
+                removeBubbles.schedule(
+                        new java.util.TimerTask() {
+                            public void run() {
+                                while (npcIsTalkable(getBackground(), getPlayer(), getNPC())) {
+                                }
+                                {
+                                    textbubble.setStyle("-fx-opacity: 0%");
+                                }
+
+                            }
+                        },
+                        5000
+                );
                 break;
             case "coal_npc":
                 responses = new ArrayList<String>(List.of("" +
@@ -142,17 +166,43 @@ public class HelloController implements Initializable {
                 index = (int)(Math.random() * responses.size());
                 textbubble.setText(responses.get(index));
                 textbubble.setStyle("-fx-opacity: 100%");
+                removeBubbles.schedule(
+                        new java.util.TimerTask() {
+                            public void run() {
+                                while (npcIsTalkable(getBackground(), getPlayer(), getNPC())) {
+                                }
+                                {
+                                    textbubble.setStyle("-fx-opacity: 0%");
+                                }
+
+                            }
+                        },
+                        5000
+                );
                 break;
             case "npc5":
                 //This is solar city
                 responses = new ArrayList<String>(List.of("" +
-                                "Solar energy has always been my favorite!",
+                        "Solar energy has always been my favorite!",
                         "I DON'T LIKE COAL! It's bad for everyone!",
                         "I used to like coal, until i discovered the joys of solar energy!",
                         "Have you heard they still only wanna use coal at dirty hills!? You should go change that!"));
                 index = (int)(Math.random() * responses.size());
                 textbubble.setText(responses.get(index));
                 textbubble.setStyle("-fx-opacity: 100%");
+                removeBubbles.schedule(
+                        new java.util.TimerTask() {
+                            public void run() {
+                                while (npcIsTalkable(getBackground(), getPlayer(), getNPC())) {
+                                }
+                                {
+                                    textbubble.setStyle("-fx-opacity: 0%");
+                                }
+
+                            }
+                        },
+                        5000
+                );
                 break;
             case "npc2":
                 //Windy town
@@ -165,6 +215,19 @@ public class HelloController implements Initializable {
                 index = (int)(Math.random() * responses.size());
                 textbubble.setText(responses.get(index));
                 textbubble.setStyle("-fx-opacity: 100%");
+                removeBubbles.schedule(
+                        new java.util.TimerTask() {
+                            public void run() {
+                                while (npcIsTalkable(getBackground(), getPlayer(), getNPC())) {
+                                }
+                                {
+                                    textbubble.setStyle("-fx-opacity: 0%");
+                                }
+
+                            }
+                        },
+                        5000
+                );
                 break;
             case "npc4":
                 responses = new ArrayList<String>(List.of("" + "We have no other options than to use coal currently. It's sad.",
@@ -176,6 +239,19 @@ public class HelloController implements Initializable {
                 index = (int)(Math.random() * responses.size());
                 textbubble.setText(responses.get(index));
                 textbubble.setStyle("-fx-opacity: 100%");
+                removeBubbles.schedule(
+                        new java.util.TimerTask() {
+                            public void run() {
+                                while (npcIsTalkable(getBackground(), getPlayer(), getNPC())) {
+                                }
+                                {
+                                    textbubble.setStyle("-fx-opacity: 0%");
+                                }
+
+                            }
+                        },
+                        5000
+                );
                 break;
             default:
                 System.out.println("Error in NPC response!");
@@ -272,6 +348,7 @@ public class HelloController implements Initializable {
 
 
     }
+
     @FXML
     public void onBagCloseButtonClick() {
         disableControls = false;
