@@ -275,33 +275,12 @@ public class HelloController implements Initializable {
     }
     @FXML
     private boolean npcIsTalkable(GridPane background, Pane player, Pane npc) {
-        if (background.getRowIndex(player) == background.getRowIndex(npc) - 1
-                && background.getColumnIndex(player) == background.getColumnIndex(npc) - 1)
+        //If the player is in 1 tile adjacent to the NPC, in one of the 9 possible directions, return true.
+        int relativeDistanceX = Math.abs((background.getColumnIndex(player)-background.getColumnIndex(npc)));
+        int relativeDistanceY = Math.abs((background.getRowIndex(player)-background.getRowIndex(npc)));
+        if ((relativeDistanceX <= 1 && relativeDistanceY <= 1)) {
             return true;
-        else if (background.getRowIndex(player) == background.getRowIndex(npc) - 1
-                && background.getColumnIndex(player) == background.getColumnIndex(npc) + 1)
-            return true;
-        else if (background.getRowIndex(player) == background.getRowIndex(npc) + 1
-                && background.getColumnIndex(player) == background.getColumnIndex(npc) + 1)
-            return true;
-        else if (background.getRowIndex(player) == background.getRowIndex(npc) + 1
-                && background.getColumnIndex(player) == background.getColumnIndex(npc) - 1)
-            return true;
-        else if (background.getRowIndex(player) == background.getRowIndex(npc) - 1
-                && background.getColumnIndex(player) == background.getColumnIndex(npc) + 1)
-            return true;
-        else if (background.getRowIndex(player) == background.getRowIndex(npc) - 1
-                && background.getColumnIndex(player) == background.getColumnIndex(npc))
-            return true;
-        else if (background.getRowIndex(player) == background.getRowIndex(npc) + 1
-                && background.getColumnIndex(player) == background.getColumnIndex(npc))
-            return true;
-        else if (background.getRowIndex(player) == background.getRowIndex(npc)
-                && background.getColumnIndex(player) == background.getColumnIndex(npc) - 1)
-            return true;
-        else if (background.getRowIndex(player) == background.getRowIndex(npc)
-                && background.getColumnIndex(player) == background.getColumnIndex(npc) + 1)
-            return true;
+        }
         else {
             return false;
         }
