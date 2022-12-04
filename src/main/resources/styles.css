@@ -14,6 +14,12 @@
     -fx-background-color: none;
     -fx-border-color: transparent;
 }
+#cleanhills {
+    -fx-background-image: url("Scenes/cleanhills.png");
+    -fx-background-size: stretch;
+    -fx-background-color: none;
+    -fx-border-color: transparent;
+}
 #solarcity {
     -fx-background-image: url("Scenes/solarcity.png");
     -fx-background-size: stretch;

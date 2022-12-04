@@ -1,5 +1,6 @@
 package worldOfZuul;
 
+import java.net.URL;
 import java.util.List;
 import java.io.*;
 
@@ -28,6 +29,7 @@ public class Game {
     private Item HugeSolarPanel = pointShop.getForSale_Hub().get(1);
     private Item WoodenWindTurbine = pointShop.getForSale_Hub().get(2);
     private Item IndustrialWindTurbine = pointShop.getForSale_Hub().get(3);
+    private boolean isClean = false;
 
     public Game() {
         createRooms();
@@ -109,9 +111,12 @@ public class Game {
                     throw new RuntimeException(e);
                 }
             });
-            gameStage.show();
             controller.checkColliders();
             controller.updateBalanceGUI();
+            // Check if dirty hills is clean
+            if(getRoomId() == 1 && isClean){controller.getBackground().setId("cleanhills");}
+
+            gameStage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -142,6 +147,7 @@ public class Game {
                 Money.addMoney(100);
                 controller.updateBalanceGUI();
             }
+            case F9 -> {controller.isCleanDirtyHills(true);}
         }
     }
 
@@ -179,4 +185,7 @@ public class Game {
 
     public MainCharacter getMainCharacter() { return this.mainCharacter;}
     public PointShop getPointShop() {return this.pointShop;}
+    public boolean getIsClean(){return this.isClean;}
+    public void setIsClean(boolean bool){this.isClean = bool;}
 }
+

@@ -415,4 +415,7 @@ public class HelloController implements Initializable {
         itemprice.setStyle("-fx-font-weight: normal");
         itemname.setText("Please select an item...");
     }
+    public void isCleanDirtyHills(boolean bool){
+        game.setIsClean(bool);
+    }
 }
