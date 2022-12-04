@@ -99,10 +99,91 @@ public class HelloController implements Initializable {
         balance.setText(Money.getMoney().toString());
     }
     private void displaytextbubble() {
-        textbubble.setText("JEG ER AKTIVERET FRA LOGIKLAG");
-        textbubble.setStyle("-fx-opacity: 100%");
-        System.out.println(getNPC());
+        int index = 1000;
+
+        String current_npc_in_room = getNPC().toString().substring(8, getNPC().toString().length() - 1);
+        System.out.println(current_npc_in_room);
+        switch (current_npc_in_room) {
+            case "boss_npc":
+                ArrayList<String> responses = new ArrayList<String>(List.of("" +
+                        "Try putting down some green energy. The villagers will LOVE it!",
+                        "Solar or wind? Doesn't matter, just change it from coal.",
+                        "Some of the villagers may be stubborn to the old days of coal.",
+                        "Our goal is for the better good!",
+                        "A lot of these people still rely on inefficient and polluting coal systems. Sad",
+                        "We can all agree that everyone should have clean and affordable energy - right?",
+                        "If we keep increasing solar and wind, we'll be on track for our goal!",
+                        "Our goal is clean and affordable energy for everyone by 2030!"));
+                index = (int)(Math.random() * responses.size());
+                textbubble.setText(responses.get(index));
+                textbubble.setStyle("-fx-opacity: 100%");
+                break;
+            case "skipper_npc":
+                responses = new ArrayList<String>(List.of("" +
+                        "Oh you, you finally awake? Welcome to Green Watts",
+                        "Have you completed all your tasks for today?",
+                        "Nice! Well done!",
+                        "It's inspiring to watch you work.",
+                        "You've surely made an impact around here.",
+                        "You've surely made an impact around here.",
+                        "Look at all that green!"));
+                index = (int)(Math.random() * responses.size());
+                textbubble.setText(responses.get(index));
+                textbubble.setStyle("-fx-opacity: 100%");
+                break;
+            case "coal_npc":
+                responses = new ArrayList<String>(List.of("" +
+                                "Coal will always be more reliable!",
+                        "I don't see green energy making me this much money.",
+                        "It's the way we've done it for decades.",
+                        "Don't fix what ain't broken!",
+                        "I love the black gold.",
+                        "Coal is better - Change my mind!"));
+                index = (int)(Math.random() * responses.size());
+                textbubble.setText(responses.get(index));
+                textbubble.setStyle("-fx-opacity: 100%");
+                break;
+            case "npc5":
+                //This is solar city
+                responses = new ArrayList<String>(List.of("" +
+                                "Solar energy has always been my favorite!",
+                        "I DON'T LIKE COAL! It's bad for everyone!",
+                        "I used to like coal, until i discovered the joys of solar energy!",
+                        "Have you heard they still only wanna use coal at dirty hills!? You should go change that!"));
+                index = (int)(Math.random() * responses.size());
+                textbubble.setText(responses.get(index));
+                textbubble.setStyle("-fx-opacity: 100%");
+                break;
+            case "npc2":
+                //Windy town
+                responses = new ArrayList<String>(List.of("" +
+                                "Nice to meet you, my friend!",
+                        "It sure is windy today!",
+                        "Perfect wind for some clean green wind energy!",
+                        "Perfect day to use a kite!",
+                        "You should go teach them a windy lesson at Dirty Hills!"));
+                index = (int)(Math.random() * responses.size());
+                textbubble.setText(responses.get(index));
+                textbubble.setStyle("-fx-opacity: 100%");
+                break;
+            case "npc4":
+                responses = new ArrayList<String>(List.of("" + "We have no other options than to use coal currently. It's sad.",
+                        "Wish we could have some of those fancy green energy. Maybe solar panels?",
+                        "Are you new around here? We're used to coal sadly.",
+                        "I'll be willing to try something new, if it's good!",
+                        "I'm so tired of all this black coal",
+                        "We can't keep living in this filth!"));
+                index = (int)(Math.random() * responses.size());
+                textbubble.setText(responses.get(index));
+                textbubble.setStyle("-fx-opacity: 100%");
+                break;
+            default:
+                System.out.println("Error in NPC response!");
+                break;
+        }
     }
+
+
     private static boolean tileIsWalkable(int y, int x, GridPane background, Pane player, String direction) {
         //Check if the tile is a collider.
         for (Collider collider : colliders) {

@@ -440,6 +440,14 @@
                </center>
             </BorderPane>
          </children></StackPane>
+      <Label id="textbubble" fx:id="textbubble" alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="180.0" text="Try putting down some green energy. The villagers will LOVE it!" textAlignment="CENTER" textFill="#23216f" wrapText="true" AnchorPane.rightAnchor="278.0" AnchorPane.topAnchor="50.0">
+         <graphic>
+            <Pane prefHeight="25.0" prefWidth="200.0" styleClass="textbubble" stylesheets="@../../../styles.css" />
+         </graphic>
+         <font>
+            <Font name="Lucida Console" size="9.0" />
+         </font>
+      </Label>
       <Pane id="mapUnfold" fx:id="mapUnfold" mouseTransparent="true" prefHeight="348.0" prefWidth="640.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
    </children>
 </AnchorPane>
