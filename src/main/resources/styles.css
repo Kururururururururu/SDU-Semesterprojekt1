@@ -170,3 +170,14 @@
     -fx-background-color: none;
     -fx-border-color: transparent;
 }
+
+
+#textbubble {
+    -fx-background-color: white;
+    -fx-background-size: 1200 900;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-border-width:5;
+    -fx-border-color: white;
+    -fx-opacity: 0%;
+}
