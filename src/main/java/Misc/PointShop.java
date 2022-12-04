@@ -16,8 +16,8 @@ public class PointShop {
     ));
 
     private ArrayList<Item> forSale_Dirt = new ArrayList<>(List.of(
-            new Item("Coal Generator", 100, 5),
-            new Item("Oil Generator", 100, 6)
+            new Item("Small Fuel Generator", 100, 5),
+            new Item("Big Fuel Generator", 200, 6)
     ));
 
 //    ArrayList<Item> forSale;
