@@ -208,6 +208,7 @@
     -fx-border-radius: 15;
     -fx-border-width:5;
     -fx-border-color: white;
+    -fx-font-family: JoystixMonospace-Regular;
     -fx-opacity: 0%;
 }
 #balance {
@@ -215,3 +216,9 @@
     -fx-font-size: 30px;
     -fx-text-fill: #009900;
 }
+
+#continuebtn, exitbtn {
+    -fx-font-family: JoystixMonospace-Regular;
+    -fx-font-size: 9px;
+}
+
