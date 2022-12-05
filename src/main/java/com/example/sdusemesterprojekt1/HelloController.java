@@ -246,7 +246,7 @@ public class HelloController implements Initializable {
 
     //onClick calls from FXML
     @FXML
-    public void onBagButtonClick() throws IOException {
+    public void onBagButtonClick() {
         if(!inventorySubScene.getParent().getParent().isVisible() && !mapOpenStatus){
             disableControls = true;
             ArrayList<Pane> slots = new ArrayList<>(List.of(slot1, slot2, slot3, slot4, slot5, slot6, slot7, slot8));
