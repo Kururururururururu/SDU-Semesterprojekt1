@@ -22,7 +22,7 @@
    <children>
       <StackPane prefHeight="348.0" prefWidth="640.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <GridPane id="dirtyhills" fx:id="background" alignment="CENTER" gridLinesVisible="true" prefHeight="348.0" prefWidth="640.0">
+            <GridPane id="dirtyhills" fx:id="background" alignment="CENTER" prefHeight="348.0" prefWidth="640.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -155,6 +155,17 @@
                      <GridPane.margin>
                         <Insets right="5.0" />
                      </GridPane.margin></Label>
+                  <Label id="textbubble" fx:id="textbubble" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="43.0" prefWidth="180.0" text="Try putting down some green energy. The villagers will LOVE it!" textAlignment="CENTER" textFill="#23216f" wrapText="true" GridPane.columnIndex="12" GridPane.halignment="CENTER" GridPane.rowIndex="7">
+                     <graphic>
+                        <Pane prefHeight="25.0" prefWidth="200.0" styleClass="textbubble" stylesheets="@../../../styles.css" />
+                     </graphic>
+                     <font>
+                        <Font name="Lucida Console" size="8.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" />
+                     </GridPane.margin>
+                  </Label>
                </children>
             </GridPane>
             <BorderPane id="subScene" fx:id="subScene" accessibleText="subScene" maxHeight="180.0" maxWidth="320.0" minHeight="180.0" minWidth="320.0" prefHeight="180.0" prefWidth="320.0" visible="false" StackPane.alignment="CENTER">
@@ -709,14 +720,6 @@
                </center>
             </BorderPane>
          </children></StackPane>
-      <Label id="textbubble" fx:id="textbubble" alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="180.0" text="Try putting down some green energy. The villagers will LOVE it!" textAlignment="CENTER" textFill="#23216f" wrapText="true" AnchorPane.rightAnchor="155.0" AnchorPane.topAnchor="200.0">
-         <graphic>
-            <Pane prefHeight="25.0" prefWidth="200.0" styleClass="textbubble" stylesheets="@../../../styles.css" />
-         </graphic>
-         <font>
-            <Font name="Lucida Console" size="9.0" />
-         </font>
-      </Label>
       <Pane id="mapUnfold" fx:id="mapUnfold" mouseTransparent="true" prefHeight="348.0" prefWidth="640.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <BorderPane id="helpBp" fx:id="helpBp" mouseTransparent="true" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
          <center>
