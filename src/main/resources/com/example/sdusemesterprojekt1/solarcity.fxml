@@ -177,7 +177,10 @@
                   <Pane id="roomchangecollider" accessibleText="W" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="2" />
                   <Pane id="npc1" fx:id="npc" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="14" GridPane.rowIndex="8" />
                   <Pane id="npc5" fx:id="npc" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="8" />
-                  <Label id="balance" fx:id="balance" alignment="CENTER" text="0" textAlignment="CENTER" GridPane.columnIndex="18" />
+                  <Label id="balance" fx:id="balance" alignment="CENTER" contentDisplay="RIGHT" text="0" textAlignment="RIGHT" GridPane.columnIndex="14" GridPane.columnSpan="5" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS">
+                     <GridPane.margin>
+                        <Insets right="5.0" />
+                     </GridPane.margin></Label>
                   <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="14" GridPane.rowIndex="8" />
                   <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="8" />
                </children>

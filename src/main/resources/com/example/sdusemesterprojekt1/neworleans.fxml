@@ -158,7 +158,10 @@
                   <Pane id="roomchangecollider" accessibleText="W" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="4" />
                   <Pane id="roomchangecollider" accessibleText="W" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="5" />
                   <Pane id="npc4" fx:id="npc" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="17" GridPane.rowIndex="4" />
-                  <Label id="balance" fx:id="balance" alignment="CENTER" text="0" textAlignment="CENTER" GridPane.columnIndex="18" />
+                  <Label id="balance" fx:id="balance" alignment="CENTER" contentDisplay="RIGHT" text="0" textAlignment="RIGHT" GridPane.columnIndex="14" GridPane.columnSpan="5" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS">
+                     <GridPane.margin>
+                        <Insets right="5.0" />
+                     </GridPane.margin></Label>
                   <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="17" GridPane.rowIndex="4" />
                </children>
             </GridPane>

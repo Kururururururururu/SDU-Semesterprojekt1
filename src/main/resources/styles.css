@@ -1,3 +1,8 @@
+@font-face {
+    font-family: JoystixMonospace-Regular;
+    src: url('font/joystixmonospace.ttf');
+}
+
 #coast {
     -fx-background-image: url("scenes/coast.png");
     -fx-background-size: stretch;
@@ -66,6 +71,7 @@
     -fx-border-radius: 15;
     -fx-border-width:5;
     -fx-border-color: #DCDCDC;
+    -fx-font-family: JoystixMonospace-Regular;
 }
 #backpack {
     -fx-background-image: url("icons/Backpack16x16.png");
@@ -191,4 +197,11 @@
     -fx-border-width:5;
     -fx-border-color: white;
     -fx-opacity: 0%;
+    -fx-font-family: JoystixMonospace-Regular;
+    -fx-font-size: 8px;
+}
+#balance {
+    -fx-font-family: JoystixMonospace-Regular;
+    -fx-font-size: 30px;
+    -fx-text-fill: #009900;
 }
