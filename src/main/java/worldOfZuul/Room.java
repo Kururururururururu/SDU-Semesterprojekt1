@@ -14,11 +14,13 @@ public class Room {
     private static String lastExit = null;
     private long lastVisited = 0;
     private Inventory environmentInventory = new Inventory();
+    private int installLocations = 0;
 
-    public Room(String description, Integer RoomId) {
+    public Room(String description, Integer RoomId, int installLocations) {
         this.RoomId = RoomId;
         this.description = description;
         exits = new HashMap<String, Room>();
+        this.installLocations = installLocations;
     }
 
     public void setExit(String direction, Room neighbor) {
@@ -68,8 +70,15 @@ public class Room {
     }
 
     public boolean hasRoomForItem(Item item) {
-
-        return true;
+        if(this.installLocations == 0) {
+            return false;
+        } else {
+            if(this.environmentInventory.getInventory().size() < this.installLocations) {
+                return true;
+            } else {
+                return false;
+            }
+        }
     }
 
 

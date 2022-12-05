@@ -46,12 +46,12 @@ public class Game {
         // Room outside, theatre, pub, lab, office;
         Room hub, dh, wt, sc, c, no;
 
-        hub = new Room("Hub", 0);
-        dh = new Room("Dirty Hills", 1);
-        wt = new Room("Windy Town", 2);
-        sc = new Room("Solar City", 3);
-        c = new Room("Coast", 4);
-        no = new Room("New Orleans", 5);
+        hub = new Room("Hub", 0, 0);
+        dh = new Room("Dirty Hills", 1, 0);
+        wt = new Room("Windy Town", 2, 10);
+        sc = new Room("Solar City", 3, 7);
+        c = new Room("Coast", 4, 0);
+        no = new Room("New Orleans", 5, 2);
 
 
         // initialise room exits
