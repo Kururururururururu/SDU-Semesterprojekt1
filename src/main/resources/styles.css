@@ -59,6 +59,14 @@
     -fx-background-color: transparent;
     -fx-border-color: transparent;
 }
+#helpUnfold {
+    -fx-background-color: #DCDCDC;
+    -fx-background-size: 1200 900;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-border-width:5;
+    -fx-border-color: #DCDCDC;
+}
 #backpack {
     -fx-background-image: url("icons/Backpack16x16.png");
     -fx-background-size: stretch;
