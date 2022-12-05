@@ -21,6 +21,7 @@ import javafx.stage.Stage;
 public class Game {
 
     private Room currentRoom;
+    private Room lastRoom;
     private CommandWords commands;
     private static Stage gameStage;
     private HelloController controller = new HelloController(this);
@@ -86,6 +87,7 @@ public class Game {
             return false;
         } else {
             currentRoom.setLastExit(direction);
+            lastRoom = currentRoom;
             currentRoom = nextRoom;
             showScene(currentRoom.getDescription().toLowerCase().replaceAll("\s+",""));
             currentRoom.runEnvironment();
@@ -150,56 +152,58 @@ public class Game {
     }
     public void correctRoomchangeEntrance(){
         if(currentRoom.getLastExit() != null) {
+            // Direction coming from
             switch (currentRoom.getLastExit()) {
                 case "N" -> {
                     ArrayList<Node> roomchangeColliders =  controller.getRoomchangecolliders();
-                    int countEntrances = 0;
                     for (Node node : roomchangeColliders) {
-                        if(node.getAccessibleText().equals("S")){
-                            controller.getBackground().setRowIndex(controller.getPlayer(), controller.getBackground().getRowIndex(node));
-                            controller.getBackground().setColumnIndex(controller.getPlayer(), controller.getBackground().getColumnIndex(node));
-                            countEntrances++;
+                        // Fix for entering solar city from south, when coming from windy hills (north)
+                        if(currentRoom.getRoomId().equals(3) && lastRoom.getRoomId().equals(2)){
+                            setPlayerAtCorrectEntrance(node, "W");
+                        } else {
+                            setPlayerAtCorrectEntrance(node, "S");
                         }
                     }
-                    System.out.println(countEntrances);
                 }
                 case "S" -> {
                     ArrayList<Node> roomchangeColliders =  controller.getRoomchangecolliders();
-                    int countEntrances = 0;
                     for (Node node : roomchangeColliders) {
-                        if(node.getAccessibleText().equals("N")){
-                            controller.getBackground().setRowIndex(controller.getPlayer(), controller.getBackground().getRowIndex(node));
-                            controller.getBackground().setColumnIndex(controller.getPlayer(), controller.getBackground().getColumnIndex(node));
-                            countEntrances++;
+                        if(currentRoom.getRoomId().equals(3) && lastRoom.getRoomId().equals(1)){
+                            setPlayerAtCorrectEntrance(node, "E");
+                        } else {
+                            setPlayerAtCorrectEntrance(node, "N");
                         }
                     }
-                    System.out.println(countEntrances);
                 }
                 case "W" -> {
                     ArrayList<Node> roomchangeColliders =  controller.getRoomchangecolliders();
-                    int countEntrances = 0;
                     for (Node node : roomchangeColliders) {
-                        if(node.getAccessibleText().equals("E")){
-                            controller.getBackground().setRowIndex(controller.getPlayer(), controller.getBackground().getRowIndex(node));
-                            controller.getBackground().setColumnIndex(controller.getPlayer(), controller.getBackground().getColumnIndex(node));
-                            countEntrances++;
+                        // Fix for entering windy hills from north, when entering from solar city (west)
+                        if(currentRoom.getRoomId().equals(2) && lastRoom.getRoomId().equals(3)){
+                            setPlayerAtCorrectEntrance(node, "N");
+                        }else {
+                            setPlayerAtCorrectEntrance(node, "E");
                         }
                     }
-                    System.out.println(countEntrances);
                 }
                 case "E" -> {
                     ArrayList<Node> roomchangeColliders =  controller.getRoomchangecolliders();
-                    int countEntrances = 0;
                     for (Node node : roomchangeColliders) {
-                        if(node.getAccessibleText().equals("W")){
-                            controller.getBackground().setRowIndex(controller.getPlayer(), controller.getBackground().getRowIndex(node));
-                            controller.getBackground().setColumnIndex(controller.getPlayer(), controller.getBackground().getColumnIndex(node));
-                            countEntrances++;
+                        // Fix for entering solar city from south, when coming from windy hills (north)
+                        if(currentRoom.getRoomId().equals(1) && lastRoom.getRoomId().equals(3)){
+                            setPlayerAtCorrectEntrance(node, "S");
+                        }else {
+                            setPlayerAtCorrectEntrance(node, "W");
                         }
                     }
-                    System.out.println(countEntrances);
                 }
             }
+        }
+    }
+    public void setPlayerAtCorrectEntrance(Node node, String entrance){
+        if(node.getAccessibleText().equals(entrance)){
+            controller.getBackground().setRowIndex(controller.getPlayer(), controller.getBackground().getRowIndex(node));
+            controller.getBackground().setColumnIndex(controller.getPlayer(), controller.getBackground().getColumnIndex(node));
         }
     }
 
