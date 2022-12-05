@@ -9,15 +9,15 @@ import java.util.List;
 public class PointShop {
 
     private ArrayList<Item> forSale_Hub = new ArrayList<>(List.of(
-            new Item("Small Solar Panel", 100, 1),
-            new Item("Huge Solar Panel", 1500, 2),
-            new Item("Wooden Wind Turbine", 200, 3),
-            new Item("Industrial Wind Turbine", 2500, 4)
+            new Item("SOLARPANEL", 100, 1, "Small Solar Panel"),
+            new Item("HSOLARPANEL", 1500, 2, "Huge Solar Panel"),
+            new Item("WINDTURBINE", 200, 3, "Wooden Wind Turbine"),
+            new Item("HWINDTURBINE", 2500, 4, "Industrial Wind Turbine")
     ));
 
     private ArrayList<Item> forSale_Dirt = new ArrayList<>(List.of(
-            new Item("Small Fuel Generator", 100, 5),
-            new Item("Big Fuel Generator", 200, 6)
+            new Item("FUELGEN", 100, 5, "Small Fuel Generator"),
+            new Item("BFUELGEN", 200, 6, "Big Fuel Generator")
     ));
 
 //    ArrayList<Item> forSale;

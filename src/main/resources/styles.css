@@ -40,16 +40,13 @@
     -fx-background-color: blue;
     -fx-opacity: 0.5;
 }
-#installlocation{
-    -fx-background-color: teal;
-    -fx-opacity: 0.5;
-}
 #map {
     -fx-background-image: url("icons/Map16x16.png");
     -fx-background-size: stretch;
     -fx-background-color: none;
     -fx-border-color: transparent;
 }
+
 #mapUnfold {
     -fx-background-image: url("scenes/mapunfold.png");
     -fx-background-size: stretch;

@@ -4,15 +4,19 @@ public class Item {
     private String type;
     private Integer id;
     private Integer price;
+
+    private String name;
     public Item() {
-        this.type = "ITEM UNKNOWN";
+        this.type = "UNKNOWN";
         this.price = 0;
         this.id = 0;
+        this.name = "Generic Item";
     }
-    public Item(String type, Integer price, Integer id) {
+    public Item(String type, Integer price, Integer id, String name) {
         this.type = type;
         this.price = price;
         this.id = id;
+        this.name = name;
     }
 
     public void generatePower(int roomID) {
@@ -47,6 +51,8 @@ public class Item {
         return this.price;
     }
     public Integer getId() { return this.id; }
+
+    public String getName() { return this.name; }
 
 
 }
