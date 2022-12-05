@@ -7,6 +7,8 @@ import EventColliders.SolidCollider;
 import Misc.Item;
 import Misc.Money;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -25,6 +27,7 @@ import worldOfZuul.Room;
 
 import java.net.URL;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 
 public class HelloController implements Initializable {
@@ -36,10 +39,13 @@ public class HelloController implements Initializable {
     private static ArrayList<Collider> colliders = new ArrayList<>();
     private ArrayList<Pane> installLocation = new ArrayList<>();
     private static ArrayList<Node> roomchangecolliders = new ArrayList<>();
+    private final Timer removeBubbles = new Timer();
     @FXML
     private GridPane background;
     @FXML
     private Pane player;
+    @FXML
+    private Pane menugui;
     @FXML
     private Pane npc;
     @FXML
@@ -66,6 +72,14 @@ public class HelloController implements Initializable {
     private Label shopname, shopitemlabel, shoppricelabel, itemname, itemprice, pointsavailable;
     @FXML
     private Button shopBuyButton;
+    @FXML
+    private Button exitbtn;
+    @FXML
+    private Button continuebtn;
+
+
+
+    private boolean is_menu_open = false;
 
 
     public HelloController(Game tgame) {
@@ -104,7 +118,7 @@ public class HelloController implements Initializable {
         balance.setText(Money.getMoney().toString());
     }
     private void displaytextbubble() {
-        int index = 1000;
+        int index;
 
         String current_npc_in_room = getNPC().toString().substring(8, getNPC().toString().length() - 1);
         System.out.println(current_npc_in_room);
@@ -122,6 +136,19 @@ public class HelloController implements Initializable {
                 index = (int)(Math.random() * responses.size());
                 textbubble.setText(responses.get(index));
                 textbubble.setStyle("-fx-opacity: 100%");
+                removeBubbles.schedule(
+                        new java.util.TimerTask() {
+                            public void run() {
+                                while (npcIsTalkable(getBackground(), getPlayer(), getNPC())) {
+                                }
+                                {
+                                    textbubble.setStyle("-fx-opacity: 0%");
+                                }
+
+                            }
+                        },
+                        5000
+                );
                 break;
             case "skipper_npc":
                 responses = new ArrayList<String>(List.of("" +
@@ -135,6 +162,19 @@ public class HelloController implements Initializable {
                 index = (int)(Math.random() * responses.size());
                 textbubble.setText(responses.get(index));
                 textbubble.setStyle("-fx-opacity: 100%");
+                removeBubbles.schedule(
+                        new java.util.TimerTask() {
+                            public void run() {
+                                while (npcIsTalkable(getBackground(), getPlayer(), getNPC())) {
+                                }
+                                {
+                                    textbubble.setStyle("-fx-opacity: 0%");
+                                }
+
+                            }
+                        },
+                        5000
+                );
                 break;
             case "coal_npc":
                 responses = new ArrayList<String>(List.of("" +
@@ -147,17 +187,43 @@ public class HelloController implements Initializable {
                 index = (int)(Math.random() * responses.size());
                 textbubble.setText(responses.get(index));
                 textbubble.setStyle("-fx-opacity: 100%");
+                removeBubbles.schedule(
+                        new java.util.TimerTask() {
+                            public void run() {
+                                while (npcIsTalkable(getBackground(), getPlayer(), getNPC())) {
+                                }
+                                {
+                                    textbubble.setStyle("-fx-opacity: 0%");
+                                }
+
+                            }
+                        },
+                        5000
+                );
                 break;
             case "npc5":
                 //This is solar city
                 responses = new ArrayList<String>(List.of("" +
-                                "Solar energy has always been my favorite!",
+                        "Solar energy has always been my favorite!",
                         "I DON'T LIKE COAL! It's bad for everyone!",
                         "I used to like coal, until i discovered the joys of solar energy!",
                         "Have you heard they still only wanna use coal at dirty hills!? You should go change that!"));
                 index = (int)(Math.random() * responses.size());
                 textbubble.setText(responses.get(index));
                 textbubble.setStyle("-fx-opacity: 100%");
+                removeBubbles.schedule(
+                        new java.util.TimerTask() {
+                            public void run() {
+                                while (npcIsTalkable(getBackground(), getPlayer(), getNPC())) {
+                                }
+                                {
+                                    textbubble.setStyle("-fx-opacity: 0%");
+                                }
+
+                            }
+                        },
+                        5000
+                );
                 break;
             case "npc2":
                 //Windy town
@@ -170,6 +236,19 @@ public class HelloController implements Initializable {
                 index = (int)(Math.random() * responses.size());
                 textbubble.setText(responses.get(index));
                 textbubble.setStyle("-fx-opacity: 100%");
+                removeBubbles.schedule(
+                        new java.util.TimerTask() {
+                            public void run() {
+                                while (npcIsTalkable(getBackground(), getPlayer(), getNPC())) {
+                                }
+                                {
+                                    textbubble.setStyle("-fx-opacity: 0%");
+                                }
+
+                            }
+                        },
+                        5000
+                );
                 break;
             case "npc4":
                 responses = new ArrayList<String>(List.of("" + "We have no other options than to use coal currently. It's sad.",
@@ -181,6 +260,19 @@ public class HelloController implements Initializable {
                 index = (int)(Math.random() * responses.size());
                 textbubble.setText(responses.get(index));
                 textbubble.setStyle("-fx-opacity: 100%");
+                removeBubbles.schedule(
+                        new java.util.TimerTask() {
+                            public void run() {
+                                while (npcIsTalkable(getBackground(), getPlayer(), getNPC())) {
+                                }
+                                {
+                                    textbubble.setStyle("-fx-opacity: 0%");
+                                }
+
+                            }
+                        },
+                        5000
+                );
                 break;
             default:
                 System.out.println("Error in NPC response!");
@@ -296,6 +388,7 @@ public class HelloController implements Initializable {
 
 
     }
+
     @FXML
     public void onBagCloseButtonClick() {
         disableControls = false;
@@ -348,6 +441,8 @@ public class HelloController implements Initializable {
         System.out.println(game.getRoomId());
     }
 
+
+
     @FXML
     public void onTalkButtonClick() {
         //System.out.println("Talk");
@@ -355,8 +450,32 @@ public class HelloController implements Initializable {
     }
     @FXML
     public void onMenuButtonClick() {
-        System.out.println("Menu");
+        if (is_menu_open == false) {
+            is_menu_open = true;
+            menugui.setStyle("-fx-opacity: 100%");
+            menugui.setStyle("-fx-background-color: white;");
+            continuebtn.setStyle("-fx-opacity: 100%");
+            exitbtn.setStyle("-fx-opacity: 100%");
+            continuebtn.setOnAction(new EventHandler<ActionEvent>() {
+                @Override public void handle(ActionEvent e) {
+                    onMenuButtonClick();
+                }
+            });
+            exitbtn.setOnAction(new EventHandler<ActionEvent>() {
+                @Override public void handle(ActionEvent e) {
+                    System.exit(0);
+                }
+            });
+
+        } else {
+            is_menu_open = false;
+            menugui.setStyle("-fx-opacity: 0%");
+            menugui.setStyle("-fx-background-color: transparent;");
+            continuebtn.setStyle("-fx-opacity: 0%");
+            exitbtn.setStyle("-fx-opacity: 0%");
+        }
     }
+
     @FXML
     public void onHelpButtonClick() {
         if (!mapOpenStatus && !inventorySubScene.getParent().getParent().isVisible() && !helpOpenStatus) {
