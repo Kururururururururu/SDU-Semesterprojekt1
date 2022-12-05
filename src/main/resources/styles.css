@@ -2,7 +2,9 @@
     font-family: JoystixMonospace-Regular;
     src: url('font/joystixmonospace.ttf');
 }
-
+#gameover {
+    -fx-font-family: JoystixMonospace-Regular;
+}
 #coast {
     -fx-background-image: url("scenes/coast.png");
     -fx-background-size: stretch;

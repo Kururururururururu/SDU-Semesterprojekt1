@@ -5,14 +5,12 @@ import EventColliders.RoomchangeCollider;
 import EventColliders.SolidCollider;
 import Misc.Item;
 import Misc.Money;
+import Misc.Points;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.Tooltip;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
@@ -20,16 +18,19 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.Node;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 import worldOfZuul.Game;
 import worldOfZuul.Room;
-
+import java.net.URL;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 
 public class HelloController implements Initializable {
-
     private static Game game = new Game();
     private boolean mapOpenStatus = false;
     private boolean helpOpenStatus = false;
@@ -54,6 +55,18 @@ public class HelloController implements Initializable {
     @FXML
     private Label balance;
     @FXML
+    private AnchorPane gameover;
+    @FXML
+    private Label gopoints;
+    @FXML
+    private Label gobalance;
+    @FXML
+    private Hyperlink golink;
+    @FXML
+    private Button goplay;
+    @FXML
+    private Button goexit;
+    @FXML
     private Label textbubble, textbubble2;
     @FXML
     private AnchorPane inventorySubScene, shopSubScene;
@@ -73,7 +86,6 @@ public class HelloController implements Initializable {
     private Button exitbtn;
     @FXML
     private Button continuebtn;
-
 
 
     private boolean is_menu_open = false;
@@ -114,7 +126,6 @@ public class HelloController implements Initializable {
     public void updateBalanceGUI() {
         balance.setText(Money.getMoney().toString());
     }
-
     private void displaytextbubble(Pane npc) {
         int index = 1000;
 
@@ -463,6 +474,30 @@ public class HelloController implements Initializable {
         npcTalk();
     }
     @FXML
+    public void onGameOver() {
+        gobalance.setText(Money.getMoney().toString());
+        gopoints.setText(Points.getPoints().toString());
+        goplay.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                System.out.println("Restart game.");
+                game.showScene("coast");
+            }
+        });
+        goexit.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                System.out.println("Exit game.");
+                System.exit(0);
+            }
+        });
+        golink.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                System.out.println("link clicked");
+            }
+        });
+    }
+    @FXML
     public void onMenuButtonClick() {
         if (is_menu_open == false) {
             is_menu_open = true;
@@ -518,15 +553,7 @@ public class HelloController implements Initializable {
         return this.player;
     }
 
-
-    //public BorderPane getSubScene() {
-    //    return this.subScene;
-    //}
-
     public ArrayList<Pane> getNPC() {return this.npc; }
-
-
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

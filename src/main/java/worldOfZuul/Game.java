@@ -10,6 +10,7 @@ import EventColliders.RoomchangeCollider;
 import Misc.Item;
 import Misc.Money;
 import Misc.PointShop;
+import Misc.Points;
 import com.example.sdusemesterprojekt1.HelloApplication;
 import com.example.sdusemesterprojekt1.HelloController;
 import javafx.collections.ObservableList;
@@ -35,6 +36,7 @@ public class Game {
     private Item WoodenWindTurbine = pointShop.getForSale_Hub().get(2);
     private Item IndustrialWindTurbine = pointShop.getForSale_Hub().get(3);
     private boolean isClean = false;
+    private boolean gameOver = false;
 
 
     public Game() {
@@ -158,6 +160,11 @@ public class Game {
                 controller.updateBalanceGUI();
             }
             case F9 -> {controller.isCleanDirtyHills(true);}
+            case F3 -> {
+                Points.addPoints(100);
+                controller.updateBalanceGUI();
+            }
+            case F4 -> {setGameOver();}
         }
     }
     public void correctRoomchangeEntrance(){
@@ -256,5 +263,16 @@ public class Game {
 
     public boolean getIsClean(){return this.isClean;}
     public void setIsClean(boolean bool){this.isClean = bool;}
+//    public boolean endConditionMet(boolean isClean) {
+//        if (isClean == true && )
+//    }
+    public void setGameOver() throws IOException {
+        this.gameOver = true;
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("gameover.fxml"));
+        fxmlLoader.setController(controller);
+        Scene scene = new Scene(fxmlLoader.load());
+        gameStage.setScene(scene);
+        controller.onGameOver();
+    }
 }
 

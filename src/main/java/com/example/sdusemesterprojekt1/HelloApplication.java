@@ -17,7 +17,6 @@ public class HelloApplication extends Application {
         Font.loadFont(getClass().getResourceAsStream("font/joystixmonospace.ttf"), 14);
         game.showScene("coast");
 
-
     }
 
     public static void main(String[] args) {

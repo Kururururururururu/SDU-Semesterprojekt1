@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="gameover" fx:id="gameover" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="348.0" prefWidth="640.0" style="-fx-background-color: #333333;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox layoutX="20.0" AnchorPane.bottomAnchor="-0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox prefHeight="348.0" prefWidth="640.0">
+               <children>
+                  <Label alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="500.0" text="Game Over" textAlignment="CENTER" textFill="#26ff00" translateY="15.0">
+                     <font>
+                        <Font name="JoystixMonospace-Regular" size="24.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="500.0" text="Thank you for playing!" textAlignment="CENTER" textFill="WHITE" translateY="15.0">
+                     <font>
+                        <Font name="JoystixMonospace-Regular" size="14.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets bottom="30.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox>
+                     <children>
+                        <Label alignment="TOP_LEFT" maxHeight="1.7976931348623157E308" prefHeight="26.0" prefWidth="270.0" text="Your final score was:" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="JoystixMonospace-Regular" size="14.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <HBox.margin>
+                              <Insets bottom="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label id="gopoints" fx:id="gopoints" text="0" textFill="#e100ff">
+                           <font>
+                              <Font name="JoystixMonospace-Regular" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox>
+                     <children>
+                        <Label alignment="TOP_LEFT" maxHeight="1.7976931348623157E308" prefHeight="26.0" prefWidth="270.0" text="Your $balance was:" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="JoystixMonospace-Regular" size="14.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </Label>
+                        <Label id="gobalance" fx:id="gobalance" text="0" textFill="#0cb709">
+                           <font>
+                              <Font name="JoystixMonospace-Regular" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Label text="This was just a game.&#10;But for millions of people in the real world, &#10;lack of power is a very real problem." textFill="WHITE">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="JoystixMonospace-Regular" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="201.0" text="Click the link below to read more &#10;and consider donating to help the cause." textFill="WHITE">
+                     <font>
+                        <Font name="JoystixMonospace-Regular" size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                     <children>
+                        <Hyperlink id="golink" fx:id="golink" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="[Read more]" textFill="#007eff">
+                           <font>
+                              <Font name="JoystixMonospace-Regular" size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="20.0" right="10.0" />
+                           </HBox.margin>
+                        </Hyperlink>
+                        <Button id="goplay" fx:id="goplay" mnemonicParsing="false" prefWidth="120.0" style="-fx-background-color: #99FF33;" text="Play again">
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="JoystixMonospace-Regular" size="12.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </Button>
+                        <Button id="goexit" fx:id="goexit" layoutX="176.0" layoutY="10.0" mnemonicParsing="false" prefWidth="120.0" style="-fx-background-color: #FF6666;" text="Exit">
+                           <font>
+                              <Font name="JoystixMonospace-Regular" size="12.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="40.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
