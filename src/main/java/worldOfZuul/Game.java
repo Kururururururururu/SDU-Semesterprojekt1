@@ -122,7 +122,6 @@ public class Game {
                     throw new RuntimeException(e);
                 }
             });
-            controller.checkColliders();
             controller.updateBalanceGUI();
             // Check if dirty hills is clean
             if(getRoomId() == 1 && isClean){controller.getBackground().setId("cleanhills");}
