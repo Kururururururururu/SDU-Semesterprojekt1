@@ -70,6 +70,7 @@ public class Room {
     }
 
     public boolean hasRoomForItem(Item item) {
+
         if(this.installLocations == 0) {
             return false;
         } else {

@@ -12,7 +12,8 @@ public class PointShop {
             new Item("SOLARPANEL", 100, 1, "Small Solar Panel"),
             new Item("HSOLARPANEL", 1500, 2, "Huge Solar Panel"),
             new Item("WINDTURBINE", 200, 3, "Wooden Wind Turbine"),
-            new Item("HWINDTURBINE", 2500, 4, "Industrial Wind Turbine")
+            new Item("HWINDTURBINE", 2500, 4, "Industrial Wind Turbine"),
+            new Item("CLEAN", 5000, 5, "Clean Energy Source")
     ));
 
     private ArrayList<Item> forSale_Dirt = new ArrayList<>(List.of(

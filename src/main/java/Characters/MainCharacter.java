@@ -22,7 +22,11 @@ public class MainCharacter {
     }
     public Inventory getPlayer_inventory() {return player_inventory;}
     public void addToInventory(Item item) {
-        player_inventory.addToInventory(item);
+        if(item.getType() == "CLEAN")   {
+            game.getController().isCleanDirtyHills(true);
+        } else {
+            player_inventory.addToInventory(item);
+        }
     }
 
     public void removeFromInventory(Item item) {
@@ -43,13 +47,13 @@ public class MainCharacter {
 
         if(this.getPlayer_inventory().getInventory().get(index) != null)    {
             Item forUse = this.getPlayer_inventory().getInventory().get(index);
+                if(currentRoom.hasRoomForItem(forUse))  {
+                    this.removeFromInventory(forUse);
+                    currentRoom.placeItem(forUse);
+                    game.getController().renderRoomItems(game.getRoom());
+                    return true;
+                }
 
-            if(currentRoom.hasRoomForItem(forUse))  {
-                this.removeFromInventory(forUse);
-                currentRoom.placeItem(forUse);
-                game.getController().renderRoomItems(game.getRoom());
-                return true;
-            }
         }
         return false;
     }
