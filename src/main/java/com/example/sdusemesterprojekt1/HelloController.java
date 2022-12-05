@@ -5,6 +5,8 @@ import EventColliders.RoomchangeCollider;
 import EventColliders.SolidCollider;
 import Misc.Item;
 import Misc.Money;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -38,6 +40,8 @@ public class HelloController implements Initializable {
     @FXML
     private Pane player;
     @FXML
+    private Pane menugui;
+    @FXML
     private Pane npc;
     @FXML
     private Pane mapUnfold;
@@ -59,6 +63,14 @@ public class HelloController implements Initializable {
     private Label shopname, shopitemlabel, shoppricelabel, itemname, itemprice, pointsavailable;
     @FXML
     private Button shopBuyButton;
+    @FXML
+    private Button exitbtn;
+    @FXML
+    private Button continuebtn;
+
+
+
+    private boolean is_menu_open = false;
 
 
     public HelloController(Game tgame) {
@@ -394,6 +406,8 @@ public class HelloController implements Initializable {
         System.out.println(game.getRoomId());
     }
 
+
+
     @FXML
     public void onTalkButtonClick() {
         //System.out.println("Talk");
@@ -401,8 +415,32 @@ public class HelloController implements Initializable {
     }
     @FXML
     public void onMenuButtonClick() {
-        System.out.println("Menu");
+        if (is_menu_open == false) {
+            is_menu_open = true;
+            menugui.setStyle("-fx-opacity: 100%");
+            menugui.setStyle("-fx-background-color: white;");
+            continuebtn.setStyle("-fx-opacity: 100%");
+            exitbtn.setStyle("-fx-opacity: 100%");
+            continuebtn.setOnAction(new EventHandler<ActionEvent>() {
+                @Override public void handle(ActionEvent e) {
+                    onMenuButtonClick();
+                }
+            });
+            exitbtn.setOnAction(new EventHandler<ActionEvent>() {
+                @Override public void handle(ActionEvent e) {
+                    System.exit(0);
+                }
+            });
+
+        } else {
+            is_menu_open = false;
+            menugui.setStyle("-fx-opacity: 0%");
+            menugui.setStyle("-fx-background-color: transparent;");
+            continuebtn.setStyle("-fx-opacity: 0%");
+            exitbtn.setStyle("-fx-opacity: 0%");
+        }
     }
+
     @FXML
     public void onHelpButtonClick() {
         System.out.println("Help");
