@@ -47,6 +47,7 @@ public class MainCharacter {
             if(currentRoom.hasRoomForItem(forUse))  {
                 this.removeFromInventory(forUse);
                 currentRoom.placeItem(forUse);
+                game.getController().renderRoomItems(game.getRoom());
                 return true;
             }
         }
