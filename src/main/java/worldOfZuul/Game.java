@@ -87,6 +87,7 @@ public class Game {
             currentRoom = nextRoom;
             showScene(currentRoom.getDescription().toLowerCase().replaceAll("\s+",""));
             currentRoom.runEnvironment();
+            controller.renderRoomItems(currentRoom);
             return true;
         }
     }
@@ -102,6 +103,8 @@ public class Game {
             fxmlLoader.setController(controller);
             System.out.println("Loading scene: " + sceneName);
             Scene scene = new Scene(fxmlLoader.load());
+            controller.checkColliders();
+            controller.updateBalanceGUI();
             gameStage.setScene(scene);
             scene.setOnKeyPressed(event -> {
                 try {
@@ -111,8 +114,6 @@ public class Game {
                 }
             });
             gameStage.show();
-            controller.checkColliders();
-            controller.updateBalanceGUI();
         } catch (IOException e) {
             e.printStackTrace();
         }

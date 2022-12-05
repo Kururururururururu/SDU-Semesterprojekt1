@@ -1,6 +1,7 @@
 package worldOfZuul;
 
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.Set;
 import java.util.HashMap;
 import Misc.*;
@@ -51,12 +52,18 @@ public class Room {
             //System.out.println("Ran env");
             //this.environmentInventory.showInventory();
         }
-
     }
 
     public boolean placeItem(Item item) {
-        this.environmentInventory.addToInventory(item);
-        return true;
+        if(this.hasRoomForItem(item)) {
+            this.lastVisited = Instant.now().getEpochSecond();
+            this.environmentInventory.addToInventory(item);
+            runEnvironment();
+            return true;
+        } else {
+            return false;
+        }
+
     }
 
     public boolean hasRoomForItem(Item item) {
@@ -69,7 +76,9 @@ public class Room {
         return exits.get(direction);
     }
     
-
+    public ArrayList<Item> getItems() {
+        return this.environmentInventory.getInventory();
+    }
 
     public Integer getRoomId() { return this.RoomId; }
 }

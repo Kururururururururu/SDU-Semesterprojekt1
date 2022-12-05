@@ -18,16 +18,11 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.Node;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import worldOfZuul.Game;
+import worldOfZuul.Room;
 
-import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
-import java.util.Timer;
-import java.util.concurrent.TimeUnit;
+import java.util.*;
 
 
 public class HelloController implements Initializable {
@@ -36,6 +31,7 @@ public class HelloController implements Initializable {
     private boolean mapOpenStatus = false;
     private static boolean disableControls = false;
     private static ArrayList<Collider> colliders = new ArrayList<>();
+    private ArrayList<Pane> installLocation = new ArrayList<>();
     @FXML
     private GridPane background;
     @FXML
@@ -66,10 +62,6 @@ public class HelloController implements Initializable {
 
     public HelloController(Game tgame) {
         game = tgame;
-
-
-
-
     }
 
     @FXML
@@ -229,6 +221,7 @@ public class HelloController implements Initializable {
 
     public void checkColliders()    {
         colliders = new ArrayList<>();
+        installLocation = new ArrayList<>();
         //System.out.println("Checking colliders");
         for(Node child : background.getChildren())  {
             if(child.getId() != null)   {
@@ -240,13 +233,30 @@ public class HelloController implements Initializable {
                     //System.out.println("Roomchange collider found");
                     colliders.add(new RoomchangeCollider(background.getRowIndex(child), background.getColumnIndex(child), child.getAccessibleText()));
                 }
+                if(child.getId().equals("installlocation") && child.getClass() ==  Pane.class)   {
+                    //System.out.println("Roomchange collider found");
+                    installLocation.add((Pane) child);
+                }
+            }
+        }
+    }
+
+    public void renderRoomItems(Room room)   {
+        //Check if the room has any items before doing anything.
+        if(room.getItems() != null) {
+            for (int i = 0; i < room.getItems().size(); i++) {
+                String iconPath = HelloApplication.class.getClassLoader().getResource("icons/") +  room.getItems().get(i).getName().replaceAll("\\s+","") + "16x16.png";
+                System.out.println(iconPath);
+                BackgroundImage icon = new BackgroundImage(new Image( iconPath,32,32,false,true), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+                installLocation.get(i).setBackground(new Background(icon));
+                System.out.println(background.getColumnIndex(installLocation.get(i)) + ", " + background.getRowIndex(installLocation.get(i)));;
             }
         }
     }
 
     //onClick calls from FXML
     @FXML
-    public void onBagButtonClick() throws IOException {
+    public void onBagButtonClick() {
         if(!inventorySubScene.getParent().getParent().isVisible() && !mapOpenStatus){
             disableControls = true;
             ArrayList<Pane> slots = new ArrayList<>(List.of(slot1, slot2, slot3, slot4, slot5, slot6, slot7, slot8));
@@ -258,15 +268,15 @@ public class HelloController implements Initializable {
 
             int slot = 0;
             for (Item i: inv) {
-                String iconPath = HelloApplication.class.getClassLoader().getResource("icons/") + "Inventory-" + i.getType().replaceAll("\\s+","") + "16x16.png";
+                String iconPath = HelloApplication.class.getClassLoader().getResource("icons/") + "Inventory-" + i.getName().replaceAll("\\s+","") + "16x16.png";
                 BackgroundImage icon = new BackgroundImage(new Image( iconPath,48,48,false,true), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
                 slots.get(slot).setBackground(new Background(icon));
                 slottooltips.get(slot).setOpacity(1);
-                slottooltips.get(slot).setText(i.getType());
+                slottooltips.get(slot).setText(i.getName());
                 slotlabels.get(slot).setText("x"+item_count.get(slot).toString());
 
                 // For debugging
-                System.out.println("*******************\nSlot: " + (slot+1) + "\nItem name: " +i.getType() + "\nItem count: " + item_count.get(slot) + "\nIcon url: " + iconPath + "\n*******************\n");
+                System.out.println("*******************\nSlot: " + (slot+1) + "\nItem name: " +i.getName() + "\nItem count: " + item_count.get(slot) + "\nIcon url: " + iconPath + "\n*******************\n");
 
                 slot ++;
             }
@@ -401,13 +411,13 @@ public class HelloController implements Initializable {
                 pointsavailable.setText("(Balance: " + Money.getMoney().toString() + "$)");
 
                 for (int i = 0; i < currentShopItems.size(); i++) {
-                    String iconPath = HelloApplication.class.getClassLoader().getResource("icons/") + "Inventory-" + currentShopItems.get(i).getType().replaceAll("\\s+", "") + "16x16.png";
+                    String iconPath = HelloApplication.class.getClassLoader().getResource("icons/") + "Inventory-" + currentShopItems.get(i).getName().replaceAll("\\s+", "") + "16x16.png";
                     BackgroundImage icon = new BackgroundImage(new Image(iconPath, 48, 48, false, true), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
                     slots.get(i).setBackground(new Background(icon));
 
                     radioButtons.get(i).setVisible(true);
 
-                    System.out.println(currentShopItems.get(i).getType());
+                    System.out.println(currentShopItems.get(i).getName());
 
                 }
             } else {
@@ -426,7 +436,7 @@ public class HelloController implements Initializable {
         shopBuyButton.setVisible(true);
         itemprice.setStyle("-fx-font-weight: normal");
 
-        itemname.setText(currentShopItems.get(selection).getType());
+        itemname.setText(currentShopItems.get(selection).getName());
         itemprice.setText(currentShopItems.get(selection).getPrice().toString() + "$");
         pointsavailable.setText("(Balance: " + Money.getMoney().toString() + "$)");
 
@@ -456,7 +466,7 @@ public class HelloController implements Initializable {
             shopBuyButton.setVisible(false);
             itemname.setText("You bought a:");
             itemprice.setStyle("-fx-font-weight: bold");
-            itemprice.setText(currentShopItems.get(selection).getType());
+            itemprice.setText(currentShopItems.get(selection).getName());
 
         }
     }

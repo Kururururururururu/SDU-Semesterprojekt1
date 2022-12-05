@@ -37,6 +37,10 @@ public class MainCharacter {
             return false;
         }
 
+        if(player_inventory.getInventory().size() == 0) {
+            return false;
+        }
+
         if(this.getPlayer_inventory().getInventory().get(index) != null)    {
             Item forUse = this.getPlayer_inventory().getInventory().get(index);
 
