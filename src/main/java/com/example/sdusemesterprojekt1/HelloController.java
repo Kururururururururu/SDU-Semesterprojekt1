@@ -331,6 +331,7 @@ public class HelloController implements Initializable {
     public void checkColliders()    {
         colliders = new ArrayList<>();
         installLocation = new ArrayList<>();
+        npc = new ArrayList<>();
         //System.out.println("Checking colliders");
         for(Node child : background.getChildren())  {
             if(child.getId() != null)   {
@@ -451,7 +452,7 @@ public class HelloController implements Initializable {
     public void onHandButtonClick() {
         System.out.println("Hand");
         openShop();
-        System.out.println(game.getRoomId());
+        System.out.println("Room id:" + game.getRoomId());
     }
 
 
@@ -554,8 +555,7 @@ public class HelloController implements Initializable {
     }
     @FXML
     public void openShop() {
-
-        if((game.getRoomId() == 0 || game.getRoomId() == 1 )&& npcIsTalkable(getBackground(), getPlayer(), npc.get(0))){
+        if((game.getRoomId().equals(0) || game.getRoomId().equals(1) ) && npcIsTalkable(getBackground(), getPlayer(), npc.get(0))){
             if(!shopSubScene.getParent().getParent().isVisible()) {
                 disableControls = true;
                 shopSubScene.getParent().getParent().setVisible(true);
