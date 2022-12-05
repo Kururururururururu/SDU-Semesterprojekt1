@@ -1,16 +1,20 @@
 package worldOfZuul;
 
-import java.net.URL;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.io.*;
 
 import Characters.MainCharacter;
+import EventColliders.RoomchangeCollider;
 import Misc.Item;
 import Misc.Money;
 import Misc.PointShop;
 import com.example.sdusemesterprojekt1.HelloApplication;
 import com.example.sdusemesterprojekt1.HelloController;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
@@ -19,6 +23,7 @@ import javafx.stage.Stage;
 public class Game {
 
     private Room currentRoom;
+    private Room lastRoom;
     private CommandWords commands;
     private static Stage gameStage;
     private HelloController controller = new HelloController(this);
@@ -86,6 +91,8 @@ public class Game {
         if (nextRoom == null) {
             return false;
         } else {
+            currentRoom.setLastExit(direction);
+            lastRoom = currentRoom;
             currentRoom = nextRoom;
             showScene(currentRoom.getDescription().toLowerCase().replaceAll("\s+",""));
             currentRoom.runEnvironment();
@@ -120,6 +127,7 @@ public class Game {
             // Check if dirty hills is clean
             if(getRoomId() == 1 && isClean){controller.getBackground().setId("cleanhills");}
             gameStage.show();
+            correctRoomchangeEntrance();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -153,6 +161,63 @@ public class Game {
             case F9 -> {controller.isCleanDirtyHills(true);}
         }
     }
+    public void correctRoomchangeEntrance(){
+        if(currentRoom.getLastExit() != null) {
+            // Direction coming from
+            switch (currentRoom.getLastExit()) {
+                case "N" -> {
+                    ArrayList<Node> roomchangeColliders =  controller.getRoomchangecolliders();
+                    for (Node node : roomchangeColliders) {
+                        // Fix for entering solar city from south, when coming from windy hills (north)
+                        if(currentRoom.getRoomId().equals(3) && lastRoom.getRoomId().equals(2)){
+                            setPlayerAtCorrectEntrance(node, "W");
+                        } else {
+                            setPlayerAtCorrectEntrance(node, "S");
+                        }
+                    }
+                }
+                case "S" -> {
+                    ArrayList<Node> roomchangeColliders =  controller.getRoomchangecolliders();
+                    for (Node node : roomchangeColliders) {
+                        if(currentRoom.getRoomId().equals(3) && lastRoom.getRoomId().equals(1)){
+                            setPlayerAtCorrectEntrance(node, "E");
+                        } else {
+                            setPlayerAtCorrectEntrance(node, "N");
+                        }
+                    }
+                }
+                case "W" -> {
+                    ArrayList<Node> roomchangeColliders =  controller.getRoomchangecolliders();
+                    for (Node node : roomchangeColliders) {
+                        // Fix for entering windy hills from north, when entering from solar city (west)
+                        if(currentRoom.getRoomId().equals(2) && lastRoom.getRoomId().equals(3)){
+                            setPlayerAtCorrectEntrance(node, "N");
+                        }else {
+                            setPlayerAtCorrectEntrance(node, "E");
+                        }
+                    }
+                }
+                case "E" -> {
+                    ArrayList<Node> roomchangeColliders =  controller.getRoomchangecolliders();
+                    for (Node node : roomchangeColliders) {
+                        // Fix for entering solar city from south, when coming from windy hills (north)
+                        if(currentRoom.getRoomId().equals(1) && lastRoom.getRoomId().equals(3)){
+                            setPlayerAtCorrectEntrance(node, "S");
+                        }else {
+                            setPlayerAtCorrectEntrance(node, "W");
+                        }
+                    }
+                }
+            }
+        }
+    }
+    public void setPlayerAtCorrectEntrance(Node node, String entrance){
+        if(node.getAccessibleText().equals(entrance)){
+            controller.getBackground().setRowIndex(controller.getPlayer(), controller.getBackground().getRowIndex(node));
+            controller.getBackground().setColumnIndex(controller.getPlayer(), controller.getBackground().getColumnIndex(node));
+        }
+    }
+
 
     public boolean quit(Command command) {
         if (command.hasCommandValue()) {
