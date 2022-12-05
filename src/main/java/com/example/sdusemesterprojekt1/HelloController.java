@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
@@ -65,6 +66,10 @@ public class HelloController implements Initializable {
 
     public HelloController(Game tgame) {
         game = tgame;
+
+
+
+
     }
 
     @FXML
@@ -288,9 +293,16 @@ public class HelloController implements Initializable {
         }
         inventorySubScene.getParent().getParent().setVisible(false);
     }
-    public void getSlots() {
 
+    @FXML
+    public void onInventorySlotClick(MouseEvent event) {
+        //System.out.println(event.getTarget());
+        int slotIndex = Integer.parseInt(event.getTarget().toString().substring(event.getTarget().toString().length() - 2, event.getTarget().toString().length() - 1));
+        //TODO add visual indicator for false return.
+        System.out.println("ran");
+        game.getMainCharacter().useItem(slotIndex-1, game.getRoom());
     }
+
     @FXML
     public void onMapButtonClick() {
         if (!mapOpenStatus && !inventorySubScene.getParent().getParent().isVisible()) {

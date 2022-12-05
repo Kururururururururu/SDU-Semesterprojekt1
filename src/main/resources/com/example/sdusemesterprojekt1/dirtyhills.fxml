@@ -211,7 +211,7 @@
                                                       <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                                                    </GridPane.margin>
                                                    <children>
-                                                      <Pane id="slot1" fx:id="slot1" accessibleText="slot1" prefHeight="200.0" prefWidth="200.0">
+                                                      <Pane id="slot1" fx:id="slot1" onMouseClicked="#onInventorySlotClick" accessibleText="slot1" prefHeight="200.0" prefWidth="200.0">
                                                          <StackPane.margin>
                                                             <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                                                          </StackPane.margin>
@@ -235,7 +235,7 @@
                                                 </StackPane>
                                                 <StackPane id="inventorySlot" alignment="BOTTOM_RIGHT" GridPane.columnIndex="1">
                                                    <children>
-                                                      <Pane id="slot2" fx:id="slot2" accessibleText="slot2" prefHeight="200.0" prefWidth="200.0">
+                                                      <Pane id="slot2" fx:id="slot2" onMouseClicked="#onInventorySlotClick" accessibleText="slot2" prefHeight="200.0" prefWidth="200.0">
                                                          <StackPane.margin>
                                                             <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                                                          </StackPane.margin>
@@ -262,7 +262,7 @@
                                                 </StackPane>
                                                 <StackPane id="inventorySlot" alignment="BOTTOM_RIGHT" GridPane.columnIndex="2">
                                                    <children>
-                                                      <Pane id="slot3" fx:id="slot3" accessibleText="slot3" prefHeight="200.0" prefWidth="200.0">
+                                                      <Pane id="slot3" fx:id="slot3" onMouseClicked="#onInventorySlotClick" accessibleText="slot3" prefHeight="200.0" prefWidth="200.0">
                                                          <StackPane.margin>
                                                             <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                                                          </StackPane.margin>
@@ -289,7 +289,7 @@
                                                 </StackPane>
                                                 <StackPane id="inventorySlot" alignment="BOTTOM_RIGHT" GridPane.columnIndex="3">
                                                    <children>
-                                                      <Pane id="slot4" fx:id="slot4" accessibleText="slot4" prefHeight="200.0" prefWidth="200.0">
+                                                      <Pane id="slot4" fx:id="slot4" onMouseClicked="#onInventorySlotClick" accessibleText="slot4" prefHeight="200.0" prefWidth="200.0">
                                                          <StackPane.margin>
                                                             <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                                                          </StackPane.margin>
@@ -316,7 +316,7 @@
                                                 </StackPane>
                                                 <StackPane id="inventorySlot" alignment="BOTTOM_RIGHT" GridPane.rowIndex="1">
                                                    <children>
-                                                      <Pane id="slot5" fx:id="slot5" accessibleText="slot5" prefHeight="200.0" prefWidth="200.0">
+                                                      <Pane id="slot5" fx:id="slot5" onMouseClicked="#onInventorySlotClick" accessibleText="slot5" prefHeight="200.0" prefWidth="200.0">
                                                          <StackPane.margin>
                                                             <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                                                          </StackPane.margin>
@@ -343,7 +343,7 @@
                                                 </StackPane>
                                                 <StackPane id="inventorySlot" alignment="BOTTOM_RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <children>
-                                                      <Pane id="slot6" fx:id="slot6" accessibleText="slot6" prefHeight="200.0" prefWidth="200.0">
+                                                      <Pane id="slot6" fx:id="slot6" onMouseClicked="#onInventorySlotClick" accessibleText="slot6" prefHeight="200.0" prefWidth="200.0">
                                                          <StackPane.margin>
                                                             <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                                                          </StackPane.margin>
@@ -370,7 +370,7 @@
                                                 </StackPane>
                                                 <StackPane id="inventorySlot" alignment="BOTTOM_RIGHT" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                                    <children>
-                                                      <Pane id="slot7" fx:id="slot7" accessibleText="slot7" prefHeight="200.0" prefWidth="200.0">
+                                                      <Pane id="slot7" fx:id="slot7" onMouseClicked="#onInventorySlotClick" accessibleText="slot7" prefHeight="200.0" prefWidth="200.0">
                                                          <StackPane.margin>
                                                             <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                                                          </StackPane.margin>
@@ -397,7 +397,7 @@
                                                 </StackPane>
                                                 <StackPane id="inventorySlot" alignment="BOTTOM_RIGHT" GridPane.columnIndex="3" GridPane.rowIndex="1">
                                                    <children>
-                                                      <Pane id="slot8" fx:id="slot8" accessibleText="slot8" prefHeight="200.0" prefWidth="200.0">
+                                                      <Pane id="slot8" fx:id="slot8" onMouseClicked="#onInventorySlotClick" accessibleText="slot8" prefHeight="200.0" prefWidth="200.0">
                                                          <StackPane.margin>
                                                             <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                                                          </StackPane.margin>

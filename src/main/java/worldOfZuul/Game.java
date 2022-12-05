@@ -22,12 +22,13 @@ public class Game {
     private static Stage gameStage;
     private HelloController controller = new HelloController(this);
 
-    private MainCharacter mainCharacter = new MainCharacter("John");
+    private MainCharacter mainCharacter = new MainCharacter("John", this);
     private PointShop pointShop = new PointShop();
     private Item SmallSolarPanel = pointShop.getForSale_Hub().get(0);
     private Item HugeSolarPanel = pointShop.getForSale_Hub().get(1);
     private Item WoodenWindTurbine = pointShop.getForSale_Hub().get(2);
     private Item IndustrialWindTurbine = pointShop.getForSale_Hub().get(3);
+
 
     public Game() {
         createRooms();
@@ -179,4 +180,6 @@ public class Game {
 
     public MainCharacter getMainCharacter() { return this.mainCharacter;}
     public PointShop getPointShop() {return this.pointShop;}
+    public HelloController getController() { return this.controller;}
+
 }
