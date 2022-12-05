@@ -252,6 +252,7 @@ public class HelloController implements Initializable {
                 System.out.println(background.getColumnIndex(installLocation.get(i)) + ", " + background.getRowIndex(installLocation.get(i)));;
             }
         }
+        updateBalanceGUI();
     }
 
     //onClick calls from FXML
