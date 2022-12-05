@@ -1,12 +1,10 @@
 package com.example.sdusemesterprojekt1;
 
-import Characters.NPC;
 import EventColliders.Collider;
 import EventColliders.RoomchangeCollider;
 import EventColliders.SolidCollider;
 import Misc.Item;
 import Misc.Money;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -36,12 +34,11 @@ public class HelloController implements Initializable {
     private static ArrayList<Collider> colliders = new ArrayList<>();
     private ArrayList<Pane> installLocation = new ArrayList<>();
     private static ArrayList<Node> roomchangecolliders = new ArrayList<>();
+    private ArrayList<Pane> npc = new ArrayList<>();
     @FXML
     private GridPane background;
     @FXML
     private Pane player;
-    @FXML
-    private Pane npc;
     @FXML
     private Pane mapUnfold;
     @FXML
@@ -51,7 +48,7 @@ public class HelloController implements Initializable {
     @FXML
     private Label balance;
     @FXML
-    private Label textbubble;
+    private Label textbubble, textbubble2;
     @FXML
     private AnchorPane inventorySubScene, shopSubScene;
     @FXML
@@ -103,10 +100,10 @@ public class HelloController implements Initializable {
     public void updateBalanceGUI() {
         balance.setText(Money.getMoney().toString());
     }
-    private void displaytextbubble() {
+    private void displaytextbubble(Pane npc) {
         int index = 1000;
 
-        String current_npc_in_room = getNPC().toString().substring(8, getNPC().toString().length() - 1);
+        String current_npc_in_room = npc.toString().substring(8, npc.toString().length() - 1);
         System.out.println(current_npc_in_room);
         switch (current_npc_in_room) {
             case "boss_npc":
@@ -182,6 +179,17 @@ public class HelloController implements Initializable {
                 textbubble.setText(responses.get(index));
                 textbubble.setStyle("-fx-opacity: 100%");
                 break;
+            case "npc1":
+                responses = new ArrayList<String>(List.of("" + "We have no other options than to use coal currently. It's sad.",
+                        "Wish we could have some of those fancy green energy. Maybe solar panels?",
+                        "Are you new around here? We're used to coal sadly.",
+                        "I'll be willing to try something new, if it's good!",
+                        "I'm so tired of all this black coal",
+                        "We can't keep living in this filth!"));
+                index = (int)(Math.random() * responses.size());
+                textbubble2.setText(responses.get(index));
+                textbubble2.setStyle("-fx-opacity: 100%");
+                break;
             default:
                 System.out.println("Error in NPC response!");
                 break;
@@ -245,6 +253,10 @@ public class HelloController implements Initializable {
                 if(child.getId().equals("installlocation") && child.getClass() ==  Pane.class)   {
                     //System.out.println("Roomchange collider found");
                     installLocation.add((Pane) child);
+                }
+                if(child.getAccessibleText() != null && child.getAccessibleText().equals("npc")) {
+                    System.out.println("Npc found");
+                    npc.add((Pane) child);
                 }
             }
         }
@@ -390,7 +402,7 @@ public class HelloController implements Initializable {
     //    return this.subScene;
     //}
 
-    public Pane getNPC() {return this.npc; }
+    public ArrayList<Pane> getNPC() {return this.npc; }
 
 
 
@@ -413,15 +425,17 @@ public class HelloController implements Initializable {
     }
     @FXML
     public void npcTalk() {
-        if (npcIsTalkable(getBackground(), getPlayer(), getNPC())) {
-            System.out.println("HELLO I CAN TALK");
-            displaytextbubble();
+        for (Pane npc:npc) {
+            if (npcIsTalkable(getBackground(), getPlayer(), npc)) {
+                System.out.println("HELLO I CAN TALK");
+                displaytextbubble(npc);
+            }
         }
     }
     @FXML
     public void openShop() {
 
-        if((game.getRoomId() == 0 || game.getRoomId() == 1 )&& npcIsTalkable(getBackground(), getPlayer(), getNPC())){
+        if((game.getRoomId() == 0 || game.getRoomId() == 1 )&& npcIsTalkable(getBackground(), getPlayer(), npc.get(0))){
             if(!shopSubScene.getParent().getParent().isVisible()) {
                 disableControls = true;
                 shopSubScene.getParent().getParent().setVisible(true);

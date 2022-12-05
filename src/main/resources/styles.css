@@ -192,3 +192,12 @@
     -fx-border-color: white;
     -fx-opacity: 0%;
 }
+#textbubble2 {
+    -fx-background-color: white;
+    -fx-background-size: 1200 900;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-border-width:5;
+    -fx-border-color: white;
+    -fx-opacity: 0%;
+}
