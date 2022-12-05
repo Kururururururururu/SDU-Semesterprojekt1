@@ -10,7 +10,6 @@ public class Room {
     private String description;
     private Integer RoomId;
     private HashMap<String, Room> exits;
-
     private long lastVisited = 0;
     private Inventory environmentInventory = new Inventory();
 
