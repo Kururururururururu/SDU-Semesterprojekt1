@@ -472,5 +472,11 @@
             <Insets left="100.0" />
          </padding>
       </Label>
+      <Pane id="menugui" fx:id="menugui" layoutX="245.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="250.0" prefWidth="150.0" style="-fx-opacity: 0; -fx-background-color: white;" AnchorPane.topAnchor="50.0">
+         <children>
+            <Button id="continuebtn" fx:id="continuebtn" layoutX="38.0" layoutY="53.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" style="-fx-opacity: inherit;" text="Continue" />
+            <Button id="continuebtn" fx:id="exitbtn" layoutX="38.0" layoutY="158.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" text="Exit" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
