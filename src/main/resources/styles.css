@@ -8,7 +8,6 @@
 #coast {
     -fx-background-image: url("scenes/coast.png");
     -fx-background-size: stretch;
-    -fx-font-family: JoystixMonospace-Regular;
 }
 #hub {
     -fx-background-image: url("Scenes/hub.png");
