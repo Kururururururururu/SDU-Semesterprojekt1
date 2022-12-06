@@ -144,10 +144,7 @@
                   <Pane id="roomchangecollider" accessibleText="N" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="9" GridPane.rowIndex="0" />
                   <Pane id="roomchangecollider" accessibleText="N" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="8" GridPane.rowIndex="0" />
                   <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-                  <Pane id="installlocation" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="10" GridPane.rowIndex="8" />
-                  <Pane id="installlocation" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="10" GridPane.rowIndex="9" />
-                  <Pane id="installlocation" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="11" GridPane.rowIndex="8" />
-                  <Pane id="installlocation" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="11" GridPane.rowIndex="9" />
+                  <Pane id="installlocationBig" minHeight="128.0" minWidth="64.0" mouseTransparent="true" prefHeight="54.0" prefWidth="55.0" GridPane.columnIndex="10" GridPane.halignment="LEFT" GridPane.rowIndex="9" GridPane.valignment="BOTTOM" />
                   <Pane id="installlocation" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="4" />
                   <Pane id="installlocation" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="6" />
                   <Pane id="installlocation" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="18" GridPane.rowIndex="7" />
