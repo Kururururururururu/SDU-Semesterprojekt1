@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Set;
 import java.util.HashMap;
 import Misc.*;
-import com.example.sdusemesterprojekt1.HelloController;
 
 public class Room {
     private String description;
@@ -59,6 +58,17 @@ public class Room {
         }
     }
 
+    public void clearRoom() {
+        for (Item item : environmentInventory.getInventory())  {
+            if(item.getType() == "SOLARPANEL")  {
+                installLocations++;
+            } else {
+                largeInstallLocation++;
+            }
+        }
+        this.environmentInventory = new Inventory();
+    }
+
     public boolean placeItem(Item item) {
         if(this.hasRoomForItem(item)) {
             if(item.getType() == "SOLARPANEL")  {
@@ -71,7 +81,6 @@ public class Room {
             this.environmentInventory.addToInventory(item);
             //System.out.println(this.environmentInventory.getInventory().size() + "/" + this.installLocations);
             runEnvironment();
-            System.out.println("Placed item");
             return true;
         } else {
             return false;

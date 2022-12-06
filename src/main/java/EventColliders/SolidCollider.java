@@ -15,7 +15,7 @@ public class SolidCollider extends Collider {
     @Override
     public void onCollision(Game game) {
         // This is solid and has no event, leave empty.
-        System.out.println("Solid collider hit");
+        //System.out.println("Solid collider hit");
     }
 
     @Override
