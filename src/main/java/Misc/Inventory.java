@@ -9,7 +9,7 @@ public class Inventory {
 
     }
     public void addToInventory(Item item) {
-        System.out.println(item.getType() + " added to inventory.");
+        //System.out.println(item.getType() + " added to inventory.");
         player_inventory.add(item);
     }
 

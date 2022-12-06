@@ -12,12 +12,12 @@ public class Points {
     public static void addPoints(Integer amount) {
         if (total_points < 999999-amount) {
             Points.total_points += amount;
-            System.out.println("Points added: " + amount);
-            System.out.println(total_points);
+            //System.out.println("Points added: " + amount);
+            //System.out.println(total_points);
         }
         else {
             total_points = 999999;
-            System.out.println("Max reached");
+            //System.out.println("Max reached");
 
         }
     }

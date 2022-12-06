@@ -128,7 +128,7 @@ public class HelloController implements Initializable {
     private void displaytextbubble(Pane npc) throws IOException {
 
         String current_npc_in_room = npc.toString().substring(8, npc.toString().length() - 1);
-        System.out.println(current_npc_in_room);
+        //System.out.println(current_npc_in_room);
         switch (current_npc_in_room) {
             case "boss_npc":
                 ArrayList<String> responses = new ArrayList<String>(List.of("" +
@@ -173,7 +173,7 @@ public class HelloController implements Initializable {
                     textbubble.setText(responses.get(responseCount));
                     textbubble.setStyle("-fx-opacity: 100%");
                     responseCount+=1;
-                    System.out.println("response count = "+responseCount);
+                    //System.out.println("response count = "+responseCount);
                     removeBubbles.schedule(
                             new java.util.TimerTask() {
                                 public void run() {
@@ -365,7 +365,7 @@ public class HelloController implements Initializable {
                 );
                 break;
             default:
-                System.out.println("Error in NPC response!");
+                System.out.print("ERROR: no response found!");
                 break;
         }
     }
@@ -435,7 +435,7 @@ public class HelloController implements Initializable {
                     installLocationBig.add((Pane) child);
                 }
                 if(child.getAccessibleText() != null && child.getAccessibleText().equals("npc")) {
-                    System.out.println("Npc found");
+                    //System.out.println("Npc found");
                     npc.add((Pane) child);
                 }
             }
@@ -443,13 +443,13 @@ public class HelloController implements Initializable {
     }
 
     public void renderRoomItems(Room room)   {
-        System.out.println("Ran render" + "big: " + installLocationBig.size() + " | small: " + installLocation.size());
+        //System.out.println("Ran render" + "big: " + installLocationBig.size() + " | small: " + installLocation.size());
         int x = 0;
         int i = 0;
         int j = 0;
         if(room.getItems().size() > 0) {
                 for (Item item : room.getItems()) {
-                    System.out.println(item.getName());
+                    //System.out.println(item.getName());
                     if(room.getItems().get(x).getType() == "SOLARPANEL") {
                         String iconPath = HelloApplication.class.getClassLoader().getResource("icons/") + room.getItems().get(x).getName().replaceAll("\\s+", "") + "16x16.png";
                         //System.out.println(iconPath);
@@ -494,7 +494,7 @@ public class HelloController implements Initializable {
                 slotlabels.get(slot).setText("x"+item_count.get(slot).toString());
 
                 // For debugging
-                System.out.println("*******************\nSlot: " + (slot+1) + "\nItem name: " +i.getName() + "\nItem count: " + item_count.get(slot) + "\nIcon url: " + iconPath + "\n*******************\n");
+                //System.out.println("*******************\nSlot: " + (slot+1) + "\nItem name: " +i.getName() + "\nItem count: " + item_count.get(slot) + "\nIcon url: " + iconPath + "\n*******************\n");
 
                 slot ++;
             }
@@ -535,13 +535,13 @@ public class HelloController implements Initializable {
     @FXML
     public void onMapButtonClick() {
         if (!isPaused()) {
-            System.out.println("Opening Map");
+            //System.out.println("Opening Map");
             disableControls = true;
             mapUnfold.setVisible(true);
             mapOpenStatus = true;
         }
         else if (mapOpenStatus && !inventorySubScene.getParent().getParent().isVisible()) {
-            System.out.println("Closing Map");
+            //System.out.println("Closing Map");
             disableControls = false;
             mapUnfold.setVisible(false);
             mapOpenStatus = false;
@@ -549,13 +549,13 @@ public class HelloController implements Initializable {
     }
     @FXML
     public void onMagButtonClick() {
-        System.out.println("Magnifying Glass");
+        //System.out.println("Magnifying Glass");
     }
     @FXML
     public void onHandButtonClick() {
-        System.out.println("Hand");
+        //System.out.println("Hand");
         openShop();
-        System.out.println("Room id:" + game.getRoomId());
+        //System.out.println("Room id:" + game.getRoomId());
     }
 
 
@@ -574,20 +574,20 @@ public class HelloController implements Initializable {
         goplay.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                System.out.println("Restart game.");
+                //System.out.println("Restart game.");
                 game.showScene("coast");
             }
         });
         goexit.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
-                System.out.println("Exit game.");
+                //System.out.println("Exit game.");
                 System.exit(0);
             }
         });
         golink.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                System.out.println("link clicked");
+                //System.out.println("link clicked");
             }
         });
     }
@@ -628,14 +628,14 @@ public class HelloController implements Initializable {
     @FXML
     public void onHelpButtonClick() {
         if (!isPaused()) {
-            System.out.println("Opening Help");
+            //System.out.println("Opening Help");
             disableControls = true;
             helpUnfold.setVisible(true);
             helpUnfoldText.setVisible(true);
             helpOpenStatus = true;
         }
         else if (helpOpenStatus && !inventorySubScene.getParent().getParent().isVisible()) {
-            System.out.println("Closing Help");
+            //System.out.println("Closing Help");
             disableControls = false;
             helpUnfold.setVisible(false);
             helpUnfoldText.setVisible(false);
@@ -675,7 +675,7 @@ public class HelloController implements Initializable {
     public void npcTalk() throws IOException {
         for (Pane npc:npc) {
             if (npcIsTalkable(getBackground(), getPlayer(), npc)) {
-                System.out.println("HELLO I CAN TALK");
+                //System.out.println("HELLO I CAN TALK");
                 displaytextbubble(npc);
             }
         }
@@ -687,7 +687,7 @@ public class HelloController implements Initializable {
                 disableControls = true;
                 shopSubScene.getParent().getParent().setVisible(true);
 
-                System.out.println("Shop opens");
+                //System.out.println("Shop opens");
                 ArrayList<Item> currentShopItems = game.getPointShop().currentShop(game.getRoomId());
                 ArrayList<Pane> slots = new ArrayList<>(List.of(shopslot1, shopslot2, shopslot3, shopslot4, shopslot5, shopslot6, shopslot7, shopslot8));
                 ArrayList<RadioButton> radioButtons = new ArrayList<>(List.of(item1, item2, item3, item4, item5, item6, item7, item8));
@@ -701,7 +701,7 @@ public class HelloController implements Initializable {
 
                     radioButtons.get(i).setVisible(true);
 
-                    System.out.println(currentShopItems.get(i).getName());
+                    //System.out.println(currentShopItems.get(i).getName());
 
                 }
             } else {
@@ -731,7 +731,7 @@ public class HelloController implements Initializable {
         ArrayList<RadioButton> radioButtons = new ArrayList<>(List.of(item1, item2, item3, item4, item5, item6, item7, item8));
         int selection = getShopSelectedItem(currentShopItems, radioButtons);
         if(currentShopItems.get(selection).getPrice() > Money.getMoney()){
-            System.out.println("Not enough $");
+            //System.out.println("Not enough $");
             String reset = pointsavailable.getText();
             pointsavailable.setText("(You need " + Math.abs(Money.getMoney()-currentShopItems.get(selection).getPrice()) + "$ more for that!)");
         } else {

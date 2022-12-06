@@ -117,7 +117,7 @@ public class Game {
 
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(sceneName + ".fxml"));
             fxmlLoader.setController(controller);
-            System.out.println("Loading scene: " + sceneName);
+            //System.out.println("Loading scene: " + sceneName);
             Scene scene = new Scene(fxmlLoader.load());
             controller.checkColliders();
             controller.updateBalanceGUI();
@@ -156,10 +156,7 @@ public class Game {
             case T -> { controller.onTalkButtonClick(); }
             case ESCAPE -> { controller.onMenuButtonClick(); }
             case H -> { controller.onHelpButtonClick(); }
-            case F5 -> {mainCharacter.addToInventory(SmallSolarPanel);}
-            case F6 -> {mainCharacter.addToInventory(HugeSolarPanel);}
-            case F7 -> {mainCharacter.addToInventory(WoodenWindTurbine);}
-            case F8 -> {mainCharacter.addToInventory(IndustrialWindTurbine);}
+            case F5 -> { currentRoom.clearRoom(); }
             case F2 -> {
                 Money.addMoney(100);
                 controller.updateBalanceGUI();
