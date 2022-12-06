@@ -110,7 +110,7 @@ public class HelloController implements Initializable {
                                 "Try putting down some green energy. The villagers will LOVE it!",
                         "Solar or wind? Doesn't matter, just change it from coal.",
                         "Some of the villagers may be stubborn to the old days of coal.",
-                        "Our goal is for the better good!",
+                        "Our goal is for the greater good!",
                         "A lot of these people still rely on inefficient and polluting coal systems. Sad",
                         "We can all agree that everyone should have clean and affordable energy - right?",
                         "If we keep increasing solar and wind, we'll be on track for our goal!",
@@ -168,13 +168,11 @@ public class HelloController implements Initializable {
                 }
                 else {
                     responses = new ArrayList<String>(List.of("" +
-                                    "Oh you, you finally awake? Welcome to Green Watts",
+                                    "Oh you, you're finally awake? Welcome to Green Watts",
                             "Have you completed all your tasks for today?",
-                            "Nice! Well done!",
                             "It's inspiring to watch you work.",
-                            "You've surely made an impact around here.",
-                            "You've surely made an impact around here.",
-                            "Look at all that green!"));
+                            "You will surely make an impact around here.",
+                            "Yarrrr matey."));
                     index_of_response = (int)(Math.random() * responses.size());
                     while (responses.get(index_of_response) == lastResponse) {
                         index_of_response = (int)(Math.random() * responses.size());
@@ -201,7 +199,7 @@ public class HelloController implements Initializable {
                 if(game.getIsClean()){
                     responses = new ArrayList<String>(List.of("" +
                             "Green energy will always be more reliable!",
-                            "I'm so gay! Thanks for converting me.",
+                            "Thanks for convincing me.",
                             "It's the start of a new era!",
                             "Fix what's broken!",
                             "I love the green gold.",
