@@ -51,11 +51,16 @@ public class Item {
             }
         }
 
+        if(this.type.toUpperCase().contains("HUGE"))    {
+            value = value*2;
+            exposure = exposure*2;
+        }
+
         //System.out.println(exposure);
 
         //Generate points based on exposure.
-        Money.addMoney(4*value);
-        Points.addPoints(4*exposure);
+        Money.addMoney(value);
+        Points.addPoints(exposure);
     }
     public String getType() {
         return this.type;
