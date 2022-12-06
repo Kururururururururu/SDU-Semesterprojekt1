@@ -8,6 +8,7 @@
 #coast {
     -fx-background-image: url("scenes/coast.png");
     -fx-background-size: stretch;
+    -fx-font-family: JoystixMonospace-Regular;
 }
 #hub {
     -fx-background-image: url("Scenes/hub.png");
@@ -193,6 +194,7 @@
     -fx-opacity: 0%;
     -fx-font-family: JoystixMonospace-Regular;
     -fx-font-size: 8px;
+    -fx-pref-width: 200;
 }
 
 #textbubble2 {
@@ -204,6 +206,7 @@
     -fx-border-color: white;
     -fx-font-family: JoystixMonospace-Regular;
     -fx-opacity: 0%;
+    -fx-pref-width: 200;
 }
 #balance {
     -fx-font-family: JoystixMonospace-Regular;

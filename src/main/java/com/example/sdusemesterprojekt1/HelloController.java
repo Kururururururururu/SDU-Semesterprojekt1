@@ -33,6 +33,7 @@ public class HelloController implements Initializable {
     private static boolean disableControls = false;
     private static ArrayList<Collider> colliders = new ArrayList<>();
     private ArrayList<Pane> installLocation = new ArrayList<>();
+    private ArrayList<Pane> installLocationBig = new ArrayList<>();
     private static ArrayList<Node> roomchangecolliders = new ArrayList<>();
     private final Timer removeBubbles = new Timer();
     private ArrayList<Pane> npc = new ArrayList<>();
@@ -411,6 +412,7 @@ public class HelloController implements Initializable {
     public void checkColliders()    {
         colliders = new ArrayList<>();
         installLocation = new ArrayList<>();
+        installLocationBig = new ArrayList<>();
         npc = new ArrayList<>();
         //System.out.println("Checking colliders");
         for(Node child : background.getChildren())  {
@@ -428,6 +430,10 @@ public class HelloController implements Initializable {
                     //System.out.println("Roomchange collider found");
                     installLocation.add((Pane) child);
                 }
+                if(child.getId().equals("installlocationBig") && child.getClass() ==  Pane.class)   {
+                    //System.out.println("Roomchange collider found");
+                    installLocationBig.add((Pane) child);
+                }
                 if(child.getAccessibleText() != null && child.getAccessibleText().equals("npc")) {
                     System.out.println("Npc found");
                     npc.add((Pane) child);
@@ -437,15 +443,31 @@ public class HelloController implements Initializable {
     }
 
     public void renderRoomItems(Room room)   {
-        //Check if the room has any items before doing anything.
-        if(room.getItems() != null) {
-            for (int i = 0; i < room.getItems().size(); i++) {
-                String iconPath = HelloApplication.class.getClassLoader().getResource("icons/") +  room.getItems().get(i).getName().replaceAll("\\s+","") + "16x16.png";
-                System.out.println(iconPath);
-                BackgroundImage icon = new BackgroundImage(new Image( iconPath,32,32,false,true), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
-                installLocation.get(i).setBackground(new Background(icon));
-                System.out.println(background.getColumnIndex(installLocation.get(i)) + ", " + background.getRowIndex(installLocation.get(i)));;
-            }
+        System.out.println("Ran render" + "big: " + installLocationBig.size() + " | small: " + installLocation.size());
+        int x = 0;
+        int i = 0;
+        int j = 0;
+        if(room.getItems().size() > 0) {
+                for (Item item : room.getItems()) {
+                    System.out.println(item.getName());
+                    if(room.getItems().get(x).getType() == "SOLARPANEL") {
+                        String iconPath = HelloApplication.class.getClassLoader().getResource("icons/") + room.getItems().get(x).getName().replaceAll("\\s+", "") + "16x16.png";
+                        //System.out.println(iconPath);
+                        BackgroundImage icon = new BackgroundImage(new Image(iconPath, 32, 32, false, true), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+                        installLocation.get(i).setBackground(new Background(icon));
+                        i++;
+                    } else {
+                        String iconPath = HelloApplication.class.getClassLoader().getResource("icons/") + room.getItems().get(x).getName().replaceAll("\\s+", "") + "32x64.png";
+                        //System.out.println(iconPath);
+                        BackgroundImage icon = new BackgroundImage(new Image(iconPath, 64, 128, false, true), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+                        installLocationBig.get(j).setBackground(new Background(icon));
+                        j++;
+                    }
+                    x++;
+                }
+
+
+
         }
         updateBalanceGUI();
     }
@@ -506,7 +528,7 @@ public class HelloController implements Initializable {
         //System.out.println(event.getTarget());
         int slotIndex = Integer.parseInt(event.getTarget().toString().substring(event.getTarget().toString().length() - 2, event.getTarget().toString().length() - 1));
         //TODO add visual indicator for false return.
-        System.out.println("ran");
+        //System.out.println("ran");
         game.getMainCharacter().useItem(slotIndex-1, game.getRoom());
     }
 
@@ -575,6 +597,7 @@ public class HelloController implements Initializable {
             is_menu_open = true;
             disableControls = true;
             menugui.setMouseTransparent(false);
+            menugui.setVisible(true);
             menugui.setStyle("-fx-opacity: 100%");
             menugui.setStyle("-fx-background-color: white;");
             continuebtn.setStyle("-fx-opacity: 100%");
@@ -594,6 +617,7 @@ public class HelloController implements Initializable {
             is_menu_open = false;
             disableControls = false;
             menugui.setMouseTransparent(true);
+            menugui.setVisible(false);
             menugui.setStyle("-fx-opacity: 0%");
             menugui.setStyle("-fx-background-color: transparent;");
             continuebtn.setStyle("-fx-opacity: 0%");
