@@ -5,7 +5,7 @@ import java.util.*;
 public class Inventory {
     private ArrayList<Item> player_inventory = new ArrayList<>();
 
-    private Inventory() {
+    public Inventory() {
 
     }
     public void addToInventory(Item item) {

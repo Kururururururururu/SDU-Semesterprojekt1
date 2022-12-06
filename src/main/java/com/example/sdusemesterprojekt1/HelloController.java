@@ -39,51 +39,27 @@ public class HelloController implements Initializable {
     @FXML
     private GridPane background;
     @FXML
-    private Pane player;
-    @FXML
-    private Pane menugui;
-    @FXML
-    private Pane mapUnfold;
-    @FXML
-    private Label helpUnfoldText;
-    @FXML
-    private Pane helpUnfold;
-    @FXML
-    private Label balance;
-    @FXML
-    private AnchorPane gameover;
-    @FXML
-    private Label gopoints;
-    @FXML
-    private Label gobalance;
-    @FXML
-    private Hyperlink golink;
-    @FXML
-    private Button goplay;
-    @FXML
-    private Button goexit;
-    @FXML
-    private Label textbubble, textbubble2;
-    @FXML
-    private AnchorPane inventorySubScene, shopSubScene;
+    private Pane player, menugui, mapUnfold, helpUnfold;
     @FXML
     private Pane slot1, slot2, slot3, slot4, slot5, slot6, slot7, slot8, shopslot1, shopslot2, shopslot3, shopslot4, shopslot5, shopslot6, shopslot7, shopslot8;
     @FXML
+    private Label helpUnfoldText, balance, gopoints, gobalance, textbubble, textbubble2;
+    @FXML
     private Label slot1label, slot2label, slot3label, slot4label, slot5label, slot6label, slot7label, slot8label;
-    @FXML
-    private Tooltip slot1tooltip, slot2tooltip, slot3tooltip, slot4tooltip, slot5tooltip, slot6tooltip, slot7tooltip, slot8tooltip;
-    @FXML
-    private RadioButton item1, item2, item3, item4, item5, item6, item7, item8;
     @FXML
     private Label shopname, shopitemlabel, shoppricelabel, itemname, itemprice, pointsavailable;
     @FXML
-    private Button shopBuyButton;
+    private AnchorPane gameover;
     @FXML
-    private Button exitbtn;
+    private Hyperlink golink;
     @FXML
-    private Button continuebtn;
-
-
+    private Button goplay, goexit, shopBuyButton,exitbtn, continuebtn;
+    @FXML
+    private RadioButton item1, item2, item3, item4, item5, item6, item7, item8;
+    @FXML
+    private AnchorPane inventorySubScene, shopSubScene;
+    @FXML
+    private Tooltip slot1tooltip, slot2tooltip, slot3tooltip, slot4tooltip, slot5tooltip, slot6tooltip, slot7tooltip, slot8tooltip;
     private boolean is_menu_open = false;
     int responseCount = 0;
     int index_of_response;
@@ -676,15 +652,7 @@ public class HelloController implements Initializable {
     }
     //End onClick calls from FXML
 
-    public GridPane getBackground() {
-        return this.background;
-    }
 
-    public Pane getPlayer() {
-        return this.player;
-    }
-
-    public ArrayList<Pane> getNPC() {return this.npc; }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -820,12 +788,7 @@ public class HelloController implements Initializable {
         itemprice.setStyle("-fx-font-weight: normal");
         itemname.setText("Please select an item...");
     }
-    public void isCleanDirtyHills(boolean bool) {
-        game.setIsClean(bool);
-    }
-    public ArrayList<Node> getRoomchangecolliders(){
-        return this.roomchangecolliders;
-    }
+
 
     public boolean isPaused(){
         if(shopSubScene != null) {
@@ -841,5 +804,22 @@ public class HelloController implements Initializable {
                 return true;
             }
         }
+    }
+
+    public GridPane getBackground() {
+        return this.background;
+    }
+
+    public Pane getPlayer() {
+        return this.player;
+    }
+
+    public ArrayList<Pane> getNPC() {return this.npc; }
+
+    public void isCleanDirtyHills(boolean bool) {
+        game.setIsClean(bool);
+    }
+    public ArrayList<Node> getRoomchangecolliders(){
+        return this.roomchangecolliders;
     }
 }
