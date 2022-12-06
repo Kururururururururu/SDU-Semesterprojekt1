@@ -6,9 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="167cfb60-bd67-4a04-a2d4-e51b87a70993" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdusemesterprojekt1/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sdusemesterprojekt1/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sdusemesterprojekt1/coast.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sdusemesterprojekt1/coast.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sdusemesterprojekt1/dirtyhills.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sdusemesterprojekt1/dirtyhills.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sdusemesterprojekt1/hub.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sdusemesterprojekt1/hub.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sdusemesterprojekt1/neworleans.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sdusemesterprojekt1/neworleans.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sdusemesterprojekt1/solarcity.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sdusemesterprojekt1/solarcity.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sdusemesterprojekt1/windytown.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sdusemesterprojekt1/windytown.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,16 +39,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/lissn/Documents/GitHub/SDU-Semesterprojekt1/src/main/resources/icons&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/lissn/Documents/GitHub/SDU-Semesterprojekt1/src/main/resources/icons",
+    "project.structure.last.edited": "Problems",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\lissn\Documents\GitHub\SDU-Semesterprojekt1\src\main\resources\icons" />
@@ -91,6 +96,7 @@
       <workItem from="1670066207308" duration="84000" />
       <workItem from="1670066307975" duration="104000" />
       <workItem from="1670314397641" duration="1493000" />
+      <workItem from="1670316784385" duration="637000" />
     </task>
     <servers />
   </component>
