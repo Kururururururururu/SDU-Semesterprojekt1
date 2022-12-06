@@ -33,7 +33,6 @@ public class HelloController implements Initializable {
     private static boolean disableControls = false;
     private static ArrayList<Collider> colliders = new ArrayList<>();
     private ArrayList<Pane> installLocation = new ArrayList<>();
-    private ArrayList<Pane> installLocationBig = new ArrayList<>();
     private static ArrayList<Node> roomchangecolliders = new ArrayList<>();
     private final Timer removeBubbles = new Timer();
     private ArrayList<Pane> npc = new ArrayList<>();
@@ -86,7 +85,9 @@ public class HelloController implements Initializable {
 
 
     private boolean is_menu_open = false;
-
+    int responseCount = 0;
+    int index_of_response;
+    String lastResponse = "UNDEFINED";
 
     public HelloController(Game tgame) {
         game = tgame;
@@ -123,15 +124,14 @@ public class HelloController implements Initializable {
     public void updateBalanceGUI() {
         balance.setText(Money.getMoney().toString());
     }
-    private void displaytextbubble(Pane npc) {
-        int index = 1000;
+    private void displaytextbubble(Pane npc) throws IOException {
 
         String current_npc_in_room = npc.toString().substring(8, npc.toString().length() - 1);
         System.out.println(current_npc_in_room);
         switch (current_npc_in_room) {
             case "boss_npc":
                 ArrayList<String> responses = new ArrayList<String>(List.of("" +
-                        "Try putting down some green energy. The villagers will LOVE it!",
+                                "Try putting down some green energy. The villagers will LOVE it!",
                         "Solar or wind? Doesn't matter, just change it from coal.",
                         "Some of the villagers may be stubborn to the old days of coal.",
                         "Our goal is for the better good!",
@@ -139,8 +139,12 @@ public class HelloController implements Initializable {
                         "We can all agree that everyone should have clean and affordable energy - right?",
                         "If we keep increasing solar and wind, we'll be on track for our goal!",
                         "Our goal is clean and affordable energy for everyone by 2030!"));
-                index = (int)(Math.random() * responses.size());
-                textbubble.setText(responses.get(index));
+                index_of_response = (int)(Math.random() * responses.size());
+                while (responses.get(index_of_response) == lastResponse) {
+                    index_of_response = (int)(Math.random() * responses.size());
+                }
+                lastResponse = responses.get(index_of_response);
+                textbubble.setText(responses.get(index_of_response));
                 textbubble.setStyle("-fx-opacity: 100%");
                 removeBubbles.schedule(
                         new java.util.TimerTask() {
@@ -157,30 +161,65 @@ public class HelloController implements Initializable {
                 );
                 break;
             case "skipper_npc":
-                responses = new ArrayList<String>(List.of("" +
-                        "Oh you, you finally awake? Welcome to Green Watts",
-                        "Have you completed all your tasks for today?",
-                        "Nice! Well done!",
-                        "It's inspiring to watch you work.",
-                        "You've surely made an impact around here.",
-                        "You've surely made an impact around here.",
-                        "Look at all that green!"));
-                index = (int)(Math.random() * responses.size());
-                textbubble.setText(responses.get(index));
-                textbubble.setStyle("-fx-opacity: 100%");
-                removeBubbles.schedule(
-                        new java.util.TimerTask() {
-                            public void run() {
-                                while (npcIsTalkable(getBackground(), getPlayer(), npc)) {
-                                }
-                                {
-                                    textbubble.setStyle("-fx-opacity: 0%");
-                                }
+                if (game.getIsClean()) {
+                    responses = new ArrayList<String>(List.of("" +
+                                    "Wow, you really did it!",
+                            "You installed green, sustainable energy sources for all the villagers.",
+                            "Well done!",
+                            "Let's sail into the sunset together.",
+                            ""
+                    ));
+                    textbubble.setText(responses.get(responseCount));
+                    textbubble.setStyle("-fx-opacity: 100%");
+                    responseCount+=1;
+                    System.out.println("response count = "+responseCount);
+                    removeBubbles.schedule(
+                            new java.util.TimerTask() {
+                                public void run() {
+                                    while (npcIsTalkable(getBackground(), getPlayer(), npc)) {
+                                    }
+                                    {
+                                        textbubble.setStyle("-fx-opacity: 0%");
+                                    }
 
-                            }
-                        },
-                        5000
-                );
+                                }
+                            },
+                            5000
+                    );
+                    if (responseCount == responses.size()) {
+                        game.setGameOver();
+                    }
+                }
+                else {
+                    responses = new ArrayList<String>(List.of("" +
+                                    "Oh you, you finally awake? Welcome to Green Watts",
+                            "Have you completed all your tasks for today?",
+                            "Nice! Well done!",
+                            "It's inspiring to watch you work.",
+                            "You've surely made an impact around here.",
+                            "You've surely made an impact around here.",
+                            "Look at all that green!"));
+                    index_of_response = (int)(Math.random() * responses.size());
+                    while (responses.get(index_of_response) == lastResponse) {
+                        index_of_response = (int)(Math.random() * responses.size());
+                    }
+                    lastResponse = responses.get(index_of_response);
+                    textbubble.setText(responses.get(index_of_response));
+                    textbubble.setStyle("-fx-opacity: 100%");
+                    removeBubbles.schedule(
+                            new java.util.TimerTask() {
+                                public void run() {
+                                    while (npcIsTalkable(getBackground(), getPlayer(), npc)) {
+                                    }
+                                    {
+                                        textbubble.setStyle("-fx-opacity: 0%");
+                                    }
+
+                                }
+                            },
+                            5000
+                    );
+                }
                 break;
             case "coal_npc":
                 responses = new ArrayList<String>(List.of("" +
@@ -190,8 +229,12 @@ public class HelloController implements Initializable {
                         "Don't fix what ain't broken!",
                         "I love the black gold.",
                         "Coal is better - Change my mind!"));
-                index = (int)(Math.random() * responses.size());
-                textbubble.setText(responses.get(index));
+                index_of_response = (int)(Math.random() * responses.size());
+                while (responses.get(index_of_response) == lastResponse) {
+                    index_of_response = (int)(Math.random() * responses.size());
+                }
+                lastResponse = responses.get(index_of_response);
+                textbubble.setText(responses.get(index_of_response));
                 textbubble.setStyle("-fx-opacity: 100%");
                 removeBubbles.schedule(
                         new java.util.TimerTask() {
@@ -214,8 +257,12 @@ public class HelloController implements Initializable {
                         "I DON'T LIKE COAL! It's bad for everyone!",
                         "I used to like coal, until i discovered the joys of solar energy!",
                         "Have you heard they still only wanna use coal at dirty hills!? You should go change that!"));
-                index = (int)(Math.random() * responses.size());
-                textbubble.setText(responses.get(index));
+                index_of_response = (int)(Math.random() * responses.size());
+                while (responses.get(index_of_response) == lastResponse) {
+                    index_of_response = (int)(Math.random() * responses.size());
+                }
+                lastResponse = responses.get(index_of_response);
+                textbubble.setText(responses.get(index_of_response));
                 textbubble.setStyle("-fx-opacity: 100%");
                 removeBubbles.schedule(
                         new java.util.TimerTask() {
@@ -239,8 +286,12 @@ public class HelloController implements Initializable {
                         "Perfect wind for some clean green wind energy!",
                         "Perfect day to use a kite!",
                         "You should go teach them a windy lesson at Dirty Hills!"));
-                index = (int)(Math.random() * responses.size());
-                textbubble.setText(responses.get(index));
+                index_of_response = (int)(Math.random() * responses.size());
+                while (responses.get(index_of_response) == lastResponse) {
+                    index_of_response = (int)(Math.random() * responses.size());
+                }
+                lastResponse = responses.get(index_of_response);
+                textbubble.setText(responses.get(index_of_response));
                 textbubble.setStyle("-fx-opacity: 100%");
                 removeBubbles.schedule(
                         new java.util.TimerTask() {
@@ -263,8 +314,12 @@ public class HelloController implements Initializable {
                         "I'll be willing to try something new, if it's good!",
                         "I'm so tired of all this black coal",
                         "We can't keep living in this filth!"));
-                index = (int)(Math.random() * responses.size());
-                textbubble.setText(responses.get(index));
+                index_of_response = (int)(Math.random() * responses.size());
+                while (responses.get(index_of_response) == lastResponse) {
+                    index_of_response = (int)(Math.random() * responses.size());
+                }
+                lastResponse = responses.get(index_of_response);
+                textbubble.setText(responses.get(index_of_response));
                 textbubble.setStyle("-fx-opacity: 100%");
                 removeBubbles.schedule(
                         new java.util.TimerTask() {
@@ -287,9 +342,13 @@ public class HelloController implements Initializable {
                         "I'll be willing to try something new, if it's good!",
                         "I'm so tired of all this black coal",
                         "We can't keep living in this filth!"));
-                index = (int)(Math.random() * responses.size());
-                textbubble2.setText(responses.get(index));
-                textbubble2.setStyle("-fx-opacity: 100%");
+                index_of_response = (int)(Math.random() * responses.size());
+                while (responses.get(index_of_response) == lastResponse) {
+                    index_of_response = (int)(Math.random() * responses.size());
+                }
+                lastResponse = responses.get(index_of_response);
+                textbubble.setText(responses.get(index_of_response));
+                textbubble.setStyle("-fx-opacity: 100%");
                 break;
             default:
                 System.out.println("Error in NPC response!");
@@ -356,10 +415,6 @@ public class HelloController implements Initializable {
                     //System.out.println("Roomchange collider found");
                     installLocation.add((Pane) child);
                 }
-                if(child.getId().equals("installlocationBig") && child.getClass() ==  Pane.class)   {
-                    //System.out.println("Roomchange collider found");
-                    installLocationBig.add((Pane) child);
-                }
                 if(child.getAccessibleText() != null && child.getAccessibleText().equals("npc")) {
                     System.out.println("Npc found");
                     npc.add((Pane) child);
@@ -397,7 +452,7 @@ public class HelloController implements Initializable {
     //onClick calls from FXML
     @FXML
     public void onBagButtonClick() {
-        if(!inventorySubScene.getParent().getParent().isVisible() && !mapOpenStatus && !helpOpenStatus){
+        if(!isPaused()){
             disableControls = true;
             ArrayList<Pane> slots = new ArrayList<>(List.of(slot1, slot2, slot3, slot4, slot5, slot6, slot7, slot8));
             ArrayList<Label> slotlabels = new ArrayList<>(List.of(slot1label, slot2label, slot3label, slot4label, slot5label, slot6label, slot7label, slot8label));
@@ -456,7 +511,7 @@ public class HelloController implements Initializable {
 
     @FXML
     public void onMapButtonClick() {
-        if (!mapOpenStatus && !inventorySubScene.getParent().getParent().isVisible() && !helpOpenStatus) {
+        if (!isPaused()) {
             System.out.println("Opening Map");
             disableControls = true;
             mapUnfold.setVisible(true);
@@ -483,9 +538,11 @@ public class HelloController implements Initializable {
 
 
     @FXML
-    public void onTalkButtonClick() {
+    public void onTalkButtonClick() throws IOException {
         //System.out.println("Talk");
-        npcTalk();
+        if(!isPaused()){
+            npcTalk();
+        }
     }
     @FXML
     public void onGameOver() {
@@ -496,12 +553,6 @@ public class HelloController implements Initializable {
             public void handle(ActionEvent actionEvent) {
                 System.out.println("Restart game.");
                 game.showScene("coast");
-                Money.removeMoney(Money.getMoney());
-                Points.removePoints(Points.getPoints());
-                isCleanDirtyHills(false);
-                game.goRoom("Restart");
-
-
             }
         });
         goexit.setOnAction(new EventHandler<ActionEvent>() {
@@ -521,6 +572,7 @@ public class HelloController implements Initializable {
     public void onMenuButtonClick() {
         if (is_menu_open == false) {
             is_menu_open = true;
+            disableControls = true;
             menugui.setMouseTransparent(false);
             menugui.setStyle("-fx-opacity: 100%");
             menugui.setStyle("-fx-background-color: white;");
@@ -539,6 +591,7 @@ public class HelloController implements Initializable {
 
         } else {
             is_menu_open = false;
+            disableControls = false;
             menugui.setMouseTransparent(true);
             menugui.setStyle("-fx-opacity: 0%");
             menugui.setStyle("-fx-background-color: transparent;");
@@ -549,7 +602,7 @@ public class HelloController implements Initializable {
 
     @FXML
     public void onHelpButtonClick() {
-        if (!mapOpenStatus && !inventorySubScene.getParent().getParent().isVisible() && !helpOpenStatus) {
+        if (!isPaused()) {
             System.out.println("Opening Help");
             disableControls = true;
             helpUnfold.setVisible(true);
@@ -594,7 +647,7 @@ public class HelloController implements Initializable {
         }
     }
     @FXML
-    public void npcTalk() {
+    public void npcTalk() throws IOException {
         for (Pane npc:npc) {
             if (npcIsTalkable(getBackground(), getPlayer(), npc)) {
                 System.out.println("HELLO I CAN TALK");
@@ -605,7 +658,7 @@ public class HelloController implements Initializable {
     @FXML
     public void openShop() {
         if((game.getRoomId().equals(0) || game.getRoomId().equals(1) ) && npcIsTalkable(getBackground(), getPlayer(), npc.get(0))){
-            if(!shopSubScene.getParent().getParent().isVisible()) {
+            if(!isPaused()) {
                 disableControls = true;
                 shopSubScene.getParent().getParent().setVisible(true);
 
@@ -716,5 +769,21 @@ public class HelloController implements Initializable {
     }
     public ArrayList<Node> getRoomchangecolliders(){
         return this.roomchangecolliders;
+    }
+
+    public boolean isPaused(){
+        if(shopSubScene != null) {
+            if (!mapOpenStatus && !inventorySubScene.getParent().getParent().isVisible() && !helpOpenStatus && !shopSubScene.getParent().getParent().isVisible() && !is_menu_open) {
+                return false;
+            } else {
+                return true;
+            }
+        } else {
+            if (!mapOpenStatus && !inventorySubScene.getParent().getParent().isVisible() && !helpOpenStatus && !is_menu_open) {
+                return false;
+            } else {
+                return true;
+            }
+        }
     }
 }
