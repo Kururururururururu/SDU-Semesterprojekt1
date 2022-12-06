@@ -44,7 +44,7 @@ public class Item {
                     value = 25;
                 }
             } else {
-                if(this.type.toUpperCase().contains("FUELGENERATOR"))   {
+                if(this.type.toUpperCase().contains("FUELGEN"))   {
                     exposure = -10;
                     value = 100;
                 }
