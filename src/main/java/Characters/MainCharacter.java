@@ -44,14 +44,23 @@ public class MainCharacter {
         if(player_inventory.getInventory().size() == 0) {
             return false;
         }
+        Item forUse = new Item();
+        for(int i = 0; i < this.player_inventory.getInventory().size(); i++)  {
+            if(this.player_inventory.getInventory().get(i).getId() == this.getPlayer_inventory().getInventoryUniques().get(index).getId()) {
+                forUse = this.player_inventory.getInventory().get(i);
+            }
+        }
 
         if(this.getPlayer_inventory().getInventory().get(index) != null)    {
-            Item forUse = this.getPlayer_inventory().getInventory().get(index);
                 if(currentRoom.hasRoomForItem(forUse))  {
-                    this.removeFromInventory(forUse);
-                    currentRoom.placeItem(forUse);
-                    game.getController().renderRoomItems(game.getRoom());
-                    return true;
+                    if(currentRoom.placeItem(forUse))   {
+                        this.removeFromInventory(forUse);
+                        game.getController().renderRoomItems(game.getRoom());
+                        return true;
+                    } else {
+                        return false;
+                    }
+
                 }
 
         }

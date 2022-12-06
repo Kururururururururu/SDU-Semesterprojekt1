@@ -366,17 +366,29 @@ public class HelloController implements Initializable {
                 }
             }
         }
+        System.out.println("installlocations: " + installLocation.size());
     }
 
     public void renderRoomItems(Room room)   {
         //Check if the room has any items before doing anything.
+        int i = 0;
         if(room.getItems() != null) {
-            for (int i = 0; i < room.getItems().size(); i++) {
-                String iconPath = HelloApplication.class.getClassLoader().getResource("icons/") +  room.getItems().get(i).getName().replaceAll("\\s+","") + "16x16.png";
-                System.out.println(iconPath);
-                BackgroundImage icon = new BackgroundImage(new Image( iconPath,32,32,false,true), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
-                installLocation.get(i).setBackground(new Background(icon));
-                System.out.println(background.getColumnIndex(installLocation.get(i)) + ", " + background.getRowIndex(installLocation.get(i)));;
+            if(room.getItems().get(i).getType() == "SOLARPANEL")    {
+                for (Item item : room.getItems()) {
+                    String iconPath = HelloApplication.class.getClassLoader().getResource("icons/") +  room.getItems().get(i).getName().replaceAll("\\s+","") + "16x16.png";
+                    //System.out.println(iconPath);
+                    BackgroundImage icon = new BackgroundImage(new Image( iconPath,32,32,false,true), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+                    installLocation.get(i).setBackground(new Background(icon));
+                    i += 1;
+                }
+            } else {
+                for (Item item : room.getItems()) {
+                    String iconPath = HelloApplication.class.getClassLoader().getResource("icons/") +  room.getItems().get(i).getName().replaceAll("\\s+","") + "32x64.png";
+                    //System.out.println(iconPath);
+                    BackgroundImage icon = new BackgroundImage(new Image( iconPath,64,128,false,true), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+                    installLocation.get(i).setBackground(new Background(icon));
+                    i += 1;
+                }
             }
         }
         updateBalanceGUI();
@@ -438,7 +450,7 @@ public class HelloController implements Initializable {
         //System.out.println(event.getTarget());
         int slotIndex = Integer.parseInt(event.getTarget().toString().substring(event.getTarget().toString().length() - 2, event.getTarget().toString().length() - 1));
         //TODO add visual indicator for false return.
-        System.out.println("ran");
+        //System.out.println("ran");
         game.getMainCharacter().useItem(slotIndex-1, game.getRoom());
     }
 
