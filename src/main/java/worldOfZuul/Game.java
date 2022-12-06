@@ -6,14 +6,12 @@ import java.util.List;
 import java.io.*;
 
 import Characters.MainCharacter;
-import EventColliders.RoomchangeCollider;
 import Misc.Item;
 import Misc.Money;
 import Misc.PointShop;
 import Misc.Points;
 import com.example.sdusemesterprojekt1.HelloApplication;
 import com.example.sdusemesterprojekt1.HelloController;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;

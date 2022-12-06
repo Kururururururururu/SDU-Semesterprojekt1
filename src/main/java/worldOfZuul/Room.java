@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Set;
 import java.util.HashMap;
 import Misc.*;
-import com.example.sdusemesterprojekt1.HelloController;
 
 public class Room {
     private String description;

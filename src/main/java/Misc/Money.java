@@ -1,6 +1,5 @@
 package Misc;
 
-import com.example.sdusemesterprojekt1.HelloApplication.*;
 
 public class Money {
     private static Integer total_money = 100;

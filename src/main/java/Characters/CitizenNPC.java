@@ -1,7 +1,5 @@
 package Characters;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 
 public class CitizenNPC extends NPC {
     ArrayList<String> responses = new ArrayList<>();

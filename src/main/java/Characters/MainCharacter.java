@@ -1,10 +1,8 @@
 package Characters;
-import worldOfZuul.Command;
 import Misc.*;
 import worldOfZuul.Game;
 import worldOfZuul.Room;
 
-import java.io.IOException;
 
 public class MainCharacter {
     private String name;

@@ -1,6 +1,5 @@
 package Misc;
 
-import javafx.scene.effect.Light;
 
 public class Item {
     private String type;
