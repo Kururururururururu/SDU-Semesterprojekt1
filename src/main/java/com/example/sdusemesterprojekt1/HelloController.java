@@ -222,33 +222,63 @@ public class HelloController implements Initializable {
                 }
                 break;
             case "coal_npc":
-                responses = new ArrayList<String>(List.of("" +
-                                "Coal will always be more reliable!",
-                        "I don't see green energy making me this much money.",
-                        "It's the way we've done it for decades.",
-                        "Don't fix what ain't broken!",
-                        "I love the black gold.",
-                        "Coal is better - Change my mind!"));
-                index_of_response = (int)(Math.random() * responses.size());
-                while (responses.get(index_of_response) == lastResponse) {
-                    index_of_response = (int)(Math.random() * responses.size());
-                }
-                lastResponse = responses.get(index_of_response);
-                textbubble.setText(responses.get(index_of_response));
-                textbubble.setStyle("-fx-opacity: 100%");
-                removeBubbles.schedule(
-                        new java.util.TimerTask() {
-                            public void run() {
-                                while (npcIsTalkable(getBackground(), getPlayer(), npc)) {
-                                }
-                                {
-                                    textbubble.setStyle("-fx-opacity: 0%");
-                                }
+                if(game.getIsClean()){
+                    responses = new ArrayList<String>(List.of("" +
+                            "Green energy will always be more reliable!",
+                            "I'm so gay! Thanks for converting me.",
+                            "It's the start of a new era!",
+                            "Fix what's broken!",
+                            "I love the green gold.",
+                            "Green is better - you changed my mind!"));
+                    index_of_response = (int) (Math.random() * responses.size());
+                    while (responses.get(index_of_response) == lastResponse) {
+                        index_of_response = (int) (Math.random() * responses.size());
+                    }
+                    lastResponse = responses.get(index_of_response);
+                    textbubble.setText(responses.get(index_of_response));
+                    textbubble.setStyle("-fx-opacity: 100%");
+                    removeBubbles.schedule(
+                            new java.util.TimerTask() {
+                                public void run() {
+                                    while (npcIsTalkable(getBackground(), getPlayer(), npc)) {
+                                    }
+                                    {
+                                        textbubble.setStyle("-fx-opacity: 0%");
+                                    }
 
-                            }
-                        },
-                        5000
-                );
+                                }
+                            },
+                            5000
+                    );
+                }else {
+                    responses = new ArrayList<String>(List.of("" +
+                                    "Coal will always be more reliable!",
+                            "I don't see green energy making me this much money.",
+                            "It's the way we've done it for decades.",
+                            "Don't fix what ain't broken!",
+                            "I love the black gold.",
+                            "Coal is better - Change my mind!"));
+                    index_of_response = (int) (Math.random() * responses.size());
+                    while (responses.get(index_of_response) == lastResponse) {
+                        index_of_response = (int) (Math.random() * responses.size());
+                    }
+                    lastResponse = responses.get(index_of_response);
+                    textbubble.setText(responses.get(index_of_response));
+                    textbubble.setStyle("-fx-opacity: 100%");
+                    removeBubbles.schedule(
+                            new java.util.TimerTask() {
+                                public void run() {
+                                    while (npcIsTalkable(getBackground(), getPlayer(), npc)) {
+                                    }
+                                    {
+                                        textbubble.setStyle("-fx-opacity: 0%");
+                                    }
+
+                                }
+                            },
+                            5000
+                    );
+                }
                 break;
             case "npc5":
                 //This is solar city
