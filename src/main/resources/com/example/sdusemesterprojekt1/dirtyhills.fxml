@@ -20,30 +20,6 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="348.0" prefWidth="640.0" stylesheets="@../../../styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Pane id="mapUnfold" fx:id="mapUnfold" mouseTransparent="true" prefHeight="348.0" prefWidth="640.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <BorderPane id="helpBp" fx:id="helpBp" mouseTransparent="true" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
-         <center>
-            <Pane id="helpUnfold" fx:id="helpUnfold" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mouseTransparent="true" visible="false" BorderPane.alignment="CENTER">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </Pane>
-         </center>
-      </BorderPane>
-      <Label id="helpUnfoldText" fx:id="helpUnfoldText" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mouseTransparent="true" text="Help Menu:             &#10;             &#10;W, A, S, D to move around.             &#10;I to open Inventory.             &#10;M to open map.             &#10;E to Inspect.             &#10;F to Use/Shop.             &#10;T to Talk.             &#10;H to bring up Help.             &#10;Esc to bring up the Menu.             &#10;             &#10;Good luck and have fun!             " visible="false" wrapText="true" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
-         <font>
-            <Font name="JoystixMonospace-Regular" size="12.0" />
-         </font>
-         <padding>
-            <Insets left="100.0" />
-         </padding>
-      </Label>
-      <Pane id="menugui" fx:id="menugui" layoutX="245.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mouseTransparent="true" prefHeight="250.0" prefWidth="150.0" style="-fx-opacity: 0; -fx-background-color: white;" AnchorPane.topAnchor="50.0">
-         <children>
-            <Button id="continuebtn" fx:id="continuebtn" layoutX="38.0" layoutY="53.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" style="-fx-opacity: inherit;" text="Continue" />
-            <Button id="continuebtn" fx:id="exitbtn" layoutX="38.0" layoutY="158.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" text="Exit" />
-         </children>
-      </Pane>
       <StackPane prefHeight="348.0" prefWidth="640.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <BorderPane id="subScene" fx:id="subScene" accessibleText="subScene" maxHeight="180.0" maxWidth="320.0" minHeight="180.0" minWidth="320.0" prefHeight="180.0" prefWidth="320.0" visible="false" StackPane.alignment="CENTER">
@@ -719,7 +695,7 @@
                   <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="9" GridPane.rowIndex="7" />
                   <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="10" GridPane.rowIndex="6" />
                   <Pane id="roomchangecollider" accessibleText="S" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="11" GridPane.rowIndex="9" />
-                  <Pane id="roomchangecollider" accessibleText="W" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="8" />
+                  <Pane id="roomchangecollider" accessibleText="W" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="8" />
                   <Pane id="coal_npc" fx:id="npc" accessibleText="npc" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="12" GridPane.rowIndex="7" />
                   <Label id="balance" fx:id="balance" alignment="CENTER" contentDisplay="RIGHT" text="0" textAlignment="RIGHT" GridPane.columnIndex="14" GridPane.columnSpan="5" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS">
                      <GridPane.margin>
@@ -739,5 +715,29 @@
                </children>
             </GridPane>
          </children></StackPane>
+      <Pane id="mapUnfold" fx:id="mapUnfold" mouseTransparent="true" prefHeight="348.0" prefWidth="640.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <BorderPane id="helpBp" fx:id="helpBp" mouseTransparent="true" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
+         <center>
+            <Pane id="helpUnfold" fx:id="helpUnfold" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mouseTransparent="true" visible="false" BorderPane.alignment="CENTER">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Pane>
+         </center>
+      </BorderPane>
+      <Label id="helpUnfoldText" fx:id="helpUnfoldText" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mouseTransparent="true" text="Help Menu:             &#10;             &#10;W, A, S, D to move around.             &#10;I to open Inventory.             &#10;M to open map.             &#10;E to Inspect.             &#10;F to Use/Shop.             &#10;T to Talk.             &#10;H to bring up Help.             &#10;Esc to bring up the Menu.             &#10;             &#10;Good luck and have fun!             " visible="false" wrapText="true" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
+         <font>
+            <Font name="JoystixMonospace-Regular" size="12.0" />
+         </font>
+         <padding>
+            <Insets left="100.0" />
+         </padding>
+      </Label>
+      <Pane id="menugui" fx:id="menugui" layoutX="245.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mouseTransparent="true" prefHeight="250.0" prefWidth="150.0" style="-fx-opacity: 0; -fx-background-color: white;" AnchorPane.topAnchor="50.0">
+         <children>
+            <Button id="continuebtn" fx:id="continuebtn" layoutX="38.0" layoutY="53.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" style="-fx-opacity: inherit;" text="Continue" />
+            <Button id="continuebtn" fx:id="exitbtn" layoutX="38.0" layoutY="158.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" text="Exit" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
