@@ -22,6 +22,147 @@
    <children>
       <StackPane prefHeight="348.0" prefWidth="640.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
+            <GridPane id="dirtyhills" fx:id="background" alignment="CENTER" prefHeight="348.0" prefWidth="640.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button id="backpack" fx:id="bag" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onBagButtonClick" stylesheets="@../../../styles.css" textAlignment="CENTER" textFill="TRANSPARENT" GridPane.rowIndex="9">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <GridPane.margin>
+                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button id="map" fx:id="map" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onMapButtonClick" stylesheets="@../../../styles.css" textAlignment="CENTER" textFill="TRANSPARENT" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <GridPane.margin>
+                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button id="magglass" fx:id="mag" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onMagButtonClick" stylesheets="@../../../styles.css" textAlignment="CENTER" textFill="TRANSPARENT" GridPane.columnIndex="2" GridPane.rowIndex="9">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <GridPane.margin>
+                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button id="hand" fx:id="hand" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onHandButtonClick" stylesheets="@../../../styles.css" textAlignment="CENTER" textFill="TRANSPARENT" GridPane.columnIndex="3" GridPane.rowIndex="9">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <GridPane.margin>
+                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button id="speechbubble" fx:id="talk" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onTalkButtonClick" stylesheets="@../../../styles.css" textAlignment="CENTER" textFill="TRANSPARENT" GridPane.columnIndex="4" GridPane.rowIndex="9">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <GridPane.margin>
+                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Pane fx:id="player" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="8" />
+                  <Pane id="dollar" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="19">
+                     <GridPane.margin>
+                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                     </GridPane.margin>
+                  </Pane>
+                  <Button id="menu" fx:id="menu" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onMenuButtonClick" stylesheets="@../../../styles.css" textAlignment="CENTER" textFill="TRANSPARENT">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <GridPane.margin>
+                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button id="questionmark" fx:id="help" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onHelpButtonClick" stylesheets="@../../../styles.css" textAlignment="CENTER" textFill="TRANSPARENT" GridPane.columnIndex="1">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <GridPane.margin>
+                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="19" GridPane.rowIndex="8" />
+                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="19" GridPane.rowIndex="9" />
+                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="7" />
+                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="11" GridPane.rowIndex="6" />
+                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="16" GridPane.rowIndex="6" />
+                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="14" GridPane.rowIndex="6" />
+                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="15" GridPane.rowIndex="6" />
+                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="13" GridPane.rowIndex="6" />
+                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="19" GridPane.rowIndex="7" />
+                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="18" GridPane.rowIndex="7" />
+                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7" GridPane.rowIndex="7" />
+                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="12" GridPane.rowIndex="7" />
+                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="17" GridPane.rowIndex="6" />
+                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="7" />
+                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="8" GridPane.rowIndex="7" />
+                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="9" GridPane.rowIndex="7" />
+                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="10" GridPane.rowIndex="6" />
+                  <Pane id="roomchangecollider" accessibleText="S" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="11" GridPane.rowIndex="9" />
+                  <Pane id="roomchangecollider" accessibleText="W" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="8" />
+                  <Pane id="coal_npc" fx:id="npc" accessibleText="npc" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="12" GridPane.rowIndex="7" />
+                  <Label id="balance" fx:id="balance" alignment="CENTER" contentDisplay="RIGHT" text="0" textAlignment="RIGHT" GridPane.columnIndex="14" GridPane.columnSpan="5" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS">
+                     <GridPane.margin>
+                        <Insets right="5.0" />
+                     </GridPane.margin></Label>
+                  <Label id="textbubble" fx:id="textbubble" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="43.0" prefWidth="180.0" text="Try putting down some green energy. The villagers will LOVE it!" textAlignment="CENTER" textFill="#23216f" wrapText="true" GridPane.columnIndex="12" GridPane.halignment="CENTER" GridPane.rowIndex="6">
+                     <graphic>
+                        <Pane prefHeight="25.0" prefWidth="200.0" styleClass="textbubble" stylesheets="@../../../styles.css" />
+                     </graphic>
+                     <font>
+                        <Font name="Lucida Console" size="8.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" />
+                     </GridPane.margin>
+                  </Label>
+               </children>
+            </GridPane>
             <BorderPane id="subScene" fx:id="subScene" accessibleText="subScene" maxHeight="180.0" maxWidth="320.0" minHeight="180.0" minWidth="320.0" prefHeight="180.0" prefWidth="320.0" visible="false" StackPane.alignment="CENTER">
                <StackPane.margin>
                   <Insets />
@@ -573,147 +714,6 @@
                   </StackPane>
                </center>
             </BorderPane>
-            <GridPane id="dirtyhills" fx:id="background" alignment="CENTER" prefHeight="348.0" prefWidth="640.0">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <Button id="backpack" fx:id="bag" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onBagButtonClick" stylesheets="@../../../styles.css" textAlignment="CENTER" textFill="TRANSPARENT" GridPane.rowIndex="9">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <GridPane.margin>
-                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                     </GridPane.margin>
-                  </Button>
-                  <Button id="map" fx:id="map" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onMapButtonClick" stylesheets="@../../../styles.css" textAlignment="CENTER" textFill="TRANSPARENT" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <GridPane.margin>
-                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                     </GridPane.margin>
-                  </Button>
-                  <Button id="magglass" fx:id="mag" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onMagButtonClick" stylesheets="@../../../styles.css" textAlignment="CENTER" textFill="TRANSPARENT" GridPane.columnIndex="2" GridPane.rowIndex="9">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <GridPane.margin>
-                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                     </GridPane.margin>
-                  </Button>
-                  <Button id="hand" fx:id="hand" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onHandButtonClick" stylesheets="@../../../styles.css" textAlignment="CENTER" textFill="TRANSPARENT" GridPane.columnIndex="3" GridPane.rowIndex="9">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <GridPane.margin>
-                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                     </GridPane.margin>
-                  </Button>
-                  <Button id="speechbubble" fx:id="talk" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onTalkButtonClick" stylesheets="@../../../styles.css" textAlignment="CENTER" textFill="TRANSPARENT" GridPane.columnIndex="4" GridPane.rowIndex="9">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <GridPane.margin>
-                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                     </GridPane.margin>
-                  </Button>
-                  <Pane fx:id="player" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="8" />
-                  <Pane id="dollar" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="19">
-                     <GridPane.margin>
-                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                     </GridPane.margin>
-                  </Pane>
-                  <Button id="menu" fx:id="menu" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onMenuButtonClick" stylesheets="@../../../styles.css" textAlignment="CENTER" textFill="TRANSPARENT">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <GridPane.margin>
-                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                     </GridPane.margin>
-                  </Button>
-                  <Button id="questionmark" fx:id="help" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onHelpButtonClick" stylesheets="@../../../styles.css" textAlignment="CENTER" textFill="TRANSPARENT" GridPane.columnIndex="1">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <GridPane.margin>
-                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                     </GridPane.margin>
-                  </Button>
-                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="7" />
-                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="7" />
-                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="19" GridPane.rowIndex="8" />
-                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="19" GridPane.rowIndex="9" />
-                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="7" />
-                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="7" />
-                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="11" GridPane.rowIndex="6" />
-                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="16" GridPane.rowIndex="6" />
-                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="14" GridPane.rowIndex="6" />
-                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="15" GridPane.rowIndex="6" />
-                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="13" GridPane.rowIndex="6" />
-                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="19" GridPane.rowIndex="7" />
-                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="18" GridPane.rowIndex="7" />
-                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7" GridPane.rowIndex="7" />
-                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="12" GridPane.rowIndex="7" />
-                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="17" GridPane.rowIndex="6" />
-                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="6" />
-                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="7" />
-                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="8" GridPane.rowIndex="7" />
-                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="9" GridPane.rowIndex="7" />
-                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="10" GridPane.rowIndex="6" />
-                  <Pane id="roomchangecollider" accessibleText="S" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="11" GridPane.rowIndex="9" />
-                  <Pane id="roomchangecollider" accessibleText="W" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="8" />
-                  <Pane id="coal_npc" fx:id="npc" accessibleText="npc" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="12" GridPane.rowIndex="7" />
-                  <Label id="balance" fx:id="balance" alignment="CENTER" contentDisplay="RIGHT" text="0" textAlignment="RIGHT" GridPane.columnIndex="14" GridPane.columnSpan="5" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS">
-                     <GridPane.margin>
-                        <Insets right="5.0" />
-                     </GridPane.margin></Label>
-                  <Label id="textbubble" fx:id="textbubble" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="43.0" prefWidth="180.0" text="Try putting down some green energy. The villagers will LOVE it!" textAlignment="CENTER" textFill="#23216f" wrapText="true" GridPane.columnIndex="12" GridPane.halignment="CENTER" GridPane.rowIndex="6">
-                     <graphic>
-                        <Pane prefHeight="25.0" prefWidth="200.0" styleClass="textbubble" stylesheets="@../../../styles.css" />
-                     </graphic>
-                     <font>
-                        <Font name="Lucida Console" size="8.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets bottom="10.0" />
-                     </GridPane.margin>
-                  </Label>
-               </children>
-            </GridPane>
          </children></StackPane>
       <Pane id="mapUnfold" fx:id="mapUnfold" mouseTransparent="true" prefHeight="348.0" prefWidth="640.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <BorderPane id="helpBp" fx:id="helpBp" mouseTransparent="true" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
