@@ -18,14 +18,6 @@ public class MainCharacter {
         this.player_inventory = new Inventory();
         this.game = game;
     }
-    public Inventory getPlayer_inventory() {return player_inventory;}
-    public void addToInventory(Item item) {
-        if(item.getType() == "CLEAN")   {
-            game.getController().isCleanDirtyHills(true);
-        } else {
-            player_inventory.addToInventory(item);
-        }
-    }
 
     public void removeFromInventory(Item item) {
 
@@ -44,24 +36,46 @@ public class MainCharacter {
         }
         Item forUse = new Item();
         for(int i = 0; i < this.player_inventory.getInventory().size(); i++)  {
-            if(this.player_inventory.getInventory().get(i).getId() == this.getPlayer_inventory().getInventoryUniques().get(index).getId()) {
+            if(foundItemInInventory(i, index)) {
                 forUse = this.player_inventory.getInventory().get(i);
             }
         }
 
         if(forUse != null)    {
-                if(currentRoom.hasRoomForItem(forUse))  {
-                    if(currentRoom.placeItem(forUse))   {
-                        this.removeFromInventory(forUse);
-                        game.getController().renderRoomItems(game.getRoom());
-                        return true;
-                    } else {
-                        return false;
-                    }
-
+            if(currentRoom.hasRoomForItem(forUse))  {
+                if(currentRoom.placeItem(forUse))   {
+                    this.removeFromInventory(forUse);
+                    game.getController().renderRoomItems(game.getRoom());
+                    return true;
+                } else {
+                    return false;
                 }
+
+            }
 
         }
         return false;
     }
+
+
+    public void addToInventory(Item item) {
+        if(item.getType() == "CLEAN")   {
+            game.getController().isCleanDirtyHills(true);
+        } else {
+            player_inventory.addToInventory(item);
+        }
+    }
+
+    private boolean foundItemInInventory(int i, int index) {
+        if (this.player_inventory.getInventory().get(i).getId() == this.getPlayer_inventory().getInventoryUniques().get(index).getId()) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    public Inventory getPlayer_inventory() {return player_inventory;}
+
+
 }

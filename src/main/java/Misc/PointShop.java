@@ -21,8 +21,6 @@ public class PointShop {
             new Item("HUGEFUELGEN", 200, 6, "Big Fuel Generator")
     ));
 
-//    ArrayList<Item> forSale;
-    Integer nameLength = 0;
 
     public PointShop() {
     }
@@ -69,14 +67,6 @@ public class PointShop {
             return false;
         }
         return false;
-    }
-    private Integer nameLengthDefiner(int roomId) {
-        for (Item item : currentShop(roomId)) {
-            if (item.getType().length() > nameLength) {
-                nameLength = item.getType().length();
-            }
-        }
-        return nameLength;
     }
 
     public ArrayList<Item> getForSale_Hub() {

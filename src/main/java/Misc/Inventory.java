@@ -3,9 +3,9 @@ package Misc;
 import java.util.*;
 
 public class Inventory {
-    ArrayList<Item> player_inventory = new ArrayList<>();
+    private ArrayList<Item> player_inventory = new ArrayList<>();
 
-    public Inventory() {
+    private Inventory() {
 
     }
     public void addToInventory(Item item) {
