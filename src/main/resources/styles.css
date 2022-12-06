@@ -2,6 +2,7 @@
     font-family: 'JoystixMonospace-Regular';
     src: url('font/joystixmonospace.ttf');
 }
+
 #gameover {
     -fx-font-family: 'JoystixMonospace-Regular';
 }
@@ -90,7 +91,6 @@
     -fx-background-size: stretch;
     -fx-font-color: white;
 }
-
 #magglass {
     -fx-background-image: url("icons/MagGlass16x16.png");
     -fx-background-size: stretch;
@@ -193,7 +193,7 @@
     -fx-opacity: 0%;
     -fx-font-family: 'JoystixMonospace-Regular';
     -fx-font-size: 8px;
-    -fx-pref-width: 200;
+    -fx-pref-width: 240;
 }
 
 #textbubble2 {
@@ -205,7 +205,7 @@
     -fx-border-color: white;
     -fx-font-family: 'JoystixMonospace-Regular';
     -fx-opacity: 0%;
-    -fx-pref-width: 200;
+    -fx-pref-width: 240;
 }
 #balance {
     -fx-font-family: 'JoystixMonospace-Regular';
