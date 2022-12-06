@@ -136,7 +136,7 @@
                   <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="19" GridPane.rowIndex="7" />
                   <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="18" GridPane.rowIndex="7" />
                   <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="7" GridPane.rowIndex="7" />
-                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="12" GridPane.rowIndex="7" />
+                  <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="14" GridPane.rowIndex="7" />
                   <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="17" GridPane.rowIndex="6" />
                   <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="6" />
                   <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="7" />
@@ -145,12 +145,12 @@
                   <Pane id="solidcollider" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="10" GridPane.rowIndex="6" />
                   <Pane id="roomchangecollider" accessibleText="S" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="11" GridPane.rowIndex="9" />
                   <Pane id="roomchangecollider" accessibleText="W" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="8" />
-                  <Pane id="coal_npc" fx:id="npc" accessibleText="npc" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="12" GridPane.rowIndex="7" />
+                  <Pane id="coal_npc" fx:id="npc" accessibleText="npc" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="14" GridPane.rowIndex="7" />
                   <Label id="balance" fx:id="balance" alignment="CENTER" contentDisplay="RIGHT" text="0" textAlignment="RIGHT" GridPane.columnIndex="14" GridPane.columnSpan="5" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS">
                      <GridPane.margin>
                         <Insets right="5.0" />
                      </GridPane.margin></Label>
-                  <Label id="textbubble" fx:id="textbubble" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="43.0" prefWidth="180.0" text="Try putting down some green energy. The villagers will LOVE it!" textAlignment="CENTER" textFill="#23216f" wrapText="true" GridPane.columnIndex="12" GridPane.halignment="CENTER" GridPane.rowIndex="6">
+                  <Label id="textbubble" fx:id="textbubble" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="43.0" prefWidth="180.0" text="Try putting down some green energy. The villagers will LOVE it!" textAlignment="CENTER" textFill="#23216f" wrapText="true" GridPane.columnIndex="14" GridPane.halignment="CENTER" GridPane.rowIndex="6">
                      <graphic>
                         <Pane prefHeight="25.0" prefWidth="200.0" styleClass="textbubble" stylesheets="@../../../styles.css" />
                      </graphic>
