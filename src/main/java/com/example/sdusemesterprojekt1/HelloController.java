@@ -85,7 +85,7 @@ public class HelloController implements Initializable {
 
 
     private boolean is_menu_open = false;
-
+    int responseCount = 0;
 
     public HelloController(Game tgame) {
         game = tgame;
@@ -122,7 +122,7 @@ public class HelloController implements Initializable {
     public void updateBalanceGUI() {
         balance.setText(Money.getMoney().toString());
     }
-    private void displaytextbubble(Pane npc) {
+    private void displaytextbubble(Pane npc) throws IOException {
         int index = 1000;
 
         String current_npc_in_room = npc.toString().substring(8, npc.toString().length() - 1);
@@ -130,7 +130,7 @@ public class HelloController implements Initializable {
         switch (current_npc_in_room) {
             case "boss_npc":
                 ArrayList<String> responses = new ArrayList<String>(List.of("" +
-                        "Try putting down some green energy. The villagers will LOVE it!",
+                                "Try putting down some green energy. The villagers will LOVE it!",
                         "Solar or wind? Doesn't matter, just change it from coal.",
                         "Some of the villagers may be stubborn to the old days of coal.",
                         "Our goal is for the better good!",
@@ -138,7 +138,7 @@ public class HelloController implements Initializable {
                         "We can all agree that everyone should have clean and affordable energy - right?",
                         "If we keep increasing solar and wind, we'll be on track for our goal!",
                         "Our goal is clean and affordable energy for everyone by 2030!"));
-                index = (int)(Math.random() * responses.size());
+                index = (int) (Math.random() * responses.size());
                 textbubble.setText(responses.get(index));
                 textbubble.setStyle("-fx-opacity: 100%");
                 removeBubbles.schedule(
@@ -156,30 +156,61 @@ public class HelloController implements Initializable {
                 );
                 break;
             case "skipper_npc":
-                responses = new ArrayList<String>(List.of("" +
-                        "Oh you, you finally awake? Welcome to Green Watts",
-                        "Have you completed all your tasks for today?",
-                        "Nice! Well done!",
-                        "It's inspiring to watch you work.",
-                        "You've surely made an impact around here.",
-                        "You've surely made an impact around here.",
-                        "Look at all that green!"));
-                index = (int)(Math.random() * responses.size());
-                textbubble.setText(responses.get(index));
-                textbubble.setStyle("-fx-opacity: 100%");
-                removeBubbles.schedule(
-                        new java.util.TimerTask() {
-                            public void run() {
-                                while (npcIsTalkable(getBackground(), getPlayer(), npc)) {
-                                }
-                                {
-                                    textbubble.setStyle("-fx-opacity: 0%");
-                                }
+                if (game.getIsClean()) {
+                    responses = new ArrayList<String>(List.of("" +
+                                    "Wow, you really did it!",
+                            "You installed green, sustainable energy sources for all the villagers.",
+                            "Well done!",
+                            "Let's sail into the sunset together.",
+                            ""
+                    ));
+                    textbubble.setText(responses.get(responseCount));
+                    textbubble.setStyle("-fx-opacity: 100%");
+                    responseCount+=1;
+                    System.out.println("response count = "+responseCount);
+                    removeBubbles.schedule(
+                            new java.util.TimerTask() {
+                                public void run() {
+                                    while (npcIsTalkable(getBackground(), getPlayer(), npc)) {
+                                    }
+                                    {
+                                        textbubble.setStyle("-fx-opacity: 0%");
+                                    }
 
-                            }
-                        },
-                        5000
-                );
+                                }
+                            },
+                            5000
+                    );
+                    if (responseCount == responses.size()) {
+                        game.setGameOver();
+                    }
+                }
+                else {
+                    responses = new ArrayList<String>(List.of("" +
+                                    "Oh you, you finally awake? Welcome to Green Watts",
+                            "Have you completed all your tasks for today?",
+                            "Nice! Well done!",
+                            "It's inspiring to watch you work.",
+                            "You've surely made an impact around here.",
+                            "You've surely made an impact around here.",
+                            "Look at all that green!"));
+                    index = (int) (Math.random() * responses.size());
+                    textbubble.setText(responses.get(index));
+                    textbubble.setStyle("-fx-opacity: 100%");
+                    removeBubbles.schedule(
+                            new java.util.TimerTask() {
+                                public void run() {
+                                    while (npcIsTalkable(getBackground(), getPlayer(), npc)) {
+                                    }
+                                    {
+                                        textbubble.setStyle("-fx-opacity: 0%");
+                                    }
+
+                                }
+                            },
+                            5000
+                    );
+                }
                 break;
             case "coal_npc":
                 responses = new ArrayList<String>(List.of("" +
@@ -466,7 +497,7 @@ public class HelloController implements Initializable {
 
 
     @FXML
-    public void onTalkButtonClick() {
+    public void onTalkButtonClick() throws IOException {
         //System.out.println("Talk");
         npcTalk();
     }
@@ -571,7 +602,7 @@ public class HelloController implements Initializable {
         }
     }
     @FXML
-    public void npcTalk() {
+    public void npcTalk() throws IOException {
         for (Pane npc:npc) {
             if (npcIsTalkable(getBackground(), getPlayer(), npc)) {
                 System.out.println("HELLO I CAN TALK");
