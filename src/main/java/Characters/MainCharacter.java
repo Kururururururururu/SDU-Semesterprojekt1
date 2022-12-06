@@ -51,7 +51,7 @@ public class MainCharacter {
             }
         }
 
-        if(this.getPlayer_inventory().getInventory().get(index) != null)    {
+        if(forUse != null)    {
                 if(currentRoom.hasRoomForItem(forUse))  {
                     if(currentRoom.placeItem(forUse))   {
                         this.removeFromInventory(forUse);

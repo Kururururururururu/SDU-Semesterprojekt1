@@ -597,6 +597,7 @@ public class HelloController implements Initializable {
             is_menu_open = true;
             disableControls = true;
             menugui.setMouseTransparent(false);
+            menugui.setVisible(true);
             menugui.setStyle("-fx-opacity: 100%");
             menugui.setStyle("-fx-background-color: white;");
             continuebtn.setStyle("-fx-opacity: 100%");
@@ -616,6 +617,7 @@ public class HelloController implements Initializable {
             is_menu_open = false;
             disableControls = false;
             menugui.setMouseTransparent(true);
+            menugui.setVisible(false);
             menugui.setStyle("-fx-opacity: 0%");
             menugui.setStyle("-fx-background-color: transparent;");
             continuebtn.setStyle("-fx-opacity: 0%");
