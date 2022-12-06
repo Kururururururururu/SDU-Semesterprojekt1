@@ -44,18 +44,23 @@ public class Item {
                     value = 25;
                 }
             } else {
-                if(this.type.toUpperCase().contains("FUELGENERATOR"))   {
+                if(this.type.toUpperCase().contains("FUELGEN"))   {
                     exposure = -10;
                     value = 100;
                 }
             }
         }
 
+        if(this.type.toUpperCase().contains("HUGE"))    {
+            value = value*2;
+            exposure = exposure*2;
+        }
+
         //System.out.println(exposure);
 
         //Generate points based on exposure.
-        Money.addMoney(4*value);
-        Points.addPoints(4*exposure);
+        Money.addMoney(value);
+        Points.addPoints(exposure);
     }
     public String getType() {
         return this.type;

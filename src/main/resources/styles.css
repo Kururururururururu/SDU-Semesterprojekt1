@@ -2,6 +2,11 @@
     font-family: JoystixMonospace-Regular;
     src: url('font/joystixmonospace.ttf');
 }
+
+.root * {
+    -fx-font-family: JoystixMonospace-Regular;
+}
+
 #gameover {
     -fx-font-family: JoystixMonospace-Regular;
 }
