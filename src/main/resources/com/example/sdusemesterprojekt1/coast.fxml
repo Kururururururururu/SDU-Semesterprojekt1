@@ -233,7 +233,7 @@
                                                             <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                                                          </StackPane.margin>
                                                       </Pane>
-                                                      <Label id="slot1label" fx:id="slot1label" accessibleText="slot1label" alignment="BOTTOM_LEFT" prefHeight="0.0" prefWidth="62.0" textFill="WHITE" wrapText="true">
+                                                      <Label id="slot1label" fx:id="slot1label" accessibleText="slot1label" alignment="BOTTOM_LEFT" mouseTransparent="true" prefHeight="0.0" prefWidth="62.0" textFill="WHITE" wrapText="true">
                                                          <StackPane.margin>
                                                             <Insets right="5.0" />
                                                          </StackPane.margin>
@@ -257,7 +257,7 @@
                                                             <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                                                          </StackPane.margin>
                                                       </Pane>
-                                                      <Label id="slot2label" fx:id="slot2label" accessibleText="slot1label" alignment="BOTTOM_LEFT" prefHeight="0.0" prefWidth="62.0" textFill="WHITE">
+                                                      <Label id="slot2label" fx:id="slot2label" accessibleText="slot1label" alignment="BOTTOM_LEFT" mouseTransparent="true" prefHeight="0.0" prefWidth="62.0" textFill="WHITE">
                                                          <font>
                                                             <Font size="23.0" />
                                                          </font>
@@ -284,7 +284,7 @@
                                                             <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                                                          </StackPane.margin>
                                                       </Pane>
-                                                      <Label id="slot3label" fx:id="slot3label" accessibleText="slot1label" alignment="BOTTOM_LEFT" prefHeight="0.0" prefWidth="62.0" textFill="WHITE">
+                                                      <Label id="slot3label" fx:id="slot3label" accessibleText="slot1label" alignment="BOTTOM_LEFT" mouseTransparent="true" prefHeight="0.0" prefWidth="62.0" textFill="WHITE">
                                                          <font>
                                                             <Font size="23.0" />
                                                          </font>
@@ -311,7 +311,7 @@
                                                             <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                                                          </StackPane.margin>
                                                       </Pane>
-                                                      <Label id="slot4label" fx:id="slot4label" accessibleText="slot1label" alignment="BOTTOM_LEFT" prefHeight="0.0" prefWidth="62.0" textFill="WHITE">
+                                                      <Label id="slot4label" fx:id="slot4label" accessibleText="slot1label" alignment="BOTTOM_LEFT" mouseTransparent="true" prefHeight="0.0" prefWidth="62.0" textFill="WHITE">
                                                          <font>
                                                             <Font size="23.0" />
                                                          </font>
@@ -338,7 +338,7 @@
                                                             <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                                                          </StackPane.margin>
                                                       </Pane>
-                                                      <Label id="slot5label" fx:id="slot5label" accessibleText="slot1label" alignment="BOTTOM_LEFT" prefHeight="0.0" prefWidth="62.0" textFill="WHITE">
+                                                      <Label id="slot5label" fx:id="slot5label" accessibleText="slot1label" alignment="BOTTOM_LEFT" mouseTransparent="true" prefHeight="0.0" prefWidth="62.0" textFill="WHITE">
                                                          <font>
                                                             <Font size="23.0" />
                                                          </font>
@@ -365,7 +365,7 @@
                                                             <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                                                          </StackPane.margin>
                                                       </Pane>
-                                                      <Label id="slot6label" fx:id="slot6label" accessibleText="slot1label" alignment="BOTTOM_LEFT" prefHeight="0.0" prefWidth="62.0" textFill="WHITE">
+                                                      <Label id="slot6label" fx:id="slot6label" accessibleText="slot1label" alignment="BOTTOM_LEFT" mouseTransparent="true" prefHeight="0.0" prefWidth="62.0" textFill="WHITE">
                                                          <font>
                                                             <Font size="23.0" />
                                                          </font>
@@ -392,7 +392,7 @@
                                                             <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                                                          </StackPane.margin>
                                                       </Pane>
-                                                      <Label id="slot7label" fx:id="slot7label" accessibleText="slot1label" alignment="BOTTOM_LEFT" prefHeight="0.0" prefWidth="62.0" textFill="WHITE">
+                                                      <Label id="slot7label" fx:id="slot7label" accessibleText="slot1label" alignment="BOTTOM_LEFT" mouseTransparent="true" prefHeight="0.0" prefWidth="62.0" textFill="WHITE">
                                                          <font>
                                                             <Font size="23.0" />
                                                          </font>
@@ -419,7 +419,7 @@
                                                             <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                                                          </StackPane.margin>
                                                       </Pane>
-                                                      <Label id="slot8label" fx:id="slot8label" accessibleText="slot1label" alignment="BOTTOM_LEFT" prefHeight="0.0" prefWidth="62.0" textFill="WHITE">
+                                                      <Label id="slot8label" fx:id="slot8label" accessibleText="slot1label" alignment="BOTTOM_LEFT" mouseTransparent="true" prefHeight="0.0" prefWidth="62.0" textFill="WHITE">
                                                          <font>
                                                             <Font size="23.0" />
                                                          </font>
