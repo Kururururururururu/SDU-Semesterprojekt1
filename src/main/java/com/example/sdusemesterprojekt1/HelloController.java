@@ -440,7 +440,7 @@ public class HelloController implements Initializable {
     //onClick calls from FXML
     @FXML
     public void onBagButtonClick() {
-        if(!inventorySubScene.getParent().getParent().isVisible() && !mapOpenStatus && !helpOpenStatus){
+        if(!isPaused()){
             disableControls = true;
             ArrayList<Pane> slots = new ArrayList<>(List.of(slot1, slot2, slot3, slot4, slot5, slot6, slot7, slot8));
             ArrayList<Label> slotlabels = new ArrayList<>(List.of(slot1label, slot2label, slot3label, slot4label, slot5label, slot6label, slot7label, slot8label));
@@ -499,7 +499,7 @@ public class HelloController implements Initializable {
 
     @FXML
     public void onMapButtonClick() {
-        if (!mapOpenStatus && !inventorySubScene.getParent().getParent().isVisible() && !helpOpenStatus) {
+        if (!isPaused()) {
             System.out.println("Opening Map");
             disableControls = true;
             mapUnfold.setVisible(true);
@@ -528,7 +528,9 @@ public class HelloController implements Initializable {
     @FXML
     public void onTalkButtonClick() throws IOException {
         //System.out.println("Talk");
-        npcTalk();
+        if(!isPaused()){
+            npcTalk();
+        }
     }
     @FXML
     public void onGameOver() {
@@ -558,6 +560,7 @@ public class HelloController implements Initializable {
     public void onMenuButtonClick() {
         if (is_menu_open == false) {
             is_menu_open = true;
+            disableControls = true;
             menugui.setMouseTransparent(false);
             menugui.setStyle("-fx-opacity: 100%");
             menugui.setStyle("-fx-background-color: white;");
@@ -576,6 +579,7 @@ public class HelloController implements Initializable {
 
         } else {
             is_menu_open = false;
+            disableControls = false;
             menugui.setMouseTransparent(true);
             menugui.setStyle("-fx-opacity: 0%");
             menugui.setStyle("-fx-background-color: transparent;");
@@ -586,7 +590,7 @@ public class HelloController implements Initializable {
 
     @FXML
     public void onHelpButtonClick() {
-        if (!mapOpenStatus && !inventorySubScene.getParent().getParent().isVisible() && !helpOpenStatus) {
+        if (!isPaused()) {
             System.out.println("Opening Help");
             disableControls = true;
             helpUnfold.setVisible(true);
@@ -642,7 +646,7 @@ public class HelloController implements Initializable {
     @FXML
     public void openShop() {
         if((game.getRoomId().equals(0) || game.getRoomId().equals(1) ) && npcIsTalkable(getBackground(), getPlayer(), npc.get(0))){
-            if(!shopSubScene.getParent().getParent().isVisible()) {
+            if(!isPaused()) {
                 disableControls = true;
                 shopSubScene.getParent().getParent().setVisible(true);
 
@@ -753,5 +757,21 @@ public class HelloController implements Initializable {
     }
     public ArrayList<Node> getRoomchangecolliders(){
         return this.roomchangecolliders;
+    }
+
+    public boolean isPaused(){
+        if(shopSubScene != null) {
+            if (!mapOpenStatus && !inventorySubScene.getParent().getParent().isVisible() && !helpOpenStatus && !shopSubScene.getParent().getParent().isVisible() && !is_menu_open) {
+                return false;
+            } else {
+                return true;
+            }
+        } else {
+            if (!mapOpenStatus && !inventorySubScene.getParent().getParent().isVisible() && !helpOpenStatus && !is_menu_open) {
+                return false;
+            } else {
+                return true;
+            }
+        }
     }
 }
