@@ -159,7 +159,6 @@ public class Game {
                 Money.addMoney(100);
                 controller.updateBalanceGUI();
             }
-            case F9 -> {controller.isCleanDirtyHills(true);}
             case F3 -> {
                 Points.addPoints(100);
                 controller.updateBalanceGUI();
