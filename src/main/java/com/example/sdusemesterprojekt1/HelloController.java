@@ -679,7 +679,7 @@ public class HelloController implements Initializable {
     }
     @FXML
     public void openShop() {
-        if((game.getRoomId().equals(0) || game.getRoomId().equals(1) ) && npcIsTalkable(getBackground(), getPlayer(), npc.get(0))){
+        if((game.getRoomId().equals(0) || game.getRoomId().equals(1) ) && npcIsTalkable(getBackground(), getPlayer(), npc.get(0)) && game.getIsClean() == false){
             if(!isPaused()) {
                 disableControls = true;
                 shopSubScene.getParent().getParent().setVisible(true);
@@ -817,6 +817,7 @@ public class HelloController implements Initializable {
     public void isCleanDirtyHills(boolean bool) {
         game.setIsClean(bool);
     }
+
     public ArrayList<Node> getRoomchangecolliders(){
         return this.roomchangecolliders;
     }
