@@ -615,13 +615,15 @@ public class HelloController implements Initializable {
 
         } else {
             is_menu_open = false;
-            disableControls = false;
             menugui.setMouseTransparent(true);
             menugui.setVisible(false);
             menugui.setStyle("-fx-opacity: 0%");
             menugui.setStyle("-fx-background-color: transparent;");
             continuebtn.setStyle("-fx-opacity: 0%");
             exitbtn.setStyle("-fx-opacity: 0%");
+            if(!isPaused()){
+                disableControls = false;
+            }
         }
     }
 

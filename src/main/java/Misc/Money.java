@@ -3,7 +3,7 @@ package Misc;
 import com.example.sdusemesterprojekt1.HelloApplication.*;
 
 public class Money {
-    private static Integer total_money = 0;
+    private static Integer total_money = 100;
 
 
     public static void removeMoney(Integer amount) {
