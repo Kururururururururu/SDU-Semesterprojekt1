@@ -33,6 +33,7 @@ public class HelloController implements Initializable {
     private static boolean disableControls = false;
     private static ArrayList<Collider> colliders = new ArrayList<>();
     private ArrayList<Pane> installLocation = new ArrayList<>();
+    private ArrayList<Pane> installLocationBig = new ArrayList<>();
     private static ArrayList<Node> roomchangecolliders = new ArrayList<>();
     private final Timer removeBubbles = new Timer();
     private ArrayList<Pane> npc = new ArrayList<>();
@@ -354,6 +355,10 @@ public class HelloController implements Initializable {
                 if(child.getId().equals("installlocation") && child.getClass() ==  Pane.class)   {
                     //System.out.println("Roomchange collider found");
                     installLocation.add((Pane) child);
+                }
+                if(child.getId().equals("installlocationBig") && child.getClass() ==  Pane.class)   {
+                    //System.out.println("Roomchange collider found");
+                    installLocationBig.add((Pane) child);
                 }
                 if(child.getAccessibleText() != null && child.getAccessibleText().equals("npc")) {
                     System.out.println("Npc found");
