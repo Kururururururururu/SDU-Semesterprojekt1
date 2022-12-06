@@ -347,8 +347,21 @@ public class HelloController implements Initializable {
                     index_of_response = (int)(Math.random() * responses.size());
                 }
                 lastResponse = responses.get(index_of_response);
-                textbubble.setText(responses.get(index_of_response));
-                textbubble.setStyle("-fx-opacity: 100%");
+                textbubble2.setText(responses.get(index_of_response));
+                textbubble2.setStyle("-fx-opacity: 100%");
+                removeBubbles.schedule(
+                        new java.util.TimerTask() {
+                            public void run() {
+                                while (npcIsTalkable(getBackground(), getPlayer(), npc)) {
+                                }
+                                {
+                                    textbubble2.setStyle("-fx-opacity: 0%");
+                                }
+
+                            }
+                        },
+                        5000
+                );
                 break;
             default:
                 System.out.println("Error in NPC response!");
