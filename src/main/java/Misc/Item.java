@@ -1,5 +1,7 @@
 package Misc;
 
+import javafx.scene.effect.Light;
+
 public class Item {
     private String type;
     private Integer id;
@@ -22,19 +24,29 @@ public class Item {
     public void generatePower(int roomID) {
         //Calculate the percentage of power generated in different areas.
         int exposure = 0;
+        int value = 0;
         //System.out.println(this.type + roomID);
-        if(this.type.toUpperCase().contains("SOLAR PANEL"))   {
+        if(this.type.toUpperCase().contains("SOLARPANEL"))   {
             if(roomID == 3) {
                 exposure = 100;
+                value = 75;
             } else {
                 exposure = 33;
+                value = 25;
             }
         } else {
-            if(this.type.toUpperCase().contains("WIND TURBINE"))   {
+            if(this.type.toUpperCase().contains("WINDTURBINE"))   {
                 if(roomID == 2) {
                     exposure = 100;
+                    value = 75;
                 } else {
                     exposure = 33;
+                    value = 25;
+                }
+            } else {
+                if(this.type.toUpperCase().contains("FUELGENERATOR"))   {
+                    exposure = -10;
+                    value = 100;
                 }
             }
         }
@@ -42,7 +54,8 @@ public class Item {
         //System.out.println(exposure);
 
         //Generate points based on exposure.
-        Money.addMoney(4*exposure);
+        Money.addMoney(4*value);
+        Points.addPoints(4*exposure);
     }
     public String getType() {
         return this.type;

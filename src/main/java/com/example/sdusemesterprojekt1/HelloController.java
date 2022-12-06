@@ -374,6 +374,7 @@ public class HelloController implements Initializable {
                 System.out.println(background.getColumnIndex(installLocation.get(i)) + ", " + background.getRowIndex(installLocation.get(i)));;
             }
         }
+        updateBalanceGUI();
     }
 
     //onClick calls from FXML
@@ -497,6 +498,7 @@ public class HelloController implements Initializable {
     public void onMenuButtonClick() {
         if (is_menu_open == false) {
             is_menu_open = true;
+            menugui.setMouseTransparent(false);
             menugui.setStyle("-fx-opacity: 100%");
             menugui.setStyle("-fx-background-color: white;");
             continuebtn.setStyle("-fx-opacity: 100%");
@@ -514,6 +516,7 @@ public class HelloController implements Initializable {
 
         } else {
             is_menu_open = false;
+            menugui.setMouseTransparent(true);
             menugui.setStyle("-fx-opacity: 0%");
             menugui.setStyle("-fx-background-color: transparent;");
             continuebtn.setStyle("-fx-opacity: 0%");
