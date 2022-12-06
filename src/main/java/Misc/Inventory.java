@@ -3,13 +3,13 @@ package Misc;
 import java.util.*;
 
 public class Inventory {
-    ArrayList<Item> player_inventory = new ArrayList<>();
+    private ArrayList<Item> player_inventory = new ArrayList<>();
 
     public Inventory() {
 
     }
     public void addToInventory(Item item) {
-        System.out.println(item.getType() + " added to inventory.");
+        //System.out.println(item.getType() + " added to inventory.");
         player_inventory.add(item);
     }
 

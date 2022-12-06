@@ -1,7 +1,5 @@
 package Characters;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 
 public class CitizenNPC extends NPC {
     ArrayList<String> responses = new ArrayList<>();
@@ -18,6 +16,14 @@ public class CitizenNPC extends NPC {
         this.true_name = true_name;
         this.responses = responses;
     }
+    @Override
+    public String talk() {
+        while (this.currentResponse.equals(this.lastResponse)) {
+            this.currentResponse = responses.get((int)(Math.random()*responses.size()));
+        }
+        this.lastResponse = this.currentResponse;
+        return this.currentResponse;
+    }
 
     public String getTrue_name() {
         return true_name;
@@ -31,12 +37,4 @@ public class CitizenNPC extends NPC {
         this.first_talk = first_talk;
     }
 
-    @Override
-    public String talk() {
-        while (this.currentResponse.equals(this.lastResponse)) {
-            this.currentResponse = responses.get((int)(Math.random()*responses.size()));
-        }
-        this.lastResponse = this.currentResponse;
-        return this.currentResponse;
-    }
 }

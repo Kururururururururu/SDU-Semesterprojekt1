@@ -1,14 +1,8 @@
 package Characters;
 
-import java.sql.SQLOutput;
-import java.sql.Time;
-import java.time.DateTimeException;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Scanner;
 
 public class ObstacleNPC extends NPC{
 

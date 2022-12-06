@@ -1,6 +1,5 @@
 package com.example.sdusemesterprojekt1;
 
-import Misc.Money;
 import javafx.application.Application;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;

@@ -23,7 +23,6 @@ import worldOfZuul.Room;
 import java.io.IOException;
 import java.net.URL;
 import java.util.*;
-import java.util.concurrent.TimeUnit;
 
 
 public class HelloController implements Initializable {
@@ -40,51 +39,27 @@ public class HelloController implements Initializable {
     @FXML
     private GridPane background;
     @FXML
-    private Pane player;
-    @FXML
-    private Pane menugui;
-    @FXML
-    private Pane mapUnfold;
-    @FXML
-    private Label helpUnfoldText;
-    @FXML
-    private Pane helpUnfold;
-    @FXML
-    private Label balance;
-    @FXML
-    private AnchorPane gameover;
-    @FXML
-    private Label gopoints;
-    @FXML
-    private Label gobalance;
-    @FXML
-    private Hyperlink golink;
-    @FXML
-    private Button goplay;
-    @FXML
-    private Button goexit;
-    @FXML
-    private Label textbubble, textbubble2;
-    @FXML
-    private AnchorPane inventorySubScene, shopSubScene;
+    private Pane player, menugui, mapUnfold, helpUnfold;
     @FXML
     private Pane slot1, slot2, slot3, slot4, slot5, slot6, slot7, slot8, shopslot1, shopslot2, shopslot3, shopslot4, shopslot5, shopslot6, shopslot7, shopslot8;
     @FXML
+    private Label helpUnfoldText, balance, gopoints, gobalance, textbubble, textbubble2;
+    @FXML
     private Label slot1label, slot2label, slot3label, slot4label, slot5label, slot6label, slot7label, slot8label;
-    @FXML
-    private Tooltip slot1tooltip, slot2tooltip, slot3tooltip, slot4tooltip, slot5tooltip, slot6tooltip, slot7tooltip, slot8tooltip;
-    @FXML
-    private RadioButton item1, item2, item3, item4, item5, item6, item7, item8;
     @FXML
     private Label shopname, shopitemlabel, shoppricelabel, itemname, itemprice, pointsavailable;
     @FXML
-    private Button shopBuyButton;
+    private AnchorPane gameover;
     @FXML
-    private Button exitbtn;
+    private Hyperlink golink;
     @FXML
-    private Button continuebtn;
-
-
+    private Button goplay, goexit, shopBuyButton,exitbtn, continuebtn;
+    @FXML
+    private RadioButton item1, item2, item3, item4, item5, item6, item7, item8;
+    @FXML
+    private AnchorPane inventorySubScene, shopSubScene;
+    @FXML
+    private Tooltip slot1tooltip, slot2tooltip, slot3tooltip, slot4tooltip, slot5tooltip, slot6tooltip, slot7tooltip, slot8tooltip;
     private boolean is_menu_open = false;
     int responseCount = 0;
     int index_of_response;
@@ -128,7 +103,7 @@ public class HelloController implements Initializable {
     private void displaytextbubble(Pane npc) throws IOException {
 
         String current_npc_in_room = npc.toString().substring(8, npc.toString().length() - 1);
-        System.out.println(current_npc_in_room);
+        //System.out.println(current_npc_in_room);
         switch (current_npc_in_room) {
             case "boss_npc":
                 ArrayList<String> responses = new ArrayList<String>(List.of("" +
@@ -173,7 +148,7 @@ public class HelloController implements Initializable {
                     textbubble.setText(responses.get(responseCount));
                     textbubble.setStyle("-fx-opacity: 100%");
                     responseCount+=1;
-                    System.out.println("response count = "+responseCount);
+                    //System.out.println("response count = "+responseCount);
                     removeBubbles.schedule(
                             new java.util.TimerTask() {
                                 public void run() {
@@ -223,33 +198,63 @@ public class HelloController implements Initializable {
                 }
                 break;
             case "coal_npc":
-                responses = new ArrayList<String>(List.of("" +
-                                "Coal will always be more reliable!",
-                        "I don't see green energy making me this much money.",
-                        "It's the way we've done it for decades.",
-                        "Don't fix what ain't broken!",
-                        "I love the black gold.",
-                        "Coal is better - Change my mind!"));
-                index_of_response = (int)(Math.random() * responses.size());
-                while (responses.get(index_of_response) == lastResponse) {
-                    index_of_response = (int)(Math.random() * responses.size());
-                }
-                lastResponse = responses.get(index_of_response);
-                textbubble.setText(responses.get(index_of_response));
-                textbubble.setStyle("-fx-opacity: 100%");
-                removeBubbles.schedule(
-                        new java.util.TimerTask() {
-                            public void run() {
-                                while (npcIsTalkable(getBackground(), getPlayer(), npc)) {
-                                }
-                                {
-                                    textbubble.setStyle("-fx-opacity: 0%");
-                                }
+                if(game.getIsClean()){
+                    responses = new ArrayList<String>(List.of("" +
+                            "Green energy will always be more reliable!",
+                            "I'm so gay! Thanks for converting me.",
+                            "It's the start of a new era!",
+                            "Fix what's broken!",
+                            "I love the green gold.",
+                            "Green is better - you changed my mind!"));
+                    index_of_response = (int) (Math.random() * responses.size());
+                    while (responses.get(index_of_response) == lastResponse) {
+                        index_of_response = (int) (Math.random() * responses.size());
+                    }
+                    lastResponse = responses.get(index_of_response);
+                    textbubble.setText(responses.get(index_of_response));
+                    textbubble.setStyle("-fx-opacity: 100%");
+                    removeBubbles.schedule(
+                            new java.util.TimerTask() {
+                                public void run() {
+                                    while (npcIsTalkable(getBackground(), getPlayer(), npc)) {
+                                    }
+                                    {
+                                        textbubble.setStyle("-fx-opacity: 0%");
+                                    }
 
-                            }
-                        },
-                        5000
-                );
+                                }
+                            },
+                            5000
+                    );
+                }else {
+                    responses = new ArrayList<String>(List.of("" +
+                                    "Coal will always be more reliable!",
+                            "I don't see green energy making me this much money.",
+                            "It's the way we've done it for decades.",
+                            "Don't fix what ain't broken!",
+                            "I love the black gold.",
+                            "Coal is better - Change my mind!"));
+                    index_of_response = (int) (Math.random() * responses.size());
+                    while (responses.get(index_of_response) == lastResponse) {
+                        index_of_response = (int) (Math.random() * responses.size());
+                    }
+                    lastResponse = responses.get(index_of_response);
+                    textbubble.setText(responses.get(index_of_response));
+                    textbubble.setStyle("-fx-opacity: 100%");
+                    removeBubbles.schedule(
+                            new java.util.TimerTask() {
+                                public void run() {
+                                    while (npcIsTalkable(getBackground(), getPlayer(), npc)) {
+                                    }
+                                    {
+                                        textbubble.setStyle("-fx-opacity: 0%");
+                                    }
+
+                                }
+                            },
+                            5000
+                    );
+                }
                 break;
             case "npc5":
                 //This is solar city
@@ -365,7 +370,7 @@ public class HelloController implements Initializable {
                 );
                 break;
             default:
-                System.out.println("Error in NPC response!");
+                System.out.print("ERROR: no response found!");
                 break;
         }
     }
@@ -435,7 +440,7 @@ public class HelloController implements Initializable {
                     installLocationBig.add((Pane) child);
                 }
                 if(child.getAccessibleText() != null && child.getAccessibleText().equals("npc")) {
-                    System.out.println("Npc found");
+                    //System.out.println("Npc found");
                     npc.add((Pane) child);
                 }
             }
@@ -443,13 +448,13 @@ public class HelloController implements Initializable {
     }
 
     public void renderRoomItems(Room room)   {
-        System.out.println("Ran render" + "big: " + installLocationBig.size() + " | small: " + installLocation.size());
+        //System.out.println("Ran render" + "big: " + installLocationBig.size() + " | small: " + installLocation.size());
         int x = 0;
         int i = 0;
         int j = 0;
         if(room.getItems().size() > 0) {
                 for (Item item : room.getItems()) {
-                    System.out.println(item.getName());
+                    //System.out.println(item.getName());
                     if(room.getItems().get(x).getType() == "SOLARPANEL") {
                         String iconPath = HelloApplication.class.getClassLoader().getResource("icons/") + room.getItems().get(x).getName().replaceAll("\\s+", "") + "16x16.png";
                         //System.out.println(iconPath);
@@ -494,7 +499,7 @@ public class HelloController implements Initializable {
                 slotlabels.get(slot).setText("x"+item_count.get(slot).toString());
 
                 // For debugging
-                System.out.println("*******************\nSlot: " + (slot+1) + "\nItem name: " +i.getName() + "\nItem count: " + item_count.get(slot) + "\nIcon url: " + iconPath + "\n*******************\n");
+                //System.out.println("*******************\nSlot: " + (slot+1) + "\nItem name: " +i.getName() + "\nItem count: " + item_count.get(slot) + "\nIcon url: " + iconPath + "\n*******************\n");
 
                 slot ++;
             }
@@ -535,13 +540,13 @@ public class HelloController implements Initializable {
     @FXML
     public void onMapButtonClick() {
         if (!isPaused()) {
-            System.out.println("Opening Map");
+            //System.out.println("Opening Map");
             disableControls = true;
             mapUnfold.setVisible(true);
             mapOpenStatus = true;
         }
         else if (mapOpenStatus && !inventorySubScene.getParent().getParent().isVisible()) {
-            System.out.println("Closing Map");
+            //System.out.println("Closing Map");
             disableControls = false;
             mapUnfold.setVisible(false);
             mapOpenStatus = false;
@@ -549,13 +554,13 @@ public class HelloController implements Initializable {
     }
     @FXML
     public void onMagButtonClick() {
-        System.out.println("Magnifying Glass");
+        //System.out.println("Magnifying Glass");
     }
     @FXML
     public void onHandButtonClick() {
-        System.out.println("Hand");
+        //System.out.println("Hand");
         openShop();
-        System.out.println("Room id:" + game.getRoomId());
+        //System.out.println("Room id:" + game.getRoomId());
     }
 
 
@@ -574,20 +579,20 @@ public class HelloController implements Initializable {
         goplay.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                System.out.println("Restart game.");
+                //System.out.println("Restart game.");
                 game.showScene("coast");
             }
         });
         goexit.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
-                System.out.println("Exit game.");
+                //System.out.println("Exit game.");
                 System.exit(0);
             }
         });
         golink.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                System.out.println("link clicked");
+                //System.out.println("link clicked");
             }
         });
     }
@@ -630,14 +635,14 @@ public class HelloController implements Initializable {
     @FXML
     public void onHelpButtonClick() {
         if (!isPaused()) {
-            System.out.println("Opening Help");
+            //System.out.println("Opening Help");
             disableControls = true;
             helpUnfold.setVisible(true);
             helpUnfoldText.setVisible(true);
             helpOpenStatus = true;
         }
         else if (helpOpenStatus && !inventorySubScene.getParent().getParent().isVisible()) {
-            System.out.println("Closing Help");
+            //System.out.println("Closing Help");
             disableControls = false;
             helpUnfold.setVisible(false);
             helpUnfoldText.setVisible(false);
@@ -647,15 +652,7 @@ public class HelloController implements Initializable {
     }
     //End onClick calls from FXML
 
-    public GridPane getBackground() {
-        return this.background;
-    }
 
-    public Pane getPlayer() {
-        return this.player;
-    }
-
-    public ArrayList<Pane> getNPC() {return this.npc; }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -677,7 +674,7 @@ public class HelloController implements Initializable {
     public void npcTalk() throws IOException {
         for (Pane npc:npc) {
             if (npcIsTalkable(getBackground(), getPlayer(), npc)) {
-                System.out.println("HELLO I CAN TALK");
+                //System.out.println("HELLO I CAN TALK");
                 displaytextbubble(npc);
             }
         }
@@ -689,7 +686,7 @@ public class HelloController implements Initializable {
                 disableControls = true;
                 shopSubScene.getParent().getParent().setVisible(true);
 
-                System.out.println("Shop opens");
+                //System.out.println("Shop opens");
                 ArrayList<Item> currentShopItems = game.getPointShop().currentShop(game.getRoomId());
                 ArrayList<Pane> slots = new ArrayList<>(List.of(shopslot1, shopslot2, shopslot3, shopslot4, shopslot5, shopslot6, shopslot7, shopslot8));
                 ArrayList<RadioButton> radioButtons = new ArrayList<>(List.of(item1, item2, item3, item4, item5, item6, item7, item8));
@@ -703,7 +700,7 @@ public class HelloController implements Initializable {
 
                     radioButtons.get(i).setVisible(true);
 
-                    System.out.println(currentShopItems.get(i).getName());
+                    //System.out.println(currentShopItems.get(i).getName());
 
                 }
             } else {
@@ -733,7 +730,7 @@ public class HelloController implements Initializable {
         ArrayList<RadioButton> radioButtons = new ArrayList<>(List.of(item1, item2, item3, item4, item5, item6, item7, item8));
         int selection = getShopSelectedItem(currentShopItems, radioButtons);
         if(currentShopItems.get(selection).getPrice() > Money.getMoney()){
-            System.out.println("Not enough $");
+            //System.out.println("Not enough $");
             String reset = pointsavailable.getText();
             pointsavailable.setText("(You need " + Math.abs(Money.getMoney()-currentShopItems.get(selection).getPrice()) + "$ more for that!)");
         } else {
@@ -791,12 +788,7 @@ public class HelloController implements Initializable {
         itemprice.setStyle("-fx-font-weight: normal");
         itemname.setText("Please select an item...");
     }
-    public void isCleanDirtyHills(boolean bool) {
-        game.setIsClean(bool);
-    }
-    public ArrayList<Node> getRoomchangecolliders(){
-        return this.roomchangecolliders;
-    }
+
 
     public boolean isPaused(){
         if(shopSubScene != null) {
@@ -812,5 +804,22 @@ public class HelloController implements Initializable {
                 return true;
             }
         }
+    }
+
+    public GridPane getBackground() {
+        return this.background;
+    }
+
+    public Pane getPlayer() {
+        return this.player;
+    }
+
+    public ArrayList<Pane> getNPC() {return this.npc; }
+
+    public void isCleanDirtyHills(boolean bool) {
+        game.setIsClean(bool);
+    }
+    public ArrayList<Node> getRoomchangecolliders(){
+        return this.roomchangecolliders;
     }
 }
