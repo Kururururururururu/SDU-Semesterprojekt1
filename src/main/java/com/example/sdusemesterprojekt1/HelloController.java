@@ -33,6 +33,7 @@ public class HelloController implements Initializable {
     private static boolean disableControls = false;
     private static ArrayList<Collider> colliders = new ArrayList<>();
     private ArrayList<Pane> installLocation = new ArrayList<>();
+    private ArrayList<Pane> installLocationBig = new ArrayList<>();
     private static ArrayList<Node> roomchangecolliders = new ArrayList<>();
     private final Timer removeBubbles = new Timer();
     private ArrayList<Pane> npc = new ArrayList<>();
@@ -415,6 +416,10 @@ public class HelloController implements Initializable {
                     //System.out.println("Roomchange collider found");
                     installLocation.add((Pane) child);
                 }
+                if(child.getId().equals("installlocationBig") && child.getClass() ==  Pane.class)   {
+                    //System.out.println("Roomchange collider found");
+                    installLocationBig.add((Pane) child);
+                }
                 if(child.getAccessibleText() != null && child.getAccessibleText().equals("npc")) {
                     System.out.println("Npc found");
                     npc.add((Pane) child);
@@ -426,25 +431,29 @@ public class HelloController implements Initializable {
 
     public void renderRoomItems(Room room)   {
         //Check if the room has any items before doing anything.
+        int x = 0;
         int i = 0;
-        if(room.getItems() != null) {
-            if(room.getItems().get(i).getType() == "SOLARPANEL")    {
+        int j = 0;
+        if(room.getItems().size() > 0) {
                 for (Item item : room.getItems()) {
-                    String iconPath = HelloApplication.class.getClassLoader().getResource("icons/") +  room.getItems().get(i).getName().replaceAll("\\s+","") + "16x16.png";
-                    //System.out.println(iconPath);
-                    BackgroundImage icon = new BackgroundImage(new Image( iconPath,32,32,false,true), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
-                    installLocation.get(i).setBackground(new Background(icon));
-                    i += 1;
+                    if(room.getItems().get(x).getType() == "SOLARPANEL") {
+                        String iconPath = HelloApplication.class.getClassLoader().getResource("icons/") + room.getItems().get(x).getName().replaceAll("\\s+", "") + "16x16.png";
+                        //System.out.println(iconPath);
+                        BackgroundImage icon = new BackgroundImage(new Image(iconPath, 32, 32, false, true), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+                        installLocation.get(i).setBackground(new Background(icon));
+                        i++;
+                    } else {
+                        String iconPath = HelloApplication.class.getClassLoader().getResource("icons/") + room.getItems().get(x).getName().replaceAll("\\s+", "") + "32x64.png";
+                        //System.out.println(iconPath);
+                        BackgroundImage icon = new BackgroundImage(new Image(iconPath, 64, 128, false, true), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+                        installLocationBig.get(j).setBackground(new Background(icon));
+                        j++;
+                    }
+                    x++;
                 }
-            } else {
-                for (Item item : room.getItems()) {
-                    String iconPath = HelloApplication.class.getClassLoader().getResource("icons/") +  room.getItems().get(i).getName().replaceAll("\\s+","") + "32x64.png";
-                    //System.out.println(iconPath);
-                    BackgroundImage icon = new BackgroundImage(new Image( iconPath,64,128,false,true), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
-                    installLocation.get(i).setBackground(new Background(icon));
-                    i += 1;
-                }
-            }
+
+
+
         }
         updateBalanceGUI();
     }
