@@ -7,7 +7,6 @@
     <list default="true" id="167cfb60-bd67-4a04-a2d4-e51b87a70993" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sdusemesterprojekt1/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sdusemesterprojekt1/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/BigSolarPanel32x64.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icons/HugeSolarPanel32x64.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

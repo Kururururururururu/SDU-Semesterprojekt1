@@ -399,6 +399,7 @@ public class HelloController implements Initializable {
     public void checkColliders()    {
         colliders = new ArrayList<>();
         installLocation = new ArrayList<>();
+        installLocationBig = new ArrayList<>();
         npc = new ArrayList<>();
         //System.out.println("Checking colliders");
         for(Node child : background.getChildren())  {
@@ -426,16 +427,16 @@ public class HelloController implements Initializable {
                 }
             }
         }
-        System.out.println("installlocations: " + installLocation.size());
     }
 
     public void renderRoomItems(Room room)   {
-        //Check if the room has any items before doing anything.
+        System.out.println("Ran render" + "big: " + installLocationBig.size() + " | small: " + installLocation.size());
         int x = 0;
         int i = 0;
         int j = 0;
         if(room.getItems().size() > 0) {
                 for (Item item : room.getItems()) {
+                    System.out.println(item.getName());
                     if(room.getItems().get(x).getType() == "SOLARPANEL") {
                         String iconPath = HelloApplication.class.getClassLoader().getResource("icons/") + room.getItems().get(x).getName().replaceAll("\\s+", "") + "16x16.png";
                         //System.out.println(iconPath);
