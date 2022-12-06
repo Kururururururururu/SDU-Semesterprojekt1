@@ -114,7 +114,10 @@ public class HelloController implements Initializable {
                         "A lot of these people still rely on inefficient and polluting coal systems. Sad",
                         "We can all agree that everyone should have clean and affordable energy - right?",
                         "If we keep increasing solar and wind, we'll be on track for our goal!",
-                        "Our goal is clean and affordable energy for everyone by 2030!"));
+                        "Our goal is clean and affordable energy for everyone by 2030!",
+                        "Go back to the coast when you're done for today!",
+                        "Your voyage home is by the coast",
+                        "Go to the coast when you are done!"));
                 index_of_response = (int)(Math.random() * responses.size());
                 while (responses.get(index_of_response) == lastResponse) {
                     index_of_response = (int)(Math.random() * responses.size());
@@ -172,7 +175,9 @@ public class HelloController implements Initializable {
                             "Have you completed all your tasks for today?",
                             "It's inspiring to watch you work.",
                             "You will surely make an impact around here.",
-                            "Yarrrr matey."));
+                            "Yarrrr matey.",
+                            "Come back and talk to me, when you've cleaned this filth!",
+                            "I'll be waiting for you here!"));
                     index_of_response = (int)(Math.random() * responses.size());
                     while (responses.get(index_of_response) == lastResponse) {
                         index_of_response = (int)(Math.random() * responses.size());
@@ -203,7 +208,9 @@ public class HelloController implements Initializable {
                             "It's the start of a new era!",
                             "Fix what's broken!",
                             "I love the green gold.",
-                            "Green is better - you changed my mind!"));
+                            "Green is better - you changed my mind!",
+                            "Go to the coast now, it's been my pleasure!",
+                            "What a wonderfull day to go sailing!"));
                     index_of_response = (int) (Math.random() * responses.size());
                     while (responses.get(index_of_response) == lastResponse) {
                         index_of_response = (int) (Math.random() * responses.size());
@@ -340,12 +347,11 @@ public class HelloController implements Initializable {
                 );
                 break;
             case "npc1":
-                responses = new ArrayList<String>(List.of("" + "We have no other options than to use coal currently. It's sad.",
-                        "Wish we could have some of those fancy green energy. Maybe solar panels?",
-                        "Are you new around here? We're used to coal sadly.",
-                        "I'll be willing to try something new, if it's good!",
-                        "I'm so tired of all this black coal",
-                        "We can't keep living in this filth!"));
+                responses = new ArrayList<String>(List.of("" +
+                        "I just want a better future for my kids.",
+                        "I'm so tired of only seeing black coal in this city",
+                        "What a filthy place we've become",
+                        "We need something new around here"));
                 index_of_response = (int)(Math.random() * responses.size());
                 while (responses.get(index_of_response) == lastResponse) {
                     index_of_response = (int)(Math.random() * responses.size());
