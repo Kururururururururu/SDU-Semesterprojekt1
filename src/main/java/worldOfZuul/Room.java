@@ -15,11 +15,13 @@ public class Room {
     private long lastVisited = 0;
     private Inventory environmentInventory = new Inventory();
     private int installLocations = 0;
+    private int largeInstallLocation = 0;
 
-    public Room(String description, Integer RoomId, int installLocations) {
+    public Room(String description, Integer RoomId, int installLocations, int largeInstallLocations) {
         this.RoomId = RoomId;
         this.description = description;
         exits = new HashMap<String, Room>();
+        this.largeInstallLocation = largeInstallLocations;
         this.installLocations = installLocations;
     }
 
@@ -59,9 +61,17 @@ public class Room {
 
     public boolean placeItem(Item item) {
         if(this.hasRoomForItem(item)) {
+            if(item.getType() == "SOLARPANEL")  {
+                installLocations -= 1;
+            } else {
+                largeInstallLocation -= 1;
+            }
+
             this.lastVisited = Instant.now().getEpochSecond();
             this.environmentInventory.addToInventory(item);
+            //System.out.println(this.environmentInventory.getInventory().size() + "/" + this.installLocations);
             runEnvironment();
+            System.out.println("Placed item");
             return true;
         } else {
             return false;
@@ -70,16 +80,19 @@ public class Room {
     }
 
     public boolean hasRoomForItem(Item item) {
-
-        if(this.installLocations == 0) {
-            return false;
-        } else {
-            if(this.environmentInventory.getInventory().size() < this.installLocations) {
+        if(item.getType() == "SOLARPANEL")  {
+            if(installLocations > 0)    {
                 return true;
             } else {
                 return false;
             }
+        } else {
+            if(largeInstallLocation > 0)    {
+                return true;
+            }
         }
+
+        return false;
     }
 
 
