@@ -94,6 +94,7 @@ public class Room {
     public String getLastExit() {return this.lastExit;}
 
     public Integer getRoomId() { return this.RoomId; }
+
     public void setLastExit(String lastExit){
         this.lastExit = lastExit;
     }

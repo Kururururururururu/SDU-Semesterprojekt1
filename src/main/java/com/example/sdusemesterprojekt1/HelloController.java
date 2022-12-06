@@ -479,6 +479,12 @@ public class HelloController implements Initializable {
             public void handle(ActionEvent actionEvent) {
                 System.out.println("Restart game.");
                 game.showScene("coast");
+                Money.removeMoney(Money.getMoney());
+                Points.removePoints(Points.getPoints());
+                isCleanDirtyHills(false);
+                game.goRoom("Restart");
+
+
             }
         });
         goexit.setOnAction(new EventHandler<ActionEvent>() {

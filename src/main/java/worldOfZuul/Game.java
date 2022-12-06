@@ -23,7 +23,7 @@ import javafx.stage.Stage;
 
 public class Game {
 
-    private Room currentRoom;
+    private Room currentRoom, startingRoom;
     private Room lastRoom;
     private CommandWords commands;
     private static Stage gameStage;
@@ -78,14 +78,19 @@ public class Game {
         no.setExit("W",wt);
 
         currentRoom = c;
+        startingRoom = hub;
     }
 
     public boolean goRoom(String direction) {
-
         if (direction == null) {
             //No direction on command.
             //Can't continue with GO command.
             return false;
+        }
+
+        if (direction == "Restart") {
+            currentRoom = startingRoom;
+            direction = "W";
         }
 
         Room nextRoom = currentRoom.getExit(direction);
