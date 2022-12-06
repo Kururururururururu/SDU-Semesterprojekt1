@@ -58,6 +58,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
+                  <Pane fx:id="player" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="8" />
                   <Button id="backpack" fx:id="bag" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onBagButtonClick" stylesheets="@../../../styles.css" textAlignment="CENTER" textFill="TRANSPARENT" GridPane.rowIndex="9">
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -98,7 +99,6 @@
                         <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                      </GridPane.margin>
                   </Button>
-                  <Pane fx:id="player" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="8" />
                   <Pane id="dollar" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="19">
                      <GridPane.margin>
                         <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
