@@ -470,14 +470,12 @@
             </Pane>
          </center>
       </BorderPane>
-      <Label id="helpUnfoldText" fx:id="helpUnfoldText" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Help Menu:             &#10;             &#10;W, A, S, D to move around.             &#10;I to open Inventory.             &#10;M to open map.             &#10;E to Inspect.             &#10;F to Use/Shop.             &#10;T to Talk.             &#10;H to bring up Help.             &#10;Esc to bring up the Menu.             &#10;
-&#10;Try talking to the villagers. The goal is to buy sustainable energy and install it around town. This will earn you money, that you can use to buy a contract for a new green energy powerplant at Dirty Hills.
-When you've done that, talk to the skipper and he will take you back on the boat." visible="false" wrapText="true" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
+      <Label id="helpUnfoldText" fx:id="helpUnfoldText" alignment="CENTER" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Help Menu:             &#10;             &#10;W, A, S, D to move around.             &#10;I to open Inventory.             &#10;M to open map.             &#10;E to Inspect.             &#10;F to Use/Shop.             &#10;T to Talk.             &#10;H to bring up Help.             &#10;Esc to bring up the Menu.             &#10;             &#10;Good luck and have fun!             " visible="false" wrapText="true" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
          <font>
-            <Font name="JoystixMonospace-Regular" size="10.0" />
+            <Font name="JoystixMonospace-Regular" size="12.0" />
          </font>
          <padding>
-            <Insets left="50.0" right="50.0" />
+            <Insets left="100.0" />
          </padding>
       </Label>
       <Pane id="menugui" fx:id="menugui" layoutX="245.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="250.0" prefWidth="150.0" style="-fx-opacity: 0; -fx-background-color: white;" visible="false" AnchorPane.topAnchor="50.0">
