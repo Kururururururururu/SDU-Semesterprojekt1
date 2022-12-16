@@ -2,19 +2,6 @@
 ## Dette er et projektet udviklet omkring konceptet World of Zuul.
 ## Projektet er 1. semesterprojekt for SDU SoftwareTek uddannelsen.
 
-Projektet er udviklet ud fra World of Zuul kodebasen, og skal udvikles ud fra 2 kriterier.
-* Spillet skal have flere "rum"
-* Spillet skal bindes op på ét af FNs 17 verdensmål.
-
-# Kanban Board
-https://trello.com/invite/b/BhEDcAiU/52fdfebf6ff73c40ed2e03442fbda061/current-kanban
-
-## Milestones
-
-* [x] ✔ Opret repo
-* [x] ✔ Oprettede basis rum og muliggjorde navigation imellem
-
-
 
 ## Gruppens medlemmer
 * Jonas Mathias Lissner
