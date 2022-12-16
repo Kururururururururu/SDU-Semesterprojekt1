@@ -1,4 +1,4 @@
-# Gruppe 4.3 Semesterprojekt - World of Zuul - Navn coming soon
+# Gruppe 4.3 Semesterprojekt
 ## Dette er et projektet udviklet omkring konceptet World of Zuul.
 ## Projektet er 1. semesterprojekt for SDU SoftwareTek uddannelsen.
 
